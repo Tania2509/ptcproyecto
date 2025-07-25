@@ -50,5 +50,6 @@ namespace Vistas.Formularios
                 MessageBox.Show("Se produjo un error", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
     }
 }

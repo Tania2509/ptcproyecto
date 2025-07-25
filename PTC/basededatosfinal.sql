@@ -177,6 +177,7 @@ select *from Cita
 select *from Usuario 
 
 
+
 create view VerExpediente as
 select idPaciente as ID, nombrePa as [Nombre del Paciente], apellidoPa as [Apellido del paciente], fechaNacimiento as [Fecha de nacimiento], telefonoPa as Telefono,correoPa as [Correo del paciente], enfermedades, alergias 
 from Paciente

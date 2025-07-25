@@ -95,6 +95,7 @@ namespace Vistas.Formularios
             C.RazonCita = tbxRazonCita.Text;
             C.FechaHoraCita = dtpFechaHora.Value;
             C.InsertarCitas();
+            VerCitas.MostrarCitas();
 
             this.Close();
         }
