@@ -1,0 +1,166 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|c:\\users\\jrlop\\onedrive\\desktop\\ptcclinicadental\\ptcclinicadental\\ptc\\vistas\\formularios\\frmgestiondecitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|solutionrelative:vistas\\formularios\\frmgestiondecitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|c:\\users\\jrlop\\onedrive\\desktop\\ptcclinicadental\\ptcclinicadental\\ptc\\vistas\\formularios\\frmgestiondecitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|solutionrelative:vistas\\formularios\\frmgestiondecitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|c:\\users\\jrlop\\onedrive\\desktop\\ptcclinicadental\\ptcclinicadental\\ptc\\vistas\\formularios\\frmvercitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|solutionrelative:vistas\\formularios\\frmvercitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|c:\\users\\jrlop\\onedrive\\desktop\\ptcclinicadental\\ptcclinicadental\\ptc\\vistas\\formularios\\frmvercitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|solutionrelative:vistas\\formularios\\frmvercitas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|c:\\users\\jrlop\\onedrive\\desktop\\ptcclinicadental\\ptcclinicadental\\ptc\\vistas\\formularios\\frmverexpedientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|solutionrelative:vistas\\formularios\\frmverexpedientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\vistas\\formularios\\frmverexpedientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|solutionrelative:vistas\\formularios\\frmverexpedientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\vistas\\formularios\\frmverexpedientes.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|solutionrelative:vistas\\formularios\\frmverexpedientes.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\vistas\\formularios\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B5C0BA9-16B7-4819-89FF-E5F7CF1F0F4D}|Vistas\\Vistas.csproj|solutionrelative:vistas\\formularios\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6ED654A-F262-4529-BA34-BC70C3FA7D63}|Modelos\\Modelos.csproj|C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\modelos\\entidades\\paciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F6ED654A-F262-4529-BA34-BC70C3FA7D63}|Modelos\\Modelos.csproj|solutionrelative:modelos\\entidades\\paciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 1625,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmGestiondeCitas.cs",
+              "DocumentMoniker": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmGestiondeCitas.cs",
+              "RelativeDocumentMoniker": "Vistas\\Formularios\\frmGestiondeCitas.cs",
+              "ToolTip": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmGestiondeCitas.cs*",
+              "RelativeToolTip": "Vistas\\Formularios\\frmGestiondeCitas.cs*",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAAAGAAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T15:14:10.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmGestiondeCitas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmGestiondeCitas.cs",
+              "RelativeDocumentMoniker": "Vistas\\Formularios\\frmGestiondeCitas.cs",
+              "ToolTip": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmGestiondeCitas.cs [Dise\u00F1o]*",
+              "RelativeToolTip": "Vistas\\Formularios\\frmGestiondeCitas.cs [Dise\u00F1o]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T15:14:06.677Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmVerCitas.cs",
+              "DocumentMoniker": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmVerCitas.cs",
+              "RelativeDocumentMoniker": "Vistas\\Formularios\\frmVerCitas.cs",
+              "ToolTip": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmVerCitas.cs",
+              "RelativeToolTip": "Vistas\\Formularios\\frmVerCitas.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T15:11:21.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmVerCitas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmVerCitas.cs",
+              "RelativeDocumentMoniker": "Vistas\\Formularios\\frmVerCitas.cs",
+              "ToolTip": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmVerCitas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Vistas\\Formularios\\frmVerCitas.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T15:11:18.333Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmVerExpedientes.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmVerExpedientes.Designer.cs",
+              "RelativeDocumentMoniker": "Vistas\\Formularios\\frmVerExpedientes.Designer.cs",
+              "ToolTip": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmVerExpedientes.Designer.cs",
+              "RelativeToolTip": "Vistas\\Formularios\\frmVerExpedientes.Designer.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAtwFEAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T14:23:10.198Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmVerExpedientes.cs",
+              "DocumentMoniker": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmVerExpedientes.cs",
+              "RelativeDocumentMoniker": "Vistas\\Formularios\\frmVerExpedientes.cs",
+              "ToolTip": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmVerExpedientes.cs",
+              "RelativeToolTip": "Vistas\\Formularios\\frmVerExpedientes.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAApwCsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T14:22:58.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmVerExpedientes.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmVerExpedientes.cs",
+              "RelativeDocumentMoniker": "Vistas\\Formularios\\frmVerExpedientes.cs",
+              "ToolTip": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmVerExpedientes.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Vistas\\Formularios\\frmVerExpedientes.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T14:22:41.84Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmLogin.cs",
+              "RelativeDocumentMoniker": "Vistas\\Formularios\\frmLogin.cs",
+              "ToolTip": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Vistas\\Formularios\\frmLogin.cs",
+              "RelativeToolTip": "Vistas\\Formularios\\frmLogin.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAowDkAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T04:29:58.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Paciente.cs",
+              "DocumentMoniker": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Modelos\\Entidades\\Paciente.cs",
+              "RelativeDocumentMoniker": "Modelos\\Entidades\\Paciente.cs",
+              "ToolTip": "C:\\Users\\jrlop\\OneDrive\\Desktop\\PTCclinicadental\\PTCclinicadental\\PTC\\Modelos\\Entidades\\Paciente.cs",
+              "RelativeToolTip": "Modelos\\Entidades\\Paciente.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAUwHsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T03:57:00.779Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+C:\Users\jason\Downloads\Sistema de Clinica Dental\Sistema de Clinica Dental\Modelos\bin\Debug\Modelos.dll
+C:\Users\jason\Downloads\Sistema de Clinica Dental\Sistema de Clinica Dental\Modelos\bin\Debug\Modelos.pdb
+C:\Users\jason\Downloads\Sistema de Clinica Dental\Sistema de Clinica Dental\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\jason\Downloads\Sistema de Clinica Dental\Sistema de Clinica Dental\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\jason\Downloads\Sistema de Clinica Dental\Sistema de Clinica Dental\Modelos\obj\Debug\Modelos.dll
+C:\Users\jason\Downloads\Sistema de Clinica Dental\Sistema de Clinica Dental\Modelos\obj\Debug\Modelos.pdb
+C:\Users\jrlop\OneDrive\Desktop\Sistema de Clinica Dental\Sistema de Clinica Dental\Sistema de Clinica Dental\Modelos\bin\Debug\Modelos.dll
+C:\Users\jrlop\OneDrive\Desktop\Sistema de Clinica Dental\Sistema de Clinica Dental\Sistema de Clinica Dental\Modelos\bin\Debug\Modelos.pdb
+C:\Users\jrlop\OneDrive\Desktop\Sistema de Clinica Dental\Sistema de Clinica Dental\Sistema de Clinica Dental\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\jrlop\OneDrive\Desktop\Sistema de Clinica Dental\Sistema de Clinica Dental\Sistema de Clinica Dental\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\jrlop\OneDrive\Desktop\Sistema de Clinica Dental\Sistema de Clinica Dental\Sistema de Clinica Dental\Modelos\obj\Debug\Modelos.dll
+C:\Users\jrlop\OneDrive\Desktop\Sistema de Clinica Dental\Sistema de Clinica Dental\Sistema de Clinica Dental\Modelos\obj\Debug\Modelos.pdb
+C:\Users\jrlop\OneDrive\Desktop\Sistema de Clinica Dental\Modelos\bin\Debug\Modelos.dll
+C:\Users\jrlop\OneDrive\Desktop\Sistema de Clinica Dental\Modelos\bin\Debug\Modelos.pdb
+C:\Users\jrlop\OneDrive\Desktop\Sistema de Clinica Dental\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\jrlop\OneDrive\Desktop\Sistema de Clinica Dental\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\jrlop\OneDrive\Desktop\Sistema de Clinica Dental\Modelos\obj\Debug\Modelos.dll
+C:\Users\jrlop\OneDrive\Desktop\Sistema de Clinica Dental\Modelos\obj\Debug\Modelos.pdb
+C:\Users\Estudiante\Desktop\PTC\Modelos\bin\Debug\Modelos.dll
+C:\Users\Estudiante\Desktop\PTC\Modelos\bin\Debug\Modelos.pdb
+C:\Users\Estudiante\Desktop\PTC\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\Estudiante\Desktop\PTC\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\Estudiante\Desktop\PTC\Modelos\obj\Debug\Modelos.dll
+C:\Users\Estudiante\Desktop\PTC\Modelos\obj\Debug\Modelos.pdb
+C:\Users\hp-14-cf2074la i5\OneDrive\Escritorio\Ptc24072025\PTC\Modelos\bin\Debug\Modelos.dll
+C:\Users\hp-14-cf2074la i5\OneDrive\Escritorio\Ptc24072025\PTC\Modelos\bin\Debug\Modelos.pdb
+C:\Users\hp-14-cf2074la i5\OneDrive\Escritorio\Ptc24072025\PTC\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\hp-14-cf2074la i5\OneDrive\Escritorio\Ptc24072025\PTC\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\hp-14-cf2074la i5\OneDrive\Escritorio\Ptc24072025\PTC\Modelos\obj\Debug\Modelos.dll
+C:\Users\hp-14-cf2074la i5\OneDrive\Escritorio\Ptc24072025\PTC\Modelos\obj\Debug\Modelos.pdb
+C:\Users\jrlop\OneDrive\Desktop\PTCclinicadental\PTCclinicadental\PTC\Modelos\bin\Debug\Modelos.dll
+C:\Users\jrlop\OneDrive\Desktop\PTCclinicadental\PTCclinicadental\PTC\Modelos\bin\Debug\Modelos.pdb
+C:\Users\jrlop\OneDrive\Desktop\PTCclinicadental\PTCclinicadental\PTC\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\jrlop\OneDrive\Desktop\PTCclinicadental\PTCclinicadental\PTC\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\jrlop\OneDrive\Desktop\PTCclinicadental\PTCclinicadental\PTC\Modelos\obj\Debug\Modelos.dll
+C:\Users\jrlop\OneDrive\Desktop\PTCclinicadental\PTCclinicadental\PTC\Modelos\obj\Debug\Modelos.pdb
