@@ -49,8 +49,7 @@ id_Paciente int
 foreign key (id_Especialidad) references Especialidad (idEspecialidad), 
 foreign key (id_Paciente) references Paciente (idPaciente)
 );
-
-drop table Doctor
+go
 
 create table Paciente (
 idPaciente int identity (1,1) primary key,
@@ -58,11 +57,6 @@ id_Expediente int,
 foreign key (id_Expediente) references Expediente (idExpediente)
 );
 go
-
-drop table Paciente
-drop table Cita
-drop table Expediente
-drop
 
 create table Cita (
 idCita int identity (1,1) primary key,
@@ -105,17 +99,20 @@ go
 insert into Rol values ('Dentista'),
 ('Asistente')
 
+
 insert into Especialidad values ('Ninguno'),
 ('Cirujinao dental'),
 ('Endodoncista'),
 ('Ortodoncista'),
 ('Maxilofacial')
 
+
 insert into Expediente values ('Diabetes', 'Anestesia'),
 ('Enfermedades cardiacas', 'Antibioticos'),
 ('Ninguna', 'Latex'),
 ('Leucemia','Acrilicos'),
 (null, 'formaldehido')
+
 
 insert into Cita values ('Limpieza', '2025/09/01 12:30', 4),
 ('Limpieza', '2025/10/29 12:50', 5),
@@ -133,6 +130,7 @@ insert into Cita values ('Limpieza', '2025/09/01 12:30', 4),
 ('Relleno', '2025/09/10 12:45', 17),
 ('Relleno', '2025/09/05 12:30', 18)
 
+
 insert into Usuario values ('Raul', 'Mena', '2000/05/01', '8534889', '9899-4566', '8534889@gmail.com',1,2),
 ('Jason', 'Zapata', '2002/05/01', '8546274', '4152-9856', '8546274@gmail.com',1,3),
 ('Diego', 'Escobar', '2001/05/01', '45698713', '1976-7464', '45698713@gmail.com',1,4),
@@ -149,6 +147,7 @@ insert into Usuario values ('Raul', 'Mena', '2000/05/01', '8534889', '9899-4566'
 ('Raul', 'Mena', '1997/05/01', '5598764', '1684-9853', '5598764@gmail.com',2,1),
 ('Sebastian', 'Mena', '1997/05/01', '864923', '7495-9853', '864923@gmail.com',2,1)
 
+
 insert into Paciente values ('René', 'Morales', '1985-05-20', '7201-2244','Villa Heroes pasaje 3' ,'rene.morales@clinicadental.com', '015487239',1),
 ('Carla', 'Medina', '1990-08-11', '7745-3310', 'Ayutuxepeque pasaje 3 avenida San miguel' ,'carla.medina@clinicadental.com', '027543810',2),
 ('Esteban', 'Velásquez', '1987-03-09', '7310-9988', 'Calle La Reforma' ,'esteban.velasquez@clinicadental.com', '038712945',1),
@@ -164,7 +163,7 @@ insert into Paciente values ('René', 'Morales', '1985-05-20', '7201-2244','Villa
 ('Ernesto', 'Aguilar', '1982-08-08', '7755-4210','Pasaje Los Cipreses' ,'ernesto.aguilar@clinicadental.com', '084713569',5),
 ('Pamela', 'Lara', '1994-03-12', '7922-3300','Av.Morazan' ,'pamela.lara@clinicadental.com', '098123745',6),
 ('Víctor', 'Rosales', '1986-06-25', '7811-6644','Calle el Almendro' ,'victor.rosales@clinicadental.com', '048293175',2);
-go
+
 
 select *from Paciente
 
@@ -235,3 +234,16 @@ Especialidad ON Especialidad.idEspecialidad= Usuario.id_Especialidad
 
 
 select *from MostrarTrabajadores
+
+
+select nombrePa from Paciente
+left join 
+Expediente on Expediente.idExpediente=Paciente.id_Expediente
+
+select correoPa from Paciente
+left join 
+Expediente on Expediente.idExpediente=Paciente.id_Expediente
+
+select apellidoPa from Paciente
+left join 
+Expediente on Expediente.idExpediente=Paciente.id_Expediente
