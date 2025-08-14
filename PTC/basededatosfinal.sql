@@ -35,27 +35,34 @@ telefonoUsu varchar(25),
 correoUsu varchar(50),
 id_Rol int,
 id_Especialidad int,
+id_Venta int,
 foreign key (id_Rol) references Rol (idRol),
-foreign key (id_Especialidad) references Especialidad (idEspecialidad)
+foreign key (id_Especialidad) references Especialidad (idEspecialidad), 
+foreign key (id_Venta) references Venta (idVenta)
 );
 go
 
+create table Doctor (
+idDoctor int identity (1,1) primary key,
+id_Especialidad int,
+id_Paciente int
+foreign key (id_Especialidad) references Especialidad (idEspecialidad), 
+foreign key (id_Paciente) references Paciente (idPaciente)
+);
+
+drop table Doctor
 
 create table Paciente (
 idPaciente int identity (1,1) primary key,
-nombrePa varchar (50),
-apellidoPa varchar (50),
-fechaNacimiento date,
-telefonoPa varchar (25),
-direccionPa varchar (90),
-correoPa varchar (50),
-dui varchar (20) Unique ,
-id_Expediente int
+id_Expediente int,
 foreign key (id_Expediente) references Expediente (idExpediente)
 );
 go
 
-select *from Paciente
+drop table Paciente
+drop table Cita
+drop table Expediente
+drop
 
 create table Cita (
 idCita int identity (1,1) primary key,
@@ -66,15 +73,34 @@ foreign key (id_Paciente) references Paciente (idPaciente)
 );
 go 
 
-create table Expediente (
-idExpediente int primary key identity(1,1),
-enfermedades varchar(50) null ,
-alergias varchar(50) null    
+create table Enfermedades (
+idEnfermedades int identity (1,1) primary key,
+ nombreEnfer varchar(50)
 );
 go
 
-select *from Rol
-select *from Especialidad
+create table Alergias (
+ idAlergias int identity (1,1) primary key,
+ nombreAl varchar(50)
+);
+go
+
+create table Expediente (
+idExpediente int primary key identity(1,1),
+nombrePa varchar (50),
+apellidoPa varchar (50),
+fechaNacimiento date,
+telefonoPa varchar (25),
+direccionPa varchar (90),
+correoPa varchar (50),
+dui varchar (20) Unique,
+razonConsulta varchar(100),
+id_Enfermedades int,
+id_Alergias int,
+foreign key (id_Enfermedades) references Enfermedades (idEnfermedades),
+foreign key (id_Alergias) references Alergias (idAlergias)
+);
+go
 
 insert into Rol values ('Dentista'),
 ('Asistente')
