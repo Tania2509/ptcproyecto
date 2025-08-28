@@ -43,8 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion\Conexion.cs" />
+    <Compile Include="Entidades\Alergias.cs" />
     <Compile Include="Entidades\Cita.cs" />
-    <Compile Include="Entidades\Enfermedad.cs" />
+    <Compile Include="Entidades\Enfermedades.cs" />
     <Compile Include="Entidades\Especialidad.cs" />
     <Compile Include="Entidades\Expediente.cs" />
     <Compile Include="Entidades\Paciente.cs" />

@@ -20,6 +20,7 @@ namespace Modelos.Entidades
         private string correo;
         private int id_Rol;
         private int id_Especialidad;
+        private int id_venta;
 
         public int IdUsuario { get => idUsuario; set => idUsuario = value; }
         public string NombreU { get => nombreU; set => nombreU = value; }
@@ -30,13 +31,12 @@ namespace Modelos.Entidades
         public string Correo { get => correo; set => correo = value; }
         public int Id_Rol { get => id_Rol; set => id_Rol = value; }
         public int Id_Especialidad { get => id_Especialidad; set => id_Especialidad = value; }
+        public int Id_venta { get => id_venta; set => id_venta = value; }
 
         public static DataTable CargarUsuarios(string Trabajador)
         {
             SqlConnection con = Conexion.Conexion.conectar();
-            string comando = "SELECT idUsuario as ID,nombreUsu as Nombre, apellidoUsu as Apellido, fechaNaciUsu as [Fecha de nacimiento], duiUsu as DUI, telefonoUsu as Telefono, correoUsu as Correo, nombreRol AS Rol, nombreEspecialidad AS Especialidad FROM Usuario " +
-                             "LEFT JOIN Rol ON Rol.idRol = Usuario.id_Rol " +
-                             "LEFT JOIN Especialidad ON Especialidad.idEspecialidad = Usuario.id_Especialidad;";
+            string comando = "select * from CrearUsuario";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
@@ -48,8 +48,8 @@ namespace Modelos.Entidades
         {
             SqlConnection con = Conexion.Conexion.conectar();
 
-            string comando = "Insert into Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, correoUsu, id_Rol, id_Especialidad) " +
-                     "values(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, @correoUsu, @id_Rol, @id_Especialidad);";
+            string comando = "Insert into Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, correoUsu, id_Rol, id_Especialidad, id_venta) " +
+                     "values(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, @correoUsu, @id_Rol, @id_Especialidad, @id_venta);";
 
             SqlCommand cmd = new SqlCommand(comando, con);
 
@@ -61,6 +61,7 @@ namespace Modelos.Entidades
             cmd.Parameters.AddWithValue("@correoUsu", $"{DuiU}@gmail.com");
             cmd.Parameters.AddWithValue("@id_Rol", id_Rol);
             cmd.Parameters.AddWithValue("@id_Especialidad", Id_Especialidad);
+            cmd.Parameters.AddWithValue("@id_venta", "NULL");
 
             return cmd.ExecuteNonQuery() > 0;
         }

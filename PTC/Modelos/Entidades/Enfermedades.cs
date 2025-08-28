@@ -5,11 +5,10 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace Modelos.Entidades
 {
-    public class Enfermedad
+    internal class Enfermedades
     {
         private int idEnfermedades;
         private string nombreEnfer;
@@ -17,15 +16,14 @@ namespace Modelos.Entidades
         public int IdEnfermedades { get => idEnfermedades; set => idEnfermedades = value; }
         public string NombreEnfer { get => nombreEnfer; set => nombreEnfer = value; }
 
-        public static DataTable CargarExpedientes(string Citas)
+        public static DataTable CargarEnfermedades() 
         {
-            SqlConnection con = Conexion.Conexion.conectar();
-            string comando = "select *from VerExpediente";
-            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
-            DataTable dt = new DataTable();
-            ad.Fill(dt);
-
-            return dt;
+            SqlConnection conexion = Conexion.Conexion.conectar();
+            string consultaQuery = "select idEnfermedades, nombreEnfer from Enfermedades";
+            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
+            DataTable tablaVirtual = new DataTable();
+            add.Fill(tablaVirtual);
+            return tablaVirtual;
         }
     }
 }

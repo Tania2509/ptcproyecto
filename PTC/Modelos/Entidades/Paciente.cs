@@ -11,38 +11,7 @@ namespace Modelos.Entidades
 {
     public class Paciente
     {
-        private int idPaciente;
-        private string nombrePa;
-        private string apellidoPa;
-        private DateTime fechaNacimiento;
-        private string telefonoPa;
-        private string direccionPa;
-        private string correoPa;
-        private string dui;
-        private int id_Expediente;
-
-        public int IdPaciente { get => idPaciente; set => idPaciente = value; }
-        public string NombrePa { get => nombrePa; set => nombrePa = value; }
-        public string ApellidoPa { get => apellidoPa; set => apellidoPa = value; }
-        public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
-        public string TelefonoPa { get => telefonoPa; set => telefonoPa = value; }
-        public string DireccionPa { get => direccionPa; set => direccionPa = value; }
-        public string CorreoPa { get => correoPa; set => correoPa = value; }
-        public string Dui { get => dui; set => dui = value; }
-
-        public int Id_Expediente { get => idPaciente; set => idPaciente = value; }
-
-
-        public static DataTable CargarExpedientes(string Citas)
-        {
-            SqlConnection con = Conexion.Conexion.conectar();
-            string comando = "select *from VerExpediente";
-            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
-            DataTable dt = new DataTable();
-            ad.Fill(dt);
-
-            return dt;
-        }
+        
 
         public bool InsertarPaciente()
         {

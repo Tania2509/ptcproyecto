@@ -11,36 +11,62 @@ namespace Modelos.Entidades
     public class Expediente
     {
         private int idExpediente;
-        private string enfermedades;
-        private string alergias;
-        private int pacienteId;
+        private string nombrePa;
+        private string apellidoPa;
+        private DateTime fechaNacimiento;
+        private string telefonoPa;
+        private string direccionPa;
+        private string correoPa;
+        private string dui;
+        private int id_Enfermedades;
+        private int id_Alergias;
 
         public int IdExpediente { get => idExpediente; set => idExpediente = value; }
-        public string Enfermedades { get => enfermedades; set => enfermedades = value; }
-        public string Alergias { get => alergias; set => alergias = value; }
-        public int PacienteId { get => pacienteId; set => pacienteId = value; }
+        public string NombrePa { get => nombrePa; set => nombrePa = value; }
+        public string ApellidoPa { get => apellidoPa; set => apellidoPa = value; }
+        public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
+        public string TelefonoPa { get => telefonoPa; set => telefonoPa = value; }
+        public string DireccionPa { get => direccionPa; set => direccionPa = value; }
+        public string CorreoPa { get => correoPa; set => correoPa = value; }
+        public string Dui { get => dui; set => dui = value; }
+        public int Id_Enfermedades { get => id_Enfermedades; set => id_Enfermedades = value; }
+        public int Id_Alergias { get => id_Alergias; set => id_Alergias = value; }
 
-        #region Combobox
-        public static DataTable CargarAlergia()
+
+        public static DataTable CargarExpedientes(string Citas)
         {
-            SqlConnection conexion = Conexion.Conexion.conectar();
-            string consultaQuery = "select idExpediente, alergias from Expediente";
-            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
-            DataTable tablaVirtual = new DataTable();
-            add.Fill(tablaVirtual);
-            return tablaVirtual;
+            SqlConnection con = Conexion.Conexion.conectar();
+            string comando = "select *from VerExpediente";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+
+            return dt;
         }
 
-        public static DataTable CargarEnfermedades()
+        public bool InsertarExpediente()
         {
-            SqlConnection conexion = Conexion.Conexion.conectar();
-            string consultaQuery = "select idExpediente, enfermedades from Expediente";
-            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
-            DataTable tablaVirtual = new DataTable();
-            add.Fill(tablaVirtual);
-            return tablaVirtual;
-        }
 
-        #endregion
+            SqlConnection con = Conexion.Conexion.conectar();
+
+
+            string comando = "INSERT INTO Paciente (nombrePa, apellidoPa, fechaNacimiento, telefonoPa, direccionPa, correoPa, dui, id_Enfermedades, id_Alergias) " +
+                "VALUES (@nombrePa, @apellidoPa, @fechaNacimiento, @telefonoPa, @direccionPa, @correoPa, @dui, @id_Enfermedades, @id_Alergias);";
+
+            SqlCommand cmd = new SqlCommand(comando, con);
+
+            cmd.Parameters.AddWithValue("@nombrePa", nombrePa);
+            cmd.Parameters.AddWithValue("@apellidoPa", apellidoPa);
+            cmd.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento);
+            cmd.Parameters.AddWithValue("@telefonoPa", telefonoPa);
+            cmd.Parameters.AddWithValue("@direccionPa", direccionPa);
+            cmd.Parameters.AddWithValue("@correoPa", correoPa);
+            cmd.Parameters.AddWithValue("@dui", dui);
+            cmd.Parameters.AddWithValue("@id_Enfermedades", id_Enfermedades);
+            cmd.Parameters.AddWithValue("@id_Alergias", id_Alergias);
+
+            return cmd.ExecuteNonQuery() > 0;
+
+        }
     }
 }

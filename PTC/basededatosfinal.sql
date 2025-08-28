@@ -88,7 +88,6 @@ telefonoPa varchar (25),
 direccionPa varchar (90),
 correoPa varchar (50),
 dui varchar (20) Unique,
-razonConsulta varchar(100),
 id_Enfermedades int,
 id_Alergias int,
 foreign key (id_Enfermedades) references Enfermedades (idEnfermedades),
@@ -106,7 +105,7 @@ insert into Especialidad values ('Ninguno'),
 ('Ortodoncista'),
 ('Maxilofacial')
 
-
+/*
 insert into Expediente values ('Diabetes', 'Anestesia'),
 ('Enfermedades cardiacas', 'Antibioticos'),
 ('Ninguna', 'Latex'),
@@ -191,7 +190,7 @@ insert into Expediente values ('Diabetes', 'Latex'),
 ('Enfermedades cardíacas','Resinas'),
 ('Leucemia', 'Acrilicos'),
 ('Enfermedades renales','Antibióticos'),
-(null, 'Clorhexidina')
+(null, 'Clorhexidina') */
 
 select *from Paciente
 select *from Rol
@@ -199,15 +198,20 @@ select *from Especialidad
 select *from Expediente
 select *from Venta
 select *from Cita
-select *from Usuario 
+select *from Usuario
+select *from Enfermedades
+select *from Alergias
 
 
 
 create view VerExpediente as
-select idPaciente as ID, nombrePa as [Nombre del Paciente], apellidoPa as [Apellido del paciente], fechaNacimiento as [Fecha de nacimiento], telefonoPa as Telefono,correoPa as [Correo del paciente], enfermedades, alergias 
-from Paciente
-left join 
-Expediente on Expediente.idExpediente=Paciente.id_Expediente
+select idExpediente as ID, nombrePa as [Nombre del Paciente], apellidoPa as [Apellido del paciente], fechaNacimiento as [Fecha de nacimiento], telefonoPa as Telefono,correoPa as [Correo del paciente], nombreEnfer as Enfermedades, nombreAl as Alergias
+from Expediente E
+left join
+Alergias C on C.idAlergias=E.id_Alergias
+left join
+Enfermedades F on F.idEnfermedades=E.id_Enfermedades
+
 
 select *from VerExpediente
 
@@ -223,14 +227,15 @@ select nombrePa from Paciente
 select *From DatosCita
 select fechaHoraCita from Cita
 
-select Paciente (nombrePa, apellidoPa, fechaMacimiento, telefonoa, dirrecionPa, correoPa, dui)
-
+create view CrearUsuario as
 SELECT idUsuario as ID, nombreUsu as Nombre, apellidoUsu as Apellido, fechaNaciUsu as [Fecha de nacimiento], 
        duiUsu as DUI, telefonoUsu as Telefono, correoUsu as Correo, idRol AS Rol, idEspecialidad AS Especialidad FROM Usuario 
 LEFT JOIN 
 Rol ON Rol.idRol = Usuario.id_Rol 
 LEFT JOIN 
 Especialidad ON Especialidad.idEspecialidad= Usuario.id_Especialidad
+
+select *from CrearUsuario
 
 
 select *from MostrarTrabajadores
@@ -247,3 +252,5 @@ Expediente on Expediente.idExpediente=Paciente.id_Expediente
 select apellidoPa from Paciente
 left join 
 Expediente on Expediente.idExpediente=Paciente.id_Expediente
+
+create trigger InsertarPaciente 
