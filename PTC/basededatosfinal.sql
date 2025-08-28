@@ -42,6 +42,13 @@ foreign key (id_Venta) references Venta (idVenta)
 );
 go
 
+create table Paciente (
+idPaciente int identity (1,1) primary key,
+id_Expediente int,
+foreign key (id_Expediente) references Expediente (idExpediente)
+);
+go
+
 create table Doctor (
 idDoctor int identity (1,1) primary key,
 id_Especialidad int,
@@ -51,12 +58,7 @@ foreign key (id_Paciente) references Paciente (idPaciente)
 );
 go
 
-create table Paciente (
-idPaciente int identity (1,1) primary key,
-id_Expediente int,
-foreign key (id_Expediente) references Expediente (idExpediente)
-);
-go
+
 
 create table Cita (
 idCita int identity (1,1) primary key,
@@ -97,13 +99,14 @@ go
 
 insert into Rol values ('Dentista'),
 ('Asistente')
-
+go
 
 insert into Especialidad values ('Ninguno'),
 ('Cirujinao dental'),
 ('Endodoncista'),
 ('Ortodoncista'),
 ('Maxilofacial')
+go
 
 /*
 insert into Expediente values ('Diabetes', 'Anestesia'),
@@ -201,7 +204,7 @@ select *from Cita
 select *from Usuario
 select *from Enfermedades
 select *from Alergias
-
+go
 
 
 create view VerExpediente as
@@ -211,21 +214,14 @@ left join
 Alergias C on C.idAlergias=E.id_Alergias
 left join
 Enfermedades F on F.idEnfermedades=E.id_Enfermedades
-
-
-select *from VerExpediente
+go
 
 create view DatosCita as
 select idCita as ID, nombrePa as [Nombre del paciente], apellidoPa as [Apellido del paciente], razonCita as [Razón de la cita], fechaHoraCita as [Fecha y hora]
-from Cita
+from Cita C
 left join
-Paciente on Paciente.idPaciente=Cita.id_Paciente
-
-
-select nombrePa from Paciente
-
-select *From DatosCita
-select fechaHoraCita from Cita
+Expediente E on E.idExpediente=C.id_Paciente
+go
 
 create view CrearUsuario as
 SELECT idUsuario as ID, nombreUsu as Nombre, apellidoUsu as Apellido, fechaNaciUsu as [Fecha de nacimiento], 
@@ -234,23 +230,25 @@ LEFT JOIN
 Rol ON Rol.idRol = Usuario.id_Rol 
 LEFT JOIN 
 Especialidad ON Especialidad.idEspecialidad= Usuario.id_Especialidad
-
-select *from CrearUsuario
-
-
-select *from MostrarTrabajadores
+go
 
 
-select nombrePa from Paciente
-left join 
-Expediente on Expediente.idExpediente=Paciente.id_Expediente
+create trigger InsertarPaciente
+on Expediente
+for insert
+as 
+declare @id_Expediente int = (select idExpediente from Expediente)
+insert into Paciente (id_Expediente) values (@id_Expediente)
+insert into Expediente (nombrePa) values ('Fernando')
+go
 
-select correoPa from Paciente
-left join 
-Expediente on Expediente.idExpediente=Paciente.id_Expediente
-
-select apellidoPa from Paciente
-left join 
-Expediente on Expediente.idExpediente=Paciente.id_Expediente
-
-create trigger InsertarPaciente 
+create proc EliminarPaciente 
+(
+@id int
+)
+as 
+begin 
+delete Paciente where idPaciente = @id
+delete Expediente where idExpediente = @id
+end;
+go

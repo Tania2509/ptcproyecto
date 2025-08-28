@@ -66,7 +66,7 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label4.Location = new System.Drawing.Point(77, 103);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 29);
+            this.label4.Size = new System.Drawing.Size(74, 24);
             this.label4.TabIndex = 7;
             this.label4.Text = "Correo";
             // 
@@ -77,7 +77,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(77, 249);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 29);
+            this.label3.Size = new System.Drawing.Size(116, 24);
             this.label3.TabIndex = 6;
             this.label3.Text = "Contraseña";
             // 
@@ -87,7 +87,7 @@
             this.label2.ForeColor = System.Drawing.Color.Red;
             this.label2.Location = new System.Drawing.Point(50, 185);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 29);
+            this.label2.Size = new System.Drawing.Size(0, 24);
             this.label2.TabIndex = 5;
             // 
             // btnIniciarSesion
@@ -107,7 +107,7 @@
             this.txtContraseña.Location = new System.Drawing.Point(81, 304);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
-            this.txtContraseña.Size = new System.Drawing.Size(470, 34);
+            this.txtContraseña.Size = new System.Drawing.Size(470, 28);
             this.txtContraseña.TabIndex = 2;
             // 
             // txtCorreo
@@ -115,7 +115,7 @@
             this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreo.Location = new System.Drawing.Point(81, 157);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(470, 34);
+            this.txtCorreo.Size = new System.Drawing.Size(470, 28);
             this.txtCorreo.TabIndex = 1;
             // 
             // pictureBox1
@@ -131,7 +131,7 @@
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(152)))), ((int)(((byte)(101)))), ((int)(((byte)(200)))));

@@ -31,18 +31,18 @@ namespace Vistas.Formularios
         private void MostrarAlergias()
         {
             cbAlergias.DataSource = null;
-            cbAlergias.DataSource = Expediente.CargarAlergia();
-            cbAlergias.DisplayMember = "alergias";
-            cbAlergias.ValueMember = "idExpediente";
+            cbAlergias.DataSource = Alergias.CargarAlergias();
+            cbAlergias.DisplayMember = "nombreAl";
+            cbAlergias.ValueMember = "idAlergias";
             cbAlergias.SelectedIndex = -1;
         }
 
         private void MostrarEnfermedades()
         {
             cbEnfermedades.DataSource = null;
-            cbEnfermedades.DataSource = Expediente.CargarEnfermedades();
-            cbEnfermedades.DisplayMember = "enfermedades";
-            cbEnfermedades.ValueMember = "idExpediente";
+            cbEnfermedades.DataSource = Enfermedades.CargarEnfermedades();
+            cbEnfermedades.DisplayMember = "nombreEnfer";
+            cbEnfermedades.ValueMember = "idEnfermedades";
             cbEnfermedades.SelectedIndex = -1;
         }
 
@@ -57,17 +57,18 @@ namespace Vistas.Formularios
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            Modelos.Entidades.Paciente P = new Paciente();
+            Modelos.Entidades.Expediente E = new Expediente();
 
-            P.NombrePa = txtNombre.Text;
-            P.ApellidoPa = txtApellido.Text;
-            P.TelefonoPa = txtNumTelefono.Text;
-            P.Dui = txtDui.Text;
-            P.CorreoPa = txtCorreoElectronico.Text;
-            P.DireccionPa = txtDireccion.Text;
-            P.FechaNacimiento = dtpFechaNaciPa.Value;
-            P.Id_Expediente = Convert.ToInt32(cbAlergias.SelectedValue);
-            P.InsertarPaciente();
+            E.NombrePa = txtNombre.Text;
+            E.ApellidoPa = txtApellido.Text;
+            E.TelefonoPa = txtNumTelefono.Text;
+            E.Dui = txtDui.Text;
+            E.CorreoPa = txtCorreoElectronico.Text;
+            E.DireccionPa = txtDireccion.Text;
+            E.FechaNacimiento = dtpFechaNaciPa.Value;
+            E.Id_Alergias = Convert.ToInt32(cbAlergias.SelectedValue);
+            E.Id_Enfermedades = Convert.ToInt32(cbEnfermedades.SelectedValue);
+            E.InsertarExpediente();
 
             VerExpedientes.MostrarExpedientes();
 

@@ -42,18 +42,18 @@ namespace Vistas.Formularios
         private void MostrarNombre()
         {
             cbNombre.DataSource = null;
-            cbNombre.DataSource = Paciente.CargarNombre();
+            cbNombre.DataSource = Expediente. CargarNombre();
             cbNombre.DisplayMember = "nombrePa";
-            cbNombre.ValueMember = "idPaciente";
+            cbNombre.ValueMember = "idExpediente";
             cbNombre.SelectedIndex = -1;
         }
 
         private void MostrarApellido()
         {
             cbApellido.DataSource = null;
-            cbApellido.DataSource = Paciente.CargarApellido();
+            cbApellido.DataSource = Expediente.CargarApellido();
             cbApellido.DisplayMember = "apellidoPa";
-            cbApellido.ValueMember = "idPaciente";
+            cbApellido.ValueMember = "idExpediente";
             cbApellido.SelectedIndex = -1;
         }
 
@@ -61,9 +61,9 @@ namespace Vistas.Formularios
         private void MostrarCorreo()
         {
             cbCorreo.DataSource = null;
-            cbCorreo.DataSource = Paciente.CargarCorreo();
+            cbCorreo.DataSource = Expediente.CargarCorreo();
             cbCorreo.DisplayMember = "correoPa";
-            cbCorreo.ValueMember = "idPaciente";
+            cbCorreo.ValueMember = "idExpediente";
             cbCorreo.SelectedIndex = -1;
         }
 

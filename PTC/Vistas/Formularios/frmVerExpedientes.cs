@@ -28,7 +28,7 @@ namespace Vistas.Formularios
         public void MostrarExpedientes()
         {
             dgvVerExpedientes.DataSource = null;
-            dgvVerExpedientes.DataSource = Paciente.CargarExpedientes("select *from VerExpediente");
+            dgvVerExpedientes.DataSource = Expediente.CargarExpedientes("select *from VerExpediente");
         }
 
 

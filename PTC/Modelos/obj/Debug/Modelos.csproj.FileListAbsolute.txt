@@ -34,3 +34,9 @@ C:\Users\jrlop\OneDrive\Desktop\PTCclinicadental\PTCclinicadental\PTC\Modelos\ob
 C:\Users\jrlop\OneDrive\Desktop\PTCclinicadental\PTCclinicadental\PTC\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
 C:\Users\jrlop\OneDrive\Desktop\PTCclinicadental\PTCclinicadental\PTC\Modelos\obj\Debug\Modelos.dll
 C:\Users\jrlop\OneDrive\Desktop\PTCclinicadental\PTCclinicadental\PTC\Modelos\obj\Debug\Modelos.pdb
+C:\Users\Estudiante\Desktop\ptcproyecto\PTC\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\Estudiante\Desktop\ptcproyecto\PTC\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\Estudiante\Desktop\ptcproyecto\PTC\Modelos\obj\Debug\Modelos.dll
+C:\Users\Estudiante\Desktop\ptcproyecto\PTC\Modelos\obj\Debug\Modelos.pdb
+C:\Users\Estudiante\Desktop\ptcproyecto\PTC\Modelos\bin\Debug\Modelos.dll
+C:\Users\Estudiante\Desktop\ptcproyecto\PTC\Modelos\bin\Debug\Modelos.pdb

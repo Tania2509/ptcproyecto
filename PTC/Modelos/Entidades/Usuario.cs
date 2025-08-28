@@ -61,7 +61,7 @@ namespace Modelos.Entidades
             cmd.Parameters.AddWithValue("@correoUsu", $"{DuiU}@gmail.com");
             cmd.Parameters.AddWithValue("@id_Rol", id_Rol);
             cmd.Parameters.AddWithValue("@id_Especialidad", Id_Especialidad);
-            cmd.Parameters.AddWithValue("@id_venta", "NULL");
+            cmd.Parameters.AddWithValue("@id_venta", DBNull.Value);
 
             return cmd.ExecuteNonQuery() > 0;
         }

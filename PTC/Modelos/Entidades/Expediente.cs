@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Modelos.Entidades
 {
@@ -68,5 +69,56 @@ namespace Modelos.Entidades
             return cmd.ExecuteNonQuery() > 0;
 
         }
+        public bool eliminarExpediente(int id)
+        {
+            SqlConnection conexion = Conexion.Conexion.conectar();
+            string consultaDelete = "EliminarPaciente @id;";
+            SqlCommand delete = new SqlCommand(consultaDelete, conexion);
+            delete.Parameters.AddWithValue("@id", id);
+            if (delete.ExecuteNonQuery() > 0)
+            {
+                MessageBox.Show("Eliminando Registros", "Exito al eliminar registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        #region ComboBox
+
+        public static DataTable CargarNombre()
+        {
+            SqlConnection conexion = Conexion.Conexion.conectar();
+            string consultaQuery = "select idExpediente, nombrePa from Expediente";
+            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
+            DataTable tablaVirtual = new DataTable();
+            add.Fill(tablaVirtual);
+            return tablaVirtual;
+        }
+
+        public static DataTable CargarCorreo()
+        {
+            SqlConnection conexion = Conexion.Conexion.conectar();
+            string consultaQuery = "select idExpediente, correoPa from Expediente";
+            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
+            DataTable tablaVirtual = new DataTable();
+            add.Fill(tablaVirtual);
+            return tablaVirtual;
+        }
+        public static DataTable CargarApellido()
+        {
+            SqlConnection conexion = Conexion.Conexion.conectar();
+            string consultaQuery = "select idExpediente, apellidoPa from Expediente";
+            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
+            DataTable tablaVirtual = new DataTable();
+            add.Fill(tablaVirtual);
+            return tablaVirtual;
+        }
+
+        #endregion
+
     }
 }

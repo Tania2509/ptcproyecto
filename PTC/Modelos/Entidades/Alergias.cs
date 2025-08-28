@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Modelos.Entidades
 {
-    internal class Alergias
+    public class Alergias
     {
         private int idAlergias;
         private string nombreAl;
