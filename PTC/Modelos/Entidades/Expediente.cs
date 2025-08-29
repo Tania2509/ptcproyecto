@@ -51,7 +51,7 @@ namespace Modelos.Entidades
             SqlConnection con = Conexion.Conexion.conectar();
 
 
-            string comando = "INSERT INTO Paciente (nombrePa, apellidoPa, fechaNacimiento, telefonoPa, direccionPa, correoPa, dui, id_Enfermedades, id_Alergias) " +
+            string comando = "INSERT INTO Expediente (nombrePa, apellidoPa, fechaNacimiento, telefonoPa, direccionPa, correoPa, dui, id_Enfermedades, id_Alergias) " +
                 "VALUES (@nombrePa, @apellidoPa, @fechaNacimiento, @telefonoPa, @direccionPa, @correoPa, @dui, @id_Enfermedades, @id_Alergias);";
 
             SqlCommand cmd = new SqlCommand(comando, con);
@@ -87,38 +87,38 @@ namespace Modelos.Entidades
 
         }
 
-        #region ComboBox
+        //#region ComboBox
 
-        public static DataTable CargarNombre()
-        {
-            SqlConnection conexion = Conexion.Conexion.conectar();
-            string consultaQuery = "select idExpediente, nombrePa from Expediente";
-            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
-            DataTable tablaVirtual = new DataTable();
-            add.Fill(tablaVirtual);
-            return tablaVirtual;
-        }
+        //public static DataTable CargarNombre()
+        //{
+        //    SqlConnection conexion = Conexion.Conexion.conectar();
+        //    string consultaQuery = "select idExpediente, nombrePa from Expediente";
+        //    SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
+        //    DataTable tablaVirtual = new DataTable();
+        //    add.Fill(tablaVirtual);
+        //    return tablaVirtual;
+        //}
 
-        public static DataTable CargarCorreo()
-        {
-            SqlConnection conexion = Conexion.Conexion.conectar();
-            string consultaQuery = "select idExpediente, correoPa from Expediente";
-            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
-            DataTable tablaVirtual = new DataTable();
-            add.Fill(tablaVirtual);
-            return tablaVirtual;
-        }
-        public static DataTable CargarApellido()
-        {
-            SqlConnection conexion = Conexion.Conexion.conectar();
-            string consultaQuery = "select idExpediente, apellidoPa from Expediente";
-            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
-            DataTable tablaVirtual = new DataTable();
-            add.Fill(tablaVirtual);
-            return tablaVirtual;
-        }
+        //public static DataTable CargarCorreo()
+        //{
+        //    SqlConnection conexion = Conexion.Conexion.conectar();
+        //    string consultaQuery = "select idExpediente, correoPa from Expediente";
+        //    SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
+        //    DataTable tablaVirtual = new DataTable();
+        //    add.Fill(tablaVirtual);
+        //    return tablaVirtual;
+        //}
+        //public static DataTable CargarApellido()
+        //{
+        //    SqlConnection conexion = Conexion.Conexion.conectar();
+        //    string consultaQuery = "select idExpediente, apellidoPa from Expediente";
+        //    SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
+        //    DataTable tablaVirtual = new DataTable();
+        //    add.Fill(tablaVirtual);
+        //    return tablaVirtual;
+        //}
 
-        #endregion
+        //#endregion
 
     }
 }

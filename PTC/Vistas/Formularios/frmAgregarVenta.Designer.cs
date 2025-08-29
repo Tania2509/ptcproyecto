@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgregarVenta));
             this.pnlMostrarInv = new System.Windows.Forms.Panel();
             this.btnCrearArt = new System.Windows.Forms.Button();
-            this.lblUnidadesActuales = new System.Windows.Forms.Label();
+            this.lblUnidadesVendidas = new System.Windows.Forms.Label();
             this.lblPrecioProducto = new System.Windows.Forms.Label();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -46,7 +46,7 @@
             // 
             this.pnlMostrarInv.BackColor = System.Drawing.Color.Silver;
             this.pnlMostrarInv.Controls.Add(this.btnCrearArt);
-            this.pnlMostrarInv.Controls.Add(this.lblUnidadesActuales);
+            this.pnlMostrarInv.Controls.Add(this.lblUnidadesVendidas);
             this.pnlMostrarInv.Controls.Add(this.lblPrecioProducto);
             this.pnlMostrarInv.Controls.Add(this.lblNombreProducto);
             this.pnlMostrarInv.Controls.Add(this.pictureBox2);
@@ -71,14 +71,14 @@
             this.btnCrearArt.UseVisualStyleBackColor = false;
             this.btnCrearArt.Click += new System.EventHandler(this.btnCrearArt_Click);
             // 
-            // lblUnidadesActuales
+            // lblUnidadesVendidas
             // 
-            this.lblUnidadesActuales.AutoSize = true;
-            this.lblUnidadesActuales.Location = new System.Drawing.Point(15, 227);
-            this.lblUnidadesActuales.Name = "lblUnidadesActuales";
-            this.lblUnidadesActuales.Size = new System.Drawing.Size(145, 20);
-            this.lblUnidadesActuales.TabIndex = 7;
-            this.lblUnidadesActuales.Text = "Unidades actuales:";
+            this.lblUnidadesVendidas.AutoSize = true;
+            this.lblUnidadesVendidas.Location = new System.Drawing.Point(15, 227);
+            this.lblUnidadesVendidas.Name = "lblUnidadesVendidas";
+            this.lblUnidadesVendidas.Size = new System.Drawing.Size(148, 20);
+            this.lblUnidadesVendidas.TabIndex = 7;
+            this.lblUnidadesVendidas.Text = "Unidades vendidas:";
             // 
             // lblPrecioProducto
             // 
@@ -151,7 +151,7 @@
 
         private System.Windows.Forms.Panel pnlMostrarInv;
         private System.Windows.Forms.Button btnCrearArt;
-        private System.Windows.Forms.Label lblUnidadesActuales;
+        private System.Windows.Forms.Label lblUnidadesVendidas;
         private System.Windows.Forms.Label lblPrecioProducto;
         private System.Windows.Forms.Label lblNombreProducto;
         private System.Windows.Forms.PictureBox pictureBox2;

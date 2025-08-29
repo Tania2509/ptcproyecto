@@ -34,9 +34,9 @@ namespace Vistas.Formularios
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Paciente expediente = new Paciente();
+            Expediente expediente = new Expediente();
             int id = int.Parse(dgvVerExpedientes.CurrentRow.Cells[0].Value.ToString());
-            if (expediente.eliminarPaciente(id) == true)
+            if (expediente.eliminarExpediente(id) == true)
             {
                 MessageBox.Show("Registro eliminado correctamente", "Exito");
                 MostrarExpedientes();

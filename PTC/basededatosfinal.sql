@@ -42,33 +42,6 @@ foreign key (id_Venta) references Venta (idVenta)
 );
 go
 
-create table Paciente (
-idPaciente int identity (1,1) primary key,
-id_Expediente int,
-foreign key (id_Expediente) references Expediente (idExpediente)
-);
-go
-
-create table Doctor (
-idDoctor int identity (1,1) primary key,
-id_Especialidad int,
-id_Paciente int
-foreign key (id_Especialidad) references Especialidad (idEspecialidad), 
-foreign key (id_Paciente) references Paciente (idPaciente)
-);
-go
-
-
-
-create table Cita (
-idCita int identity (1,1) primary key,
-razonCita varchar (100),
-fechaHoraCita datetime,
-id_Paciente int
-foreign key (id_Paciente) references Paciente (idPaciente)
-);
-go 
-
 create table Enfermedades (
 idEnfermedades int identity (1,1) primary key,
  nombreEnfer varchar(50)
@@ -96,6 +69,33 @@ foreign key (id_Enfermedades) references Enfermedades (idEnfermedades),
 foreign key (id_Alergias) references Alergias (idAlergias)
 );
 go
+
+create table Paciente (
+idPaciente int identity (1,1) primary key,
+id_Expediente int,
+foreign key (id_Expediente) references Expediente (idExpediente)
+);
+go
+
+create table Doctor (
+idDoctor int identity (1,1) primary key,
+id_Especialidad int,
+id_Paciente int
+foreign key (id_Especialidad) references Especialidad (idEspecialidad), 
+foreign key (id_Paciente) references Paciente (idPaciente)
+);
+go
+
+
+
+create table Cita (
+idCita int identity (1,1) primary key,
+razonCita varchar (100),
+fechaHoraCita datetime,
+id_Paciente int
+foreign key (id_Paciente) references Paciente (idPaciente)
+);
+go 
 
 insert into Rol values ('Dentista'),
 ('Asistente')
@@ -195,6 +195,11 @@ insert into Expediente values ('Diabetes', 'Latex'),
 ('Enfermedades renales','Antibióticos'),
 (null, 'Clorhexidina') */
 
+insert into Alergias values ('Latex');
+insert into Enfermedades values ('Anemia');
+
+insert into Expediente values ('tania', 'ramirez', null, '849886', 'shefosa', 'tania@gmail.com', '24352435',1, 1)
+
 select *from Paciente
 select *from Rol
 select *from Especialidad
@@ -220,27 +225,28 @@ create view DatosCita as
 select idCita as ID, nombrePa as [Nombre del paciente], apellidoPa as [Apellido del paciente], razonCita as [Razón de la cita], fechaHoraCita as [Fecha y hora]
 from Cita C
 left join
-Expediente E on E.idExpediente=C.id_Paciente
+Paciente P on P.idPaciente=C.id_Paciente
+left Join
+Expediente E on E.idExpediente=P.id_Expediente
 go
 
 create view CrearUsuario as
 SELECT idUsuario as ID, nombreUsu as Nombre, apellidoUsu as Apellido, fechaNaciUsu as [Fecha de nacimiento], 
-       duiUsu as DUI, telefonoUsu as Telefono, correoUsu as Correo, idRol AS Rol, idEspecialidad AS Especialidad FROM Usuario 
+       duiUsu as DUI, telefonoUsu as Telefono, correoUsu as Correo, nombreRol AS Rol, nombreEspecialidad AS Especialidad FROM Usuario 
 LEFT JOIN 
 Rol ON Rol.idRol = Usuario.id_Rol 
 LEFT JOIN 
 Especialidad ON Especialidad.idEspecialidad= Usuario.id_Especialidad
 go
 
-
 create trigger InsertarPaciente
 on Expediente
 for insert
 as 
-declare @id_Expediente int = (select idExpediente from Expediente)
-insert into Paciente (id_Expediente) values (@id_Expediente)
-insert into Expediente (nombrePa) values ('Fernando')
+insert into Paciente (id_Expediente)
+select idExpediente from inserted;
 go
+
 
 create proc EliminarPaciente 
 (
@@ -252,3 +258,8 @@ delete Paciente where idPaciente = @id
 delete Expediente where idExpediente = @id
 end;
 go
+
+select *From Alergias
+select *from Paciente
+select *from Expediente
+

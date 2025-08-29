@@ -11,26 +11,40 @@ namespace Modelos.Entidades
 {
     public class Paciente
     {
-        
 
-        public bool eliminarPaciente(int id)
+        #region ComboBox
+
+        public static DataTable CargarNombre()
         {
             SqlConnection conexion = Conexion.Conexion.conectar();
-            string consultaDelete = "Delete from Paciente where idPaciente = @id;";
-            SqlCommand delete = new SqlCommand(consultaDelete, conexion);
-            delete.Parameters.AddWithValue("@id", id);
-            if (delete.ExecuteNonQuery() > 0)
-            {
-                MessageBox.Show("Eliminando Registros", "Exito al eliminar registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
+            string consultaQuery = "select idPaciente, nombrePa from Paciente P left join Expediente E on E.idExpediente=P.id_Expediente";
+            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
+            DataTable tablaVirtual = new DataTable();
+            add.Fill(tablaVirtual);
+            return tablaVirtual;
         }
 
-       
+        public static DataTable CargarCorreo()
+        {
+            SqlConnection conexion = Conexion.Conexion.conectar();
+            string consultaQuery = "select idPaciente, correoPa from Paciente P left join Expediente E on E.idExpediente=P.id_Expediente";
+            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
+            DataTable tablaVirtual = new DataTable();
+            add.Fill(tablaVirtual);
+            return tablaVirtual;
+        }
+        public static DataTable CargarApellido()
+        {
+            SqlConnection conexion = Conexion.Conexion.conectar();
+            string consultaQuery = "select idPaciente, apellidoPa from Paciente P left join Expediente E on E.idExpediente=P.id_Expediente\r\n";
+            SqlDataAdapter add = new SqlDataAdapter(consultaQuery, conexion);
+            DataTable tablaVirtual = new DataTable();
+            add.Fill(tablaVirtual);
+            return tablaVirtual;
+        }
+
+        #endregion
+
+
     }
 }
