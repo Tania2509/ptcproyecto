@@ -58,7 +58,7 @@ namespace Vistas.Formularios
 
         private void btnTrabajador_Click(object sender, EventArgs e)
         {
-            AbrirForm(new frmVerTrabajadores());
+            AbrirForm(new frmGestionTrabajadores());
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace Vistas.Formularios
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            frmLogin ventana = new frmLogin(this);
+            frmLogin ventana = new frmLogin();
             this.Hide();
             ventana.Show();
         }

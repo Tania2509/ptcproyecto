@@ -33,8 +33,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net48\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,30 +80,6 @@
     <Compile Include="Formularios\frmDashboardDoctor.Designer.cs">
       <DependentUpon>frmDashboardDoctor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmGestiondeCitas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frmGestiondeCitas.Designer.cs">
-      <DependentUpon>frmGestiondeCitas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frmGestiondeExpedientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frmGestiondeExpedientes.Designer.cs">
-      <DependentUpon>frmGestiondeExpedientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frmAgregarVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frmAgregarVenta.Designer.cs">
-      <DependentUpon>frmAgregarVenta.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frmGestiondeTrabajadores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frmGestiondeTrabajadores.Designer.cs">
-      <DependentUpon>frmGestiondeTrabajadores.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\frmGestionVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,23 +92,23 @@
     <Compile Include="Formularios\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmVerCitas.cs">
+    <Compile Include="Formularios\frmGestionCitas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmVerCitas.Designer.cs">
-      <DependentUpon>frmVerCitas.cs</DependentUpon>
+    <Compile Include="Formularios\frmGestionCitas.Designer.cs">
+      <DependentUpon>frmGestionCitas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmVerExpedientes.cs">
+    <Compile Include="Formularios\frmGestionExpedientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmVerExpedientes.Designer.cs">
-      <DependentUpon>frmVerExpedientes.cs</DependentUpon>
+    <Compile Include="Formularios\frmGestionExpedientes.Designer.cs">
+      <DependentUpon>frmGestionExpedientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmVerTrabajadores.cs">
+    <Compile Include="Formularios\frmGestionTrabajadores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmVerTrabajadores.Designer.cs">
-      <DependentUpon>frmVerTrabajadores.cs</DependentUpon>
+    <Compile Include="Formularios\frmGestionTrabajadores.Designer.cs">
+      <DependentUpon>frmGestionTrabajadores.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,32 +121,20 @@
     <EmbeddedResource Include="Formularios\frmDashboardDoctor.resx">
       <DependentUpon>frmDashboardDoctor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmGestiondeCitas.resx">
-      <DependentUpon>frmGestiondeCitas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmGestiondeExpedientes.resx">
-      <DependentUpon>frmGestiondeExpedientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmAgregarVenta.resx">
-      <DependentUpon>frmAgregarVenta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmGestiondeTrabajadores.resx">
-      <DependentUpon>frmGestiondeTrabajadores.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmGestionVenta.resx">
       <DependentUpon>frmGestionVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmVerCitas.resx">
-      <DependentUpon>frmVerCitas.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\frmGestionCitas.resx">
+      <DependentUpon>frmGestionCitas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmVerExpedientes.resx">
-      <DependentUpon>frmVerExpedientes.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\frmGestionExpedientes.resx">
+      <DependentUpon>frmGestionExpedientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmVerTrabajadores.resx">
-      <DependentUpon>frmVerTrabajadores.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\frmGestionTrabajadores.resx">
+      <DependentUpon>frmGestionTrabajadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -166,6 +146,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -220,6 +201,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-cerrar-sesión-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-buscar-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-buscar-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-buscar-50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -64,6 +64,37 @@ namespace Modelos.Entidades
             {
                 return false;
             }
+        }
+
+
+        public bool ActualizarCita()
+        {
+            SqlConnection con = Conexion.Conexion.conectar();
+            string comando = "update Cita set razonCita =@razonCita , fechaHoraCita = @fechaHoraCita , id_Paciente = @id_Paciente where idCita = @idCita";
+            SqlCommand cmd = new SqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@idCita", idCita);
+            cmd.Parameters.AddWithValue("@razonCita", razonCita);
+            cmd.Parameters.AddWithValue("@fechaHoraCita", fechaHoraCita);
+            cmd.Parameters.AddWithValue("@id_Paciente", id_Paciente);
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static DataTable Buscar(string termino)
+        {
+            SqlConnection con = Conexion.Conexion.conectar();
+            string comando = $"select *from DatosCita where [Nombre del paciente] like '%{termino}%';";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
 
         }
     }

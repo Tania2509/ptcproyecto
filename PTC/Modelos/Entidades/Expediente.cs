@@ -87,6 +87,43 @@ namespace Modelos.Entidades
 
         }
 
+        public bool ActualizarExpedientes()
+        {
+            SqlConnection con = Conexion.Conexion.conectar();
+            string comando = "update Expediente set nombrePa =@nombrePa , apellidoPa =@apellidoPa , fechaNacimiento = @fechaNacimiento , telefonoPa = @telefonoPa , direccionPa = @direccionPa, correoPa = @correoPa, dui = @dui, id_Enfermedades = @id_Enfermedades, id_Alergias = @id_Alergias where idExpediente = @idExpediente";
+            SqlCommand cmd = new SqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@idExpediente", idExpediente);
+            cmd.Parameters.AddWithValue("@nombrePa", nombrePa);
+            cmd.Parameters.AddWithValue("@apellidoPa", apellidoPa);
+            cmd.Parameters.AddWithValue("@fechaNacimiento", fechaNacimiento);
+            cmd.Parameters.AddWithValue("@telefonoPa", telefonoPa);
+            cmd.Parameters.AddWithValue("@direccionPa", direccionPa);
+            cmd.Parameters.AddWithValue("@correoPa", correoPa);
+            cmd.Parameters.AddWithValue("@dui", dui);
+            cmd.Parameters.AddWithValue("@id_Enfermedades", id_Enfermedades);
+            cmd.Parameters.AddWithValue("@id_Alergias", id_Alergias);
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static DataTable Buscar(string termino)
+        {
+            SqlConnection con = Conexion.Conexion.conectar();
+            string comando = $"select *from VerExpediente where nombreUsu like '%{termino}%';";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+
+        }
+
         //#region ComboBox
 
         //public static DataTable CargarNombre()

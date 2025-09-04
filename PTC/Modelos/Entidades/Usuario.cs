@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace Modelos.Entidades
         private string duiU;
         private string telefonoU;
         private string correo;
+        private string contrasena;
         private int id_Rol;
         private int id_Especialidad;
         private int id_venta;
@@ -32,6 +34,7 @@ namespace Modelos.Entidades
         public int Id_Rol { get => id_Rol; set => id_Rol = value; }
         public int Id_Especialidad { get => id_Especialidad; set => id_Especialidad = value; }
         public int Id_venta { get => id_venta; set => id_venta = value; }
+        public string Contrasena { get => contrasena; set => contrasena = value; }
 
         public static DataTable CargarUsuarios(string Trabajador)
         {
@@ -48,8 +51,8 @@ namespace Modelos.Entidades
         {
             SqlConnection con = Conexion.Conexion.conectar();
 
-            string comando = "Insert into Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, correoUsu, id_Rol, id_Especialidad, id_venta) " +
-                     "values(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, @correoUsu, @id_Rol, @id_Especialidad, @id_venta);";
+            string comando = "Insert into Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, correoUsu, contrasena,id_Rol, id_Especialidad, id_venta) " +
+                     "values(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, @correoUsu, @contrasena,@id_Rol, @id_Especialidad, @id_venta);";
 
             SqlCommand cmd = new SqlCommand(comando, con);
 
@@ -59,6 +62,7 @@ namespace Modelos.Entidades
             cmd.Parameters.AddWithValue("@duiUsu", DuiU);
             cmd.Parameters.AddWithValue("@telefonoUsu", TelefonoU);
             cmd.Parameters.AddWithValue("@correoUsu", $"{DuiU}@gmail.com");
+            cmd.Parameters.AddWithValue("@contrasena", Contrasena);
             cmd.Parameters.AddWithValue("@id_Rol", id_Rol);
             cmd.Parameters.AddWithValue("@id_Especialidad", Id_Especialidad);
             cmd.Parameters.AddWithValue("@id_venta", DBNull.Value);
@@ -81,6 +85,43 @@ namespace Modelos.Entidades
             {
                 return false;
             }
+        }
+
+        public bool ActualizarUsuarios()
+        {
+            SqlConnection con = Conexion.Conexion.conectar();
+            string comando = "UPDATE Usuario SET nombreUsu=@nombreUsu, apellidoUsu=@apellidoUsu, fechaNaciUsu=@fechaNaciUsu, duiUsu=@duiUsu, telefonoUsu=@telefonoUsu, correoUsu=@correoUsu, contrasena=@contrasena, id_Rol=@id_Rol, id_Especialidad=@id_Especialidad WHERE idUsuario=@idUsuario;";
+            SqlCommand cmd = new SqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@idUsuario", IdUsuario);
+            cmd.Parameters.AddWithValue("@nombreUsu", NombreU);
+            cmd.Parameters.AddWithValue("@apellidoUsu", ApellidoU);
+            cmd.Parameters.AddWithValue("@fechaNaciUsu", FechaNacimientoU);
+            cmd.Parameters.AddWithValue("@duiUsu", DuiU);
+            cmd.Parameters.AddWithValue("@telefonoUsu", TelefonoU);
+            cmd.Parameters.AddWithValue("@correoUsu", $"{DuiU}@gmail.com");
+            cmd.Parameters.AddWithValue("@contrasena", Contrasena);
+            cmd.Parameters.AddWithValue("@id_Rol", Id_Rol);
+            cmd.Parameters.AddWithValue("@id_Especialidad", Id_Especialidad);
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static DataTable Buscar(string termino)
+        {
+            SqlConnection con = Conexion.Conexion.conectar();
+            string comando = $"select idUsuario, nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, correoUsu, contrasena, id_Rol, id_Especialidad from Usuario where nombreUsu like '%{termino}%';";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+
         }
 
 

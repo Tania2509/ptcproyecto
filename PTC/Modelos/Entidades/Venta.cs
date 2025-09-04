@@ -26,7 +26,7 @@ namespace Modelos.Entidades
         public static DataTable CargarProductos()
         {
             SqlConnection con = Conexion.Conexion.conectar();
-            string comando = "select * from Venta;";
+            string comando = "select idVenta as ID, nombreVen as [Nombre del Producto], precio as Precio, cantidad as [Cantidad Vendida] from Venta";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
@@ -65,6 +65,38 @@ namespace Modelos.Entidades
             {
                 return false;
             }
+        }
+
+        public bool ActualizarVenta()
+        {
+            SqlConnection con = Conexion.Conexion.conectar();
+            string comando = "UPDATE Venta SET nombreVen = @nombreVen, precio = @precio, cantidad = @cantidad WHERE idVenta=@idVenta;";
+            SqlCommand cmd = new SqlCommand(comando, con);
+            cmd.Parameters.AddWithValue("@idVenta", IdVenta);
+            cmd.Parameters.AddWithValue("@nombreVen", NombreVen);
+            cmd.Parameters.AddWithValue("@precio", Precio);
+            cmd.Parameters.AddWithValue("@cantidad", Cantidad);
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public static DataTable Buscar(string termino)
+        {
+            SqlConnection con = Conexion.Conexion.conectar();
+            string comando = $"select idVenta, nombreVen, precio, cantidad from Venta where nombreVen like '%{termino}%';";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+
         }
     }
 }

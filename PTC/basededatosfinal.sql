@@ -11,6 +11,8 @@ precio decimal (8,2),
 cantidad int
 );
 go
+         
+           
 
 
 create table Rol( 
@@ -25,6 +27,7 @@ nombreEspecialidad varchar(50),
 );
 go
 
+
 create table Usuario (
 idUsuario int identity (1,1) primary key,
 nombreUsu varchar(50),
@@ -33,6 +36,7 @@ fechaNaciUsu date,
 duiUsu varchar(20) unique,
 telefonoUsu varchar(25),
 correoUsu varchar(50),
+contrasena varchar(255),
 id_Rol int,
 id_Especialidad int,
 id_Venta int,
@@ -41,6 +45,8 @@ foreign key (id_Especialidad) references Especialidad (idEspecialidad),
 foreign key (id_Venta) references Venta (idVenta)
 );
 go
+
+
 
 create table Enfermedades (
 idEnfermedades int identity (1,1) primary key,
@@ -70,6 +76,10 @@ foreign key (id_Alergias) references Alergias (idAlergias)
 );
 go
 
+select *from Expediente
+
+update Expediente set idExpediente = , nombrePa = , apellidoPa = , fechaNacimiento = , telefonoPa = , direccionPa = , correoPa = , id_Enfermedades = , id_Alergias = where idExpediente =
+
 create table Paciente (
 idPaciente int identity (1,1) primary key,
 id_Expediente int,
@@ -98,7 +108,8 @@ foreign key (id_Paciente) references Paciente (idPaciente)
 go 
 
 insert into Rol values ('Dentista'),
-('Asistente')
+('Asistente'),
+('Administrador')
 go
 
 insert into Especialidad values ('Ninguno'),
@@ -107,6 +118,19 @@ insert into Especialidad values ('Ninguno'),
 ('Ortodoncista'),
 ('Maxilofacial')
 go
+
+select *From Usuario
+
+INSERT INTO Usuario 
+VALUES 
+('Carlos', 'Mendoza', '1985-03-15', '12345678-9', '7777-8888', 'carlos@clinica.com', '$2a$11$I5eCzCRIm0cGGzotIgA4O.dAdM3Hxnpsiuj0.HzWvb1K0RN3dJRfO', 3, 1, NULL)
+
+Update Usuario set nombreUsu = @Nombre, apellidoUsu = @Apellido, correoUsu
+
+SELECT r.nombreRol FROM Usuario U
+
+INNER JOIN Rol r ON u.id_Rol = r.idRol
+WHERE correoUsu = 'carlos@clinica.com' AND contrasena = 'pass123'
 
 /*
 insert into Expediente values ('Diabetes', 'Anestesia'),
@@ -131,24 +155,6 @@ insert into Cita values ('Limpieza', '2025/09/01 12:30', 4),
 ('Brackets', '2025/09/02 12:30', 16),
 ('Relleno', '2025/09/10 12:45', 17),
 ('Relleno', '2025/09/05 12:30', 18)
-
-
-insert into Usuario values ('Raul', 'Mena', '2000/05/01', '8534889', '9899-4566', '8534889@gmail.com',1,2),
-('Jason', 'Zapata', '2002/05/01', '8546274', '4152-9856', '8546274@gmail.com',1,3),
-('Diego', 'Escobar', '2001/05/01', '45698713', '1976-7464', '45698713@gmail.com',1,4),
-('Osvaldo', 'Quito', '2000/05/01', '7485917', '8134-1234', '7485917@gmail.com',1,4),
-('Daniel', 'Ramirez', '2000/05/01', '7894576', '4321-5342', '7894576@gmail.com',1,2),
-('Luis', 'Castellón', '2005/05/01', '9856741', '8467-1354', '9856741@gmail.com',1,3),
-('Pedro', 'Hernandez', '1999/05/01', '7485967', '1249-9865', '7485967@gmail.com',1,4),
-('Oscar', 'Galves', '2000/05/01', '7452197', '1293-3248', '7452197@gmail.com',1,5),
-('Mateo', 'Miranda', '2001/05/01', '8462579', '9751-1846', '8462579@gmail.com',2,1),
-('Marcos', 'Lopez', '2000/05/01', '1234578', '8426-2648', '1234578@gmail.com',1,5),
-('Alex', 'Quito', '2002/05/01', '2345698', '7591-3597', '2345698@gmail.com',1,2),
-('Axel', 'Rivas', '1995/05/01', '8795426', '1973-1597', '8795426@gmail.com',1,3),
-('Raul', 'Pineda', '2005/05/01', '6985734', '9864-4495', '6985734@gmail.com',2,1),
-('Raul', 'Mena', '1997/05/01', '5598764', '1684-9853', '5598764@gmail.com',2,1),
-('Sebastian', 'Mena', '1997/05/01', '864923', '7495-9853', '864923@gmail.com',2,1)
-
 
 insert into Paciente values ('René', 'Morales', '1985-05-20', '7201-2244','Villa Heroes pasaje 3' ,'rene.morales@clinicadental.com', '015487239',1),
 ('Carla', 'Medina', '1990-08-11', '7745-3310', 'Ayutuxepeque pasaje 3 avenida San miguel' ,'carla.medina@clinicadental.com', '027543810',2),
@@ -198,8 +204,6 @@ insert into Expediente values ('Diabetes', 'Latex'),
 insert into Alergias values ('Latex');
 insert into Enfermedades values ('Anemia');
 
-insert into Expediente values ('tania', 'ramirez', null, '849886', 'shefosa', 'tania@gmail.com', '24352435',1, 1)
-
 select *from Paciente
 select *from Rol
 select *from Especialidad
@@ -212,8 +216,9 @@ select *from Alergias
 go
 
 
+
 create view VerExpediente as
-select idExpediente as ID, nombrePa as [Nombre del Paciente], apellidoPa as [Apellido del paciente], fechaNacimiento as [Fecha de nacimiento], telefonoPa as Telefono,correoPa as [Correo del paciente], nombreEnfer as Enfermedades, nombreAl as Alergias
+select idExpediente as ID, nombrePa as [Nombre del Paciente], apellidoPa as [Apellido del paciente], fechaNacimiento as [Fecha de nacimiento], telefonoPa as Telefono, direccionPa as [Direccion] ,correoPa as [Correo del paciente], dui as DUI ,nombreEnfer as Enfermedades, nombreAl as Alergias
 from Expediente E
 left join
 Alergias C on C.idAlergias=E.id_Alergias
@@ -221,8 +226,10 @@ left join
 Enfermedades F on F.idEnfermedades=E.id_Enfermedades
 go
 
+drop view DatosCita
+
 create view DatosCita as
-select idCita as ID, nombrePa as [Nombre del paciente], apellidoPa as [Apellido del paciente], razonCita as [Razón de la cita], fechaHoraCita as [Fecha y hora]
+select idCita as ID, nombrePa as [Nombre del paciente], apellidoPa as [Apellido del paciente], razonCita as [Razón de la cita],correoPa as [Correo del paciente] ,fechaHoraCita as [Fecha y hora]
 from Cita C
 left join
 Paciente P on P.idPaciente=C.id_Paciente
@@ -232,7 +239,7 @@ go
 
 create view CrearUsuario as
 SELECT idUsuario as ID, nombreUsu as Nombre, apellidoUsu as Apellido, fechaNaciUsu as [Fecha de nacimiento], 
-       duiUsu as DUI, telefonoUsu as Telefono, correoUsu as Correo, nombreRol AS Rol, nombreEspecialidad AS Especialidad FROM Usuario 
+       duiUsu as DUI, telefonoUsu as Telefono, correoUsu as Correo, nombreRol AS Rol, nombreEspecialidad AS Especialidad, contrasena FROM Usuario 
 LEFT JOIN 
 Rol ON Rol.idRol = Usuario.id_Rol 
 LEFT JOIN 

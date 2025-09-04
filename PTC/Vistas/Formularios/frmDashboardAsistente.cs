@@ -53,17 +53,17 @@ namespace Vistas.Formularios
 
         private void btnCitas_Click(object sender, EventArgs e)
         {
-            AbrirForm(new frmVerCitas());
+            AbrirForm(new frmGestionCitas());
         }
 
         private void btnExpedientes_Click(object sender, EventArgs e)
         {
-            AbrirForm(new frmVerExpedientes());
+            AbrirForm(new frmGestionExpedientes());
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            frmLogin ventana = new frmLogin(this);
+            frmLogin ventana = new frmLogin();
             this.Hide();
             ventana.Show();
         }
