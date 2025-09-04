@@ -96,6 +96,7 @@ namespace Vistas.Formularios
             C.FechaHoraCita = dtpFechaHora.Value;
             C.InsertarCitas();
             MostrarCitas();
+            LimpiarCampos();
         }
 
        
@@ -147,6 +148,7 @@ namespace Vistas.Formularios
             if (C.ActualizarCita() == true)
             {
                 MostrarCitas();
+                LimpiarCampos();
             }
             else
             {
@@ -165,6 +167,21 @@ namespace Vistas.Formularios
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public void LimpiarCampos()
+        {
+            // Limpiar campos de texto
+            txtRazonCita.Text = string.Empty;
+
+            // Restablecer ComboBox
+            cbNombre.SelectedIndex = -1;
+            cbApellido.SelectedIndex = -1;
+            cbCorreo.SelectedIndex = -1;
+
+            // Restablecer DateTimePicker 
+            dtpFechaHora.Value = DateTime.Now;
+
         }
 
         #region TextBox

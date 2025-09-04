@@ -46,6 +46,7 @@ namespace Vistas.Formularios
             U.Contrasena = BCrypt.Net.BCrypt.HashPassword(txtContraseña.Text);
             U.InsetarUsuarios();
             MostrarTrabajadores();
+            LimpiarCampos();
 
         }
 
@@ -174,6 +175,7 @@ namespace Vistas.Formularios
             if (u.ActualizarUsuarios() == true)
             {
                 MostrarTrabajadores();
+                LimpiarCampos();
             }
             else
             {
@@ -192,6 +194,24 @@ namespace Vistas.Formularios
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        public void LimpiarCampos()
+        {
+            // Limpiar campos de texto
+            txtNombre.Text = string.Empty;
+            txtApellido.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            txtDui.Text = string.Empty;
+            txtContraseña.Text = string.Empty;
+            txtBuscar.Text = string.Empty;
+
+            // Restablecer ComboBox
+            cbRol.SelectedIndex = -1;
+            cbEspecialidad.SelectedIndex = -1;
+
+            // Restablecer DateTimePicker
+            dtpFechaNaci.Value = DateTime.Now;
         }
     }
 }

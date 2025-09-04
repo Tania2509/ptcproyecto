@@ -121,60 +121,6 @@ go
 
 select *From Usuario
 
-INSERT INTO Usuario 
-VALUES 
-('Carlos', 'Mendoza', '1985-03-15', '12345678-9', '7777-8888', 'carlos@clinica.com', '$2a$11$I5eCzCRIm0cGGzotIgA4O.dAdM3Hxnpsiuj0.HzWvb1K0RN3dJRfO', 3, 1, NULL)
-
-Update Usuario set nombreUsu = @Nombre, apellidoUsu = @Apellido, correoUsu
-
-SELECT r.nombreRol FROM Usuario U
-
-INNER JOIN Rol r ON u.id_Rol = r.idRol
-WHERE correoUsu = 'carlos@clinica.com' AND contrasena = 'pass123'
-
-/*
-insert into Expediente values ('Diabetes', 'Anestesia'),
-('Enfermedades cardiacas', 'Antibioticos'),
-('Ninguna', 'Latex'),
-('Leucemia','Acrilicos'),
-(null, 'formaldehido')
-
-
-insert into Cita values ('Limpieza', '2025/09/01 12:30', 4),
-('Limpieza', '2025/10/29 12:50', 5),
-('Brackets', '2025/11/29 12:30', 6),
-('Limpieza', '2025/09/23 12:50', 7),
-('Relleno', '2025/09/20 12:45', 8),
-('Relleno', '2025/09/19 12:30', 9),
-('Brackets', '2025/09/15 12:30', 10),
-('Limpieza', '2025/08/01 12:45', 11),
-('Brackets', '2025/09/01 12:50', 12),
-('Limpieza', '2025/7/04 12:45', 13),
-('Brackets', '2025/10/13 12:50', 14),
-('Relleno', '2025/08/09 12:35', 15),
-('Brackets', '2025/09/02 12:30', 16),
-('Relleno', '2025/09/10 12:45', 17),
-('Relleno', '2025/09/05 12:30', 18)
-
-insert into Paciente values ('René', 'Morales', '1985-05-20', '7201-2244','Villa Heroes pasaje 3' ,'rene.morales@clinicadental.com', '015487239',1),
-('Carla', 'Medina', '1990-08-11', '7745-3310', 'Ayutuxepeque pasaje 3 avenida San miguel' ,'carla.medina@clinicadental.com', '027543810',2),
-('Esteban', 'Velásquez', '1987-03-09', '7310-9988', 'Calle La Reforma' ,'esteban.velasquez@clinicadental.com', '038712945',1),
-('Silvia', 'Martínez', '1992-11-02', '7154-1109','Residencial Altavista' ,'silvia.martinez@clinicadental.com', '047521893',4),
-('Oscar', 'Navarro', '1983-12-18', '7520-6631', 'Calle el Almendro' ,'oscar.navarro@clinicadental.com', '051239478',2),
-('Iliana', 'Escobar', '1986-01-23', '7680-4455','Av. Los heroes' ,'iliana.escobar@clinicadental.com', '042358719',1),
-('Rodrigo', 'Pineda', '1991-06-07', '7077-8822','Calle El Paraiso' ,'rodrigo.pineda@clinicadental.com', '036789452',3),
-('Marcela', 'Trujillo', '1989-04-29', '7930-2155', 'Zacatecoluca','marcela.trujillo@clinicadental.com', '059814237',3),
-('Álvaro', 'Reyes', '1993-09-16', '7230-1998','Zacatecoluca' ,'alvaro.reyes@clinicadental.com', '026748391',1),
-('Norma', 'Cáceres', '1984-07-05', '7901-3350','Av.Morazan' ,'norma.caceres@clinicadental.com', '019384751',5),
-('Mauricio', 'Delgado', '1988-02-14', '7822-9076', 'Calle 5 de noviembre','mauricio.delgado@clinicadental.com', '062149378',1),
-('Karina', 'Figueroa', '1995-10-30', '7644-1101','Calle el Almendro' ,'karina.figueroa@clinicadental.com', '073521894',3),
-('Ernesto', 'Aguilar', '1982-08-08', '7755-4210','Pasaje Los Cipreses' ,'ernesto.aguilar@clinicadental.com', '084713569',5),
-('Pamela', 'Lara', '1994-03-12', '7922-3300','Av.Morazan' ,'pamela.lara@clinicadental.com', '098123745',6),
-('Víctor', 'Rosales', '1986-06-25', '7811-6644','Calle el Almendro' ,'victor.rosales@clinicadental.com', '048293175',2);
-
-
-select *from Paciente
-
 insert into Venta values ('Cepillo', 3.45, 1),
 ('Paquete de cepillos', 5, 2),
 ('Pasta dental', 2.50, 1),
@@ -192,17 +138,61 @@ insert into Venta values ('Cepillo', 3.45, 1),
 ('Paquete de cepillos', 5, 1),
 ('Enjuague bucal de menta', 4, 2)
 
+INSERT INTO Usuario (nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, correoUsu, contrasena, id_Rol, id_Especialidad, id_Venta) VALUES
+('Carlos', 'Mendoza', '1985-03-15', '12345678-9', '7777-8888', 'carlos@clinica.com', '$2a$11$I5eCzCRIm0cGGzotIgA4O.dAdM3Hxnpsiuj0.HzWvb1K0RN3dJRfO', 3, 1, NULL),
+('Juan', 'Pérez', '1980-01-15', '11223344-5', '2222-1111', 'juan@clinica.com', '$2a$12$3FdkziKxZiraLABeNVXYgevUib7IhiCm1RxzmOsNL5fnMq4niItIG', 1, 3, null),
+('Laura', 'Gómez', '1985-06-20', '22334455-6', '2333-2222', 'laura@clinica.com', '$2a$12$J4pv0K97E0OwkF3SO.jiQ.dCsgcNsMHxfbKgWc2xjc86ChVu7yiZC', 2, 1, null),
+('Pedro', 'Sánchez', '1978-03-10', '33445566-7', '2444-3333', 'pedro@clinica.com', '$2a$12$SXXr6qTSumLpbP2VBUelv./QH91RV0wI3BdhvARwAOnJW5EBKwqHS789', 2, 1, null),
+('Marta', 'Vásquez', '1990-09-05', '44556677-8', '2555-4444', 'marta@clinica.com', '$2a$12$4lMLV9fVIYi95q8z4NzwhOs3RQJmmN4mwQlscWXrMiQz8WsqtAOYG', 1, 3, null),
+('Ricardo', 'Mendoza', '1982-12-15', '55667788-9', '2666-5555', 'ricardo@clinica.com', '$2a$12$ylS.v24SKE5oehTzAu7UQOB3F.tfZIMoHusbJVVFawIF2kqSj9jjW', 1, 2, null)
 
+insert into Alergias values ('Ninguna'),
+('latex'),
+('metales'),
+('anestesia local')
 
-insert into Expediente values ('Diabetes', 'Latex'),
-('Ninguna', 'Ninguno'),
-('Enfermedades cardíacas','Resinas'),
-('Leucemia', 'Acrilicos'),
-('Enfermedades renales','Antibióticos'),
-(null, 'Clorhexidina') */
+insert into Enfermedades values ('Ninguna'),
+('diabetes'),
+('infecciones'),
+('Hepatitis')
 
-insert into Alergias values ('Latex');
-insert into Enfermedades values ('Anemia');
+insert into Paciente values (1),
+(2),
+(4),
+(5),
+(6),
+(7),
+(8),
+(9),
+(10)
+
+insert into Expediente (nombrePa, apellidoPa, fechaNacimiento, telefonoPa, direccionPa, correoPa, dui, id_Enfermedades, id_Alergias) VALUES 
+('María', 'González', '1985-03-15', '2222-3333', 'Colonia Escalón, San Salvador', 'maria@email.com', '12345678-9', 1, 2),
+('Carlos', 'Rodríguez', '1990-07-22', '2555-4444', 'Santa Tecla, La Libertad', 'carlos@email.com', '23456789-0', 2, 1),
+('Ana', 'Martínez', '1978-11-30', '2666-7777', 'Soyapango, San Salvador', 'ana@email.com', '34567890-1', 3, 3),
+('Luis', 'Hernández', '1982-05-18', '2777-8888', 'Mejicanos, San Salvador', 'luis@email.com', '45678901-2', 4, 4),
+('Sofia', 'López', '1995-09-08', '2888-9999', 'San Miguel', 'sofia@email.com', '56789012-3', 5, 5),
+('Jorge', 'Díaz', '1988-12-25', '2999-0000', 'Ahuachapán', 'jorge@email.com', '67890123-4', 6, 6),
+('Elena', 'Torres', '1975-02-14', '2333-2222', 'Santa Ana', 'elena@email.com', '78901234-5', 7, 7),
+('Miguel', 'Ramírez', '1992-06-30', '2444-3333', 'Sonsonate', 'miguel@email.com', '89012345-6', 8, 8),
+('Carmen', 'Flores', '1980-08-17', '2555-4444', 'La Unión', 'carmen@email.com', '90123456-7', 9, 9),
+('Roberto', 'Castro', '1970-04-12', '2666-5555', 'Chalatenango', 'roberto@email.com', '01234567-8', 10, 10);
+
+insert into Cita values ('Limpieza', '2025/09/01 12:30', 4),
+('Limpieza', '2025/10/29 12:50', 5),
+('Brackets', '2025/11/29 12:30', 6),
+('Limpieza', '2025/09/23 12:50', 7),
+('Relleno', '2025/09/20 12:45', 8),
+('Relleno', '2025/09/19 12:30', 9),
+('Brackets', '2025/09/15 12:30', 10),
+('Limpieza', '2025/08/01 12:45', 3),
+('Brackets', '2025/09/01 12:50', 1),
+('Limpieza', '2025/7/04 12:45', 3),
+('Brackets', '2025/10/13 12:50', 4),
+('Relleno', '2025/08/09 12:35', 5),
+('Brackets', '2025/09/02 12:30', 1),
+('Relleno', '2025/09/10 12:45', 7),
+('Relleno', '2025/09/05 12:30', 8)
 
 select *from Paciente
 select *from Rol
@@ -225,8 +215,6 @@ Alergias C on C.idAlergias=E.id_Alergias
 left join
 Enfermedades F on F.idEnfermedades=E.id_Enfermedades
 go
-
-drop view DatosCita
 
 create view DatosCita as
 select idCita as ID, nombrePa as [Nombre del paciente], apellidoPa as [Apellido del paciente], razonCita as [Razón de la cita],correoPa as [Correo del paciente] ,fechaHoraCita as [Fecha y hora]

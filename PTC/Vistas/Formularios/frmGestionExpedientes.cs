@@ -19,6 +19,25 @@ namespace Vistas.Formularios
             InitializeComponent();
         }
 
+        public void LimpiarCampos()
+        {
+            // Limpiar campos de texto
+            txtNombre.Text = string.Empty;
+            txtApellido.Text = string.Empty;
+            txtCorreoElectronico.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtNumTelefono.Text = string.Empty;
+            txtBuscar.Text = string.Empty;
+
+            // Restablecer ComboBox
+            cbAlergias.SelectedIndex = -1;
+            cbEnfermedades.SelectedIndex = -1;
+
+            // Restablecer DateTimePicker
+            dtpFechaNaciPa.Value = DateTime.Now;
+
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             // Validación de campos vacíos
@@ -50,6 +69,7 @@ namespace Vistas.Formularios
                 E.InsertarExpediente();
 
                 MostrarExpedientes();
+                LimpiarCampos();
             }
         }
 
@@ -132,6 +152,7 @@ namespace Vistas.Formularios
             if (E.ActualizarExpedientes() == true)
             {
                 MostrarExpedientes();
+                LimpiarCampos();
             }
             else
             {
