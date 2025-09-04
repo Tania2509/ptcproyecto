@@ -160,7 +160,7 @@
             // 
             this.txtContraseña.Location = new System.Drawing.Point(248, 350);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(4);
-            this.txtContraseña.MaxLength = 20;
+            this.txtContraseña.MaxLength = 8;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.ShortcutsEnabled = false;
             this.txtContraseña.Size = new System.Drawing.Size(250, 30);

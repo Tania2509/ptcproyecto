@@ -168,6 +168,7 @@
             // 
             this.txtPrecioProducto.Location = new System.Drawing.Point(32, 159);
             this.txtPrecioProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrecioProducto.MaxLength = 6;
             this.txtPrecioProducto.Name = "txtPrecioProducto";
             this.txtPrecioProducto.ShortcutsEnabled = false;
             this.txtPrecioProducto.Size = new System.Drawing.Size(327, 30);
@@ -178,6 +179,7 @@
             // 
             this.txtNombreProducto.Location = new System.Drawing.Point(30, 79);
             this.txtNombreProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombreProducto.MaxLength = 50;
             this.txtNombreProducto.Name = "txtNombreProducto";
             this.txtNombreProducto.ShortcutsEnabled = false;
             this.txtNombreProducto.Size = new System.Drawing.Size(328, 30);

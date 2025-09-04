@@ -224,6 +224,7 @@
             // 
             this.txtRazonCita.Location = new System.Drawing.Point(7, 236);
             this.txtRazonCita.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRazonCita.MaxLength = 100;
             this.txtRazonCita.Multiline = true;
             this.txtRazonCita.Name = "txtRazonCita";
             this.txtRazonCita.ShortcutsEnabled = false;

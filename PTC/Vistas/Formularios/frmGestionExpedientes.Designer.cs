@@ -152,6 +152,7 @@
             // 
             this.txtDui.Location = new System.Drawing.Point(36, 427);
             this.txtDui.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDui.MaxLength = 20;
             this.txtDui.Name = "txtDui";
             this.txtDui.ShortcutsEnabled = false;
             this.txtDui.Size = new System.Drawing.Size(368, 30);
@@ -170,6 +171,7 @@
             // 
             this.txtCorreoElectronico.Location = new System.Drawing.Point(36, 236);
             this.txtCorreoElectronico.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCorreoElectronico.MaxLength = 50;
             this.txtCorreoElectronico.Name = "txtCorreoElectronico";
             this.txtCorreoElectronico.ShortcutsEnabled = false;
             this.txtCorreoElectronico.Size = new System.Drawing.Size(369, 30);
@@ -219,6 +221,7 @@
             // 
             this.txtApellido.Location = new System.Drawing.Point(38, 142);
             this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApellido.MaxLength = 50;
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.ShortcutsEnabled = false;
             this.txtApellido.Size = new System.Drawing.Size(366, 30);
@@ -229,6 +232,7 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(38, 45);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.ShortcutsEnabled = false;
             this.txtNombre.Size = new System.Drawing.Size(366, 30);
@@ -275,6 +279,7 @@
             // 
             this.txtNumTelefono.Location = new System.Drawing.Point(39, 611);
             this.txtNumTelefono.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumTelefono.MaxLength = 25;
             this.txtNumTelefono.Name = "txtNumTelefono";
             this.txtNumTelefono.ShortcutsEnabled = false;
             this.txtNumTelefono.Size = new System.Drawing.Size(365, 30);
@@ -305,6 +310,7 @@
             // 
             this.txtDireccion.Location = new System.Drawing.Point(39, 507);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDireccion.MaxLength = 90;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ShortcutsEnabled = false;
             this.txtDireccion.Size = new System.Drawing.Size(368, 30);
