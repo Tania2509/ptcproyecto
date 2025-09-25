@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelos.Conexion;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -95,7 +96,17 @@ namespace Modelos.Entidades
             DataTable dt = new DataTable();
             ad.Fill(dt);
             return dt;
+        }
 
+        public static DataTable ID (string termino)
+        {
+
+            SqlConnection con = Conexion.Conexion.conectar();
+            string comando = $"select *from DatosCita where Paciente like '%{termino}%';";
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
         }
     }
 }

@@ -183,8 +183,6 @@ C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\bin\Debug\Modelos.pdb
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.csproj.AssemblyReference.cache
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.exe.config
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmDashboardAdministrador.resources
-C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmDashboardAsistente.resources
-C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmDashboardDoctor.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmGestionVenta.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmLogin.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Properties.Resources.resources
@@ -206,3 +204,6 @@ C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\bin\Debug\System.Runtime.
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmGestionTrabajadores.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmGestionExpedientes.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmGestionCitas.resources
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmDashboardTrabajador.resources
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmVerExpedientes.resources
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmHistorialDental.resources

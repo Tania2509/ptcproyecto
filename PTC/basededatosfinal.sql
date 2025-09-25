@@ -10,10 +10,7 @@ nombreVen varchar(50),
 precio decimal (8,2),
 cantidad int
 );
-go
-         
-           
-
+go          
 
 create table Rol( 
 idRol int identity (1,1) primary key,
@@ -76,10 +73,6 @@ foreign key (id_Alergias) references Alergias (idAlergias)
 );
 go
 
-select *from Expediente
-
-update Expediente set idExpediente = , nombrePa = , apellidoPa = , fechaNacimiento = , telefonoPa = , direccionPa = , correoPa = , id_Enfermedades = , id_Alergias = where idExpediente =
-
 create table Paciente (
 idPaciente int identity (1,1) primary key,
 id_Expediente int,
@@ -97,7 +90,6 @@ foreign key (id_Paciente) references Paciente (idPaciente)
 go
 
 
-
 create table Cita (
 idCita int identity (1,1) primary key,
 razonCita varchar (100),
@@ -106,6 +98,127 @@ id_Paciente int
 foreign key (id_Paciente) references Paciente (idPaciente)
 );
 go 
+
+create table EstadoDiente (
+    idEstado int primary key identity(1,1),
+    nombre_estado varchar(30) NOT NULL  
+);
+
+select *from Diente
+
+create table Diente (
+    idDiente int primary key identity(1,1),
+    codigo varchar(10) NOT NULL,     
+    descripcion varchar(50)         
+);
+
+create table HistorialDental (
+    idHistorial int primary key identity(1,1),
+    id_Paciente int,
+    id_Diente int,
+    id_Estado int,
+    fecha date,
+    observaciones varchar(50),
+    foreign key  (id_Paciente) references Paciente(idPaciente),
+    foreign key (id_Diente) references Diente(idDiente),
+    foreign key (id_Estado) references EstadoDiente(idEstado)
+);
+
+delete HistorialDental
+
+select *from HistorialDental
+
+
+SELECT 
+    h.idHistorial,
+    e.nombrePa + ' ' + e.apellidoPa AS Paciente,
+    d.codigo AS CodigoDiente,
+    d.descripcion AS NombreDiente,
+    es.nombre_estado AS Estado,
+    h.observaciones,
+    h.fecha
+FROM HistorialDental h
+INNER JOIN Paciente p ON h.id_Paciente = p.idPaciente
+inner join Expediente e on e.idExpediente = p.id_Expediente
+INNER JOIN Diente d ON h.id_Diente = d.idDiente
+INNER JOIN EstadoDiente es ON h.id_Estado = es.idEstado
+WHERE h.id_Paciente = @idPaciente
+  AND CONVERT(date, h.fecha) = @fecha
+ORDER BY d.codigo;
+go
+
+create Proc FechaHistorial
+(
+@idPaciente int
+)
+as
+begin 
+SELECT DISTINCT CONVERT(date, h.fecha) AS Fecha
+FROM HistorialDental h
+WHERE h.id_Paciente = @idPaciente
+ORDER BY Fecha DESC
+end;
+go
+
+execute FechaHistorial 2
+
+create view Historial as
+select codigo as Numero, descripcion as Diente from HistorialDental H
+right join
+Diente D on D.idDiente=H.id_Diente
+
+select codigo as Numero, descripcion as Diente from Diente
+
+select *from Historial
+INSERT INTO Diente (codigo, descripcion) VALUES
+
+('11', 'Incisivo central superior derecho'),
+('12', 'Incisivo lateral superior derecho'),
+('13', 'Canino superior derecho'),
+('14', 'Primer premolar superior derecho'),
+('15', 'Segundo premolar superior derecho'),
+('16', 'Primer molar superior derecho'),
+('17', 'Segundo molar superior derecho'),
+('18', 'Tercer molar superior derecho'),
+
+('21', 'Incisivo central superior izquierdo'),
+('22', 'Incisivo lateral superior izquierdo'),
+('23', 'Canino superior izquierdo'),
+('24', 'Primer premolar superior izquierdo'),
+('25', 'Segundo premolar superior izquierdo'),
+('26', 'Primer molar superior izquierdo'),
+('27', 'Segundo molar superior izquierdo'),
+('28', 'Tercer molar superior izquierdo'),
+
+('31', 'Incisivo central inferior izquierdo'),
+('32', 'Incisivo lateral inferior izquierdo'),
+('33', 'Canino inferior izquierdo'),
+('34', 'Primer premolar inferior izquierdo'),
+('35', 'Segundo premolar inferior izquierdo'),
+('36', 'Primer molar inferior izquierdo'),
+('37', 'Segundo molar inferior izquierdo'),
+('38', 'Tercer molar inferior izquierdo'),
+
+('41', 'Incisivo central inferior derecho'),
+('42', 'Incisivo lateral inferior derecho'),
+('43', 'Canino inferior derecho'),
+('44', 'Primer premolar inferior derecho'),
+('45', 'Segundo premolar inferior derecho'),
+('46', 'Primer molar inferior derecho'),
+('47', 'Segundo molar inferior derecho'),
+('48', 'Tercer molar inferior derecho');
+
+INSERT INTO EstadoDiente (nombre_estado) VALUES
+('Limpio'),
+('Caries'),
+('Restaurado'),
+('Ausente'),
+('Endodoncia'),
+('Fracturado'),
+('Obturado'),
+('Corona'),
+('Prótesis'),
+('Manchado');
 
 insert into Rol values ('Dentista'),
 ('Asistente'),
@@ -205,10 +318,8 @@ select *from Enfermedades
 select *from Alergias
 go
 
-
-
 create view VerExpediente as
-select idExpediente as ID, nombrePa as [Nombre del Paciente], apellidoPa as [Apellido del paciente], fechaNacimiento as [Fecha de nacimiento], telefonoPa as Telefono, direccionPa as [Direccion] ,correoPa as [Correo del paciente], dui as DUI ,nombreEnfer as Enfermedades, nombreAl as Alergias
+select idExpediente as Expediente, nombrePa as [Nombre del Paciente], apellidoPa as [Apellido del paciente], fechaNacimiento as [Fecha de nacimiento], telefonoPa as Telefono, direccionPa as [Direccion] ,correoPa as [Correo del paciente], dui as DUI ,nombreEnfer as Enfermedades, nombreAl as Alergias
 from Expediente E
 left join
 Alergias C on C.idAlergias=E.id_Alergias
@@ -217,7 +328,7 @@ Enfermedades F on F.idEnfermedades=E.id_Enfermedades
 go
 
 create view DatosCita as
-select idCita as ID, nombrePa as [Nombre del paciente], apellidoPa as [Apellido del paciente], razonCita as [Razón de la cita],correoPa as [Correo del paciente] ,fechaHoraCita as [Fecha y hora]
+select idCita as Cita,idPaciente as Paciente, nombrePa as [Nombre del paciente], apellidoPa as [Apellido del paciente], razonCita as [Razón de la cita],correoPa as [Correo del paciente] ,fechaHoraCita as [Fecha y hora]
 from Cita C
 left join
 Paciente P on P.idPaciente=C.id_Paciente
@@ -225,8 +336,10 @@ left Join
 Expediente E on E.idExpediente=P.id_Expediente
 go
 
+select *from DatosCita
+
 create view CrearUsuario as
-SELECT idUsuario as ID, nombreUsu as Nombre, apellidoUsu as Apellido, fechaNaciUsu as [Fecha de nacimiento], 
+SELECT idUsuario as Usuario, nombreUsu as Nombre, apellidoUsu as Apellido, fechaNaciUsu as [Fecha de nacimiento], 
        duiUsu as DUI, telefonoUsu as Telefono, correoUsu as Correo, nombreRol AS Rol, nombreEspecialidad AS Especialidad, contrasena FROM Usuario 
 LEFT JOIN 
 Rol ON Rol.idRol = Usuario.id_Rol 

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Vistas.Formularios
 {
-    public partial class frmDashboardAsistente : Form
+    public partial class frmDashboardTrabajador : Form
     {
-        public frmDashboardAsistente()
+        public frmDashboardTrabajador()
         {
             InitializeComponent();
         }
@@ -43,7 +43,7 @@ namespace Vistas.Formularios
 
         #endregion
 
-        public frmDashboardAsistente(frmLogin formpadre)
+        public frmDashboardTrabajador(frmLogin formpadre)
         {
             InitializeComponent();
             frmLogin1 = formpadre;
@@ -66,6 +66,16 @@ namespace Vistas.Formularios
             frmLogin ventana = new frmLogin();
             this.Hide();
             ventana.Show();
+        }
+
+        private void btnDental_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmHistorialDental());
+        }
+
+        private void btnVerExpedientes_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmVerExpedientes());
         }
     }
 }

@@ -68,23 +68,23 @@
     <Compile Include="Formularios\frmDashboardAdministrador.Designer.cs">
       <DependentUpon>frmDashboardAdministrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmDashboardAsistente.cs">
+    <Compile Include="Formularios\frmDashboardTrabajador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmDashboardAsistente.Designer.cs">
-      <DependentUpon>frmDashboardAsistente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\frmDashboardDoctor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frmDashboardDoctor.Designer.cs">
-      <DependentUpon>frmDashboardDoctor.cs</DependentUpon>
+    <Compile Include="Formularios\frmDashboardTrabajador.Designer.cs">
+      <DependentUpon>frmDashboardTrabajador.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmGestionVenta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frmGestionVenta.Designer.cs">
       <DependentUpon>frmGestionVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmHistorialDental.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmHistorialDental.Designer.cs">
+      <DependentUpon>frmHistorialDental.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmLogin.cs">
       <SubType>Form</SubType>
@@ -110,19 +110,25 @@
     <Compile Include="Formularios\frmGestionTrabajadores.Designer.cs">
       <DependentUpon>frmGestionTrabajadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmVerExpedientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmVerExpedientes.Designer.cs">
+      <DependentUpon>frmVerExpedientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formularios\frmDashboardAdministrador.resx">
       <DependentUpon>frmDashboardAdministrador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmDashboardAsistente.resx">
-      <DependentUpon>frmDashboardAsistente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmDashboardDoctor.resx">
-      <DependentUpon>frmDashboardDoctor.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\frmDashboardTrabajador.resx">
+      <DependentUpon>frmDashboardTrabajador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmGestionVenta.resx">
       <DependentUpon>frmGestionVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmHistorialDental.resx">
+      <DependentUpon>frmHistorialDental.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmGestionTrabajadores.resx">
       <DependentUpon>frmGestionTrabajadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmVerExpedientes.resx">
+      <DependentUpon>frmVerExpedientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -61,9 +61,12 @@
     <Compile Include="Conexion\Conexion.cs" />
     <Compile Include="Entidades\Alergias.cs" />
     <Compile Include="Entidades\Cita.cs" />
+    <Compile Include="Entidades\Diente.cs" />
     <Compile Include="Entidades\Enfermedades.cs" />
     <Compile Include="Entidades\Especialidad.cs" />
+    <Compile Include="Entidades\EstadoDiente.cs" />
     <Compile Include="Entidades\Expediente.cs" />
+    <Compile Include="Entidades\Historial.cs" />
     <Compile Include="Entidades\Paciente.cs" />
     <Compile Include="Entidades\Rol.cs" />
     <Compile Include="Entidades\Venta.cs" />

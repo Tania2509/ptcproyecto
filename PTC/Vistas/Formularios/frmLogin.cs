@@ -46,10 +46,10 @@ namespace Vistas.Formularios
                         dashboard = new frmDashboardAdministrador();
                         break;
                     case "Asistente":
-                        dashboard = new frmDashboardAsistente();
+                        dashboard = new frmDashboardTrabajador();
                         break;
                     case "Dentista":
-                        dashboard = new frmDashboardDoctor();
+                        dashboard = new frmDashboardTrabajador();
                         break;
                     default:
                         MessageBox.Show("Rol no reconocido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

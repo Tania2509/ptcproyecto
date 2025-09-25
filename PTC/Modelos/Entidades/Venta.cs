@@ -26,7 +26,7 @@ namespace Modelos.Entidades
         public static DataTable CargarProductos()
         {
             SqlConnection con = Conexion.Conexion.conectar();
-            string comando = "select idVenta as ID, nombreVen as [Nombre del Producto], precio as Precio, cantidad as [Cantidad Vendida] from Venta";
+            string comando = "select idVenta as Venta, nombreVen as [Nombre del Producto], precio as Precio, cantidad as [Cantidad Vendida] from Venta";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);

@@ -89,7 +89,15 @@ namespace Vistas.Formularios
                 MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            Modelos.Entidades.Cita C = new Cita();
+            else if (!ValidarFechaCita(dtpFechaHora.Value))
+            {
+                MessageBox.Show("La cita debe ser para una fecha futura (a partir de mañana)",
+                               "Fecha inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpFechaHora.Focus();
+                return; // ← Se detiene aquí, no ingresa datos
+            }
+
+        Modelos.Entidades.Cita C = new Cita();
 
             C.Id_Paciente = Convert.ToInt32(cbNombre.SelectedValue);
             C.RazonCita = txtRazonCita.Text;
@@ -97,9 +105,17 @@ namespace Vistas.Formularios
             C.InsertarCitas();
             MostrarCitas();
             LimpiarCampos();
+            MessageBox.Show("Cita agendada correctamente");
         }
 
-       
+
+        private bool ValidarFechaCita(DateTime fechaCita)
+        {
+            DateTime fechaMinima = DateTime.Today.AddDays(1); // Mañana en adelante
+            return fechaCita >= fechaMinima;
+        }
+
+
 
         public void MostrarCitas()
         {

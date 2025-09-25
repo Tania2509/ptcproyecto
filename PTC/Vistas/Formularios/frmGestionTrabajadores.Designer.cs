@@ -269,7 +269,7 @@
             // 
             this.txtDui.Location = new System.Drawing.Point(248, 224);
             this.txtDui.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDui.MaxLength = 20;
+            this.txtDui.MaxLength = 10;
             this.txtDui.Name = "txtDui";
             this.txtDui.ShortcutsEnabled = false;
             this.txtDui.Size = new System.Drawing.Size(250, 30);
@@ -280,7 +280,7 @@
             // 
             this.txtTelefono.Location = new System.Drawing.Point(248, 156);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTelefono.MaxLength = 25;
+            this.txtTelefono.MaxLength = 8;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.ShortcutsEnabled = false;
             this.txtTelefono.Size = new System.Drawing.Size(250, 30);

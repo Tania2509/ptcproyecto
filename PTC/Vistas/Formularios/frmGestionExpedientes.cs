@@ -52,9 +52,11 @@ namespace Vistas.Formularios
                 return;
             }
 
+            else if (!ValidarEdad(dtpFechaNaciPa.Value))
+                return; 
+
             else
             {
-
                 Modelos.Entidades.Expediente E = new Expediente();
 
                 E.NombrePa = txtNombre.Text;
@@ -70,7 +72,37 @@ namespace Vistas.Formularios
 
                 MostrarExpedientes();
                 LimpiarCampos();
+                MessageBox.Show("Datos ingresados correctamente");
             }
+        }
+
+       private bool ValidarEdad(DateTime fechaNacimiento)
+        {
+            DateTime fechaActual = DateTime.Today;
+            int edad = fechaActual.Year - fechaNacimiento.Year;
+
+            // Ajustar si aún no ha cumplido años este año
+            if (fechaNacimiento.Date > fechaActual.AddYears(-edad))
+                edad--;
+
+            // Validar rango de edad (1 a 80 años)
+            if (edad < 1)
+            {
+                MessageBox.Show("La edad mínima debe ser 1 año", "Error",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpFechaNaciPa.Focus();
+                return false;
+            }
+
+            if (edad > 90)
+            {
+                MessageBox.Show("La edad máxima no puede superar los 90 años", "Error",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpFechaNaciPa.Focus();
+                return false;
+            }
+
+            return true;
         }
 
         public void MostrarExpedientes()
