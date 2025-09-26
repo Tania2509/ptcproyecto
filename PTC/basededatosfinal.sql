@@ -4,11 +4,18 @@ go
 use ClinicaDental
 go
 
+create table Producto (
+idProducto int identity (1,1) primary key,
+
+);
+
+
 create table Venta (
 idVenta int identity (1,1) primary key,
+cantidad int
 nombreVen varchar(50),
 precio decimal (8,2),
-cantidad int
+
 );
 go          
 
@@ -123,11 +130,7 @@ create table HistorialDental (
     foreign key (id_Diente) references Diente(idDiente),
     foreign key (id_Estado) references EstadoDiente(idEstado)
 );
-
-delete HistorialDental
-
-select *from HistorialDental
-
+go
 
 SELECT 
     h.idHistorial,

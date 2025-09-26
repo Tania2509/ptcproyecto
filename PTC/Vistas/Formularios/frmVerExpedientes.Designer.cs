@@ -28,44 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvCitas = new System.Windows.Forms.DataGridView();
-            this.dgvDientes = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.dgvDientes = new System.Windows.Forms.DataGridView();
+            this.dgvCitas = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCitas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDientes)).BeginInit();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvFecha = new System.Windows.Forms.DataGridView();
+            this.tlpPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCitas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFecha)).BeginInit();
+            this.tlpPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dgvCitas
-            // 
-            this.dgvCitas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvCitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCitas.Location = new System.Drawing.Point(3, 3);
-            this.dgvCitas.Name = "dgvCitas";
-            this.dgvCitas.RowHeadersWidth = 51;
-            this.dgvCitas.RowTemplate.Height = 24;
-            this.dgvCitas.Size = new System.Drawing.Size(316, 153);
-            this.dgvCitas.TabIndex = 0;
-            // 
-            // dgvDientes
-            // 
-            this.dgvDientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvDientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDientes.Location = new System.Drawing.Point(325, 3);
-            this.dgvDientes.Name = "dgvDientes";
-            this.dgvDientes.RowHeadersWidth = 51;
-            this.dgvDientes.RowTemplate.Height = 24;
-            this.dgvDientes.Size = new System.Drawing.Size(317, 153);
-            this.dgvDientes.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -113,6 +91,32 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Numero del Paciente";
             // 
+            // dgvDientes
+            // 
+            this.dgvDientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDientes.Location = new System.Drawing.Point(325, 66);
+            this.dgvDientes.Name = "dgvDientes";
+            this.dgvDientes.RowHeadersWidth = 51;
+            this.dgvDientes.RowTemplate.Height = 24;
+            this.dgvDientes.Size = new System.Drawing.Size(317, 171);
+            this.dgvDientes.TabIndex = 2;
+            // 
+            // dgvCitas
+            // 
+            this.dgvCitas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvCitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCitas.Location = new System.Drawing.Point(3, 66);
+            this.dgvCitas.Name = "dgvCitas";
+            this.dgvCitas.RowHeadersWidth = 51;
+            this.dgvCitas.RowTemplate.Height = 24;
+            this.dgvCitas.Size = new System.Drawing.Size(316, 171);
+            this.dgvCitas.TabIndex = 0;
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -121,44 +125,91 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.dgvCitas, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dgvDientes, 1, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(89, 260);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(645, 159);
             this.tableLayoutPanel2.TabIndex = 21;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(414, 221);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(317, 42);
+            this.tableLayoutPanel3.TabIndex = 22;
+            // 
+            // dgvFecha
+            // 
+            this.dgvFecha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFecha.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFecha.Location = new System.Drawing.Point(325, 3);
+            this.dgvFecha.Name = "dgvFecha";
+            this.dgvFecha.RowHeadersWidth = 51;
+            this.dgvFecha.RowTemplate.Height = 24;
+            this.dgvFecha.Size = new System.Drawing.Size(317, 57);
+            this.dgvFecha.TabIndex = 3;
+            this.dgvFecha.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFecha_CellContentClick);
+            // 
+            // tlpPanel
+            // 
+            this.tlpPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlpPanel.ColumnCount = 2;
+            this.tlpPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpPanel.Controls.Add(this.dgvFecha, 1, 0);
+            this.tlpPanel.Controls.Add(this.dgvDientes, 1, 1);
+            this.tlpPanel.Controls.Add(this.dgvCitas, 0, 1);
+            this.tlpPanel.Location = new System.Drawing.Point(89, 179);
+            this.tlpPanel.Name = "tlpPanel";
+            this.tlpPanel.RowCount = 2;
+            this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.25F));
+            this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.75F));
+            this.tlpPanel.Size = new System.Drawing.Size(645, 240);
+            this.tlpPanel.TabIndex = 23;
             // 
             // frmVerExpedientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tlpPanel);
+            this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmVerExpedientes";
             this.Text = "frmVerExpedientes";
             this.Load += new System.EventHandler(this.frmVerExpedientes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCitas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDientes)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCitas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFecha)).EndInit();
+            this.tlpPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvCitas;
-        private System.Windows.Forms.DataGridView dgvDientes;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvDientes;
+        private System.Windows.Forms.DataGridView dgvCitas;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.DataGridView dgvFecha;
+        private System.Windows.Forms.TableLayoutPanel tlpPanel;
     }
 }

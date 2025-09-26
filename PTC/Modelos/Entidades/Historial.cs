@@ -25,9 +25,6 @@ namespace Modelos.Entidades
         public DateTime Fecha { get => fecha; set => fecha = value; }
         public string Observaciones { get => observaciones; set => observaciones = value; }
 
-        // Método para insertar varios registros
-
-
         public static bool InsertarHistorial(List<Historial> listaHistorial)
         {
             using (SqlConnection con = Conexion.Conexion.conectar())
@@ -64,6 +61,41 @@ namespace Modelos.Entidades
                                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
+            }
+        }
+
+        public static DataTable CargarFechas(int paciente)
+        {
+            using (SqlConnection con = Conexion.Conexion.conectar())
+            {
+                string query = "execute FechaHistorial @id";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.SelectCommand.Parameters.AddWithValue("@id", paciente);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+        }
+
+        public static DataTable CargarHistorialPorFecha(int idPaciente, DateTime fecha)
+        {
+            using (SqlConnection con = Conexion.Conexion.conectar())
+            {
+                string query = @"SELECT d.codigo AS CodigoDiente, d.descripcion AS NombreDiente, 
+                                e.nombre_estado AS Estado, h.observaciones
+                         FROM HistorialDental h
+                         INNER JOIN Diente d ON h.id_Diente = d.idDiente
+                         INNER JOIN EstadoDiente e ON h.id_Estado = e.idEstado
+                         WHERE h.id_Paciente = @idPaciente
+                           AND CONVERT(date, h.fecha) = @fecha
+                         ORDER BY d.codigo";
+
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.SelectCommand.Parameters.AddWithValue("@idPaciente", idPaciente);
+                da.SelectCommand.Parameters.AddWithValue("@fecha", fecha);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
             }
         }
 
