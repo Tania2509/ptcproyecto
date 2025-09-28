@@ -108,5 +108,59 @@ namespace Modelos.Entidades
             ad.Fill(dt);
             return dt;
         }
+
+        public static DataTable FiltrarPorFecha(string filtro)
+        {
+            SqlConnection con = Conexion.Conexion.conectar();
+            string comando = "SELECT * FROM DatosCita WHERE 1=1 ";
+
+            DateTime inicio = DateTime.MinValue;
+            DateTime fin = DateTime.MaxValue;
+
+            switch (filtro)
+            {
+                case "Hoy":
+                    inicio = DateTime.Today;
+                    fin = DateTime.Today.AddDays(1).AddTicks(-1);
+                    break;
+
+                case "Ayer":
+                    inicio = DateTime.Today.AddDays(-1);
+                    fin = DateTime.Today.AddTicks(-1);
+                    break;
+
+                case "Semana Actual":
+                    int diff = (int)DateTime.Today.DayOfWeek;
+                    inicio = DateTime.Today.AddDays(-diff + 1); // Lunes
+                    fin = inicio.AddDays(7).AddTicks(-1);
+                    break;
+
+                case "Semana Pasada":
+                    int diff2 = (int)DateTime.Today.DayOfWeek;
+                    inicio = DateTime.Today.AddDays(-diff2 - 6); // Lunes anterior
+                    fin = inicio.AddDays(7).AddTicks(-1);
+                    break;
+
+                case "Mes Actual":
+                    inicio = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+                    fin = inicio.AddMonths(1).AddTicks(-1);
+                    break;
+
+                case "Mes Pasado":
+                    inicio = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddMonths(-1);
+                    fin = inicio.AddMonths(1).AddTicks(-1);
+                    break;
+            }
+
+            comando += "AND fechaHoraCita BETWEEN @inicio AND @fin";
+
+            SqlDataAdapter ad = new SqlDataAdapter(comando, con);
+            ad.SelectCommand.Parameters.AddWithValue("@inicio", inicio);
+            ad.SelectCommand.Parameters.AddWithValue("@fin", fin);
+
+            DataTable dt = new DataTable();
+            ad.Fill(dt);
+            return dt;
+        }
     }
 }

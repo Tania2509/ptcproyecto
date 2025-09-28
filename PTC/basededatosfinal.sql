@@ -41,6 +41,7 @@ duiUsu varchar(20) unique,
 telefonoUsu varchar(25),
 correoUsu varchar(50),
 contrasena varchar(255),
+estadoVerificado BIT NOT NULL DEFAULT 0,
 id_Rol int,
 id_Especialidad int,
 id_Venta int,
@@ -49,7 +50,6 @@ foreign key (id_Especialidad) references Especialidad (idEspecialidad),
 foreign key (id_Venta) references Venta (idVenta)
 );
 go
-
 
 
 create table Enfermedades (
