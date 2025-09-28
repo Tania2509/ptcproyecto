@@ -9,7 +9,7 @@ namespace Modelos.Conexion
 {
     public class Conexion
     {
-        private static string servidor = "ODIE\\SQLEXPRESS01";
+        private static string servidor = "JASON-PC\\SQLEXPRESS";
         private static string database = "ClinicaDental";
 
         public static SqlConnection conectar()

@@ -33,10 +33,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnIniciarSesionJSMN = new Modelos.Botones.BotonesPSNLSD();
             this.pnlLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,10 +46,10 @@
             this.pnlLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.pnlLogin.BackColor = System.Drawing.Color.SkyBlue;
             this.pnlLogin.BackgroundImage = global::Vistas.Properties.Resources.Rectangle_49;
+            this.pnlLogin.Controls.Add(this.btnIniciarSesionJSMN);
             this.pnlLogin.Controls.Add(this.label4);
             this.pnlLogin.Controls.Add(this.label3);
             this.pnlLogin.Controls.Add(this.label2);
-            this.pnlLogin.Controls.Add(this.btnIniciarSesion);
             this.pnlLogin.Controls.Add(this.txtContraseña);
             this.pnlLogin.Controls.Add(this.txtCorreo);
             this.pnlLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -90,17 +90,6 @@
             this.label2.Size = new System.Drawing.Size(0, 29);
             this.label2.TabIndex = 5;
             // 
-            // btnIniciarSesion
-            // 
-            this.btnIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(157)))), ((int)(((byte)(97)))));
-            this.btnIniciarSesion.Location = new System.Drawing.Point(81, 377);
-            this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(470, 83);
-            this.btnIniciarSesion.TabIndex = 3;
-            this.btnIniciarSesion.Text = "Iniciar sesion";
-            this.btnIniciarSesion.UseVisualStyleBackColor = false;
-            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
-            // 
             // txtContraseña
             // 
             this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -130,6 +119,25 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnIniciarSesionJSMN
+            // 
+            this.btnIniciarSesionJSMN.BackColor = System.Drawing.Color.Lime;
+            this.btnIniciarSesionJSMN.BackgroundColor = System.Drawing.Color.Lime;
+            this.btnIniciarSesionJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnIniciarSesionJSMN.BorderRadius = 40;
+            this.btnIniciarSesionJSMN.BorderSize = 3;
+            this.btnIniciarSesionJSMN.FlatAppearance.BorderSize = 0;
+            this.btnIniciarSesionJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIniciarSesionJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnIniciarSesionJSMN.Location = new System.Drawing.Point(81, 364);
+            this.btnIniciarSesionJSMN.Name = "btnIniciarSesionJSMN";
+            this.btnIniciarSesionJSMN.Size = new System.Drawing.Size(470, 83);
+            this.btnIniciarSesionJSMN.TabIndex = 8;
+            this.btnIniciarSesionJSMN.Text = "Iniciar sesion";
+            this.btnIniciarSesionJSMN.TextColor = System.Drawing.Color.White;
+            this.btnIniciarSesionJSMN.UseVisualStyleBackColor = false;
+            this.btnIniciarSesionJSMN.Click += new System.EventHandler(this.btnIniciarSesionJSMN_Click);
             // 
             // frmLogin
             // 
@@ -162,9 +170,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Modelos.Botones.BotonesPSNLSD btnIniciarSesionJSMN;
     }
 }

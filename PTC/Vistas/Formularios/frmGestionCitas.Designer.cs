@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvVerCitas = new System.Windows.Forms.DataGridView();
-            this.btnAgregarCita = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.pnlDatos = new System.Windows.Forms.Panel();
             this.cbCorreo = new System.Windows.Forms.ComboBox();
             this.cbApellido = new System.Windows.Forms.ComboBox();
@@ -43,11 +41,13 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtRazonCita = new System.Windows.Forms.TextBox();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.tlpBotones = new System.Windows.Forms.TableLayoutPanel();
+            this.btnEliminarJSMN = new Modelos.Botones.BotonesPSNLSD();
+            this.btnAgregarCitaJSMN = new Modelos.Botones.BotonesPSNLSD();
+            this.btnActualizarJSMN = new Modelos.Botones.BotonesPSNLSD();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscarJSMN = new Modelos.Botones.BotonesPSNLSD();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerCitas)).BeginInit();
             this.pnlDatos.SuspendLayout();
             this.tlpBotones.SuspendLayout();
@@ -68,32 +68,6 @@
             this.dgvVerCitas.Size = new System.Drawing.Size(457, 244);
             this.dgvVerCitas.TabIndex = 0;
             this.dgvVerCitas.DoubleClick += new System.EventHandler(this.dgvVerCitas_DoubleClick);
-            // 
-            // btnAgregarCita
-            // 
-            this.btnAgregarCita.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAgregarCita.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAgregarCita.Location = new System.Drawing.Point(4, 8);
-            this.btnAgregarCita.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAgregarCita.Name = "btnAgregarCita";
-            this.btnAgregarCita.Size = new System.Drawing.Size(140, 70);
-            this.btnAgregarCita.TabIndex = 1;
-            this.btnAgregarCita.Text = "Agregar Cita";
-            this.btnAgregarCita.UseVisualStyleBackColor = false;
-            this.btnAgregarCita.Click += new System.EventHandler(this.btnAgregarCita_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEliminar.BackColor = System.Drawing.Color.Brown;
-            this.btnEliminar.Location = new System.Drawing.Point(302, 6);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(140, 74);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // pnlDatos
             // 
@@ -232,18 +206,6 @@
             this.txtRazonCita.TabIndex = 3;
             this.txtRazonCita.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRazonCita_KeyPress);
             // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnActualizar.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnActualizar.Location = new System.Drawing.Point(153, 8);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(140, 70);
-            this.btnActualizar.TabIndex = 5;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
             // tlpBotones
             // 
             this.tlpBotones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -252,9 +214,9 @@
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpBotones.Controls.Add(this.btnActualizar, 1, 0);
-            this.tlpBotones.Controls.Add(this.btnEliminar, 2, 0);
-            this.tlpBotones.Controls.Add(this.btnAgregarCita, 0, 0);
+            this.tlpBotones.Controls.Add(this.btnEliminarJSMN, 2, 0);
+            this.tlpBotones.Controls.Add(this.btnAgregarCitaJSMN, 0, 0);
+            this.tlpBotones.Controls.Add(this.btnActualizarJSMN, 1, 0);
             this.tlpBotones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.tlpBotones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tlpBotones.Location = new System.Drawing.Point(464, 128);
@@ -264,31 +226,79 @@
             this.tlpBotones.Size = new System.Drawing.Size(447, 86);
             this.tlpBotones.TabIndex = 6;
             // 
+            // btnEliminarJSMN
+            // 
+            this.btnEliminarJSMN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEliminarJSMN.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEliminarJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnEliminarJSMN.BorderRadius = 40;
+            this.btnEliminarJSMN.BorderSize = 3;
+            this.btnEliminarJSMN.FlatAppearance.BorderSize = 0;
+            this.btnEliminarJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarJSMN.Location = new System.Drawing.Point(301, 3);
+            this.btnEliminarJSMN.Name = "btnEliminarJSMN";
+            this.btnEliminarJSMN.Size = new System.Drawing.Size(140, 74);
+            this.btnEliminarJSMN.TabIndex = 20;
+            this.btnEliminarJSMN.Text = "Eliminar";
+            this.btnEliminarJSMN.TextColor = System.Drawing.Color.White;
+            this.btnEliminarJSMN.UseVisualStyleBackColor = false;
+            this.btnEliminarJSMN.Click += new System.EventHandler(this.btnEliminarJSMN_Click_1);
+            // 
+            // btnAgregarCitaJSMN
+            // 
+            this.btnAgregarCitaJSMN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregarCitaJSMN.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregarCitaJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnAgregarCitaJSMN.BorderRadius = 40;
+            this.btnAgregarCitaJSMN.BorderSize = 3;
+            this.btnAgregarCitaJSMN.FlatAppearance.BorderSize = 0;
+            this.btnAgregarCitaJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCitaJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCitaJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarCitaJSMN.Location = new System.Drawing.Point(3, 3);
+            this.btnAgregarCitaJSMN.Name = "btnAgregarCitaJSMN";
+            this.btnAgregarCitaJSMN.Size = new System.Drawing.Size(140, 75);
+            this.btnAgregarCitaJSMN.TabIndex = 20;
+            this.btnAgregarCitaJSMN.Text = "Agregar Cita";
+            this.btnAgregarCitaJSMN.TextColor = System.Drawing.Color.White;
+            this.btnAgregarCitaJSMN.UseVisualStyleBackColor = false;
+            this.btnAgregarCitaJSMN.Click += new System.EventHandler(this.btnAgregarCitaJSMN_Click);
+            // 
+            // btnActualizarJSMN
+            // 
+            this.btnActualizarJSMN.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnActualizarJSMN.BackgroundColor = System.Drawing.Color.OrangeRed;
+            this.btnActualizarJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnActualizarJSMN.BorderRadius = 40;
+            this.btnActualizarJSMN.BorderSize = 3;
+            this.btnActualizarJSMN.FlatAppearance.BorderSize = 0;
+            this.btnActualizarJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizarJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnActualizarJSMN.Location = new System.Drawing.Point(152, 3);
+            this.btnActualizarJSMN.Name = "btnActualizarJSMN";
+            this.btnActualizarJSMN.Size = new System.Drawing.Size(140, 77);
+            this.btnActualizarJSMN.TabIndex = 20;
+            this.btnActualizarJSMN.Text = "Actualizar";
+            this.btnActualizarJSMN.TextColor = System.Drawing.Color.White;
+            this.btnActualizarJSMN.UseVisualStyleBackColor = false;
+            this.btnActualizarJSMN.Click += new System.EventHandler(this.btnActualizarJSMN_Click_1);
+            // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.53333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.46667F));
-            this.tableLayoutPanel1.Controls.Add(this.btnBuscar, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtBuscar, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnBuscarJSMN, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(496, 22);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(375, 100);
             this.tableLayoutPanel1.TabIndex = 19;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnBuscar.Image = global::Vistas.Properties.Resources.icons8_buscar_50;
-            this.btnBuscar.Location = new System.Drawing.Point(320, 26);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(44, 47);
-            this.btnBuscar.TabIndex = 17;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtBuscar
             // 
@@ -299,6 +309,27 @@
             this.txtBuscar.ShortcutsEnabled = false;
             this.txtBuscar.Size = new System.Drawing.Size(311, 30);
             this.txtBuscar.TabIndex = 16;
+            // 
+            // btnBuscarJSMN
+            // 
+            this.btnBuscarJSMN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscarJSMN.BackColor = System.Drawing.Color.White;
+            this.btnBuscarJSMN.BackgroundColor = System.Drawing.Color.White;
+            this.btnBuscarJSMN.BackgroundImage = global::Vistas.Properties.Resources.icons8_buscar_50;
+            this.btnBuscarJSMN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnBuscarJSMN.BorderColor = System.Drawing.Color.Black;
+            this.btnBuscarJSMN.BorderRadius = 30;
+            this.btnBuscarJSMN.BorderSize = 3;
+            this.btnBuscarJSMN.FlatAppearance.BorderSize = 0;
+            this.btnBuscarJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarJSMN.Location = new System.Drawing.Point(320, 21);
+            this.btnBuscarJSMN.Name = "btnBuscarJSMN";
+            this.btnBuscarJSMN.Size = new System.Drawing.Size(52, 57);
+            this.btnBuscarJSMN.TabIndex = 20;
+            this.btnBuscarJSMN.TextColor = System.Drawing.Color.White;
+            this.btnBuscarJSMN.UseVisualStyleBackColor = false;
+            this.btnBuscarJSMN.Click += new System.EventHandler(this.btnBuscarJSMN_Click);
             // 
             // frmGestionCitas
             // 
@@ -328,8 +359,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvVerCitas;
-        private System.Windows.Forms.Button btnAgregarCita;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Panel pnlDatos;
         private System.Windows.Forms.ComboBox cbCorreo;
         private System.Windows.Forms.ComboBox cbApellido;
@@ -342,10 +371,12 @@
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtRazonCita;
-        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.TableLayoutPanel tlpBotones;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
+        private Modelos.Botones.BotonesPSNLSD btnAgregarCitaJSMN;
+        private Modelos.Botones.BotonesPSNLSD btnActualizarJSMN;
+        private Modelos.Botones.BotonesPSNLSD btnEliminarJSMN;
+        private Modelos.Botones.BotonesPSNLSD btnBuscarJSMN;
     }
 }

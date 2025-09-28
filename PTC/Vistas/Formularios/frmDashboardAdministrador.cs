@@ -72,5 +72,15 @@ namespace Vistas.Formularios
             this.Hide();
             ventana.Show();
         }
+
+        private void botonesPSNLSD1_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmGestionTrabajadores());
+        }
+
+        private void btnInventario_ClickJSMN_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmGestionVenta());
+        }
     }
 }

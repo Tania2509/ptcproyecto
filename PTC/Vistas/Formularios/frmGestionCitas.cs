@@ -82,46 +82,10 @@ namespace Vistas.Formularios
         }
 
         private void btnAgregarCita_Click(object sender, EventArgs e)
-        {
-            // Validación de campos vacíos
-            if (cbNombre.SelectedIndex == -1 || cbCorreo.SelectedIndex == -1 || cbApellido.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtRazonCita.Text))
-            {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            else if (!ValidarFechaCita(dtpFechaHora.Value))
-            {
-                MessageBox.Show("La cita debe ser para una fecha futura (a partir de mañana)",
-                               "Fecha inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dtpFechaHora.Focus();
-                return; // ← Se detiene aquí, no ingresa datos
-            }
+        { 
 
-        Modelos.Entidades.Cita C = new Cita();
-
-            C.Id_Paciente = Convert.ToInt32(cbNombre.SelectedValue);
-            C.RazonCita = txtRazonCita.Text;
-            C.FechaHoraCita = dtpFechaHora.Value;
-            C.InsertarCitas();
-            MostrarCitas();
-            LimpiarCampos();
-            MessageBox.Show("Cita agendada correctamente");
         }
-
-
-        private bool ValidarFechaCita(DateTime fechaCita)
-        {
-            DateTime fechaMinima = DateTime.Today.AddDays(1); // Mañana en adelante
-            return fechaCita >= fechaMinima;
-        }
-
-
-
-        public void MostrarCitas()
-        {
-            dgvVerCitas.DataSource = null;
-            dgvVerCitas.DataSource = Cita.CargarCitas("select *From DatosCita");
-        }
+         
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -149,40 +113,12 @@ namespace Vistas.Formularios
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            if (cbNombre.SelectedIndex == -1 || cbCorreo.SelectedIndex == -1 || cbApellido.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtRazonCita.Text))
-            {
-                MessageBox.Show("No dejes campos vacios", "Campos obligatorios");
-                return;
-            }
 
-            Cita C = new Cita();
-            C.Id_Paciente = Convert.ToInt32(cbNombre.SelectedValue);
-            C.RazonCita = txtRazonCita.Text;
-            C.FechaHoraCita = dtpFechaHora.Value;
-            C.IdCita = Convert.ToInt32(dgvVerCitas.CurrentRow.Cells[0].Value);
-
-            if (C.ActualizarCita() == true)
-            {
-                MostrarCitas();
-                LimpiarCampos();
-            }
-            else
-            {
-                MessageBox.Show("Error al actualizar la venta.", "Error");
-            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                dgvVerCitas.DataSource = null;
-                dgvVerCitas.DataSource = Cita.Buscar(txtBuscar.Text.Trim());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
         }
 
         public void LimpiarCampos()
@@ -209,5 +145,110 @@ namespace Vistas.Formularios
         }
 
         #endregion
+
+        private void btnAgregarCitaJSMN_Click(object sender, EventArgs e)
+        {
+            // Validación de campos vacíos
+            if (cbNombre.SelectedIndex == -1 || cbCorreo.SelectedIndex == -1 || cbApellido.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtRazonCita.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (!ValidarFechaCita(dtpFechaHora.Value))
+            {
+                MessageBox.Show("La cita debe ser para una fecha futura (a partir de mañana)",
+                               "Fecha inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpFechaHora.Focus();
+                return; // ← Se detiene aquí, no ingresa datos
+            }
+
+            Modelos.Entidades.Cita C = new Cita();
+
+            C.Id_Paciente = Convert.ToInt32(cbNombre.SelectedValue);
+            C.RazonCita = txtRazonCita.Text;
+            C.FechaHoraCita = dtpFechaHora.Value;
+            C.InsertarCitas();
+            MostrarCitas();
+            LimpiarCampos();
+            MessageBox.Show("Cita agendada correctamente");
+        }
+
+
+        private bool ValidarFechaCita(DateTime fechaCita)
+        {
+            DateTime fechaMinima = DateTime.Today.AddDays(1); // Mañana en adelante
+            return fechaCita >= fechaMinima;
+        }
+
+
+
+        public void MostrarCitas()
+        {
+            dgvVerCitas.DataSource = null;
+            dgvVerCitas.DataSource = Cita.CargarCitas("select *From DatosCita");
+        }
+
+
+
+        private void btnActualizarJSMN_Click_1(object sender, EventArgs e)
+        {
+            if (cbNombre.SelectedIndex == -1 || cbCorreo.SelectedIndex == -1 || cbApellido.SelectedIndex == -1 || string.IsNullOrWhiteSpace(txtRazonCita.Text))
+            {
+                MessageBox.Show("No dejes campos vacios", "Campos obligatorios");
+                return;
+            }
+
+            Cita C = new Cita();
+            C.Id_Paciente = Convert.ToInt32(cbNombre.SelectedValue);
+            C.RazonCita = txtRazonCita.Text;
+            C.FechaHoraCita = dtpFechaHora.Value;
+            C.IdCita = Convert.ToInt32(dgvVerCitas.CurrentRow.Cells[0].Value);
+
+            if (C.ActualizarCita() == true)
+            {
+                MostrarCitas();
+                LimpiarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Error al actualizar la venta.", "Error");
+            }
+        }
+
+      
+
+        private void btnEliminarJSMN_Click_1(object sender, EventArgs e)
+        {
+            Cita cita = new Cita();
+            int id = int.Parse(dgvVerCitas.CurrentRow.Cells[0].Value.ToString());
+            if (cita.eliminarCita(id) == true)
+            {
+                MessageBox.Show("Registro eliminado correctamente", "Exito");
+                MostrarCitas();
+            }
+            else
+            {
+                MessageBox.Show("Se produjo un error", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void _Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarJSMN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvVerCitas.DataSource = null;
+                dgvVerCitas.DataSource = Usuario.Buscar(txtBuscar.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
     }
 }

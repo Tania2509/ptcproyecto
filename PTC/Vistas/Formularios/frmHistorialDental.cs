@@ -57,7 +57,8 @@ namespace Vistas.Formularios
         }
 
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+    
+        private void btnGuardarJSMN_Click(object sender, EventArgs e)
         {
             List<Historial> lista = new List<Historial>();
 
@@ -103,6 +104,5 @@ namespace Vistas.Formularios
                                 "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
     }
 }

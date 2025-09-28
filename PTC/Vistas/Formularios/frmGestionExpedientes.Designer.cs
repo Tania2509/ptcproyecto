@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvVerExpedientes = new System.Windows.Forms.DataGridView();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDui = new System.Windows.Forms.TextBox();
@@ -51,11 +49,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tlpBotones = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAgregarJSMN = new Modelos.Botones.BotonesPSNLSD();
+            this.btnActualizarJSMN = new Modelos.Botones.BotonesPSNLSD();
+            this.btnEliminarJSMN = new Modelos.Botones.BotonesPSNLSD();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerExpedientes)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -75,34 +75,6 @@
             this.dgvVerExpedientes.Size = new System.Drawing.Size(447, 289);
             this.dgvVerExpedientes.TabIndex = 0;
             this.dgvVerExpedientes.DoubleClick += new System.EventHandler(this.dgvVerExpedientes_DoubleClick);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAgregar.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAgregar.Location = new System.Drawing.Point(4, 6);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(140, 74);
-            this.btnAgregar.TabIndex = 1;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEliminar.BackColor = System.Drawing.Color.Brown;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminar.Location = new System.Drawing.Point(302, 6);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(140, 74);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // panel1
             // 
@@ -328,20 +300,6 @@
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnActualizar.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnActualizar.Location = new System.Drawing.Point(153, 8);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(140, 70);
-            this.btnActualizar.TabIndex = 6;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
             // btnBuscar
             // 
             this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -386,9 +344,9 @@
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpBotones.Controls.Add(this.btnAgregar, 0, 0);
-            this.tlpBotones.Controls.Add(this.btnEliminar, 2, 0);
-            this.tlpBotones.Controls.Add(this.btnActualizar, 1, 0);
+            this.tlpBotones.Controls.Add(this.btnEliminarJSMN, 2, 0);
+            this.tlpBotones.Controls.Add(this.btnActualizarJSMN, 1, 0);
+            this.tlpBotones.Controls.Add(this.btnAgregarJSMN, 0, 0);
             this.tlpBotones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.tlpBotones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tlpBotones.Location = new System.Drawing.Point(526, 150);
@@ -397,6 +355,69 @@
             this.tlpBotones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpBotones.Size = new System.Drawing.Size(447, 86);
             this.tlpBotones.TabIndex = 19;
+            // 
+            // btnAgregarJSMN
+            // 
+            this.btnAgregarJSMN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarJSMN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregarJSMN.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregarJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnAgregarJSMN.BorderRadius = 40;
+            this.btnAgregarJSMN.BorderSize = 3;
+            this.btnAgregarJSMN.FlatAppearance.BorderSize = 0;
+            this.btnAgregarJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarJSMN.Location = new System.Drawing.Point(3, 5);
+            this.btnAgregarJSMN.Name = "btnAgregarJSMN";
+            this.btnAgregarJSMN.Size = new System.Drawing.Size(143, 75);
+            this.btnAgregarJSMN.TabIndex = 21;
+            this.btnAgregarJSMN.Text = "Agregar ";
+            this.btnAgregarJSMN.TextColor = System.Drawing.Color.White;
+            this.btnAgregarJSMN.UseVisualStyleBackColor = false;
+            this.btnAgregarJSMN.Click += new System.EventHandler(this.btnAgregarJSMN_Click_1);
+            // 
+            // btnActualizarJSMN
+            // 
+            this.btnActualizarJSMN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizarJSMN.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnActualizarJSMN.BackgroundColor = System.Drawing.Color.OrangeRed;
+            this.btnActualizarJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnActualizarJSMN.BorderRadius = 40;
+            this.btnActualizarJSMN.BorderSize = 3;
+            this.btnActualizarJSMN.FlatAppearance.BorderSize = 0;
+            this.btnActualizarJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizarJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnActualizarJSMN.Location = new System.Drawing.Point(152, 4);
+            this.btnActualizarJSMN.Name = "btnActualizarJSMN";
+            this.btnActualizarJSMN.Size = new System.Drawing.Size(143, 77);
+            this.btnActualizarJSMN.TabIndex = 21;
+            this.btnActualizarJSMN.Text = "Actualizar";
+            this.btnActualizarJSMN.TextColor = System.Drawing.Color.White;
+            this.btnActualizarJSMN.UseVisualStyleBackColor = false;
+            this.btnActualizarJSMN.Click += new System.EventHandler(this.btnActualizarJSMN_Click);
+            // 
+            // btnEliminarJSMN
+            // 
+            this.btnEliminarJSMN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarJSMN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEliminarJSMN.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEliminarJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnEliminarJSMN.BorderRadius = 40;
+            this.btnEliminarJSMN.BorderSize = 3;
+            this.btnEliminarJSMN.FlatAppearance.BorderSize = 0;
+            this.btnEliminarJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarJSMN.Location = new System.Drawing.Point(301, 4);
+            this.btnEliminarJSMN.Name = "btnEliminarJSMN";
+            this.btnEliminarJSMN.Size = new System.Drawing.Size(143, 77);
+            this.btnEliminarJSMN.TabIndex = 21;
+            this.btnEliminarJSMN.Text = "Eliminar";
+            this.btnEliminarJSMN.TextColor = System.Drawing.Color.White;
+            this.btnEliminarJSMN.UseVisualStyleBackColor = false;
+            this.btnEliminarJSMN.Click += new System.EventHandler(this.btnEliminarJSMN_Click);
             // 
             // frmGestionExpedientes
             // 
@@ -424,8 +445,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvVerExpedientes;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtDui;
@@ -446,10 +465,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tlpBotones;
+        private Modelos.Botones.BotonesPSNLSD btnAgregarJSMN;
+        private Modelos.Botones.BotonesPSNLSD btnActualizarJSMN;
+        private Modelos.Botones.BotonesPSNLSD btnEliminarJSMN;
     }
 }

@@ -77,5 +77,25 @@ namespace Vistas.Formularios
         {
             AbrirForm(new frmVerExpedientes());
         }
+
+        private void btnExpedientesJSMN_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmGestionExpedientes());
+        }
+
+        private void btnCitasJSMN_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmGestionCitas());
+        }
+
+        private void btnDentalJSMN_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmHistorialDental());
+        }
+
+        private void btnVerExpedientesJSMN_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmVerExpedientes());
+        }
     }
 }

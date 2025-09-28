@@ -23,46 +23,7 @@ namespace Vistas.Formularios
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            if (!(string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrEmpty(txtContraseña.Text)))
-            {
-                string correo = txtCorreo.Text;
-                string contraseña = txtContraseña.Text;
-
-                var (autenticado, rol) = AutenticarYObtenerRol(correo, contraseña);
-
-                if (!autenticado)
-                {
-                    MessageBox.Show("Usuario o contraseña incorrectos.", "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                MessageBox.Show("Inicio de sesión exitoso");
-
-                // Redirigir según el rol
-                Form dashboard = null;
-                switch (rol)
-                {
-                    case "Administrador":
-                        dashboard = new frmDashboardAdministrador();
-                        break;
-                    case "Asistente":
-                        dashboard = new frmDashboardTrabajador();
-                        break;
-                    case "Dentista":
-                        dashboard = new frmDashboardTrabajador();
-                        break;
-                    default:
-                        MessageBox.Show("Rol no reconocido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                }
-
-                dashboard.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Por favor llena los campos requeridos");
-            }
+            
         }
 
         #region Login
@@ -105,6 +66,49 @@ namespace Vistas.Formularios
 
         #endregion
 
+        private void btnIniciarSesionJSMN_Click(object sender, EventArgs e)
+        {
+            if (!(string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrEmpty(txtContraseña.Text)))
+            {
+                string correo = txtCorreo.Text;
+                string contraseña = txtContraseña.Text;
+
+                var (autenticado, rol) = AutenticarYObtenerRol(correo, contraseña);
+
+                if (!autenticado)
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos.", "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                MessageBox.Show("Inicio de sesión exitoso");
+
+                // Redirigir según el rol
+                Form dashboard = null;
+                switch (rol)
+                {
+                    case "Administrador":
+                        dashboard = new frmDashboardAdministrador();
+                        break;
+                    case "Asistente":
+                        dashboard = new frmDashboardTrabajador();
+                        break;
+                    case "Dentista":
+                        dashboard = new frmDashboardTrabajador();
+                        break;
+                    default:
+                        MessageBox.Show("Rol no reconocido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                }
+
+                dashboard.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Por favor llena los campos requeridos");
+            }
+        }
     }
 
 }

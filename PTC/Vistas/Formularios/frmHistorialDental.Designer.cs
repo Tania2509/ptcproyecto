@@ -33,7 +33,7 @@
             this.lblPaciente = new System.Windows.Forms.Label();
             this.txtPaciente = new System.Windows.Forms.TextBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnGuardarJSMN = new Modelos.Botones.BotonesPSNLSD();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,23 +82,32 @@
             this.dtpFecha.Size = new System.Drawing.Size(200, 22);
             this.dtpFecha.TabIndex = 6;
             // 
-            // btnGuardar
+            // btnGuardarJSMN
             // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.Location = new System.Drawing.Point(592, 370);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(170, 54);
-            this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "button1";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardarJSMN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnGuardarJSMN.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnGuardarJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnGuardarJSMN.BorderRadius = 21;
+            this.btnGuardarJSMN.BorderSize = 5;
+            this.btnGuardarJSMN.FlatAppearance.BorderSize = 0;
+            this.btnGuardarJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarJSMN.Location = new System.Drawing.Point(594, 335);
+            this.btnGuardarJSMN.Name = "btnGuardarJSMN";
+            this.btnGuardarJSMN.Size = new System.Drawing.Size(185, 63);
+            this.btnGuardarJSMN.TabIndex = 8;
+            this.btnGuardarJSMN.Text = "Trabajador";
+            this.btnGuardarJSMN.TextColor = System.Drawing.Color.White;
+            this.btnGuardarJSMN.UseVisualStyleBackColor = false;
+            this.btnGuardarJSMN.Click += new System.EventHandler(this.btnGuardarJSMN_Click);
             // 
             // frmHistorialDental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 593);
-            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnGuardarJSMN);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.txtPaciente);
             this.Controls.Add(this.lblPaciente);
@@ -120,6 +129,6 @@
         private System.Windows.Forms.Label lblPaciente;
         private System.Windows.Forms.TextBox txtPaciente;
         private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.Button btnGuardar;
+        private Modelos.Botones.BotonesPSNLSD btnGuardarJSMN;
     }
 }

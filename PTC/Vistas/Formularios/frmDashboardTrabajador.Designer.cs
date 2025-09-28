@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboardTrabajador));
             this.pnlCentralAsis = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnVerExpedientes = new System.Windows.Forms.Button();
-            this.btnDental = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnCitas = new System.Windows.Forms.Button();
-            this.btnExpedientes = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnExpedientesJSMN = new Modelos.Botones.BotonesPSNLSD();
+            this.btnCitasJSMN = new Modelos.Botones.BotonesPSNLSD();
+            this.btnDentalJSMN = new Modelos.Botones.BotonesPSNLSD();
+            this.btnVerExpedientesJSMN = new Modelos.Botones.BotonesPSNLSD();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,11 +55,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel1.Controls.Add(this.btnVerExpedientes);
-            this.panel1.Controls.Add(this.btnDental);
+            this.panel1.Controls.Add(this.btnVerExpedientesJSMN);
             this.panel1.Controls.Add(this.btnCerrar);
-            this.panel1.Controls.Add(this.btnCitas);
-            this.panel1.Controls.Add(this.btnExpedientes);
+            this.panel1.Controls.Add(this.btnDentalJSMN);
+            this.panel1.Controls.Add(this.btnCitasJSMN);
+            this.panel1.Controls.Add(this.btnExpedientesJSMN);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -67,36 +67,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(318, 862);
             this.panel1.TabIndex = 1;
-            // 
-            // btnVerExpedientes
-            // 
-            this.btnVerExpedientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnVerExpedientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVerExpedientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerExpedientes.ForeColor = System.Drawing.Color.White;
-            this.btnVerExpedientes.Location = new System.Drawing.Point(0, 463);
-            this.btnVerExpedientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnVerExpedientes.Name = "btnVerExpedientes";
-            this.btnVerExpedientes.Size = new System.Drawing.Size(318, 63);
-            this.btnVerExpedientes.TabIndex = 8;
-            this.btnVerExpedientes.Text = "Ver Expedientes";
-            this.btnVerExpedientes.UseVisualStyleBackColor = false;
-            this.btnVerExpedientes.Click += new System.EventHandler(this.btnVerExpedientes_Click);
-            // 
-            // btnDental
-            // 
-            this.btnDental.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnDental.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDental.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDental.ForeColor = System.Drawing.Color.White;
-            this.btnDental.Location = new System.Drawing.Point(0, 400);
-            this.btnDental.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDental.Name = "btnDental";
-            this.btnDental.Size = new System.Drawing.Size(318, 63);
-            this.btnDental.TabIndex = 7;
-            this.btnDental.Text = "Historial Dental";
-            this.btnDental.UseVisualStyleBackColor = false;
-            this.btnDental.Click += new System.EventHandler(this.btnDental_Click);
             // 
             // btnCerrar
             // 
@@ -114,36 +84,6 @@
             this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // btnCitas
-            // 
-            this.btnCitas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnCitas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCitas.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCitas.ForeColor = System.Drawing.Color.White;
-            this.btnCitas.Location = new System.Drawing.Point(0, 337);
-            this.btnCitas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCitas.Name = "btnCitas";
-            this.btnCitas.Size = new System.Drawing.Size(318, 63);
-            this.btnCitas.TabIndex = 2;
-            this.btnCitas.Text = "Citas";
-            this.btnCitas.UseVisualStyleBackColor = false;
-            this.btnCitas.Click += new System.EventHandler(this.btnCitas_Click);
-            // 
-            // btnExpedientes
-            // 
-            this.btnExpedientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnExpedientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnExpedientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExpedientes.ForeColor = System.Drawing.Color.White;
-            this.btnExpedientes.Location = new System.Drawing.Point(0, 274);
-            this.btnExpedientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnExpedientes.Name = "btnExpedientes";
-            this.btnExpedientes.Size = new System.Drawing.Size(318, 63);
-            this.btnExpedientes.TabIndex = 4;
-            this.btnExpedientes.Text = "Expedientes";
-            this.btnExpedientes.UseVisualStyleBackColor = false;
-            this.btnExpedientes.Click += new System.EventHandler(this.btnExpedientes_Click);
             // 
             // panel2
             // 
@@ -167,6 +107,90 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnExpedientesJSMN
+            // 
+            this.btnExpedientesJSMN.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnExpedientesJSMN.BackgroundColor = System.Drawing.Color.CornflowerBlue;
+            this.btnExpedientesJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnExpedientesJSMN.BorderRadius = 40;
+            this.btnExpedientesJSMN.BorderSize = 5;
+            this.btnExpedientesJSMN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnExpedientesJSMN.FlatAppearance.BorderSize = 0;
+            this.btnExpedientesJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExpedientesJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExpedientesJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnExpedientesJSMN.Location = new System.Drawing.Point(0, 274);
+            this.btnExpedientesJSMN.Name = "btnExpedientesJSMN";
+            this.btnExpedientesJSMN.Size = new System.Drawing.Size(318, 71);
+            this.btnExpedientesJSMN.TabIndex = 0;
+            this.btnExpedientesJSMN.Text = "Expedientes";
+            this.btnExpedientesJSMN.TextColor = System.Drawing.Color.White;
+            this.btnExpedientesJSMN.UseVisualStyleBackColor = false;
+            this.btnExpedientesJSMN.Click += new System.EventHandler(this.btnExpedientesJSMN_Click);
+            // 
+            // btnCitasJSMN
+            // 
+            this.btnCitasJSMN.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnCitasJSMN.BackgroundColor = System.Drawing.Color.CornflowerBlue;
+            this.btnCitasJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnCitasJSMN.BorderRadius = 40;
+            this.btnCitasJSMN.BorderSize = 5;
+            this.btnCitasJSMN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCitasJSMN.FlatAppearance.BorderSize = 0;
+            this.btnCitasJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCitasJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCitasJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnCitasJSMN.Location = new System.Drawing.Point(0, 345);
+            this.btnCitasJSMN.Name = "btnCitasJSMN";
+            this.btnCitasJSMN.Size = new System.Drawing.Size(318, 71);
+            this.btnCitasJSMN.TabIndex = 1;
+            this.btnCitasJSMN.Text = "Citas";
+            this.btnCitasJSMN.TextColor = System.Drawing.Color.White;
+            this.btnCitasJSMN.UseVisualStyleBackColor = false;
+            this.btnCitasJSMN.Click += new System.EventHandler(this.btnCitasJSMN_Click);
+            // 
+            // btnDentalJSMN
+            // 
+            this.btnDentalJSMN.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnDentalJSMN.BackgroundColor = System.Drawing.Color.CornflowerBlue;
+            this.btnDentalJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnDentalJSMN.BorderRadius = 40;
+            this.btnDentalJSMN.BorderSize = 5;
+            this.btnDentalJSMN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDentalJSMN.FlatAppearance.BorderSize = 0;
+            this.btnDentalJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDentalJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDentalJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnDentalJSMN.Location = new System.Drawing.Point(0, 416);
+            this.btnDentalJSMN.Name = "btnDentalJSMN";
+            this.btnDentalJSMN.Size = new System.Drawing.Size(318, 71);
+            this.btnDentalJSMN.TabIndex = 2;
+            this.btnDentalJSMN.Text = "Historial Dental";
+            this.btnDentalJSMN.TextColor = System.Drawing.Color.White;
+            this.btnDentalJSMN.UseVisualStyleBackColor = false;
+            this.btnDentalJSMN.Click += new System.EventHandler(this.btnDentalJSMN_Click);
+            // 
+            // btnVerExpedientesJSMN
+            // 
+            this.btnVerExpedientesJSMN.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVerExpedientesJSMN.BackgroundColor = System.Drawing.Color.CornflowerBlue;
+            this.btnVerExpedientesJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnVerExpedientesJSMN.BorderRadius = 40;
+            this.btnVerExpedientesJSMN.BorderSize = 5;
+            this.btnVerExpedientesJSMN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnVerExpedientesJSMN.FlatAppearance.BorderSize = 0;
+            this.btnVerExpedientesJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerExpedientesJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerExpedientesJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnVerExpedientesJSMN.Location = new System.Drawing.Point(0, 487);
+            this.btnVerExpedientesJSMN.Name = "btnVerExpedientesJSMN";
+            this.btnVerExpedientesJSMN.Size = new System.Drawing.Size(318, 71);
+            this.btnVerExpedientesJSMN.TabIndex = 3;
+            this.btnVerExpedientesJSMN.Text = "Ver Expedientes";
+            this.btnVerExpedientesJSMN.TextColor = System.Drawing.Color.White;
+            this.btnVerExpedientesJSMN.UseVisualStyleBackColor = false;
+            this.btnVerExpedientesJSMN.Click += new System.EventHandler(this.btnVerExpedientesJSMN_Click);
             // 
             // frmDashboardTrabajador
             // 
@@ -193,13 +217,13 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnCitas;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnExpedientes;
         private System.Windows.Forms.Panel pnlCentralAsis;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Button btnDental;
-        private System.Windows.Forms.Button btnVerExpedientes;
+        private Modelos.Botones.BotonesPSNLSD btnVerExpedientesJSMN;
+        private Modelos.Botones.BotonesPSNLSD btnDentalJSMN;
+        private Modelos.Botones.BotonesPSNLSD btnCitasJSMN;
+        private Modelos.Botones.BotonesPSNLSD btnExpedientesJSMN;
     }
 }

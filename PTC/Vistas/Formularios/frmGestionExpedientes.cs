@@ -39,79 +39,10 @@ namespace Vistas.Formularios
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            // Validación de campos vacíos
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtNumTelefono.Text) ||
-                string.IsNullOrWhiteSpace(txtDui.Text) ||
-                string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) ||
-                string.IsNullOrWhiteSpace(txtDireccion.Text))
-            {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+        { 
 
-            else if (!ValidarEdad(dtpFechaNaciPa.Value))
-                return; 
-
-            else
-            {
-                Modelos.Entidades.Expediente E = new Expediente();
-
-                E.NombrePa = txtNombre.Text;
-                E.ApellidoPa = txtApellido.Text;
-                E.TelefonoPa = txtNumTelefono.Text;
-                E.Dui = txtDui.Text;
-                E.CorreoPa = txtCorreoElectronico.Text;
-                E.DireccionPa = txtDireccion.Text;
-                E.FechaNacimiento = dtpFechaNaciPa.Value;
-                E.Id_Alergias = Convert.ToInt32(cbAlergias.SelectedValue);
-                E.Id_Enfermedades = Convert.ToInt32(cbEnfermedades.SelectedValue);
-                E.InsertarExpediente();
-
-                MostrarExpedientes();
-                LimpiarCampos();
-                MessageBox.Show("Datos ingresados correctamente");
-            }
         }
-
-       private bool ValidarEdad(DateTime fechaNacimiento)
-        {
-            DateTime fechaActual = DateTime.Today;
-            int edad = fechaActual.Year - fechaNacimiento.Year;
-
-            // Ajustar si aún no ha cumplido años este año
-            if (fechaNacimiento.Date > fechaActual.AddYears(-edad))
-                edad--;
-
-            // Validar rango de edad (1 a 80 años)
-            if (edad < 1)
-            {
-                MessageBox.Show("La edad mínima debe ser 1 año", "Error",
-                               MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dtpFechaNaciPa.Focus();
-                return false;
-            }
-
-            if (edad > 90)
-            {
-                MessageBox.Show("La edad máxima no puede superar los 90 años", "Error",
-                               MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dtpFechaNaciPa.Focus();
-                return false;
-            }
-
-            return true;
-        }
-
-        public void MostrarExpedientes()
-        {
-            dgvVerExpedientes.DataSource = null;
-            dgvVerExpedientes.DataSource = Expediente.CargarExpedientes("select *from VerExpediente");
-        }
-
-
+            
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             Expediente expediente = new Expediente();
@@ -158,12 +89,129 @@ namespace Vistas.Formularios
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvVerExpedientes.DataSource = null;
+                dgvVerExpedientes.DataSource = Usuario.Buscar(txtBuscar.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        #region TextBox
+
+        Validaciones V = new Validaciones();
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            V.Letras(sender, e); 
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            V.Letras(sender, e);
+        }
+
+        private void txtDui_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            V.Numeros(sender, e);
+        }
+
+        private void txtNumTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            V.Numeros(sender, e);
+        }
+
+        #endregion
+
+
+
+        private void btnAgregarJSMN_Click_1(object sender, EventArgs e)
+        {
+            // Validación de campos vacíos
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 string.IsNullOrWhiteSpace(txtApellido.Text) ||
                 string.IsNullOrWhiteSpace(txtNumTelefono.Text) ||
                 string.IsNullOrWhiteSpace(txtDui.Text) ||
                 string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) ||
                 string.IsNullOrWhiteSpace(txtDireccion.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            else if (!ValidarEdad(dtpFechaNaciPa.Value))
+                return;
+
+            else
+            {
+                Modelos.Entidades.Expediente E = new Expediente();
+
+                E.NombrePa = txtNombre.Text;
+                E.ApellidoPa = txtApellido.Text;
+                E.TelefonoPa = txtNumTelefono.Text;
+                E.Dui = txtDui.Text;
+                E.CorreoPa = txtCorreoElectronico.Text;
+                E.DireccionPa = txtDireccion.Text;
+                E.FechaNacimiento = dtpFechaNaciPa.Value;
+                E.Id_Alergias = Convert.ToInt32(cbAlergias.SelectedValue);
+                E.Id_Enfermedades = Convert.ToInt32(cbEnfermedades.SelectedValue);
+                E.InsertarExpediente();
+
+                MostrarExpedientes();
+                LimpiarCampos();
+                MessageBox.Show("Datos ingresados correctamente");
+            }
+        }
+
+        private bool ValidarEdad(DateTime fechaNacimiento)
+        {
+            DateTime fechaActual = DateTime.Today;
+            int edad = fechaActual.Year - fechaNacimiento.Year;
+
+            // Ajustar si aún no ha cumplido años este año
+            if (fechaNacimiento.Date > fechaActual.AddYears(-edad))
+                edad--;
+
+            // Validar rango de edad (1 a 80 años)
+            if (edad < 1)
+            {
+                MessageBox.Show("La edad mínima debe ser 1 año", "Error",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpFechaNaciPa.Focus();
+                return false;
+            }
+
+            if (edad > 90)
+            {
+                MessageBox.Show("La edad máxima no puede superar los 90 años", "Error",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpFechaNaciPa.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        public void MostrarExpedientes()
+        {
+            dgvVerExpedientes.DataSource = null;
+            dgvVerExpedientes.DataSource = Expediente.CargarExpedientes("select *from VerExpediente");
+        }
+
+        private void btnActualizarJSMN_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+               string.IsNullOrWhiteSpace(txtApellido.Text) ||
+               string.IsNullOrWhiteSpace(txtNumTelefono.Text) ||
+               string.IsNullOrWhiteSpace(txtDui.Text) ||
+               string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) ||
+               string.IsNullOrWhiteSpace(txtDireccion.Text))
             {
                 MessageBox.Show("No dejes campos vacios", "Campos obligatorios");
                 return;
@@ -205,42 +253,21 @@ namespace Vistas.Formularios
             cbEnfermedades.Text = dgvVerExpedientes.CurrentRow.Cells["Enfermedades"].Value.ToString();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnEliminarJSMN_Click(object sender, EventArgs e)
         {
-            try
+            Expediente expediente = new Expediente();
+            int id = int.Parse(dgvVerExpedientes.CurrentRow.Cells[0].Value.ToString());
+            if (expediente.eliminarExpediente(id) == true)
             {
-                dgvVerExpedientes.DataSource = null;
-                dgvVerExpedientes.DataSource = Usuario.Buscar(txtBuscar.Text.Trim());
+                MessageBox.Show("Registro eliminado correctamente", "Exito");
+                MostrarExpedientes();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Se produjo un error", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-        #region TextBox
-
-        Validaciones V = new Validaciones();
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            V.Letras(sender, e); 
-        }
-
-        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            V.Letras(sender, e);
-        }
-
-        private void txtDui_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            V.Numeros(sender, e);
-        }
-
-        private void txtNumTelefono_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            V.Numeros(sender, e);
-        }
-
-        #endregion
     }
+    
 }
+

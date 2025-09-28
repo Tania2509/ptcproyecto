@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvMostrarPro = new System.Windows.Forms.DataGridView();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnAgregarTrabajador = new System.Windows.Forms.Button();
-            this.btnEliminarTrabajador = new System.Windows.Forms.Button();
             this.pnlMostrarInv = new System.Windows.Forms.Panel();
             this.lblUnidadesVendidas = new System.Windows.Forms.Label();
             this.lblPrecioProducto = new System.Windows.Forms.Label();
@@ -43,6 +40,9 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.tlpBotones = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAgregarventaJSMN = new Modelos.Botones.BotonesPSNLSD();
+            this.btnActualizarVJSMN = new Modelos.Botones.BotonesPSNLSD();
+            this.btnEliminarInventarioJSMN = new Modelos.Botones.BotonesPSNLSD();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarPro)).BeginInit();
             this.pnlMostrarInv.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -63,48 +63,6 @@
             this.dgvMostrarPro.Size = new System.Drawing.Size(501, 275);
             this.dgvMostrarPro.TabIndex = 0;
             this.dgvMostrarPro.DoubleClick += new System.EventHandler(this.dgvMostrarPro_DoubleClick);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnActualizar.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnActualizar.Location = new System.Drawing.Point(153, 5);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(140, 76);
-            this.btnActualizar.TabIndex = 13;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // btnAgregarTrabajador
-            // 
-            this.btnAgregarTrabajador.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAgregarTrabajador.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAgregarTrabajador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.btnAgregarTrabajador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAgregarTrabajador.Location = new System.Drawing.Point(4, 6);
-            this.btnAgregarTrabajador.Name = "btnAgregarTrabajador";
-            this.btnAgregarTrabajador.Size = new System.Drawing.Size(140, 74);
-            this.btnAgregarTrabajador.TabIndex = 11;
-            this.btnAgregarTrabajador.Text = "Agregar";
-            this.btnAgregarTrabajador.UseVisualStyleBackColor = false;
-            this.btnAgregarTrabajador.Click += new System.EventHandler(this.btnAgregarTrabajador_Click);
-            // 
-            // btnEliminarTrabajador
-            // 
-            this.btnEliminarTrabajador.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEliminarTrabajador.BackColor = System.Drawing.Color.Brown;
-            this.btnEliminarTrabajador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarTrabajador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminarTrabajador.Location = new System.Drawing.Point(302, 5);
-            this.btnEliminarTrabajador.Name = "btnEliminarTrabajador";
-            this.btnEliminarTrabajador.Size = new System.Drawing.Size(140, 76);
-            this.btnEliminarTrabajador.TabIndex = 12;
-            this.btnEliminarTrabajador.Text = "Eliminar";
-            this.btnEliminarTrabajador.UseVisualStyleBackColor = false;
-            this.btnEliminarTrabajador.Click += new System.EventHandler(this.btnEliminarTrabajador_Click);
             // 
             // pnlMostrarInv
             // 
@@ -230,9 +188,9 @@
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpBotones.Controls.Add(this.btnAgregarTrabajador, 0, 0);
-            this.tlpBotones.Controls.Add(this.btnEliminarTrabajador, 2, 0);
-            this.tlpBotones.Controls.Add(this.btnActualizar, 1, 0);
+            this.tlpBotones.Controls.Add(this.btnEliminarInventarioJSMN, 2, 0);
+            this.tlpBotones.Controls.Add(this.btnActualizarVJSMN, 1, 0);
+            this.tlpBotones.Controls.Add(this.btnAgregarventaJSMN, 0, 0);
             this.tlpBotones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.tlpBotones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tlpBotones.Location = new System.Drawing.Point(539, 165);
@@ -241,6 +199,69 @@
             this.tlpBotones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpBotones.Size = new System.Drawing.Size(447, 86);
             this.tlpBotones.TabIndex = 20;
+            // 
+            // btnAgregarventaJSMN
+            // 
+            this.btnAgregarventaJSMN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarventaJSMN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregarventaJSMN.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregarventaJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnAgregarventaJSMN.BorderRadius = 40;
+            this.btnAgregarventaJSMN.BorderSize = 3;
+            this.btnAgregarventaJSMN.FlatAppearance.BorderSize = 0;
+            this.btnAgregarventaJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarventaJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarventaJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarventaJSMN.Location = new System.Drawing.Point(3, 5);
+            this.btnAgregarventaJSMN.Name = "btnAgregarventaJSMN";
+            this.btnAgregarventaJSMN.Size = new System.Drawing.Size(143, 75);
+            this.btnAgregarventaJSMN.TabIndex = 24;
+            this.btnAgregarventaJSMN.Text = "Agregar ";
+            this.btnAgregarventaJSMN.TextColor = System.Drawing.Color.White;
+            this.btnAgregarventaJSMN.UseVisualStyleBackColor = false;
+            this.btnAgregarventaJSMN.Click += new System.EventHandler(this.btnAgregarventaJSMN_Click);
+            // 
+            // btnActualizarVJSMN
+            // 
+            this.btnActualizarVJSMN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizarVJSMN.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnActualizarVJSMN.BackgroundColor = System.Drawing.Color.OrangeRed;
+            this.btnActualizarVJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnActualizarVJSMN.BorderRadius = 40;
+            this.btnActualizarVJSMN.BorderSize = 3;
+            this.btnActualizarVJSMN.FlatAppearance.BorderSize = 0;
+            this.btnActualizarVJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarVJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizarVJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnActualizarVJSMN.Location = new System.Drawing.Point(152, 4);
+            this.btnActualizarVJSMN.Name = "btnActualizarVJSMN";
+            this.btnActualizarVJSMN.Size = new System.Drawing.Size(143, 77);
+            this.btnActualizarVJSMN.TabIndex = 24;
+            this.btnActualizarVJSMN.Text = "Actualizar";
+            this.btnActualizarVJSMN.TextColor = System.Drawing.Color.White;
+            this.btnActualizarVJSMN.UseVisualStyleBackColor = false;
+            this.btnActualizarVJSMN.Click += new System.EventHandler(this.btnActualizarVJSMN_Click);
+            // 
+            // btnEliminarInventarioJSMN
+            // 
+            this.btnEliminarInventarioJSMN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarInventarioJSMN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEliminarInventarioJSMN.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEliminarInventarioJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnEliminarInventarioJSMN.BorderRadius = 40;
+            this.btnEliminarInventarioJSMN.BorderSize = 3;
+            this.btnEliminarInventarioJSMN.FlatAppearance.BorderSize = 0;
+            this.btnEliminarInventarioJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarInventarioJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarInventarioJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarInventarioJSMN.Location = new System.Drawing.Point(301, 4);
+            this.btnEliminarInventarioJSMN.Name = "btnEliminarInventarioJSMN";
+            this.btnEliminarInventarioJSMN.Size = new System.Drawing.Size(143, 77);
+            this.btnEliminarInventarioJSMN.TabIndex = 24;
+            this.btnEliminarInventarioJSMN.Text = "Eliminar";
+            this.btnEliminarInventarioJSMN.TextColor = System.Drawing.Color.White;
+            this.btnEliminarInventarioJSMN.UseVisualStyleBackColor = false;
+            this.btnEliminarInventarioJSMN.Click += new System.EventHandler(this.btnEliminarInventarioJSMN_Click);
             // 
             // frmGestionVenta
             // 
@@ -268,9 +289,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgvMostrarPro;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Button btnAgregarTrabajador;
-        private System.Windows.Forms.Button btnEliminarTrabajador;
         private System.Windows.Forms.Panel pnlMostrarInv;
         private System.Windows.Forms.Label lblUnidadesVendidas;
         private System.Windows.Forms.Label lblPrecioProducto;
@@ -282,5 +300,8 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.TableLayoutPanel tlpBotones;
+        private Modelos.Botones.BotonesPSNLSD btnAgregarventaJSMN;
+        private Modelos.Botones.BotonesPSNLSD btnActualizarVJSMN;
+        private Modelos.Botones.BotonesPSNLSD btnEliminarInventarioJSMN;
     }
 }

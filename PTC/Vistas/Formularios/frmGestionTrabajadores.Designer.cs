@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAgregarTrabajador = new System.Windows.Forms.Button();
-            this.btnEliminarTrabajador = new System.Windows.Forms.Button();
             this.dgvVerTrabajador = new System.Windows.Forms.DataGridView();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.pnlUsuarios = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtContraseña = new System.Windows.Forms.TextBox();
@@ -53,39 +50,14 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.tlpBotones = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAgregarTrabajadorJSMN = new Modelos.Botones.BotonesPSNLSD();
+            this.btnActualizarTJSMN = new Modelos.Botones.BotonesPSNLSD();
+            this.btnEliminarTrabajadorJSMN = new Modelos.Botones.BotonesPSNLSD();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerTrabajador)).BeginInit();
             this.pnlUsuarios.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tlpBotones.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnAgregarTrabajador
-            // 
-            this.btnAgregarTrabajador.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAgregarTrabajador.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAgregarTrabajador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.btnAgregarTrabajador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAgregarTrabajador.Location = new System.Drawing.Point(4, 6);
-            this.btnAgregarTrabajador.Name = "btnAgregarTrabajador";
-            this.btnAgregarTrabajador.Size = new System.Drawing.Size(140, 74);
-            this.btnAgregarTrabajador.TabIndex = 4;
-            this.btnAgregarTrabajador.Text = "Agregar";
-            this.btnAgregarTrabajador.UseVisualStyleBackColor = false;
-            this.btnAgregarTrabajador.Click += new System.EventHandler(this.btnAgregarTrabajador_Click);
-            // 
-            // btnEliminarTrabajador
-            // 
-            this.btnEliminarTrabajador.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEliminarTrabajador.BackColor = System.Drawing.Color.Brown;
-            this.btnEliminarTrabajador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarTrabajador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminarTrabajador.Location = new System.Drawing.Point(302, 5);
-            this.btnEliminarTrabajador.Name = "btnEliminarTrabajador";
-            this.btnEliminarTrabajador.Size = new System.Drawing.Size(140, 76);
-            this.btnEliminarTrabajador.TabIndex = 5;
-            this.btnEliminarTrabajador.Text = "Eliminar";
-            this.btnEliminarTrabajador.UseVisualStyleBackColor = false;
-            this.btnEliminarTrabajador.Click += new System.EventHandler(this.btnEliminarTrabajador_Click);
             // 
             // dgvVerTrabajador
             // 
@@ -100,20 +72,6 @@
             this.dgvVerTrabajador.Size = new System.Drawing.Size(452, 324);
             this.dgvVerTrabajador.TabIndex = 6;
             this.dgvVerTrabajador.DoubleClick += new System.EventHandler(this.dgvVerTrabajador_DoubleClick);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnActualizar.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnActualizar.Location = new System.Drawing.Point(153, 5);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(140, 76);
-            this.btnActualizar.TabIndex = 7;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // pnlUsuarios
             // 
@@ -353,9 +311,9 @@
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpBotones.Controls.Add(this.btnAgregarTrabajador, 0, 0);
-            this.tlpBotones.Controls.Add(this.btnActualizar, 1, 0);
-            this.tlpBotones.Controls.Add(this.btnEliminarTrabajador, 2, 0);
+            this.tlpBotones.Controls.Add(this.btnEliminarTrabajadorJSMN, 2, 0);
+            this.tlpBotones.Controls.Add(this.btnActualizarTJSMN, 1, 0);
+            this.tlpBotones.Controls.Add(this.btnAgregarTrabajadorJSMN, 0, 0);
             this.tlpBotones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.tlpBotones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tlpBotones.Location = new System.Drawing.Point(604, 151);
@@ -364,6 +322,69 @@
             this.tlpBotones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpBotones.Size = new System.Drawing.Size(447, 86);
             this.tlpBotones.TabIndex = 22;
+            // 
+            // btnAgregarTrabajadorJSMN
+            // 
+            this.btnAgregarTrabajadorJSMN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarTrabajadorJSMN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregarTrabajadorJSMN.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnAgregarTrabajadorJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnAgregarTrabajadorJSMN.BorderRadius = 40;
+            this.btnAgregarTrabajadorJSMN.BorderSize = 3;
+            this.btnAgregarTrabajadorJSMN.FlatAppearance.BorderSize = 0;
+            this.btnAgregarTrabajadorJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarTrabajadorJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarTrabajadorJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarTrabajadorJSMN.Location = new System.Drawing.Point(3, 5);
+            this.btnAgregarTrabajadorJSMN.Name = "btnAgregarTrabajadorJSMN";
+            this.btnAgregarTrabajadorJSMN.Size = new System.Drawing.Size(143, 75);
+            this.btnAgregarTrabajadorJSMN.TabIndex = 23;
+            this.btnAgregarTrabajadorJSMN.Text = "Agregar ";
+            this.btnAgregarTrabajadorJSMN.TextColor = System.Drawing.Color.White;
+            this.btnAgregarTrabajadorJSMN.UseVisualStyleBackColor = false;
+            this.btnAgregarTrabajadorJSMN.Click += new System.EventHandler(this.btnAgregarTrabajadorJSMN_Click);
+            // 
+            // btnActualizarTJSMN
+            // 
+            this.btnActualizarTJSMN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizarTJSMN.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnActualizarTJSMN.BackgroundColor = System.Drawing.Color.OrangeRed;
+            this.btnActualizarTJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnActualizarTJSMN.BorderRadius = 40;
+            this.btnActualizarTJSMN.BorderSize = 3;
+            this.btnActualizarTJSMN.FlatAppearance.BorderSize = 0;
+            this.btnActualizarTJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizarTJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizarTJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnActualizarTJSMN.Location = new System.Drawing.Point(152, 4);
+            this.btnActualizarTJSMN.Name = "btnActualizarTJSMN";
+            this.btnActualizarTJSMN.Size = new System.Drawing.Size(143, 77);
+            this.btnActualizarTJSMN.TabIndex = 23;
+            this.btnActualizarTJSMN.Text = "Actualizar";
+            this.btnActualizarTJSMN.TextColor = System.Drawing.Color.White;
+            this.btnActualizarTJSMN.UseVisualStyleBackColor = false;
+            this.btnActualizarTJSMN.Click += new System.EventHandler(this.btnActualizarTJSMN_Click);
+            // 
+            // btnEliminarTrabajadorJSMN
+            // 
+            this.btnEliminarTrabajadorJSMN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminarTrabajadorJSMN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEliminarTrabajadorJSMN.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnEliminarTrabajadorJSMN.BorderColor = System.Drawing.Color.White;
+            this.btnEliminarTrabajadorJSMN.BorderRadius = 40;
+            this.btnEliminarTrabajadorJSMN.BorderSize = 3;
+            this.btnEliminarTrabajadorJSMN.FlatAppearance.BorderSize = 0;
+            this.btnEliminarTrabajadorJSMN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarTrabajadorJSMN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarTrabajadorJSMN.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarTrabajadorJSMN.Location = new System.Drawing.Point(301, 4);
+            this.btnEliminarTrabajadorJSMN.Name = "btnEliminarTrabajadorJSMN";
+            this.btnEliminarTrabajadorJSMN.Size = new System.Drawing.Size(143, 77);
+            this.btnEliminarTrabajadorJSMN.TabIndex = 23;
+            this.btnEliminarTrabajadorJSMN.Text = "Eliminar";
+            this.btnEliminarTrabajadorJSMN.TextColor = System.Drawing.Color.White;
+            this.btnEliminarTrabajadorJSMN.UseVisualStyleBackColor = false;
+            this.btnEliminarTrabajadorJSMN.Click += new System.EventHandler(this.btnEliminarTrabajadorJSMN_Click);
             // 
             // frmGestionTrabajadores
             // 
@@ -390,11 +411,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAgregarTrabajador;
-        private System.Windows.Forms.Button btnEliminarTrabajador;
         private System.Windows.Forms.DataGridView dgvVerTrabajador;
-        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Panel pnlUsuarios;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtContraseña;
@@ -416,5 +433,8 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.TableLayoutPanel tlpBotones;
+        private Modelos.Botones.BotonesPSNLSD btnAgregarTrabajadorJSMN;
+        private Modelos.Botones.BotonesPSNLSD btnActualizarTJSMN;
+        private Modelos.Botones.BotonesPSNLSD btnEliminarTrabajadorJSMN;
     }
 }
