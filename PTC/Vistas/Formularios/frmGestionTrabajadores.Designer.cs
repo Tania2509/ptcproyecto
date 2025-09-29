@@ -53,6 +53,8 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.tlpBotones = new System.Windows.Forms.TableLayoutPanel();
+            this.lblCorreo = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerTrabajador)).BeginInit();
             this.pnlUsuarios.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -99,6 +101,8 @@
             this.dgvVerTrabajador.RowTemplate.Height = 24;
             this.dgvVerTrabajador.Size = new System.Drawing.Size(452, 324);
             this.dgvVerTrabajador.TabIndex = 6;
+            this.dgvVerTrabajador.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVerTrabajador_CellContentClick);
+            this.dgvVerTrabajador.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVerTrabajador_CellValueChanged);
             this.dgvVerTrabajador.DoubleClick += new System.EventHandler(this.dgvVerTrabajador_DoubleClick);
             // 
             // btnActualizar
@@ -123,6 +127,8 @@
             this.pnlUsuarios.AutoScrollMargin = new System.Drawing.Size(5, 4);
             this.pnlUsuarios.AutoScrollMinSize = new System.Drawing.Size(300, 120);
             this.pnlUsuarios.BackColor = System.Drawing.Color.Silver;
+            this.pnlUsuarios.Controls.Add(this.lblCorreo);
+            this.pnlUsuarios.Controls.Add(this.txtCorreo);
             this.pnlUsuarios.Controls.Add(this.label4);
             this.pnlUsuarios.Controls.Add(this.txtContraseña);
             this.pnlUsuarios.Controls.Add(this.cbEspecialidad);
@@ -149,7 +155,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 355);
+            this.label4.Location = new System.Drawing.Point(29, 379);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 25);
@@ -158,7 +164,7 @@
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(248, 350);
+            this.txtContraseña.Location = new System.Drawing.Point(247, 374);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(4);
             this.txtContraseña.MaxLength = 8;
             this.txtContraseña.Name = "txtContraseña";
@@ -169,7 +175,7 @@
             // cbEspecialidad
             // 
             this.cbEspecialidad.FormattingEnabled = true;
-            this.cbEspecialidad.Location = new System.Drawing.Point(247, 487);
+            this.cbEspecialidad.Location = new System.Drawing.Point(247, 504);
             this.cbEspecialidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbEspecialidad.Name = "cbEspecialidad";
             this.cbEspecialidad.Size = new System.Drawing.Size(250, 33);
@@ -181,7 +187,7 @@
             this.cbRol.Items.AddRange(new object[] {
             "Asistente",
             "Doctor"});
-            this.cbRol.Location = new System.Drawing.Point(247, 414);
+            this.cbRol.Location = new System.Drawing.Point(247, 437);
             this.cbRol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbRol.Name = "cbRol";
             this.cbRol.Size = new System.Drawing.Size(250, 33);
@@ -189,7 +195,7 @@
             // 
             // dtpFechaNaci
             // 
-            this.dtpFechaNaci.Location = new System.Drawing.Point(248, 286);
+            this.dtpFechaNaci.Location = new System.Drawing.Point(247, 308);
             this.dtpFechaNaci.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpFechaNaci.Name = "dtpFechaNaci";
             this.dtpFechaNaci.Size = new System.Drawing.Size(250, 30);
@@ -198,7 +204,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 494);
+            this.label3.Location = new System.Drawing.Point(29, 504);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 25);
@@ -208,7 +214,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 414);
+            this.label1.Location = new System.Drawing.Point(35, 445);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 25);
@@ -218,7 +224,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 285);
+            this.label2.Location = new System.Drawing.Point(29, 307);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(199, 25);
@@ -228,7 +234,7 @@
             // lblOcupacion
             // 
             this.lblOcupacion.AutoSize = true;
-            this.lblOcupacion.Location = new System.Drawing.Point(30, 229);
+            this.lblOcupacion.Location = new System.Drawing.Point(35, 199);
             this.lblOcupacion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOcupacion.Name = "lblOcupacion";
             this.lblOcupacion.Size = new System.Drawing.Size(51, 25);
@@ -238,7 +244,7 @@
             // lblEdad
             // 
             this.lblEdad.AutoSize = true;
-            this.lblEdad.Location = new System.Drawing.Point(30, 156);
+            this.lblEdad.Location = new System.Drawing.Point(29, 143);
             this.lblEdad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(95, 25);
@@ -248,7 +254,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(30, 90);
+            this.lblApellido.Location = new System.Drawing.Point(29, 78);
             this.lblApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(88, 25);
@@ -267,7 +273,7 @@
             // 
             // txtDui
             // 
-            this.txtDui.Location = new System.Drawing.Point(248, 224);
+            this.txtDui.Location = new System.Drawing.Point(247, 194);
             this.txtDui.Margin = new System.Windows.Forms.Padding(4);
             this.txtDui.MaxLength = 10;
             this.txtDui.Name = "txtDui";
@@ -278,7 +284,7 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(248, 156);
+            this.txtTelefono.Location = new System.Drawing.Point(247, 138);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.MaxLength = 8;
             this.txtTelefono.Name = "txtTelefono";
@@ -289,7 +295,7 @@
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(248, 87);
+            this.txtApellido.Location = new System.Drawing.Point(247, 78);
             this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido.MaxLength = 50;
             this.txtApellido.Name = "txtApellido";
@@ -365,6 +371,26 @@
             this.tlpBotones.Size = new System.Drawing.Size(447, 86);
             this.tlpBotones.TabIndex = 22;
             // 
+            // lblCorreo
+            // 
+            this.lblCorreo.AutoSize = true;
+            this.lblCorreo.Location = new System.Drawing.Point(30, 260);
+            this.lblCorreo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCorreo.Name = "lblCorreo";
+            this.lblCorreo.Size = new System.Drawing.Size(78, 25);
+            this.lblCorreo.TabIndex = 22;
+            this.lblCorreo.Text = "Correo:";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(248, 255);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCorreo.MaxLength = 10;
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.ShortcutsEnabled = false;
+            this.txtCorreo.Size = new System.Drawing.Size(250, 30);
+            this.txtCorreo.TabIndex = 21;
+            // 
             // frmGestionTrabajadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -416,5 +442,7 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.TableLayoutPanel tlpBotones;
+        private System.Windows.Forms.Label lblCorreo;
+        private System.Windows.Forms.TextBox txtCorreo;
     }
 }

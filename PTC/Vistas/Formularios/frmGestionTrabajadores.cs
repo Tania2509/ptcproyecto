@@ -1,9 +1,11 @@
-﻿using Modelos.Entidades;
+﻿using Modelos.Conexion;
+using Modelos.Entidades;
 using Modelos.Metodos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -18,6 +20,8 @@ namespace Vistas.Formularios
         public frmGestionTrabajadores()
         {
             InitializeComponent();
+            dgvVerTrabajador.CellValueChanged += dgvVerTrabajador_CellValueChanged;
+            dgvVerTrabajador.CellContentClick += dgvVerTrabajador_CellContentClick;
         }
 
         private void btnAgregarTrabajador_Click(object sender, EventArgs e)
@@ -45,12 +49,13 @@ namespace Vistas.Formularios
             U.ApellidoU = txtApellido.Text;
             U.TelefonoU = txtTelefono.Text;
             U.DuiU = txtDui.Text;
+            U.Correo = txtCorreo.Text;
             U.FechaNacimientoU = dtpFechaNaci.Value;
             U.Id_Rol = Convert.ToInt32(cbRol.SelectedValue);
             U.Id_Especialidad = Convert.ToInt32(cbEspecialidad.SelectedValue);
             U.Contrasena = BCrypt.Net.BCrypt.HashPassword(txtContraseña.Text);
-            U.InsetarUsuarios();
-            MostrarTrabajadores();
+            U.InsertarUsuarios();
+            MostrarUsuarios();
             LimpiarCampos();
             MessageBox.Show("Datos ingresados correctamente");
         }
@@ -88,10 +93,13 @@ namespace Vistas.Formularios
 
         private void frmVerTrabajadores_Load(object sender, EventArgs e)
         {
-            MostrarTrabajadores();
+            MostrarUsuarios();
             CargarEspecialidad();
             mostrarRol();
+            
         }
+
+
 
         #region Metodos de combobox
 
@@ -124,10 +132,11 @@ namespace Vistas.Formularios
 
         #endregion
 
-        public void MostrarTrabajadores()
+        public void MostrarUsuarios()
         {
             dgvVerTrabajador.DataSource = null;
-            dgvVerTrabajador.DataSource = Usuario.CargarUsuarios("select *from MostrarTrabajadores"); 
+            dgvVerTrabajador.DataSource = Usuario.CargarUsuarios("select *from CrearUsuario");
+
         }
 
         private void btnEliminarTrabajador_Click(object sender, EventArgs e)
@@ -137,7 +146,7 @@ namespace Vistas.Formularios
             if (Trabajador.eliminarTrabajador(id) == true)
             {
                 MessageBox.Show("Registro eliminado correctamente", "Exito");
-                MostrarTrabajadores();
+                MostrarUsuarios();
             }
             else
             {
@@ -204,13 +213,15 @@ namespace Vistas.Formularios
             u.DuiU = txtDui.Text;
             u.FechaNacimientoU = dtpFechaNaci.Value;
             u.Contrasena = BCrypt.Net.BCrypt.HashPassword(txtContraseña.Text);
+            u.Correo = txtCorreo.Text;
             u.Id_Rol = Convert.ToInt32(cbRol.SelectedValue);
             u.Id_Especialidad = Convert.ToInt32(cbEspecialidad.SelectedValue);
             u.IdUsuario = Convert.ToInt32(dgvVerTrabajador.CurrentRow.Cells[0].Value);
+            u.EstadoVerificado = 1;
 
             if (u.ActualizarUsuarios() == true)
             {
-                MostrarTrabajadores();
+                MostrarUsuarios();
                 LimpiarCampos();
             }
             else
@@ -249,6 +260,70 @@ namespace Vistas.Formularios
             // Restablecer DateTimePicker
             dtpFechaNaci.Value = DateTime.Now;
         }
+
+        private void dgvVerTrabajador_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == dgvVerTrabajador.Columns["Verificado"].Index)
+            {
+                // Obtener el ID del usuario y el nuevo estado
+                int idUsuario = Convert.ToInt32(dgvVerTrabajador.Rows[e.RowIndex].Cells["Usuario"].Value);
+                bool verificado = (bool)dgvVerTrabajador.Rows[e.RowIndex].Cells["Verificado"].Value;
+
+                // Actualizar en la base de datos
+                ActualizarEstadoVerificado(idUsuario, verificado);
+            }
+        }
+
+        private void ActualizarEstadoVerificado(int idUsuario, bool verificado)
+        {
+            SqlConnection con = null;
+            try
+            {
+                con = Conexion.conectar();  // Abre la conexión utilizando el método 'conectar()'
+
+                SqlCommand cmd = new SqlCommand("UPDATE Usuario SET estadoVerificado = @verificado WHERE idUsuario = @idUsuario", con);
+                cmd.Parameters.AddWithValue("@verificado", verificado);
+                cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
+
+                cmd.ExecuteNonQuery();  // Ejecutar la consulta
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar el estado: " + ex.Message);
+            }
+            finally
+            {
+                if (con != null && con.State == ConnectionState.Open)
+                {
+                    con.Close();  // Cerrar la conexión manualmente en el bloque 'finally'
+                }
+            }
+        }
+
+        private void dgvVerTrabajador_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        {if (e.RowIndex >= 0 && dgvVerTrabajador.Columns.Contains("Verificado") &&
+        e.ColumnIndex == dgvVerTrabajador.Columns["Verificado"].Index)
+    {
+        dgvVerTrabajador.CommitEdit(DataGridViewDataErrorContexts.Commit);  // Asegúrate de que el commit se haga correctamente
     }
-    
+        }
+
+        private void ConfigurarDataGridView()
+        {
+            // Hacer que la columna sea de solo lectura excepto el checkbox
+            foreach (DataGridViewColumn columna in dgvVerTrabajador.Columns)
+            {
+                if (columna.Name != "Verificado")
+                {
+                    columna.ReadOnly = true;
+                }
+            }
+
+            // Configurar el ancho de la columna checkbox
+            dgvVerTrabajador.Columns["Verificado"].Width = 80;
+        }
+    }
 }
+    
+

@@ -20,6 +20,7 @@ namespace Modelos.Entidades
         private string telefonoU;
         private string correo;
         private string contrasena;
+        private int estadoVerificado;
         private int id_Rol;
         private int id_Especialidad;
         private int id_venta;
@@ -35,6 +36,7 @@ namespace Modelos.Entidades
         public int Id_Especialidad { get => id_Especialidad; set => id_Especialidad = value; }
         public int Id_venta { get => id_venta; set => id_venta = value; }
         public string Contrasena { get => contrasena; set => contrasena = value; }
+        public int EstadoVerificado { get => estadoVerificado; set => estadoVerificado = value; }
 
         public static DataTable CargarUsuarios(string Trabajador)
         {
@@ -43,7 +45,6 @@ namespace Modelos.Entidades
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
-
             return dt;
         }
 
@@ -76,13 +77,23 @@ namespace Modelos.Entidades
             cmd.Parameters.AddWithValue("@fechaNaciUsu", FechaNacimientoU);
             cmd.Parameters.AddWithValue("@duiUsu", DuiU);
             cmd.Parameters.AddWithValue("@telefonoUsu", TelefonoU);
+<<<<<<< HEAD
             cmd.Parameters.AddWithValue("@correoUsu", Correo);  // Cambié @correoUsu para tomar el correo real.
             cmd.Parameters.AddWithValue("@contrasena", Contrasena);
             cmd.Parameters.AddWithValue("@id_Rol", id_Rol);
             cmd.Parameters.AddWithValue("@id_Especialidad", Id_Especialidad);
             cmd.Parameters.AddWithValue("@id_venta", DBNull.Value); // Si no se usa id_venta.
+=======
+            cmd.Parameters.AddWithValue("@correoUsu", Correo);  
+            cmd.Parameters.AddWithValue("@contrasena", Contrasena);
+            cmd.Parameters.AddWithValue("@id_Rol", id_Rol);
+            cmd.Parameters.AddWithValue("@id_Especialidad", Id_Especialidad);
+            cmd.Parameters.AddWithValue("@id_venta", DBNull.Value); 
+>>>>>>> tania
 
             return cmd.ExecuteNonQuery() > 0;
+
+
         }
 
         public bool eliminarTrabajador(int id)
@@ -113,7 +124,7 @@ namespace Modelos.Entidades
             cmd.Parameters.AddWithValue("@fechaNaciUsu", FechaNacimientoU);
             cmd.Parameters.AddWithValue("@duiUsu", DuiU);
             cmd.Parameters.AddWithValue("@telefonoUsu", TelefonoU);
-            cmd.Parameters.AddWithValue("@correoUsu", $"{DuiU}@gmail.com");
+            cmd.Parameters.AddWithValue("@correoUsu", correo);
             cmd.Parameters.AddWithValue("@contrasena", Contrasena);
             cmd.Parameters.AddWithValue("@id_Rol", Id_Rol);
             cmd.Parameters.AddWithValue("@id_Especialidad", Id_Especialidad);
