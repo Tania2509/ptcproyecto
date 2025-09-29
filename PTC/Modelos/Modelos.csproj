@@ -73,6 +73,9 @@
     <Compile Include="Entidades\Rol.cs" />
     <Compile Include="Entidades\Venta.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Metodos\Botones.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Metodos\Panel.cs">
       <SubType>Component</SubType>
     </Compile>
