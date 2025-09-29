@@ -20,6 +20,7 @@ namespace Modelos.Entidades
         private string telefonoU;
         private string correo;
         private string contrasena;
+        private int estadoVerificado;
         private int id_Rol;
         private int id_Especialidad;
         private int id_venta;
@@ -35,6 +36,7 @@ namespace Modelos.Entidades
         public int Id_Especialidad { get => id_Especialidad; set => id_Especialidad = value; }
         public int Id_venta { get => id_venta; set => id_venta = value; }
         public string Contrasena { get => contrasena; set => contrasena = value; }
+        public int EstadoVerificado { get => estadoVerificado; set => estadoVerificado = value; }
 
         public static DataTable CargarUsuarios(string Trabajador)
         {
@@ -43,31 +45,47 @@ namespace Modelos.Entidades
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
-
             return dt;
         }
 
-        public bool InsetarUsuarios()
+        public bool InsertarUsuarios()
         {
             SqlConnection con = Conexion.Conexion.conectar();
+            string comando = "";
 
-            string comando = "Insert into Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, correoUsu, contrasena,id_Rol, id_Especialidad, id_venta) " +
-                     "values(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, @correoUsu, @contrasena,@id_Rol, @id_Especialidad, @id_venta);";
+            // Verificar si la tabla Usuario está vacía
+            string checkQuery = "SELECT COUNT(*) FROM Usuario";
+            SqlCommand checkCmd = new SqlCommand(checkQuery, con);
+            int count = (int)checkCmd.ExecuteScalar();
+
+            // Si es el primer usuario, debe ser administrador y su estado será verificado
+            if (count == 0)
+            {
+                comando = "INSERT INTO Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, correoUsu, contrasena, id_Rol, id_Especialidad, id_Venta, estadoVerificado) " +
+                          "VALUES(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, @correoUsu, @contrasena, @id_Rol, @id_Especialidad, @id_venta, 1);";
+                id_Rol = 1;  // Administrador
+            }
+            else
+            {
+                comando = "INSERT INTO Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, correoUsu, contrasena, id_Rol, id_Especialidad, id_Venta, estadoVerificado) " +
+                          "VALUES(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, @correoUsu, @contrasena, @id_Rol, @id_Especialidad, @id_venta, 0);";
+            }
 
             SqlCommand cmd = new SqlCommand(comando, con);
-
             cmd.Parameters.AddWithValue("@nombreUsu", NombreU);
             cmd.Parameters.AddWithValue("@apellidoUsu", ApellidoU);
             cmd.Parameters.AddWithValue("@fechaNaciUsu", FechaNacimientoU);
             cmd.Parameters.AddWithValue("@duiUsu", DuiU);
             cmd.Parameters.AddWithValue("@telefonoUsu", TelefonoU);
-            cmd.Parameters.AddWithValue("@correoUsu", $"{DuiU}@gmail.com");
+            cmd.Parameters.AddWithValue("@correoUsu", Correo);  
             cmd.Parameters.AddWithValue("@contrasena", Contrasena);
             cmd.Parameters.AddWithValue("@id_Rol", id_Rol);
             cmd.Parameters.AddWithValue("@id_Especialidad", Id_Especialidad);
-            cmd.Parameters.AddWithValue("@id_venta", DBNull.Value);
+            cmd.Parameters.AddWithValue("@id_venta", DBNull.Value); 
 
             return cmd.ExecuteNonQuery() > 0;
+
+
         }
 
         public bool eliminarTrabajador(int id)
@@ -98,7 +116,7 @@ namespace Modelos.Entidades
             cmd.Parameters.AddWithValue("@fechaNaciUsu", FechaNacimientoU);
             cmd.Parameters.AddWithValue("@duiUsu", DuiU);
             cmd.Parameters.AddWithValue("@telefonoUsu", TelefonoU);
-            cmd.Parameters.AddWithValue("@correoUsu", $"{DuiU}@gmail.com");
+            cmd.Parameters.AddWithValue("@correoUsu", correo);
             cmd.Parameters.AddWithValue("@contrasena", Contrasena);
             cmd.Parameters.AddWithValue("@id_Rol", Id_Rol);
             cmd.Parameters.AddWithValue("@id_Especialidad", Id_Especialidad);

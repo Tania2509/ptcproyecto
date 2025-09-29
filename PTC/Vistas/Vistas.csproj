@@ -110,6 +110,12 @@
     <Compile Include="Formularios\frmGestionTrabajadores.Designer.cs">
       <DependentUpon>frmGestionTrabajadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frmRegistrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmRegistrar.Designer.cs">
+      <DependentUpon>frmRegistrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmVerExpedientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmGestionTrabajadores.resx">
       <DependentUpon>frmGestionTrabajadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmRegistrar.resx">
+      <DependentUpon>frmRegistrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmVerExpedientes.resx">
       <DependentUpon>frmVerExpedientes.cs</DependentUpon>

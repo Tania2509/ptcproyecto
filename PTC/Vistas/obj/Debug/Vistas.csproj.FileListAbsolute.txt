@@ -207,3 +207,4 @@ C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formular
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmDashboardTrabajador.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmVerExpedientes.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmHistorialDental.resources
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmRegistrar.resources
