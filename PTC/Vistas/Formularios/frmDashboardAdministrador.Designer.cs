@@ -151,7 +151,7 @@
             this.MinimizeBox = false;
             this.Name = "frmDashboardAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDashboardAdministrador";
+            this.Text = "Administrador";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmDashboardAdministrador_Load);
             this.pnlPrincipal.ResumeLayout(false);

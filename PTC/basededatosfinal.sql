@@ -48,10 +48,6 @@ foreign key (id_Venta) references Venta (idVenta)
 );
 go
 
-<<<<<<< HEAD
-
-=======
->>>>>>> tania
 create table Enfermedades (
 idEnfermedades int identity (1,1) primary key,
  nombreEnfer varchar(50)
@@ -184,8 +180,6 @@ INSERT INTO EstadoDiente (nombre_estado) VALUES
 ('Prótesis'),
 ('Manchado');
 go
-
-select *from Usuario
 
 insert into Rol values ('Administrador'),
 ('Trabajador')

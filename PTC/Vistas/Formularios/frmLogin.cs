@@ -21,11 +21,8 @@ namespace Vistas.Formularios
             InitializeComponent();
         }
 
-<<<<<<< HEAD
-=======
 
         #region Login
->>>>>>> tania
         private (bool autenticado, string rol, bool verificado) AutenticarYObtenerRol(string usuario, string contraseña)
         {
             string rol = null;
@@ -59,14 +56,10 @@ namespace Vistas.Formularios
             }
 
             return (autenticado, rol, verificado);
-<<<<<<< HEAD
-        }
-=======
 
         }
 
         #endregion
->>>>>>> tania
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
@@ -98,12 +91,8 @@ namespace Vistas.Formularios
                     case "Administrador":
                         dashboard = new frmDashboardAdministrador();
                         break;
-<<<<<<< HEAD
-                    case "Asistente":
-                    case "Dentista":
-=======
+
                     case "Trabajador":
->>>>>>> tania
                         dashboard = new frmDashboardTrabajador();
                         break;
                     default:
@@ -120,19 +109,15 @@ namespace Vistas.Formularios
             }
 
         }
-<<<<<<< HEAD
-=======
-
-
-
-        frmRegistrar registrar = new frmRegistrar();
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
             this.Hide();
             registrar.Show();
         }
->>>>>>> tania
+        frmRegistrar registrar = new frmRegistrar();
+
+
     }
 
 }

@@ -77,19 +77,11 @@ namespace Modelos.Entidades
             cmd.Parameters.AddWithValue("@fechaNaciUsu", FechaNacimientoU);
             cmd.Parameters.AddWithValue("@duiUsu", DuiU);
             cmd.Parameters.AddWithValue("@telefonoUsu", TelefonoU);
-<<<<<<< HEAD
-            cmd.Parameters.AddWithValue("@correoUsu", Correo);  // Cambié @correoUsu para tomar el correo real.
-            cmd.Parameters.AddWithValue("@contrasena", Contrasena);
-            cmd.Parameters.AddWithValue("@id_Rol", id_Rol);
-            cmd.Parameters.AddWithValue("@id_Especialidad", Id_Especialidad);
-            cmd.Parameters.AddWithValue("@id_venta", DBNull.Value); // Si no se usa id_venta.
-=======
             cmd.Parameters.AddWithValue("@correoUsu", Correo);  
             cmd.Parameters.AddWithValue("@contrasena", Contrasena);
             cmd.Parameters.AddWithValue("@id_Rol", id_Rol);
             cmd.Parameters.AddWithValue("@id_Especialidad", Id_Especialidad);
             cmd.Parameters.AddWithValue("@id_venta", DBNull.Value); 
->>>>>>> tania
 
             return cmd.ExecuteNonQuery() > 0;
 

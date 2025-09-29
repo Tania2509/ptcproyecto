@@ -97,11 +97,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDientes.Location = new System.Drawing.Point(325, 66);
+            this.dgvDientes.Location = new System.Drawing.Point(325, 56);
             this.dgvDientes.Name = "dgvDientes";
             this.dgvDientes.RowHeadersWidth = 51;
             this.dgvDientes.RowTemplate.Height = 24;
-            this.dgvDientes.Size = new System.Drawing.Size(317, 171);
+            this.dgvDientes.Size = new System.Drawing.Size(317, 145);
             this.dgvDientes.TabIndex = 2;
             // 
             // dgvCitas
@@ -110,11 +110,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCitas.Location = new System.Drawing.Point(3, 66);
+            this.dgvCitas.Location = new System.Drawing.Point(3, 56);
             this.dgvCitas.Name = "dgvCitas";
             this.dgvCitas.RowHeadersWidth = 51;
             this.dgvCitas.RowTemplate.Height = 24;
-            this.dgvCitas.Size = new System.Drawing.Size(316, 171);
+            this.dgvCitas.Size = new System.Drawing.Size(316, 145);
             this.dgvCitas.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -129,7 +129,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 159F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(645, 159);
             this.tableLayoutPanel2.TabIndex = 21;
             // 
@@ -153,7 +153,7 @@
             this.dgvFecha.Name = "dgvFecha";
             this.dgvFecha.RowHeadersWidth = 51;
             this.dgvFecha.RowTemplate.Height = 24;
-            this.dgvFecha.Size = new System.Drawing.Size(317, 57);
+            this.dgvFecha.Size = new System.Drawing.Size(317, 47);
             this.dgvFecha.TabIndex = 3;
             this.dgvFecha.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFecha_CellContentClick);
             // 
@@ -173,7 +173,7 @@
             this.tlpPanel.RowCount = 2;
             this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.25F));
             this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.75F));
-            this.tlpPanel.Size = new System.Drawing.Size(645, 240);
+            this.tlpPanel.Size = new System.Drawing.Size(645, 204);
             this.tlpPanel.TabIndex = 23;
             // 
             // frmVerExpedientes

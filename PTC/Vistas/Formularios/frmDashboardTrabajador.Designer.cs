@@ -181,7 +181,7 @@
             this.MaximizeBox = false;
             this.Name = "frmDashboardTrabajador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmDashboardAsistente";
+            this.Text = "Trabajador";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
