@@ -60,6 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Botones\BotonesPSNLSD.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Conexion\Conexion.cs" />
     <Compile Include="Entidades\Alergias.cs" />
     <Compile Include="Entidades\Cita.cs" />
@@ -73,9 +76,6 @@
     <Compile Include="Entidades\Rol.cs" />
     <Compile Include="Entidades\Venta.cs" />
     <Compile Include="Entidades\Usuario.cs" />
-    <Compile Include="Metodos\Botones.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Metodos\Panel.cs">
       <SubType>Component</SubType>
     </Compile>
