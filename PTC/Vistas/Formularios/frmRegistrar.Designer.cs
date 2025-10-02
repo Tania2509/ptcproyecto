@@ -29,18 +29,15 @@
         private void InitializeComponent()
         {
             this.pnlRegistrar = new Modelos.Metodos.PanelRedondeado();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.btnSesion = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.cbEspecialidad = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.cbRol = new System.Windows.Forms.ComboBox();
+            this.lblEspecialidad = new System.Windows.Forms.Label();
             this.dtpFechaNaci = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.lblOcupacion = new System.Windows.Forms.Label();
             this.lblEdad = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
@@ -57,20 +54,17 @@
             this.pnlRegistrar.AnchoBorde = 1;
             this.pnlRegistrar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlRegistrar.BackColor = System.Drawing.Color.Transparent;
-            this.pnlRegistrar.BackgroundImage = global::Vistas.Properties.Resources.Rectangle_49;
+            this.pnlRegistrar.BackgroundImage = global::Vistas.Properties.Resources.Rectangle_49_1_;
             this.pnlRegistrar.ColorBorde = System.Drawing.Color.Gray;
+            this.pnlRegistrar.Controls.Add(this.btnCancelar);
             this.pnlRegistrar.Controls.Add(this.lblCorreo);
             this.pnlRegistrar.Controls.Add(this.txtCorreo);
-            this.pnlRegistrar.Controls.Add(this.btnSesion);
             this.pnlRegistrar.Controls.Add(this.btnRegistrar);
             this.pnlRegistrar.Controls.Add(this.cbEspecialidad);
-            this.pnlRegistrar.Controls.Add(this.label4);
-            this.pnlRegistrar.Controls.Add(this.label3);
-            this.pnlRegistrar.Controls.Add(this.txtContraseña);
-            this.pnlRegistrar.Controls.Add(this.cbRol);
+            this.pnlRegistrar.Controls.Add(this.lblEspecialidad);
             this.pnlRegistrar.Controls.Add(this.dtpFechaNaci);
             this.pnlRegistrar.Controls.Add(this.label1);
-            this.pnlRegistrar.Controls.Add(this.label2);
+            this.pnlRegistrar.Controls.Add(this.lblFecha);
             this.pnlRegistrar.Controls.Add(this.lblOcupacion);
             this.pnlRegistrar.Controls.Add(this.lblEdad);
             this.pnlRegistrar.Controls.Add(this.lblApellido);
@@ -83,8 +77,19 @@
             this.pnlRegistrar.Location = new System.Drawing.Point(266, 44);
             this.pnlRegistrar.Name = "pnlRegistrar";
             this.pnlRegistrar.RadioEsquinas = 40;
-            this.pnlRegistrar.Size = new System.Drawing.Size(632, 771);
+            this.pnlRegistrar.Size = new System.Drawing.Size(632, 666);
             this.pnlRegistrar.TabIndex = 0;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Brown;
+            this.btnCancelar.Location = new System.Drawing.Point(62, 540);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(208, 58);
+            this.btnCancelar.TabIndex = 39;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // lblCorreo
             // 
@@ -106,76 +111,36 @@
             this.txtCorreo.Size = new System.Drawing.Size(250, 32);
             this.txtCorreo.TabIndex = 37;
             // 
-            // btnSesion
-            // 
-            this.btnSesion.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.btnSesion.Location = new System.Drawing.Point(171, 711);
-            this.btnSesion.Name = "btnSesion";
-            this.btnSesion.Size = new System.Drawing.Size(297, 40);
-            this.btnSesion.TabIndex = 36;
-            this.btnSesion.Text = "Iniciar Sesion";
-            this.btnSesion.UseVisualStyleBackColor = true;
-            // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(202, 622);
+            this.btnRegistrar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnRegistrar.Location = new System.Drawing.Point(357, 540);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(231, 70);
+            this.btnRegistrar.Size = new System.Drawing.Size(208, 58);
             this.btnRegistrar.TabIndex = 35;
             this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // cbEspecialidad
             // 
+            this.cbEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEspecialidad.FormattingEnabled = true;
-            this.cbEspecialidad.Location = new System.Drawing.Point(301, 551);
+            this.cbEspecialidad.Location = new System.Drawing.Point(302, 434);
             this.cbEspecialidad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbEspecialidad.Name = "cbEspecialidad";
             this.cbEspecialidad.Size = new System.Drawing.Size(250, 31);
             this.cbEspecialidad.TabIndex = 20;
             // 
-            // label4
+            // lblEspecialidad
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(55, 434);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 23);
-            this.label4.TabIndex = 34;
-            this.label4.Text = "Contraseña:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 564);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 23);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Especialidad:";
-            // 
-            // txtContraseña
-            // 
-            this.txtContraseña.Location = new System.Drawing.Point(301, 423);
-            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4);
-            this.txtContraseña.MaxLength = 8;
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.ShortcutsEnabled = false;
-            this.txtContraseña.Size = new System.Drawing.Size(250, 32);
-            this.txtContraseña.TabIndex = 33;
-            // 
-            // cbRol
-            // 
-            this.cbRol.FormattingEnabled = true;
-            this.cbRol.Items.AddRange(new object[] {
-            "Asistente",
-            "Doctor"});
-            this.cbRol.Location = new System.Drawing.Point(300, 487);
-            this.cbRol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbRol.Name = "cbRol";
-            this.cbRol.Size = new System.Drawing.Size(250, 31);
-            this.cbRol.TabIndex = 32;
+            this.lblEspecialidad.AutoSize = true;
+            this.lblEspecialidad.Location = new System.Drawing.Point(56, 437);
+            this.lblEspecialidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEspecialidad.Name = "lblEspecialidad";
+            this.lblEspecialidad.Size = new System.Drawing.Size(141, 23);
+            this.lblEspecialidad.TabIndex = 19;
+            this.lblEspecialidad.Text = "Especialidad:";
             // 
             // dtpFechaNaci
             // 
@@ -188,22 +153,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(54, 493);
+            this.label1.Location = new System.Drawing.Point(54, 479);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 23);
+            this.label1.Size = new System.Drawing.Size(0, 23);
             this.label1.TabIndex = 30;
-            this.label1.Text = "Rol:";
             // 
-            // label2
+            // lblFecha
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 366);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(226, 23);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Fecha de nacimiento:";
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(55, 366);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(226, 23);
+            this.lblFecha.TabIndex = 29;
+            this.lblFecha.Text = "Fecha de nacimiento:";
             // 
             // lblOcupacion
             // 
@@ -255,6 +219,7 @@
             this.txtDui.ShortcutsEnabled = false;
             this.txtDui.Size = new System.Drawing.Size(250, 32);
             this.txtDui.TabIndex = 24;
+            this.txtDui.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDui_KeyPress);
             // 
             // txtTelefono
             // 
@@ -265,6 +230,7 @@
             this.txtTelefono.ShortcutsEnabled = false;
             this.txtTelefono.Size = new System.Drawing.Size(250, 32);
             this.txtTelefono.TabIndex = 23;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // txtApellido
             // 
@@ -275,6 +241,7 @@
             this.txtApellido.ShortcutsEnabled = false;
             this.txtApellido.Size = new System.Drawing.Size(250, 32);
             this.txtApellido.TabIndex = 22;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtNombre
             // 
@@ -285,6 +252,7 @@
             this.txtNombre.ShortcutsEnabled = false;
             this.txtNombre.Size = new System.Drawing.Size(251, 32);
             this.txtNombre.TabIndex = 21;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // frmRegistrar
             // 
@@ -292,12 +260,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.RoyalBlue;
+            this.BackgroundImage = global::Vistas.Properties.Resources.Desktop___26_1_;
             this.ClientSize = new System.Drawing.Size(1125, 924);
             this.Controls.Add(this.pnlRegistrar);
             this.MinimizeBox = false;
             this.Name = "frmRegistrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmRegistrar";
+            this.Text = "Registrar";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmRegistrar_Load);
             this.pnlRegistrar.ResumeLayout(false);
             this.pnlRegistrar.PerformLayout();
@@ -308,12 +278,9 @@
         #endregion
 
         private Modelos.Metodos.PanelRedondeado pnlRegistrar;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtContraseña;
-        private System.Windows.Forms.ComboBox cbRol;
         private System.Windows.Forms.DateTimePicker dtpFechaNaci;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblOcupacion;
         private System.Windows.Forms.Label lblEdad;
         private System.Windows.Forms.Label lblApellido;
@@ -323,10 +290,10 @@
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.ComboBox cbEspecialidad;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnSesion;
+        private System.Windows.Forms.Label lblEspecialidad;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

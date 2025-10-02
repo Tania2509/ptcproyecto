@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.pnlLogin = new Modelos.Metodos.PanelRedondeado();
             this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.btnRegistrarse = new System.Windows.Forms.Button();
             this.llbContraseña = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,10 +46,9 @@
             // 
             this.pnlLogin.AnchoBorde = 1;
             this.pnlLogin.BackColor = System.Drawing.Color.White;
-            this.pnlLogin.BackgroundImage = global::Vistas.Properties.Resources.Rectangle_49;
+            this.pnlLogin.BackgroundImage = global::Vistas.Properties.Resources.Rectangle_49_1_;
             this.pnlLogin.ColorBorde = System.Drawing.Color.Gray;
             this.pnlLogin.Controls.Add(this.txtContraseña);
-            this.pnlLogin.Controls.Add(this.btnRegistrarse);
             this.pnlLogin.Controls.Add(this.llbContraseña);
             this.pnlLogin.Controls.Add(this.label4);
             this.pnlLogin.Controls.Add(this.label3);
@@ -76,18 +74,6 @@
             this.txtContraseña.Size = new System.Drawing.Size(393, 34);
             this.txtContraseña.TabIndex = 35;
             // 
-            // btnRegistrarse
-            // 
-            this.btnRegistrarse.BackColor = System.Drawing.Color.Transparent;
-            this.btnRegistrarse.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.btnRegistrarse.Location = new System.Drawing.Point(222, 494);
-            this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.Size = new System.Drawing.Size(175, 44);
-            this.btnRegistrarse.TabIndex = 33;
-            this.btnRegistrarse.Text = "Registrarse";
-            this.btnRegistrarse.UseVisualStyleBackColor = false;
-            this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
-            // 
             // llbContraseña
             // 
             this.llbContraseña.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
@@ -100,6 +86,7 @@
             this.llbContraseña.TabIndex = 32;
             this.llbContraseña.TabStop = true;
             this.llbContraseña.Text = "¿Olvidaste tu contraseña?";
+            this.llbContraseña.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llbContraseña_LinkClicked);
             // 
             // label4
             // 
@@ -138,7 +125,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(157)))), ((int)(((byte)(97)))));
             this.btnIniciarSesion.ForeColor = System.Drawing.Color.Honeydew;
-            this.btnIniciarSesion.Location = new System.Drawing.Point(121, 367);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(120, 416);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(393, 87);
             this.btnIniciarSesion.TabIndex = 28;
@@ -173,7 +160,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.BackColor = System.Drawing.Color.RoyalBlue;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackgroundImage = global::Vistas.Properties.Resources.Desktop___26_1_;
             this.ClientSize = new System.Drawing.Size(1125, 749);
             this.Controls.Add(this.pnlLogin);
             this.Controls.Add(this.pictureBox1);
@@ -196,7 +184,6 @@
         #endregion
         private System.Windows.Forms.PictureBox pictureBox1;
         private Modelos.Metodos.PanelRedondeado pnlLogin;
-        private System.Windows.Forms.Button btnRegistrarse;
         private System.Windows.Forms.LinkLabel llbContraseña;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

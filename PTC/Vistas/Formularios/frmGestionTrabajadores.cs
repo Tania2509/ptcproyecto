@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -20,44 +21,6 @@ namespace Vistas.Formularios
         public frmGestionTrabajadores()
         {
             InitializeComponent();
-            dgvVerTrabajador.CellValueChanged += dgvVerTrabajador_CellValueChanged;
-            dgvVerTrabajador.CellContentClick += dgvVerTrabajador_CellContentClick;
-        }
-
-        private void btnAgregarTrabajador_Click(object sender, EventArgs e)
-        {
-            // Validación de campos vacíos
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
-                string.IsNullOrWhiteSpace(txtDui.Text) ||
-                cbRol.SelectedIndex == -1 ||
-                cbEspecialidad.SelectedIndex == -1)
-            {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            else if (!EsMayorDeEdad(dtpFechaNaci.Value))
-            {
-                  return;
-            }
-
-            Modelos.Entidades.Usuario U = new Usuario();
-
-            U.NombreU = txtNombre.Text;
-            U.ApellidoU = txtApellido.Text;
-            U.TelefonoU = txtTelefono.Text;
-            U.DuiU = txtDui.Text;
-            U.Correo = txtCorreo.Text;
-            U.FechaNacimientoU = dtpFechaNaci.Value;
-            U.Id_Rol = Convert.ToInt32(cbRol.SelectedValue);
-            U.Id_Especialidad = Convert.ToInt32(cbEspecialidad.SelectedValue);
-            U.Contrasena = BCrypt.Net.BCrypt.HashPassword(txtContraseña.Text);
-            U.InsertarUsuarios();
-            MostrarUsuarios();
-            LimpiarCampos();
-            MessageBox.Show("Datos ingresados correctamente");
         }
 
         private bool EsMayorDeEdad(DateTime fechaNacimiento)
@@ -90,7 +53,6 @@ namespace Vistas.Formularios
             return true;
         }
       
-
         private void frmVerTrabajadores_Load(object sender, EventArgs e)
         {
             MostrarUsuarios();
@@ -98,8 +60,6 @@ namespace Vistas.Formularios
             mostrarRol();
             
         }
-
-
 
         #region Metodos de combobox
 
@@ -139,24 +99,22 @@ namespace Vistas.Formularios
 
         }
 
-        private void btnEliminarTrabajador_Click(object sender, EventArgs e)
-        {
-            Usuario Trabajador = new Usuario();
-            int id = int.Parse(dgvVerTrabajador.CurrentRow.Cells[0].Value.ToString());
-            if (Trabajador.eliminarTrabajador(id) == true)
-            {
-                MessageBox.Show("Registro eliminado correctamente", "Exito");
-                MostrarUsuarios();
-            }
-            else
-            {
-                MessageBox.Show("Se produjo un error", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
         #region Validaciones de textbox
 
         Validaciones V = new Validaciones();
+
+        private bool EsEmailValido(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -180,56 +138,6 @@ namespace Vistas.Formularios
 
         #endregion
 
-        private void dgvVerTrabajador_DoubleClick(object sender, EventArgs e)
-        {
-           
-                txtNombre.Text = dgvVerTrabajador.CurrentRow.Cells["Nombre"].Value.ToString();
-                txtApellido.Text = dgvVerTrabajador.CurrentRow.Cells["Apellido"].Value.ToString();
-                txtTelefono.Text = dgvVerTrabajador.CurrentRow.Cells["Telefono"].Value.ToString();
-                txtDui.Text = dgvVerTrabajador.CurrentRow.Cells["DUI"].Value.ToString();
-                dtpFechaNaci.Value = Convert.ToDateTime(dgvVerTrabajador.CurrentRow.Cells["Fecha de nacimiento"].Value);
-                cbEspecialidad.Text = dgvVerTrabajador.CurrentRow.Cells["Especialidad"].Value.ToString();
-                cbRol.Text = dgvVerTrabajador.CurrentRow.Cells["Rol"].Value.ToString();
-
-        }
-
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
-                string.IsNullOrWhiteSpace(txtDui.Text) ||
-                cbRol.SelectedIndex == -1 ||
-                cbEspecialidad.SelectedIndex == -1)
-            {
-                MessageBox.Show("No dejes campos vacios", "Campos obligatorios");
-                return;
-            }
-
-            Usuario u = new Usuario(); 
-            u.NombreU = txtNombre.Text;
-            u.ApellidoU = txtApellido.Text;
-            u.TelefonoU = txtTelefono.Text;
-            u.DuiU = txtDui.Text;
-            u.FechaNacimientoU = dtpFechaNaci.Value;
-            u.Contrasena = BCrypt.Net.BCrypt.HashPassword(txtContraseña.Text);
-            u.Correo = txtCorreo.Text;
-            u.Id_Rol = Convert.ToInt32(cbRol.SelectedValue);
-            u.Id_Especialidad = Convert.ToInt32(cbEspecialidad.SelectedValue);
-            u.IdUsuario = Convert.ToInt32(dgvVerTrabajador.CurrentRow.Cells[0].Value);
-            u.EstadoVerificado = 1;
-
-            if (u.ActualizarUsuarios() == true)
-            {
-                MostrarUsuarios();
-                LimpiarCampos();
-            }
-            else
-            {
-                MessageBox.Show("Error al actualizar el trabajador.", "Error");
-            }
-        }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -250,7 +158,7 @@ namespace Vistas.Formularios
             txtApellido.Text = string.Empty;
             txtTelefono.Text = string.Empty;
             txtDui.Text = string.Empty;
-            txtContraseña.Text = string.Empty;
+            txtCorreo.Text = string.Empty;
             txtBuscar.Text = string.Empty;
 
             // Restablecer ComboBox
@@ -261,67 +169,96 @@ namespace Vistas.Formularios
             dtpFechaNaci.Value = DateTime.Now;
         }
 
-        private void dgvVerTrabajador_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+
+
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == dgvVerTrabajador.Columns["Verificado"].Index)
+            // Validación de campos vacíos
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtApellido.Text) ||
+                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
+                string.IsNullOrWhiteSpace(txtDui.Text) ||
+                cbRol.SelectedIndex == -1 ||
+                cbEspecialidad.SelectedIndex == -1)
             {
-                // Obtener el ID del usuario y el nuevo estado
-                int idUsuario = Convert.ToInt32(dgvVerTrabajador.Rows[e.RowIndex].Cells["Usuario"].Value);
-                bool verificado = (bool)dgvVerTrabajador.Rows[e.RowIndex].Cells["Verificado"].Value;
-
-                // Actualizar en la base de datos
-                ActualizarEstadoVerificado(idUsuario, verificado);
+                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-        }
-
-        private void ActualizarEstadoVerificado(int idUsuario, bool verificado)
-        {
-            SqlConnection con = null;
-            try
-            {
-                con = Conexion.conectar();  // Abre la conexión utilizando el método 'conectar()'
-
-                SqlCommand cmd = new SqlCommand("UPDATE Usuario SET estadoVerificado = @verificado WHERE idUsuario = @idUsuario", con);
-                cmd.Parameters.AddWithValue("@verificado", verificado);
-                cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
-
-                cmd.ExecuteNonQuery();  // Ejecutar la consulta
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al actualizar el estado: " + ex.Message);
-            }
-            finally
-            {
-                if (con != null && con.State == ConnectionState.Open)
+            else if  (!string.IsNullOrWhiteSpace(txtCorreo.Text) && !EsEmailValido(txtCorreo.Text))
                 {
-                    con.Close();  // Cerrar la conexión manualmente en el bloque 'finally'
+                    MessageBox.Show("Por favor, ingresa un correo electrónico válido.");
+                    return ;
                 }
-            }
-        }
 
-        private void dgvVerTrabajador_CellContentClick(object sender, DataGridViewCellEventArgs e)
-
-        {if (e.RowIndex >= 0 && dgvVerTrabajador.Columns.Contains("Verificado") &&
-        e.ColumnIndex == dgvVerTrabajador.Columns["Verificado"].Index)
-    {
-        dgvVerTrabajador.CommitEdit(DataGridViewDataErrorContexts.Commit);  // Asegúrate de que el commit se haga correctamente
-    }
-        }
-
-        private void ConfigurarDataGridView()
-        {
-            // Hacer que la columna sea de solo lectura excepto el checkbox
-            foreach (DataGridViewColumn columna in dgvVerTrabajador.Columns)
+                else if (!EsMayorDeEdad(dtpFechaNaci.Value))
             {
-                if (columna.Name != "Verificado")
-                {
-                    columna.ReadOnly = true;
-                }
+                return;
             }
 
-            // Configurar el ancho de la columna checkbox
-            dgvVerTrabajador.Columns["Verificado"].Width = 80;
+            Modelos.Entidades.Usuario U = new Usuario();
+
+            U.NombreU = txtNombre.Text;
+            U.ApellidoU = txtApellido.Text;
+            U.TelefonoU = txtTelefono.Text;
+            U.DuiU = txtDui.Text;
+            U.Correo = txtCorreo.Text;
+            U.FechaNacimientoU = dtpFechaNaci.Value;
+            U.Id_Rol = Convert.ToInt32(cbRol.SelectedValue);
+            U.Id_Especialidad = Convert.ToInt32(cbEspecialidad.SelectedValue);
+            U.InsertarUsuarios();
+            MostrarUsuarios();
+            LimpiarCampos();
+            MessageBox.Show("Datos ingresados correctamente");
+        }
+
+        private void btnActualizar_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtApellido.Text) ||
+                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
+                string.IsNullOrWhiteSpace(txtDui.Text) ||
+                cbRol.SelectedIndex == -1 ||
+                cbEspecialidad.SelectedIndex == -1)
+            {
+                MessageBox.Show("No dejes campos vacios", "Campos obligatorios");
+                return;
+            }
+
+            Usuario u = new Usuario();
+            u.NombreU = txtNombre.Text;
+            u.ApellidoU = txtApellido.Text;
+            u.TelefonoU = txtTelefono.Text;
+            u.DuiU = txtDui.Text;
+            u.FechaNacimientoU = dtpFechaNaci.Value;
+            u.Correo = txtCorreo.Text;
+            u.Id_Rol = Convert.ToInt32(cbRol.SelectedValue);
+            u.Id_Especialidad = Convert.ToInt32(cbEspecialidad.SelectedValue);
+            u.IdUsuario = Convert.ToInt32(dgvVerTrabajador.CurrentRow.Cells[0].Value);
+
+            if (u.ActualizarUsuarios() == true)
+            {
+                MostrarUsuarios();
+                LimpiarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Error al actualizar el trabajador.", "Error");
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Usuario Trabajador = new Usuario();
+            int id = int.Parse(dgvVerTrabajador.CurrentRow.Cells[0].Value.ToString());
+            if (Trabajador.eliminarTrabajador(id) == true)
+            {
+                MessageBox.Show("Registro eliminado correctamente", "Exito");
+                MostrarUsuarios();
+            }
+            else
+            {
+                MessageBox.Show("Se produjo un error", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

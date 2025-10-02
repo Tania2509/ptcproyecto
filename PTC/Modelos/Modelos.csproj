@@ -60,7 +60,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Botones\BotonesPSNLSD.cs">
+    <Compile Include="Entidades\Configuracion.cs" />
+    <Compile Include="Entidades\Producto.cs" />
+    <Compile Include="Metodos\BotonesPSNLSD.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Conexion\Conexion.cs" />
@@ -76,9 +78,11 @@
     <Compile Include="Entidades\Rol.cs" />
     <Compile Include="Entidades\Venta.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Metodos\Correo.cs" />
     <Compile Include="Metodos\Panel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Metodos\Token.cs" />
     <Compile Include="Metodos\Validaciones.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

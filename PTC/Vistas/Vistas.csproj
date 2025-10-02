@@ -62,6 +62,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formularios\frmCambioContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmCambioContraseña.Designer.cs">
+      <DependentUpon>frmCambioContraseña.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmConfiguracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmConfiguracion.Designer.cs">
+      <DependentUpon>frmConfiguracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmCorreo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmCorreo.Designer.cs">
+      <DependentUpon>frmCorreo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmDashboardAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +142,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\frnCorreo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Resources\frnCorreo.Designer.cs">
+      <DependentUpon>frnCorreo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Formularios\frmCambioContraseña.resx">
+      <DependentUpon>frmCambioContraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmConfiguracion.resx">
+      <DependentUpon>frmConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmCorreo.resx">
+      <DependentUpon>frmCorreo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmDashboardAdministrador.resx">
       <DependentUpon>frmDashboardAdministrador.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +197,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Resources\frnCorreo.resx">
+      <DependentUpon>frnCorreo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -231,6 +267,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-buscar-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-ojos-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-ojos-32%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Desktop - 26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Desktop - 26%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle 49%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ControlUser\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Desktop - 1%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CleanShot-2024-10-03-at-13.53.26%402x-1024x434.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de pantalla 2025-10-01 213913.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FDI-Zahnschema.svg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

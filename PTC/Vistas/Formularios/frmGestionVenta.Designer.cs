@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.dgvMostrarPro = new System.Windows.Forms.DataGridView();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnAgregarTrabajador = new System.Windows.Forms.Button();
-            this.btnEliminarTrabajador = new System.Windows.Forms.Button();
             this.pnlMostrarInv = new System.Windows.Forms.Panel();
+            this.cbProducto = new System.Windows.Forms.ComboBox();
             this.lblUnidadesVendidas = new System.Windows.Forms.Label();
             this.lblPrecioProducto = new System.Windows.Forms.Label();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.txtUnidadesActuales = new System.Windows.Forms.TextBox();
             this.txtPrecioProducto = new System.Windows.Forms.TextBox();
-            this.txtNombreProducto = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.tlpBotones = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAgregar = new Modelos.Botones.BotonesPSNLSD();
+            this.btnActualizar = new Modelos.Botones.BotonesPSNLSD();
+            this.btnEliminar = new Modelos.Botones.BotonesPSNLSD();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarPro)).BeginInit();
             this.pnlMostrarInv.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -55,80 +55,47 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMostrarPro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMostrarPro.Location = new System.Drawing.Point(509, 256);
-            this.dgvMostrarPro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvMostrarPro.Location = new System.Drawing.Point(592, 436);
+            this.dgvMostrarPro.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvMostrarPro.Name = "dgvMostrarPro";
             this.dgvMostrarPro.RowHeadersWidth = 51;
             this.dgvMostrarPro.RowTemplate.Height = 24;
-            this.dgvMostrarPro.Size = new System.Drawing.Size(501, 275);
+            this.dgvMostrarPro.Size = new System.Drawing.Size(596, 204);
             this.dgvMostrarPro.TabIndex = 0;
             this.dgvMostrarPro.DoubleClick += new System.EventHandler(this.dgvMostrarPro_DoubleClick);
             // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnActualizar.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.btnActualizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnActualizar.Location = new System.Drawing.Point(153, 5);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(140, 76);
-            this.btnActualizar.TabIndex = 13;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // btnAgregarTrabajador
-            // 
-            this.btnAgregarTrabajador.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAgregarTrabajador.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAgregarTrabajador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.btnAgregarTrabajador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAgregarTrabajador.Location = new System.Drawing.Point(4, 6);
-            this.btnAgregarTrabajador.Name = "btnAgregarTrabajador";
-            this.btnAgregarTrabajador.Size = new System.Drawing.Size(140, 74);
-            this.btnAgregarTrabajador.TabIndex = 11;
-            this.btnAgregarTrabajador.Text = "Agregar";
-            this.btnAgregarTrabajador.UseVisualStyleBackColor = false;
-            this.btnAgregarTrabajador.Click += new System.EventHandler(this.btnAgregarTrabajador_Click);
-            // 
-            // btnEliminarTrabajador
-            // 
-            this.btnEliminarTrabajador.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEliminarTrabajador.BackColor = System.Drawing.Color.Brown;
-            this.btnEliminarTrabajador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarTrabajador.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEliminarTrabajador.Location = new System.Drawing.Point(302, 5);
-            this.btnEliminarTrabajador.Name = "btnEliminarTrabajador";
-            this.btnEliminarTrabajador.Size = new System.Drawing.Size(140, 76);
-            this.btnEliminarTrabajador.TabIndex = 12;
-            this.btnEliminarTrabajador.Text = "Eliminar";
-            this.btnEliminarTrabajador.UseVisualStyleBackColor = false;
-            this.btnEliminarTrabajador.Click += new System.EventHandler(this.btnEliminarTrabajador_Click);
-            // 
             // pnlMostrarInv
             // 
-            this.pnlMostrarInv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlMostrarInv.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pnlMostrarInv.BackColor = System.Drawing.Color.Silver;
+            this.pnlMostrarInv.Controls.Add(this.cbProducto);
             this.pnlMostrarInv.Controls.Add(this.lblUnidadesVendidas);
             this.pnlMostrarInv.Controls.Add(this.lblPrecioProducto);
             this.pnlMostrarInv.Controls.Add(this.lblNombreProducto);
             this.pnlMostrarInv.Controls.Add(this.txtUnidadesActuales);
             this.pnlMostrarInv.Controls.Add(this.txtPrecioProducto);
-            this.pnlMostrarInv.Controls.Add(this.txtNombreProducto);
             this.pnlMostrarInv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlMostrarInv.Location = new System.Drawing.Point(22, 86);
-            this.pnlMostrarInv.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlMostrarInv.Location = new System.Drawing.Point(31, 270);
+            this.pnlMostrarInv.Margin = new System.Windows.Forms.Padding(6);
             this.pnlMostrarInv.Name = "pnlMostrarInv";
-            this.pnlMostrarInv.Size = new System.Drawing.Size(400, 342);
+            this.pnlMostrarInv.Size = new System.Drawing.Size(400, 339);
             this.pnlMostrarInv.TabIndex = 16;
+            // 
+            // cbProducto
+            // 
+            this.cbProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbProducto.FormattingEnabled = true;
+            this.cbProducto.Location = new System.Drawing.Point(36, 80);
+            this.cbProducto.Name = "cbProducto";
+            this.cbProducto.Size = new System.Drawing.Size(285, 33);
+            this.cbProducto.TabIndex = 8;
+            this.cbProducto.SelectedIndexChanged += new System.EventHandler(this.cbProducto_SelectedIndexChanged);
             // 
             // lblUnidadesVendidas
             // 
             this.lblUnidadesVendidas.AutoSize = true;
-            this.lblUnidadesVendidas.Location = new System.Drawing.Point(25, 220);
-            this.lblUnidadesVendidas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUnidadesVendidas.Location = new System.Drawing.Point(31, 252);
+            this.lblUnidadesVendidas.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblUnidadesVendidas.Name = "lblUnidadesVendidas";
             this.lblUnidadesVendidas.Size = new System.Drawing.Size(185, 25);
             this.lblUnidadesVendidas.TabIndex = 7;
@@ -137,8 +104,8 @@
             // lblPrecioProducto
             // 
             this.lblPrecioProducto.AutoSize = true;
-            this.lblPrecioProducto.Location = new System.Drawing.Point(25, 134);
-            this.lblPrecioProducto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrecioProducto.Location = new System.Drawing.Point(31, 146);
+            this.lblPrecioProducto.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPrecioProducto.Name = "lblPrecioProducto";
             this.lblPrecioProducto.Size = new System.Drawing.Size(187, 25);
             this.lblPrecioProducto.TabIndex = 6;
@@ -147,8 +114,8 @@
             // lblNombreProducto
             // 
             this.lblNombreProducto.AutoSize = true;
-            this.lblNombreProducto.Location = new System.Drawing.Point(25, 51);
-            this.lblNombreProducto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombreProducto.Location = new System.Drawing.Point(31, 26);
+            this.lblNombreProducto.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNombreProducto.Name = "lblNombreProducto";
             this.lblNombreProducto.Size = new System.Drawing.Size(201, 25);
             this.lblNombreProducto.TabIndex = 5;
@@ -156,58 +123,50 @@
             // 
             // txtUnidadesActuales
             // 
-            this.txtUnidadesActuales.Location = new System.Drawing.Point(32, 247);
-            this.txtUnidadesActuales.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUnidadesActuales.Location = new System.Drawing.Point(36, 293);
+            this.txtUnidadesActuales.Margin = new System.Windows.Forms.Padding(6);
             this.txtUnidadesActuales.Name = "txtUnidadesActuales";
             this.txtUnidadesActuales.ShortcutsEnabled = false;
-            this.txtUnidadesActuales.Size = new System.Drawing.Size(328, 30);
+            this.txtUnidadesActuales.Size = new System.Drawing.Size(285, 30);
             this.txtUnidadesActuales.TabIndex = 2;
             this.txtUnidadesActuales.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnidadesActuales_KeyPress);
             // 
             // txtPrecioProducto
             // 
-            this.txtPrecioProducto.Location = new System.Drawing.Point(32, 159);
-            this.txtPrecioProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrecioProducto.Location = new System.Drawing.Point(36, 177);
+            this.txtPrecioProducto.Margin = new System.Windows.Forms.Padding(6);
             this.txtPrecioProducto.MaxLength = 6;
             this.txtPrecioProducto.Name = "txtPrecioProducto";
+            this.txtPrecioProducto.ReadOnly = true;
             this.txtPrecioProducto.ShortcutsEnabled = false;
-            this.txtPrecioProducto.Size = new System.Drawing.Size(327, 30);
+            this.txtPrecioProducto.Size = new System.Drawing.Size(285, 30);
             this.txtPrecioProducto.TabIndex = 1;
-            this.txtPrecioProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioProducto_KeyPress);
-            // 
-            // txtNombreProducto
-            // 
-            this.txtNombreProducto.Location = new System.Drawing.Point(30, 79);
-            this.txtNombreProducto.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNombreProducto.MaxLength = 50;
-            this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.ShortcutsEnabled = false;
-            this.txtNombreProducto.Size = new System.Drawing.Size(328, 30);
-            this.txtNombreProducto.TabIndex = 0;
-            this.txtNombreProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreProducto_KeyPress);
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.53333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.46667F));
             this.tableLayoutPanel1.Controls.Add(this.btnBuscar, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtBuscar, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(590, 21);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(507, 13);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(375, 100);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(562, 122);
             this.tableLayoutPanel1.TabIndex = 19;
             // 
             // btnBuscar
             // 
             this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnBuscar.Image = global::Vistas.Properties.Resources.icons8_buscar_50;
-            this.btnBuscar.Location = new System.Drawing.Point(320, 26);
+            this.btnBuscar.Location = new System.Drawing.Point(479, 27);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(44, 47);
+            this.btnBuscar.Size = new System.Drawing.Size(66, 68);
             this.btnBuscar.TabIndex = 17;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -216,45 +175,108 @@
             // 
             this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtBuscar.Location = new System.Drawing.Point(3, 35);
+            this.txtBuscar.Location = new System.Drawing.Point(5, 46);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.ShortcutsEnabled = false;
-            this.txtBuscar.Size = new System.Drawing.Size(311, 30);
+            this.txtBuscar.Size = new System.Drawing.Size(464, 30);
             this.txtBuscar.TabIndex = 16;
             // 
             // tlpBotones
             // 
             this.tlpBotones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlpBotones.BackColor = System.Drawing.Color.Transparent;
             this.tlpBotones.ColumnCount = 3;
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tlpBotones.Controls.Add(this.btnAgregarTrabajador, 0, 0);
-            this.tlpBotones.Controls.Add(this.btnEliminarTrabajador, 2, 0);
+            this.tlpBotones.Controls.Add(this.btnAgregar, 0, 0);
             this.tlpBotones.Controls.Add(this.btnActualizar, 1, 0);
-            this.tlpBotones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.tlpBotones.Controls.Add(this.btnEliminar, 2, 0);
+            this.tlpBotones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.tlpBotones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tlpBotones.Location = new System.Drawing.Point(539, 165);
+            this.tlpBotones.Location = new System.Drawing.Point(583, 241);
+            this.tlpBotones.Margin = new System.Windows.Forms.Padding(4);
             this.tlpBotones.Name = "tlpBotones";
-            this.tlpBotones.RowCount = 1;
+            this.tlpBotones.RowCount = 2;
             this.tlpBotones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBotones.Size = new System.Drawing.Size(447, 86);
+            this.tlpBotones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpBotones.Size = new System.Drawing.Size(642, 91);
             this.tlpBotones.TabIndex = 20;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(93)))), ((int)(((byte)(185)))));
+            this.btnAgregar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(93)))), ((int)(((byte)(185)))));
+            this.btnAgregar.BorderColor = System.Drawing.Color.Azure;
+            this.btnAgregar.BorderRadius = 40;
+            this.btnAgregar.BorderSize = 0;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Location = new System.Drawing.Point(3, 3);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(208, 65);
+            this.btnAgregar.TabIndex = 20;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextColor = System.Drawing.Color.White;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(169)))), ((int)(((byte)(27)))));
+            this.btnActualizar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(169)))), ((int)(((byte)(27)))));
+            this.btnActualizar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnActualizar.BorderRadius = 14;
+            this.btnActualizar.BorderSize = 0;
+            this.btnActualizar.FlatAppearance.BorderSize = 0;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.Location = new System.Drawing.Point(217, 3);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(208, 65);
+            this.btnActualizar.TabIndex = 22;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.TextColor = System.Drawing.Color.White;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btnEliminar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btnEliminar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEliminar.BorderRadius = 14;
+            this.btnEliminar.BorderSize = 0;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(431, 3);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(208, 65);
+            this.btnEliminar.TabIndex = 21;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextColor = System.Drawing.Color.White;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // frmGestionVenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.BackColor = System.Drawing.Color.Snow;
+            this.BackgroundImage = global::Vistas.Properties.Resources.Desktop___1_1_;
+            this.ClientSize = new System.Drawing.Size(1600, 796);
             this.Controls.Add(this.tlpBotones);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pnlMostrarInv);
             this.Controls.Add(this.dgvMostrarPro);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmGestionVenta";
-            this.Text = "frmGestionInventario";
+            this.Text = "Gestion Ventas";
             this.Load += new System.EventHandler(this.frmGestionInventario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMostrarPro)).EndInit();
             this.pnlMostrarInv.ResumeLayout(false);
@@ -268,19 +290,19 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgvMostrarPro;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Button btnAgregarTrabajador;
-        private System.Windows.Forms.Button btnEliminarTrabajador;
         private System.Windows.Forms.Panel pnlMostrarInv;
         private System.Windows.Forms.Label lblUnidadesVendidas;
         private System.Windows.Forms.Label lblPrecioProducto;
         private System.Windows.Forms.Label lblNombreProducto;
         private System.Windows.Forms.TextBox txtUnidadesActuales;
         private System.Windows.Forms.TextBox txtPrecioProducto;
-        private System.Windows.Forms.TextBox txtNombreProducto;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.TableLayoutPanel tlpBotones;
+        private Modelos.Botones.BotonesPSNLSD btnAgregar;
+        private Modelos.Botones.BotonesPSNLSD btnActualizar;
+        private Modelos.Botones.BotonesPSNLSD btnEliminar;
+        private System.Windows.Forms.ComboBox cbProducto;
     }
 }

@@ -23,10 +23,12 @@ namespace Vistas.Formularios
             frmLogin1 = formpadre;
         }
 
+
         private frmLogin frmLogin1;
         private void frmDashboardAdministrador_Load(object sender, EventArgs e)
         {
-            
+            lblUsuario.ForeColor = Color.White;
+            lblVentas.ForeColor = Color.White;
         }
 
         #region
@@ -48,25 +50,28 @@ namespace Vistas.Formularios
             formularioPintar.FormBorderStyle = FormBorderStyle.None;
             formularioPintar.Dock = DockStyle.Fill;
 
-            pnlCentralAdmin.Controls.Add(formularioPintar);
+            pnlFormulario.Controls.Add(formularioPintar);
             formularioPintar.BringToFront();
             formularioPintar.Show();
         }
 
         #endregion
 
-
-        private void btnTrabajador_Click(object sender, EventArgs e)
+        private void lblUsuario_Click(object sender, EventArgs e)
         {
             AbrirForm(new frmGestionTrabajadores());
+            lblUsuario.ForeColor = Color.MediumAquamarine;
+            lblVentas.ForeColor = Color.White;
         }
 
-        private void btnInventario_Click(object sender, EventArgs e)
+        private void lblVentas_Click(object sender, EventArgs e)
         {
             AbrirForm(new frmGestionVenta());
+            lblVentas.ForeColor = Color.MediumAquamarine;
+            lblUsuario.ForeColor = Color.White;
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void btnFinalizar_Click(object sender, EventArgs e)
         {
             frmLogin ventana = new frmLogin();
             this.Hide();

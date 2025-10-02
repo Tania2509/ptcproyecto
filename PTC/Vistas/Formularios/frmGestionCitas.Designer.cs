@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvVerCitas = new System.Windows.Forms.DataGridView();
-            this.btnAgregarCita = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.pnlDatos = new System.Windows.Forms.Panel();
             this.cbCorreo = new System.Windows.Forms.ComboBox();
             this.cbApellido = new System.Windows.Forms.ComboBox();
@@ -43,15 +41,17 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtRazonCita = new System.Windows.Forms.TextBox();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.tlpBotones = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAgregar = new Modelos.Botones.BotonesPSNLSD();
+            this.btnActualizar = new Modelos.Botones.BotonesPSNLSD();
+            this.btnEliminar = new Modelos.Botones.BotonesPSNLSD();
+            this.tlpBusqueda = new System.Windows.Forms.TableLayoutPanel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerCitas)).BeginInit();
             this.pnlDatos.SuspendLayout();
             this.tlpBotones.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tlpBusqueda.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvVerCitas
@@ -60,40 +60,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvVerCitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVerCitas.Location = new System.Drawing.Point(454, 220);
-            this.dgvVerCitas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvVerCitas.Location = new System.Drawing.Point(704, 348);
+            this.dgvVerCitas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvVerCitas.Name = "dgvVerCitas";
+            this.dgvVerCitas.ReadOnly = true;
             this.dgvVerCitas.RowHeadersWidth = 51;
             this.dgvVerCitas.RowTemplate.Height = 24;
-            this.dgvVerCitas.Size = new System.Drawing.Size(457, 244);
+            this.dgvVerCitas.Size = new System.Drawing.Size(601, 366);
             this.dgvVerCitas.TabIndex = 0;
             this.dgvVerCitas.DoubleClick += new System.EventHandler(this.dgvVerCitas_DoubleClick);
-            // 
-            // btnAgregarCita
-            // 
-            this.btnAgregarCita.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAgregarCita.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAgregarCita.Location = new System.Drawing.Point(4, 8);
-            this.btnAgregarCita.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAgregarCita.Name = "btnAgregarCita";
-            this.btnAgregarCita.Size = new System.Drawing.Size(140, 70);
-            this.btnAgregarCita.TabIndex = 1;
-            this.btnAgregarCita.Text = "Agregar Cita";
-            this.btnAgregarCita.UseVisualStyleBackColor = false;
-            this.btnAgregarCita.Click += new System.EventHandler(this.btnAgregarCita_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEliminar.BackColor = System.Drawing.Color.Brown;
-            this.btnEliminar.Location = new System.Drawing.Point(302, 6);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(140, 74);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // pnlDatos
             // 
@@ -115,54 +90,57 @@
             this.pnlDatos.Controls.Add(this.lblNombre);
             this.pnlDatos.Controls.Add(this.txtRazonCita);
             this.pnlDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlDatos.Location = new System.Drawing.Point(13, 40);
-            this.pnlDatos.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlDatos.Location = new System.Drawing.Point(15, 180);
+            this.pnlDatos.Margin = new System.Windows.Forms.Padding(6);
             this.pnlDatos.Name = "pnlDatos";
-            this.pnlDatos.Size = new System.Drawing.Size(419, 476);
+            this.pnlDatos.Size = new System.Drawing.Size(628, 551);
             this.pnlDatos.TabIndex = 4;
             // 
             // cbCorreo
             // 
+            this.cbCorreo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCorreo.FormattingEnabled = true;
-            this.cbCorreo.Location = new System.Drawing.Point(7, 334);
-            this.cbCorreo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbCorreo.Location = new System.Drawing.Point(10, 480);
+            this.cbCorreo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbCorreo.Name = "cbCorreo";
-            this.cbCorreo.Size = new System.Drawing.Size(372, 33);
+            this.cbCorreo.Size = new System.Drawing.Size(556, 33);
             this.cbCorreo.TabIndex = 17;
             // 
             // cbApellido
             // 
+            this.cbApellido.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbApellido.FormattingEnabled = true;
-            this.cbApellido.Location = new System.Drawing.Point(7, 161);
-            this.cbApellido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbApellido.Location = new System.Drawing.Point(10, 231);
+            this.cbApellido.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbApellido.Name = "cbApellido";
-            this.cbApellido.Size = new System.Drawing.Size(372, 33);
+            this.cbApellido.Size = new System.Drawing.Size(556, 33);
             this.cbApellido.TabIndex = 16;
             // 
             // cbNombre
             // 
+            this.cbNombre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNombre.FormattingEnabled = true;
-            this.cbNombre.Location = new System.Drawing.Point(7, 63);
-            this.cbNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbNombre.Location = new System.Drawing.Point(10, 91);
+            this.cbNombre.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbNombre.Name = "cbNombre";
-            this.cbNombre.Size = new System.Drawing.Size(372, 33);
+            this.cbNombre.Size = new System.Drawing.Size(556, 33);
             this.cbNombre.TabIndex = 15;
             // 
             // dtpFechaHora
             // 
             this.dtpFechaHora.CustomFormat = "yyyy-MM-dd HH:mm";
             this.dtpFechaHora.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaHora.Location = new System.Drawing.Point(9, 441);
-            this.dtpFechaHora.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFechaHora.Location = new System.Drawing.Point(14, 634);
+            this.dtpFechaHora.Margin = new System.Windows.Forms.Padding(6);
             this.dtpFechaHora.Name = "dtpFechaHora";
-            this.dtpFechaHora.Size = new System.Drawing.Size(372, 30);
+            this.dtpFechaHora.Size = new System.Drawing.Size(556, 30);
             this.dtpFechaHora.TabIndex = 14;
             // 
             // lblFecha
             // 
             this.lblFecha.AutoSize = true;
-            this.lblFecha.Location = new System.Drawing.Point(4, 399);
-            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFecha.Location = new System.Drawing.Point(6, 574);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(155, 25);
             this.lblFecha.TabIndex = 11;
@@ -171,8 +149,8 @@
             // lblCorreoElectronico
             // 
             this.lblCorreoElectronico.AutoSize = true;
-            this.lblCorreoElectronico.Location = new System.Drawing.Point(3, 309);
-            this.lblCorreoElectronico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCorreoElectronico.Location = new System.Drawing.Point(4, 444);
+            this.lblCorreoElectronico.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblCorreoElectronico.Name = "lblCorreoElectronico";
             this.lblCorreoElectronico.Size = new System.Drawing.Size(173, 25);
             this.lblCorreoElectronico.TabIndex = 10;
@@ -182,10 +160,10 @@
             // 
             this.btnProgramarCita.BackColor = System.Drawing.Color.YellowGreen;
             this.btnProgramarCita.ForeColor = System.Drawing.Color.White;
-            this.btnProgramarCita.Location = new System.Drawing.Point(483, 505);
-            this.btnProgramarCita.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProgramarCita.Location = new System.Drawing.Point(724, 726);
+            this.btnProgramarCita.Margin = new System.Windows.Forms.Padding(6);
             this.btnProgramarCita.Name = "btnProgramarCita";
-            this.btnProgramarCita.Size = new System.Drawing.Size(200, 65);
+            this.btnProgramarCita.Size = new System.Drawing.Size(300, 93);
             this.btnProgramarCita.TabIndex = 9;
             this.btnProgramarCita.Text = "Programar Cita";
             this.btnProgramarCita.UseVisualStyleBackColor = false;
@@ -193,8 +171,8 @@
             // lblRazonCita
             // 
             this.lblRazonCita.AutoSize = true;
-            this.lblRazonCita.Location = new System.Drawing.Point(1, 208);
-            this.lblRazonCita.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRazonCita.Location = new System.Drawing.Point(2, 299);
+            this.lblRazonCita.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblRazonCita.Name = "lblRazonCita";
             this.lblRazonCita.Size = new System.Drawing.Size(152, 25);
             this.lblRazonCita.TabIndex = 8;
@@ -203,8 +181,8 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(4, 117);
-            this.lblApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApellido.Location = new System.Drawing.Point(6, 168);
+            this.lblApellido.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(88, 25);
             this.lblApellido.TabIndex = 6;
@@ -213,8 +191,8 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(4, 34);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Location = new System.Drawing.Point(6, 49);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(87, 25);
             this.lblNombre.TabIndex = 5;
@@ -222,70 +200,120 @@
             // 
             // txtRazonCita
             // 
-            this.txtRazonCita.Location = new System.Drawing.Point(7, 236);
-            this.txtRazonCita.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRazonCita.Location = new System.Drawing.Point(10, 339);
+            this.txtRazonCita.Margin = new System.Windows.Forms.Padding(6);
             this.txtRazonCita.MaxLength = 100;
             this.txtRazonCita.Multiline = true;
             this.txtRazonCita.Name = "txtRazonCita";
             this.txtRazonCita.ShortcutsEnabled = false;
-            this.txtRazonCita.Size = new System.Drawing.Size(372, 30);
+            this.txtRazonCita.Size = new System.Drawing.Size(556, 41);
             this.txtRazonCita.TabIndex = 3;
             this.txtRazonCita.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRazonCita_KeyPress);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnActualizar.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnActualizar.Location = new System.Drawing.Point(153, 8);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(140, 70);
-            this.btnActualizar.TabIndex = 5;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // tlpBotones
             // 
             this.tlpBotones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tlpBotones.BackColor = System.Drawing.Color.Transparent;
             this.tlpBotones.ColumnCount = 3;
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tlpBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tlpBotones.Controls.Add(this.btnAgregar, 0, 0);
             this.tlpBotones.Controls.Add(this.btnActualizar, 1, 0);
             this.tlpBotones.Controls.Add(this.btnEliminar, 2, 0);
-            this.tlpBotones.Controls.Add(this.btnAgregarCita, 0, 0);
-            this.tlpBotones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.tlpBotones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.tlpBotones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tlpBotones.Location = new System.Drawing.Point(464, 128);
+            this.tlpBotones.Location = new System.Drawing.Point(704, 205);
+            this.tlpBotones.Margin = new System.Windows.Forms.Padding(4);
             this.tlpBotones.Name = "tlpBotones";
             this.tlpBotones.RowCount = 1;
             this.tlpBotones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpBotones.Size = new System.Drawing.Size(447, 86);
+            this.tlpBotones.Size = new System.Drawing.Size(642, 72);
             this.tlpBotones.TabIndex = 6;
             // 
-            // tableLayoutPanel1
+            // btnAgregar
             // 
-            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.53333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.46667F));
-            this.tableLayoutPanel1.Controls.Add(this.btnBuscar, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtBuscar, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(496, 22);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(375, 100);
-            this.tableLayoutPanel1.TabIndex = 19;
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(93)))), ((int)(((byte)(185)))));
+            this.btnAgregar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(93)))), ((int)(((byte)(185)))));
+            this.btnAgregar.BorderColor = System.Drawing.Color.Azure;
+            this.btnAgregar.BorderRadius = 40;
+            this.btnAgregar.BorderSize = 0;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Location = new System.Drawing.Point(3, 3);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(208, 65);
+            this.btnAgregar.TabIndex = 20;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextColor = System.Drawing.Color.White;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(169)))), ((int)(((byte)(27)))));
+            this.btnActualizar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(169)))), ((int)(((byte)(27)))));
+            this.btnActualizar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnActualizar.BorderRadius = 14;
+            this.btnActualizar.BorderSize = 0;
+            this.btnActualizar.FlatAppearance.BorderSize = 0;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.Location = new System.Drawing.Point(217, 3);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(208, 65);
+            this.btnActualizar.TabIndex = 22;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.TextColor = System.Drawing.Color.White;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btnEliminar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.btnEliminar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEliminar.BorderRadius = 14;
+            this.btnEliminar.BorderSize = 0;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(431, 3);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(208, 65);
+            this.btnEliminar.TabIndex = 21;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextColor = System.Drawing.Color.White;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
+            // 
+            // tlpBusqueda
+            // 
+            this.tlpBusqueda.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tlpBusqueda.BackColor = System.Drawing.Color.Transparent;
+            this.tlpBusqueda.ColumnCount = 2;
+            this.tlpBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.53333F));
+            this.tlpBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.46667F));
+            this.tlpBusqueda.Controls.Add(this.btnBuscar, 1, 0);
+            this.tlpBusqueda.Controls.Add(this.txtBuscar, 0, 0);
+            this.tlpBusqueda.Location = new System.Drawing.Point(444, 4);
+            this.tlpBusqueda.Margin = new System.Windows.Forms.Padding(4);
+            this.tlpBusqueda.Name = "tlpBusqueda";
+            this.tlpBusqueda.RowCount = 1;
+            this.tlpBusqueda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpBusqueda.Size = new System.Drawing.Size(562, 144);
+            this.tlpBusqueda.TabIndex = 19;
             // 
             // btnBuscar
             // 
             this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnBuscar.Image = global::Vistas.Properties.Resources.icons8_buscar_50;
-            this.btnBuscar.Location = new System.Drawing.Point(320, 26);
+            this.btnBuscar.Location = new System.Drawing.Point(479, 38);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(44, 47);
+            this.btnBuscar.Size = new System.Drawing.Size(66, 68);
             this.btnBuscar.TabIndex = 17;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -294,33 +322,36 @@
             // 
             this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtBuscar.Location = new System.Drawing.Point(3, 35);
+            this.txtBuscar.Location = new System.Drawing.Point(5, 57);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.ShortcutsEnabled = false;
-            this.txtBuscar.Size = new System.Drawing.Size(311, 30);
+            this.txtBuscar.Size = new System.Drawing.Size(464, 30);
             this.txtBuscar.TabIndex = 16;
             // 
             // frmGestionCitas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(933, 529);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.BackgroundImage = global::Vistas.Properties.Resources.Desktop___1_1_;
+            this.ClientSize = new System.Drawing.Size(1400, 760);
+            this.Controls.Add(this.tlpBusqueda);
             this.Controls.Add(this.tlpBotones);
             this.Controls.Add(this.pnlDatos);
             this.Controls.Add(this.dgvVerCitas);
+            this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmGestionCitas";
-            this.Text = "frmVerCitas";
-            this.Load += new System.EventHandler(this.frmVerCitas_Load);
+            this.Text = "Citas";
+            this.Load += new System.EventHandler(this.frmGestionCitas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerCitas)).EndInit();
             this.pnlDatos.ResumeLayout(false);
             this.pnlDatos.PerformLayout();
             this.tlpBotones.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tlpBusqueda.ResumeLayout(false);
+            this.tlpBusqueda.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -328,8 +359,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvVerCitas;
-        private System.Windows.Forms.Button btnAgregarCita;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Panel pnlDatos;
         private System.Windows.Forms.ComboBox cbCorreo;
         private System.Windows.Forms.ComboBox cbApellido;
@@ -342,10 +371,12 @@
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtRazonCita;
-        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.TableLayoutPanel tlpBotones;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tlpBusqueda;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
+        private Modelos.Botones.BotonesPSNLSD btnAgregar;
+        private Modelos.Botones.BotonesPSNLSD btnActualizar;
+        private Modelos.Botones.BotonesPSNLSD btnEliminar;
     }
 }

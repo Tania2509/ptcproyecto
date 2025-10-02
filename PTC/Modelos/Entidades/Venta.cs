@@ -14,19 +14,17 @@ namespace Modelos.Entidades
     public class Venta
     {
         private int idVenta;
-        private string nombreVen;
-        private double precio;
         private int cantidad;
+        private int idProducto;
 
         public int IdVenta { get => idVenta; set => idVenta = value; }
-        public string NombreVen { get => nombreVen; set => nombreVen = value; }
-        public double Precio { get => precio; set => precio = value; }
         public int Cantidad { get => cantidad; set => cantidad = value; }
+        public int IdProducto { get => idProducto; set => idProducto = value; }
 
         public static DataTable CargarProductos()
         {
             SqlConnection con = Conexion.Conexion.conectar();
-            string comando = "select idVenta as Venta, nombreVen as [Nombre del Producto], precio as Precio, cantidad as [Cantidad Vendida] from Venta";
+            string comando = "select *from Ventas";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
@@ -38,13 +36,11 @@ namespace Modelos.Entidades
         {
             SqlConnection con = Conexion.Conexion.conectar();
 
-            string comando = "Insert into Venta(nombreVen, precio, cantidad)" + "values(@nombreVen, @precio, @cantidad);";
+            string comando = "Insert into Venta(cantidad, id_Producto)" + "values(@cantidad, @id_Producto)";
 
             SqlCommand cmd = new SqlCommand(comando, con);
-
-            cmd.Parameters.AddWithValue("@nombreVen", NombreVen);
-            cmd.Parameters.AddWithValue("@precio", Precio);
             cmd.Parameters.AddWithValue("@cantidad", Cantidad);
+            cmd.Parameters.AddWithValue("@id_Producto", IdProducto);
 
 
             return cmd.ExecuteNonQuery() > 0;
@@ -70,11 +66,10 @@ namespace Modelos.Entidades
         public bool ActualizarVenta()
         {
             SqlConnection con = Conexion.Conexion.conectar();
-            string comando = "UPDATE Venta SET nombreVen = @nombreVen, precio = @precio, cantidad = @cantidad WHERE idVenta=@idVenta;";
+            string comando = "UPDATE Venta SET id_Producto = @id_Producto, cantidad = @cantidad WHERE idVenta=@idVenta;";
             SqlCommand cmd = new SqlCommand(comando, con);
             cmd.Parameters.AddWithValue("@idVenta", IdVenta);
-            cmd.Parameters.AddWithValue("@nombreVen", NombreVen);
-            cmd.Parameters.AddWithValue("@precio", Precio);
+            cmd.Parameters.AddWithValue("@id_Producto", IdProducto);
             cmd.Parameters.AddWithValue("@cantidad", Cantidad);
 
             if (cmd.ExecuteNonQuery() > 0)
@@ -91,7 +86,7 @@ namespace Modelos.Entidades
         public static DataTable Buscar(string termino)
         {
             SqlConnection con = Conexion.Conexion.conectar();
-            string comando = $"select idVenta, nombreVen, precio, cantidad from Venta where nombreVen like '%{termino}%';";
+            string comando = $"select *from Ventas where Producto like '%{termino}%';";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);

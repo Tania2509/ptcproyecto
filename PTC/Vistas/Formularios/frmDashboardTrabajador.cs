@@ -36,7 +36,7 @@ namespace Vistas.Formularios
             formularioPintar.FormBorderStyle = FormBorderStyle.None;
             formularioPintar.Dock = DockStyle.Fill;
 
-            pnlCentralAsis.Controls.Add(formularioPintar);
+            pnlCentral.Controls.Add(formularioPintar);
             formularioPintar.BringToFront();
             formularioPintar.Show();
         }
@@ -51,14 +51,48 @@ namespace Vistas.Formularios
 
         private frmLogin frmLogin1;
 
-        private void btnCitas_Click(object sender, EventArgs e)
+
+        private void btnVerExpedientes_Click(object sender, EventArgs e)
         {
-            AbrirForm(new frmGestionCitas());
+            AbrirForm(new frmVerExpedientes());
         }
 
-        private void btnExpedientes_Click(object sender, EventArgs e)
+
+        private void lblExpedientes_Click(object sender, EventArgs e)
         {
             AbrirForm(new frmGestionExpedientes());
+            lblExpedientes.ForeColor = Color.MediumAquamarine;
+            lblCita.ForeColor = Color.White;
+            lblVerExpedientes.ForeColor = Color.White;
+            lblDental.ForeColor = Color.White;
+        }
+
+        private void lblCita_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmGestionCitas());
+            lblCita.ForeColor = Color.MediumAquamarine;
+            lblExpedientes.ForeColor = Color.White;
+            lblVerExpedientes.ForeColor = Color.White;
+            lblDental.ForeColor = Color.White;
+        }
+
+        private void lblDental_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmHistorialDental());
+            lblDental.ForeColor = Color.MediumAquamarine;
+            lblCita.ForeColor = Color.White;
+            lblExpedientes.ForeColor = Color.White;
+            lblVerExpedientes.ForeColor = Color.White;
+        }
+
+        private void lblVerExpedientes_Click(object sender, EventArgs e)
+        {
+            AbrirForm(new frmVerExpedientes());
+            lblVerExpedientes.ForeColor = Color.MediumAquamarine;
+            lblCita.ForeColor = Color.White;
+            lblExpedientes.ForeColor = Color.White;
+            lblDental.ForeColor = Color.White;
+
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -68,14 +102,12 @@ namespace Vistas.Formularios
             ventana.Show();
         }
 
-        private void btnDental_Click(object sender, EventArgs e)
+        private void frmDashboardTrabajador_Load(object sender, EventArgs e)
         {
-            AbrirForm(new frmHistorialDental());
-        }
-
-        private void btnVerExpedientes_Click(object sender, EventArgs e)
-        {
-            AbrirForm(new frmVerExpedientes());
+            lblVerExpedientes.ForeColor = Color.White;
+            lblCita.ForeColor = Color.White;
+            lblDental.ForeColor = Color.White;
+            lblExpedientes.ForeColor = Color.White;
         }
     }
 }

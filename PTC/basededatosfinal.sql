@@ -4,17 +4,43 @@ go
 use ClinicaDental
 go
 
+CREATE TABLE Configuracion(
+idConfig int identity (1,1) primary key,
+nombreClinica varchar(100) NOT NULL,
+direccion varchar(200) NOT NULL,
+telefono varchar(10) NOT NULL,
+email varchar(50) NOT NULL,
+pimerUsuarioCreado BIT NOT NULL DEFAULT 0,
+FechaConfiguracion datetime NOT NULL DEFAULT GETDATE(),
+configurado bit NOT NULL DEFAULT 0,
+id_Usuario int null , 
+foreign key (id_Usuario) references Usuario(idUsuario) 
+)
+go
+
+select *from Usuario
+
+select *from Configuracion
+
+drop table Configuracion
+truncate table Usuario
+
 create table Producto (
 idProducto int identity (1,1) primary key,
+nombrePro varchar (50),
+precio decimal (5,2)
 );
+go
+
+select idProducto, nombrePro from Producto
 
 create table Venta (
 idVenta int identity (1,1) primary key,
 cantidad int,
-nombreVen varchar(50),
-precio decimal (8,2),
+id_Producto int, 
+foreign key (id_Producto) references Producto (idProducto)
 );
-go          
+go  
 
 create table Rol( 
 idRol int identity (1,1) primary key,
@@ -48,6 +74,8 @@ foreign key (id_Venta) references Venta (idVenta)
 );
 go
 
+SELECT *FROM Usuario
+
 create table Enfermedades (
 idEnfermedades int identity (1,1) primary key,
  nombreEnfer varchar(50)
@@ -59,6 +87,9 @@ create table Alergias (
  nombreAl varchar(50)
 );
 go
+
+delete from Configuracion
+delete from Usuario
 
 create table Expediente (
 idExpediente int primary key identity(1,1),
@@ -128,6 +159,22 @@ create table HistorialDental (
 );
 go
 
+insert Producto values ('Par de cepillos dentales - Crayola', 4),
+('Hilo dental',3),
+('Cepillo dental de viaje', 2.75),
+('Limpieza para ortodoncia', 2.25),
+('Desensibilizante', 2.45),
+('Fluor infantil',2.50),
+('Biflúor', 2.95),
+('Cepillo de ortodoncia', 3.50),
+('Limpiador de lengua', 3.20),
+('Proxabrush', 3.40),
+('Perio-Gard', 3.20),
+('Cepillo interdental', 2.90),
+('Enjuague bucal', 4.75),
+('Cepillo dental - Sunstar', 2.30)
+GO
+
 INSERT INTO Diente (codigo, descripcion) VALUES
 
 ('11', 'Incisivo central superior derecho'),
@@ -181,9 +228,13 @@ INSERT INTO EstadoDiente (nombre_estado) VALUES
 ('Manchado');
 go
 
+
+
 insert into Rol values ('Administrador'),
-('Trabajador')
+('Asistente'),
+('Dentista')
 go
+
 
 insert into Especialidad values ('Ninguno'),
 ('Cirujinao dental'),
@@ -225,6 +276,8 @@ select *from Cita
 select *from Usuario
 select *from Enfermedades
 select *from Alergias
+select *from ConfiguracionNegocio
+select *from Producto
 go
 
 create view VerExpediente as
@@ -247,12 +300,19 @@ go
 
 create view CrearUsuario as
 SELECT idUsuario as Usuario, nombreUsu as Nombre, apellidoUsu as Apellido, fechaNaciUsu as [Fecha de nacimiento], 
-       duiUsu as DUI, telefonoUsu as Telefono, correoUsu as Correo, nombreRol AS Rol, nombreEspecialidad AS Especialidad, estadoVerificado as [Verificado] FROM Usuario 
+       duiUsu as DUI, telefonoUsu as Telefono, correoUsu as Correo, nombreRol AS Rol, nombreEspecialidad AS Especialidad FROM Usuario 
 LEFT JOIN 
 Rol ON Rol.idRol = Usuario.id_Rol 
 LEFT JOIN 
 Especialidad ON Especialidad.idEspecialidad= Usuario.id_Especialidad
 go
+
+drop view Ventas
+
+create view Ventas as
+select  idVenta as Venta, nombrePro as Producto, precio as Precio, cantidad as [Cantidad vendida] from Venta V
+left join
+Producto P on P.idProducto=V.id_Producto
 
 create trigger InsertarPaciente
 on Expediente

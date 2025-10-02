@@ -38,15 +38,17 @@ namespace Modelos.Entidades
         public string Contrasena { get => contrasena; set => contrasena = value; }
         public int EstadoVerificado { get => estadoVerificado; set => estadoVerificado = value; }
 
+
         public static DataTable CargarUsuarios(string Trabajador)
         {
             SqlConnection con = Conexion.Conexion.conectar();
-            string comando = "select * from CrearUsuario";
+            string comando = "select *from CrearUsuario";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);
             return dt;
         }
+
 
         public bool InsertarUsuarios()
         {
@@ -58,17 +60,24 @@ namespace Modelos.Entidades
             SqlCommand checkCmd = new SqlCommand(checkQuery, con);
             int count = (int)checkCmd.ExecuteScalar();
 
-            // Si es el primer usuario, debe ser administrador y su estado será verificado
+            // Generar contraseña temporal
+            string contrasenaTemporal = "cont" + DuiU.Substring(0, 3);
+
+            // Si es el primer usuario, debe ser administrador
             if (count == 0)
             {
-                comando = "INSERT INTO Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, correoUsu, contrasena, id_Rol, id_Especialidad, id_Venta, estadoVerificado) " +
-                          "VALUES(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, @correoUsu, @contrasena, @id_Rol, @id_Especialidad, @id_venta, 1);";
+                comando = @"INSERT INTO Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, 
+                    correoUsu, contrasena, id_Rol, id_Especialidad, id_Venta, estadoVerificado) 
+                    VALUES(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, 
+                    @correoUsu, @contrasena, @id_Rol, @id_Especialidad, @id_venta, 0)";
                 id_Rol = 1;  // Administrador
             }
             else
             {
-                comando = "INSERT INTO Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, correoUsu, contrasena, id_Rol, id_Especialidad, id_Venta, estadoVerificado) " +
-                          "VALUES(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, @correoUsu, @contrasena, @id_Rol, @id_Especialidad, @id_venta, 0);";
+                comando = @"INSERT INTO Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, 
+                    correoUsu, contrasena, id_Rol, id_Especialidad, id_Venta, estadoVerificado) 
+                    VALUES(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, 
+                    @correoUsu, @contrasena, @id_Rol, @id_Especialidad, @id_venta, 0)";
             }
 
             SqlCommand cmd = new SqlCommand(comando, con);
@@ -77,16 +86,50 @@ namespace Modelos.Entidades
             cmd.Parameters.AddWithValue("@fechaNaciUsu", FechaNacimientoU);
             cmd.Parameters.AddWithValue("@duiUsu", DuiU);
             cmd.Parameters.AddWithValue("@telefonoUsu", TelefonoU);
-            cmd.Parameters.AddWithValue("@correoUsu", Correo);  
-            cmd.Parameters.AddWithValue("@contrasena", Contrasena);
+            cmd.Parameters.AddWithValue("@correoUsu", Correo);
+            cmd.Parameters.AddWithValue("@contrasena", BCrypt.Net.BCrypt.HashPassword(contrasenaTemporal));
             cmd.Parameters.AddWithValue("@id_Rol", id_Rol);
             cmd.Parameters.AddWithValue("@id_Especialidad", Id_Especialidad);
-            cmd.Parameters.AddWithValue("@id_venta", DBNull.Value); 
+            cmd.Parameters.AddWithValue("@id_venta", DBNull.Value);
 
             return cmd.ExecuteNonQuery() > 0;
-
-
         }
+
+        #region Primero 
+        // Verificar si el usuario debe cambiar contraseña (estadoVerificado = 0)
+        public static bool DebeCambiarContrasena(int idUsuario)
+        {
+            using (SqlConnection con = Conexion.Conexion.conectar())
+            {
+                string query = "SELECT estadoVerificado FROM Usuario WHERE idUsuario = @idUsuario";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
+
+                object result = cmd.ExecuteScalar();
+                // Si estadoVerificado = 0, debe cambiar contraseña
+                return result != null && (int)result == 0;
+            }
+        }
+
+        // Cambiar contraseña y marcar como verificado
+        public static bool CambiarContrasenaPrimerInicio(int idUsuario, string nuevaContrasena)
+        {
+            using (SqlConnection con = Conexion.Conexion.conectar())
+            {
+                string query = @"UPDATE Usuario 
+                        SET clave = @nuevaContrasena, 
+                            estadoVerificado = 1
+                        WHERE idUsuario = @idUsuario";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@nuevaContrasena", BCrypt.Net.BCrypt.HashPassword(nuevaContrasena));
+                cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
+
+                return cmd.ExecuteNonQuery() > 0;
+            }
+        }
+
+        #endregion
 
         public bool eliminarTrabajador(int id)
         {

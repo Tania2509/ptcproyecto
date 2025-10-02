@@ -29,177 +29,189 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboardTrabajador));
-            this.pnlCentralAsis = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnVerExpedientes = new System.Windows.Forms.Button();
-            this.btnDental = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnCitas = new System.Windows.Forms.Button();
-            this.btnExpedientes = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlNavegador = new Modelos.Metodos.PanelRedondeado();
+            this.btnCerrar = new Modelos.Botones.BotonesPSNLSD();
+            this.btnFinalizar = new Modelos.Botones.BotonesPSNLSD();
+            this.lblVerExpedientes = new System.Windows.Forms.Label();
+            this.lblDental = new System.Windows.Forms.Label();
+            this.lblCita = new System.Windows.Forms.Label();
+            this.lblExpedientes = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pnlContenedor = new System.Windows.Forms.Panel();
+            this.pnlCentral = new System.Windows.Forms.Panel();
+            this.pnlNavegador.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnlContenedor.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlCentralAsis
+            // pnlNavegador
             // 
-            this.pnlCentralAsis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCentralAsis.Location = new System.Drawing.Point(318, 0);
-            this.pnlCentralAsis.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlCentralAsis.Name = "pnlCentralAsis";
-            this.pnlCentralAsis.Size = new System.Drawing.Size(979, 862);
-            this.pnlCentralAsis.TabIndex = 6;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel1.Controls.Add(this.btnVerExpedientes);
-            this.panel1.Controls.Add(this.btnDental);
-            this.panel1.Controls.Add(this.btnCerrar);
-            this.panel1.Controls.Add(this.btnCitas);
-            this.panel1.Controls.Add(this.btnExpedientes);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(318, 862);
-            this.panel1.TabIndex = 1;
-            // 
-            // btnVerExpedientes
-            // 
-            this.btnVerExpedientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnVerExpedientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnVerExpedientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerExpedientes.ForeColor = System.Drawing.Color.White;
-            this.btnVerExpedientes.Location = new System.Drawing.Point(0, 463);
-            this.btnVerExpedientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnVerExpedientes.Name = "btnVerExpedientes";
-            this.btnVerExpedientes.Size = new System.Drawing.Size(318, 63);
-            this.btnVerExpedientes.TabIndex = 8;
-            this.btnVerExpedientes.Text = "Ver Expedientes";
-            this.btnVerExpedientes.UseVisualStyleBackColor = false;
-            this.btnVerExpedientes.Click += new System.EventHandler(this.btnVerExpedientes_Click);
-            // 
-            // btnDental
-            // 
-            this.btnDental.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnDental.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDental.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDental.ForeColor = System.Drawing.Color.White;
-            this.btnDental.Location = new System.Drawing.Point(0, 400);
-            this.btnDental.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDental.Name = "btnDental";
-            this.btnDental.Size = new System.Drawing.Size(318, 63);
-            this.btnDental.TabIndex = 7;
-            this.btnDental.Text = "Historial Dental";
-            this.btnDental.UseVisualStyleBackColor = false;
-            this.btnDental.Click += new System.EventHandler(this.btnDental_Click);
+            this.pnlNavegador.AnchoBorde = 1;
+            this.pnlNavegador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlNavegador.BackColor = System.Drawing.Color.White;
+            this.pnlNavegador.BackgroundImage = global::Vistas.Properties.Resources.Rectangle_1;
+            this.pnlNavegador.ColorBorde = System.Drawing.Color.Gray;
+            this.pnlNavegador.Controls.Add(this.btnCerrar);
+            this.pnlNavegador.Controls.Add(this.btnFinalizar);
+            this.pnlNavegador.Controls.Add(this.lblVerExpedientes);
+            this.pnlNavegador.Controls.Add(this.lblDental);
+            this.pnlNavegador.Controls.Add(this.lblCita);
+            this.pnlNavegador.Controls.Add(this.lblExpedientes);
+            this.pnlNavegador.Controls.Add(this.pictureBox2);
+            this.pnlNavegador.Location = new System.Drawing.Point(3, 3);
+            this.pnlNavegador.Name = "pnlNavegador";
+            this.pnlNavegador.RadioEsquinas = 60;
+            this.pnlNavegador.Size = new System.Drawing.Size(275, 1820);
+            this.pnlNavegador.TabIndex = 2;
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCerrar.Image = global::Vistas.Properties.Resources.icons8_cerrar_sesión_32;
-            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrar.Location = new System.Drawing.Point(102, 767);
+            this.btnCerrar.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCerrar.BorderRadius = 40;
+            this.btnCerrar.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Location = new System.Drawing.Point(104, 751);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(196, 52);
-            this.btnCerrar.TabIndex = 6;
-            this.btnCerrar.Text = "Cerrar Sesion";
-            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCerrar.Size = new System.Drawing.Size(150, 40);
+            this.btnCerrar.TabIndex = 10;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.TextColor = System.Drawing.Color.White;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // btnCitas
+            // btnFinalizar
             // 
-            this.btnCitas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnCitas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCitas.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCitas.ForeColor = System.Drawing.Color.White;
-            this.btnCitas.Location = new System.Drawing.Point(0, 337);
-            this.btnCitas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCitas.Name = "btnCitas";
-            this.btnCitas.Size = new System.Drawing.Size(318, 63);
-            this.btnCitas.TabIndex = 2;
-            this.btnCitas.Text = "Citas";
-            this.btnCitas.UseVisualStyleBackColor = false;
-            this.btnCitas.Click += new System.EventHandler(this.btnCitas_Click);
+            this.btnFinalizar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnFinalizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnFinalizar.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnFinalizar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnFinalizar.BorderRadius = 40;
+            this.btnFinalizar.BorderSize = 0;
+            this.btnFinalizar.FlatAppearance.BorderSize = 0;
+            this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinalizar.ForeColor = System.Drawing.Color.White;
+            this.btnFinalizar.Location = new System.Drawing.Point(104, 1733);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(150, 40);
+            this.btnFinalizar.TabIndex = 9;
+            this.btnFinalizar.Text = "Cerrar";
+            this.btnFinalizar.TextColor = System.Drawing.Color.White;
+            this.btnFinalizar.UseVisualStyleBackColor = false;
             // 
-            // btnExpedientes
+            // lblVerExpedientes
             // 
-            this.btnExpedientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnExpedientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnExpedientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExpedientes.ForeColor = System.Drawing.Color.White;
-            this.btnExpedientes.Location = new System.Drawing.Point(0, 274);
-            this.btnExpedientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnExpedientes.Name = "btnExpedientes";
-            this.btnExpedientes.Size = new System.Drawing.Size(318, 63);
-            this.btnExpedientes.TabIndex = 4;
-            this.btnExpedientes.Text = "Expedientes";
-            this.btnExpedientes.UseVisualStyleBackColor = false;
-            this.btnExpedientes.Click += new System.EventHandler(this.btnExpedientes_Click);
+            this.lblVerExpedientes.AutoSize = true;
+            this.lblVerExpedientes.BackColor = System.Drawing.Color.Transparent;
+            this.lblVerExpedientes.Location = new System.Drawing.Point(56, 371);
+            this.lblVerExpedientes.Name = "lblVerExpedientes";
+            this.lblVerExpedientes.Size = new System.Drawing.Size(170, 23);
+            this.lblVerExpedientes.TabIndex = 4;
+            this.lblVerExpedientes.Text = "Ver expedientes";
+            this.lblVerExpedientes.Click += new System.EventHandler(this.lblVerExpedientes_Click);
             // 
-            // panel2
+            // lblDental
             // 
-            this.panel2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(318, 274);
-            this.panel2.TabIndex = 2;
+            this.lblDental.AutoSize = true;
+            this.lblDental.BackColor = System.Drawing.Color.Transparent;
+            this.lblDental.Location = new System.Drawing.Point(56, 315);
+            this.lblDental.Name = "lblDental";
+            this.lblDental.Size = new System.Drawing.Size(148, 23);
+            this.lblDental.TabIndex = 3;
+            this.lblDental.Text = "Odontograma";
+            this.lblDental.Click += new System.EventHandler(this.lblDental_Click);
             // 
-            // pictureBox1
+            // lblCita
             // 
-            this.pictureBox1.BackgroundImage = global::Vistas.Properties.Resources.Desktop___29;
-            this.pictureBox1.Image = global::Vistas.Properties.Resources.icons8_user_64__2_;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 27);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(211, 222);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.lblCita.AutoSize = true;
+            this.lblCita.BackColor = System.Drawing.Color.Transparent;
+            this.lblCita.Location = new System.Drawing.Point(56, 267);
+            this.lblCita.Name = "lblCita";
+            this.lblCita.Size = new System.Drawing.Size(59, 23);
+            this.lblCita.TabIndex = 2;
+            this.lblCita.Text = "Citas";
+            this.lblCita.Click += new System.EventHandler(this.lblCita_Click);
+            // 
+            // lblExpedientes
+            // 
+            this.lblExpedientes.AutoSize = true;
+            this.lblExpedientes.BackColor = System.Drawing.Color.Transparent;
+            this.lblExpedientes.Location = new System.Drawing.Point(56, 206);
+            this.lblExpedientes.Name = "lblExpedientes";
+            this.lblExpedientes.Size = new System.Drawing.Size(128, 23);
+            this.lblExpedientes.TabIndex = 1;
+            this.lblExpedientes.Text = "Expedientes";
+            this.lblExpedientes.Click += new System.EventHandler(this.lblExpedientes_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::Vistas.Properties.Resources.Group;
+            this.pictureBox2.Location = new System.Drawing.Point(104, 46);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(80, 80);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pnlContenedor
+            // 
+            this.pnlContenedor.Controls.Add(this.pnlNavegador);
+            this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlContenedor.Location = new System.Drawing.Point(0, 0);
+            this.pnlContenedor.Name = "pnlContenedor";
+            this.pnlContenedor.Size = new System.Drawing.Size(280, 1029);
+            this.pnlContenedor.TabIndex = 2;
+            // 
+            // pnlCentral
+            // 
+            this.pnlCentral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCentral.Location = new System.Drawing.Point(280, 0);
+            this.pnlCentral.Name = "pnlCentral";
+            this.pnlCentral.Size = new System.Drawing.Size(695, 1029);
+            this.pnlCentral.TabIndex = 3;
             // 
             // frmDashboardTrabajador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1297, 862);
-            this.Controls.Add(this.pnlCentralAsis);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(975, 1029);
+            this.Controls.Add(this.pnlCentral);
+            this.Controls.Add(this.pnlContenedor);
+            this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MinimizeBox = false;
             this.Name = "frmDashboardTrabajador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trabajador";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.frmDashboardTrabajador_Load);
+            this.pnlNavegador.ResumeLayout(false);
+            this.pnlNavegador.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnlContenedor.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnCitas;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnExpedientes;
-        private System.Windows.Forms.Panel pnlCentralAsis;
-        private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Button btnDental;
-        private System.Windows.Forms.Button btnVerExpedientes;
+        private Modelos.Metodos.PanelRedondeado pnlNavegador;
+        private Modelos.Botones.BotonesPSNLSD btnFinalizar;
+        private System.Windows.Forms.Label lblVerExpedientes;
+        private System.Windows.Forms.Label lblDental;
+        private System.Windows.Forms.Label lblCita;
+        private System.Windows.Forms.Label lblExpedientes;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel pnlContenedor;
+        private Modelos.Botones.BotonesPSNLSD btnCerrar;
+        private System.Windows.Forms.Panel pnlCentral;
     }
 }

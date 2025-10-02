@@ -29,85 +29,122 @@
         private void InitializeComponent()
         {
             this.dgvHistorial = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblFecha = new System.Windows.Forms.Label();
             this.lblPaciente = new System.Windows.Forms.Label();
             this.txtPaciente = new System.Windows.Forms.TextBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btGuardar = new Modelos.Botones.BotonesPSNLSD();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvHistorial
             // 
-            this.dgvHistorial.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvHistorial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHistorial.Location = new System.Drawing.Point(38, 127);
+            this.dgvHistorial.Location = new System.Drawing.Point(589, 162);
+            this.dgvHistorial.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHistorial.Name = "dgvHistorial";
             this.dgvHistorial.RowHeadersWidth = 51;
             this.dgvHistorial.RowTemplate.Height = 24;
-            this.dgvHistorial.Size = new System.Drawing.Size(408, 257);
+            this.dgvHistorial.Size = new System.Drawing.Size(569, 499);
             this.dgvHistorial.TabIndex = 0;
             // 
-            // label1
+            // lblFecha
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(476, 59);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Fecha:";
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Location = new System.Drawing.Point(714, 85);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(77, 23);
+            this.lblFecha.TabIndex = 3;
+            this.lblFecha.Text = "Fecha:";
             // 
             // lblPaciente
             // 
             this.lblPaciente.AutoSize = true;
-            this.lblPaciente.Location = new System.Drawing.Point(35, 59);
+            this.lblPaciente.Location = new System.Drawing.Point(52, 85);
+            this.lblPaciente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPaciente.Name = "lblPaciente";
-            this.lblPaciente.Size = new System.Drawing.Size(136, 16);
+            this.lblPaciente.Size = new System.Drawing.Size(223, 23);
             this.lblPaciente.TabIndex = 4;
             this.lblPaciente.Text = "Numero del Paciente:";
             // 
             // txtPaciente
             // 
-            this.txtPaciente.Location = new System.Drawing.Point(177, 56);
+            this.txtPaciente.Location = new System.Drawing.Point(283, 82);
+            this.txtPaciente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPaciente.MaxLength = 2;
             this.txtPaciente.Name = "txtPaciente";
-            this.txtPaciente.Size = new System.Drawing.Size(255, 22);
+            this.txtPaciente.Size = new System.Drawing.Size(380, 32);
             this.txtPaciente.TabIndex = 5;
+            this.txtPaciente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaciente_KeyPress);
             // 
             // dtpFecha
             // 
-            this.dtpFecha.Location = new System.Drawing.Point(530, 56);
+            this.dtpFecha.Enabled = false;
+            this.dtpFecha.Location = new System.Drawing.Point(795, 80);
+            this.dtpFecha.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(200, 22);
+            this.dtpFecha.Size = new System.Drawing.Size(298, 32);
             this.dtpFecha.TabIndex = 6;
             // 
-            // btnGuardar
+            // btGuardar
             // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGuardar.Location = new System.Drawing.Point(592, 370);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(170, 54);
-            this.btnGuardar.TabIndex = 7;
-            this.btnGuardar.Text = "button1";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(128)))), ((int)(((byte)(187)))));
+            this.btGuardar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(128)))), ((int)(((byte)(187)))));
+            this.btGuardar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btGuardar.BorderRadius = 40;
+            this.btGuardar.BorderSize = 0;
+            this.btGuardar.FlatAppearance.BorderSize = 0;
+            this.btGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btGuardar.ForeColor = System.Drawing.Color.White;
+            this.btGuardar.Location = new System.Drawing.Point(903, 719);
+            this.btGuardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btGuardar.Name = "btGuardar";
+            this.btGuardar.Size = new System.Drawing.Size(255, 78);
+            this.btGuardar.TabIndex = 8;
+            this.btGuardar.Text = "Ingresar";
+            this.btGuardar.TextColor = System.Drawing.Color.White;
+            this.btGuardar.UseVisualStyleBackColor = false;
+            this.btGuardar.Click += new System.EventHandler(this.btGuardar_Click);
+            // 
+            // pbImagen
+            // 
+            this.pbImagen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pbImagen.BackColor = System.Drawing.Color.Transparent;
+            this.pbImagen.Image = global::Vistas.Properties.Resources.FDI_Zahnschema_svg;
+            this.pbImagen.Location = new System.Drawing.Point(109, 218);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(250, 392);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbImagen.TabIndex = 9;
+            this.pbImagen.TabStop = false;
             // 
             // frmHistorialDental
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 593);
-            this.Controls.Add(this.btnGuardar);
+            this.BackgroundImage = global::Vistas.Properties.Resources.Desktop___1_1_;
+            this.ClientSize = new System.Drawing.Size(1353, 852);
+            this.Controls.Add(this.pbImagen);
+            this.Controls.Add(this.btGuardar);
             this.Controls.Add(this.dtpFecha);
             this.Controls.Add(this.txtPaciente);
             this.Controls.Add(this.lblPaciente);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.dgvHistorial);
+            this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmHistorialDental";
-            this.Text = "frmHistorialDental";
+            this.Text = "Historial";
             this.Load += new System.EventHandler(this.frmHistorialDental_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,10 +153,11 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvHistorial;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblPaciente;
         private System.Windows.Forms.TextBox txtPaciente;
         private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.Button btnGuardar;
+        private Modelos.Botones.BotonesPSNLSD btGuardar;
+        private System.Windows.Forms.PictureBox pbImagen;
     }
 }

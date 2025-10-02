@@ -30,144 +30,154 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboardAdministrador));
             this.pnlCentralAdmin = new System.Windows.Forms.Panel();
-            this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnInventario = new System.Windows.Forms.Button();
-            this.btnTrabajador = new System.Windows.Forms.Button();
-            this.pnlLogo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlPrincipal.SuspendLayout();
-            this.pnlLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlFormulario = new System.Windows.Forms.Panel();
+            this.pnlContenedor = new System.Windows.Forms.Panel();
+            this.pnlNavegador = new Modelos.Metodos.PanelRedondeado();
+            this.btnFinalizar = new Modelos.Botones.BotonesPSNLSD();
+            this.lblVentas = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.pbUsuario = new System.Windows.Forms.PictureBox();
+            this.pnlCentralAdmin.SuspendLayout();
+            this.pnlContenedor.SuspendLayout();
+            this.pnlNavegador.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlCentralAdmin
             // 
             this.pnlCentralAdmin.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlCentralAdmin.Controls.Add(this.pnlFormulario);
+            this.pnlCentralAdmin.Controls.Add(this.pnlContenedor);
             this.pnlCentralAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCentralAdmin.Location = new System.Drawing.Point(344, 0);
-            this.pnlCentralAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlCentralAdmin.Location = new System.Drawing.Point(0, 0);
+            this.pnlCentralAdmin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlCentralAdmin.Name = "pnlCentralAdmin";
-            this.pnlCentralAdmin.Size = new System.Drawing.Size(953, 800);
-            this.pnlCentralAdmin.TabIndex = 4;
+            this.pnlCentralAdmin.Size = new System.Drawing.Size(1124, 688);
+            this.pnlCentralAdmin.TabIndex = 5;
             // 
-            // pnlPrincipal
+            // pnlFormulario
             // 
-            this.pnlPrincipal.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pnlPrincipal.Controls.Add(this.btnCerrar);
-            this.pnlPrincipal.Controls.Add(this.btnInventario);
-            this.pnlPrincipal.Controls.Add(this.btnTrabajador);
-            this.pnlPrincipal.Controls.Add(this.pnlLogo);
-            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(344, 800);
-            this.pnlPrincipal.TabIndex = 1;
+            this.pnlFormulario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlFormulario.Location = new System.Drawing.Point(267, 0);
+            this.pnlFormulario.Name = "pnlFormulario";
+            this.pnlFormulario.Size = new System.Drawing.Size(857, 688);
+            this.pnlFormulario.TabIndex = 2;
             // 
-            // btnCerrar
+            // pnlContenedor
             // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCerrar.Image = global::Vistas.Properties.Resources.icons8_cerrar_sesión_32;
-            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrar.Location = new System.Drawing.Point(132, 718);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(191, 52);
-            this.btnCerrar.TabIndex = 5;
-            this.btnCerrar.Text = "Cerrar Sesion";
-            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.pnlContenedor.Controls.Add(this.pnlNavegador);
+            this.pnlContenedor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlContenedor.Location = new System.Drawing.Point(0, 0);
+            this.pnlContenedor.Name = "pnlContenedor";
+            this.pnlContenedor.Size = new System.Drawing.Size(267, 688);
+            this.pnlContenedor.TabIndex = 1;
             // 
-            // btnInventario
+            // pnlNavegador
             // 
-            this.btnInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnInventario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInventario.ForeColor = System.Drawing.Color.White;
-            this.btnInventario.Location = new System.Drawing.Point(0, 337);
-            this.btnInventario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Size = new System.Drawing.Size(344, 63);
-            this.btnInventario.TabIndex = 2;
-            this.btnInventario.Text = "Inventario";
-            this.btnInventario.UseVisualStyleBackColor = false;
-            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
+            this.pnlNavegador.AnchoBorde = 1;
+            this.pnlNavegador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlNavegador.BackColor = System.Drawing.Color.White;
+            this.pnlNavegador.BackgroundImage = global::Vistas.Properties.Resources.Rectangle_1;
+            this.pnlNavegador.ColorBorde = System.Drawing.Color.Gray;
+            this.pnlNavegador.Controls.Add(this.btnFinalizar);
+            this.pnlNavegador.Controls.Add(this.lblVentas);
+            this.pnlNavegador.Controls.Add(this.lblUsuario);
+            this.pnlNavegador.Controls.Add(this.pbUsuario);
+            this.pnlNavegador.Location = new System.Drawing.Point(3, 0);
+            this.pnlNavegador.Name = "pnlNavegador";
+            this.pnlNavegador.RadioEsquinas = 60;
+            this.pnlNavegador.Size = new System.Drawing.Size(260, 688);
+            this.pnlNavegador.TabIndex = 0;
             // 
-            // btnTrabajador
+            // btnFinalizar
             // 
-            this.btnTrabajador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnTrabajador.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTrabajador.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTrabajador.ForeColor = System.Drawing.Color.White;
-            this.btnTrabajador.Location = new System.Drawing.Point(0, 274);
-            this.btnTrabajador.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnTrabajador.Name = "btnTrabajador";
-            this.btnTrabajador.Size = new System.Drawing.Size(344, 63);
-            this.btnTrabajador.TabIndex = 4;
-            this.btnTrabajador.Text = "Trabajador";
-            this.btnTrabajador.UseVisualStyleBackColor = false;
-            this.btnTrabajador.Click += new System.EventHandler(this.btnTrabajador_Click);
+            this.btnFinalizar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnFinalizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnFinalizar.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnFinalizar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnFinalizar.BorderRadius = 40;
+            this.btnFinalizar.BorderSize = 0;
+            this.btnFinalizar.FlatAppearance.BorderSize = 0;
+            this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinalizar.ForeColor = System.Drawing.Color.White;
+            this.btnFinalizar.Location = new System.Drawing.Point(81, 615);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(150, 40);
+            this.btnFinalizar.TabIndex = 8;
+            this.btnFinalizar.Text = "Cerrar";
+            this.btnFinalizar.TextColor = System.Drawing.Color.White;
+            this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
-            // pnlLogo
+            // lblVentas
             // 
-            this.pnlLogo.BackColor = System.Drawing.Color.RoyalBlue;
-            this.pnlLogo.Controls.Add(this.pictureBox1);
-            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(344, 274);
-            this.pnlLogo.TabIndex = 2;
+            this.lblVentas.AutoSize = true;
+            this.lblVentas.BackColor = System.Drawing.Color.Transparent;
+            this.lblVentas.Location = new System.Drawing.Point(90, 291);
+            this.lblVentas.Name = "lblVentas";
+            this.lblVentas.Size = new System.Drawing.Size(68, 23);
+            this.lblVentas.TabIndex = 7;
+            this.lblVentas.Text = "Venta";
+            this.lblVentas.Click += new System.EventHandler(this.lblVentas_Click);
             // 
-            // pictureBox1
+            // lblUsuario
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BackgroundImage = global::Vistas.Properties.Resources.Desktop___29;
-            this.pictureBox1.Image = global::Vistas.Properties.Resources.icons8_user_64__2_;
-            this.pictureBox1.Location = new System.Drawing.Point(67, 29);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(211, 222);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsuario.Location = new System.Drawing.Point(77, 227);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(113, 23);
+            this.lblUsuario.TabIndex = 6;
+            this.lblUsuario.Text = "Trabajador";
+            this.lblUsuario.Click += new System.EventHandler(this.lblUsuario_Click);
+            // 
+            // pbUsuario
+            // 
+            this.pbUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.pbUsuario.Image = global::Vistas.Properties.Resources.Group;
+            this.pbUsuario.Location = new System.Drawing.Point(94, 60);
+            this.pbUsuario.Name = "pbUsuario";
+            this.pbUsuario.Size = new System.Drawing.Size(80, 80);
+            this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbUsuario.TabIndex = 5;
+            this.pbUsuario.TabStop = false;
             // 
             // frmDashboardAdministrador
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1297, 800);
+            this.ClientSize = new System.Drawing.Size(1124, 688);
             this.Controls.Add(this.pnlCentralAdmin);
-            this.Controls.Add(this.pnlPrincipal);
+            this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MinimizeBox = false;
             this.Name = "frmDashboardAdministrador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrador";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmDashboardAdministrador_Load);
-            this.pnlPrincipal.ResumeLayout(false);
-            this.pnlLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlCentralAdmin.ResumeLayout(false);
+            this.pnlContenedor.ResumeLayout(false);
+            this.pnlNavegador.ResumeLayout(false);
+            this.pnlNavegador.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUsuario)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnTrabajador;
-        private System.Windows.Forms.Button btnInventario;
-        private System.Windows.Forms.Panel pnlLogo;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel pnlPrincipal;
+
         private System.Windows.Forms.Panel pnlCentralAdmin;
-        private System.Windows.Forms.Button btnCerrar;
+        private Modelos.Metodos.PanelRedondeado pnlNavegador;
+        private Modelos.Botones.BotonesPSNLSD btnFinalizar;
+        private System.Windows.Forms.Label lblVentas;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.PictureBox pbUsuario;
+        private System.Windows.Forms.Panel pnlFormulario;
+        private System.Windows.Forms.Panel pnlContenedor;
     }
 }

@@ -28,6 +28,7 @@ namespace Vistas.Formularios
             txtDireccion.Text = string.Empty;
             txtNumTelefono.Text = string.Empty;
             txtBuscar.Text = string.Empty;
+            txtDui.Text = string.Empty;
 
             // Restablecer ComboBox
             cbAlergias.SelectedIndex = -1;
@@ -36,44 +37,6 @@ namespace Vistas.Formularios
             // Restablecer DateTimePicker
             dtpFechaNaciPa.Value = DateTime.Now;
 
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            // Validación de campos vacíos
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtNumTelefono.Text) ||
-                string.IsNullOrWhiteSpace(txtDui.Text) ||
-                string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) ||
-                string.IsNullOrWhiteSpace(txtDireccion.Text))
-            {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            else if (!ValidarEdad(dtpFechaNaciPa.Value))
-                return; 
-
-            else
-            {
-                Modelos.Entidades.Expediente E = new Expediente();
-
-                E.NombrePa = txtNombre.Text;
-                E.ApellidoPa = txtApellido.Text;
-                E.TelefonoPa = txtNumTelefono.Text;
-                E.Dui = txtDui.Text;
-                E.CorreoPa = txtCorreoElectronico.Text;
-                E.DireccionPa = txtDireccion.Text;
-                E.FechaNacimiento = dtpFechaNaciPa.Value;
-                E.Id_Alergias = Convert.ToInt32(cbAlergias.SelectedValue);
-                E.Id_Enfermedades = Convert.ToInt32(cbEnfermedades.SelectedValue);
-                E.InsertarExpediente();
-
-                MostrarExpedientes();
-                LimpiarCampos();
-                MessageBox.Show("Datos ingresados correctamente");
-            }
         }
 
        private bool ValidarEdad(DateTime fechaNacimiento)
@@ -111,22 +74,6 @@ namespace Vistas.Formularios
             dgvVerExpedientes.DataSource = Expediente.CargarExpedientes("select *from VerExpediente");
         }
 
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            Expediente expediente = new Expediente();
-            int id = int.Parse(dgvVerExpedientes.CurrentRow.Cells[0].Value.ToString());
-            if (expediente.eliminarExpediente(id) == true)
-            {
-                MessageBox.Show("Registro eliminado correctamente", "Exito");
-                MostrarExpedientes();
-            }
-            else
-            {
-                MessageBox.Show("Se produjo un error", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
         private void frmVerExpedientes_Load(object sender, EventArgs e)
         {
             MostrarExpedientes();
@@ -154,43 +101,6 @@ namespace Vistas.Formularios
         }
 
         #endregion
-
-
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtNumTelefono.Text) ||
-                string.IsNullOrWhiteSpace(txtDui.Text) ||
-                string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) ||
-                string.IsNullOrWhiteSpace(txtDireccion.Text))
-            {
-                MessageBox.Show("No dejes campos vacios", "Campos obligatorios");
-                return;
-            }
-
-            Expediente E = new Expediente();
-            E.NombrePa = txtNombre.Text;
-            E.ApellidoPa = txtApellido.Text;
-            E.TelefonoPa = txtNumTelefono.Text;
-            E.Dui = txtDui.Text;
-            E.CorreoPa = txtCorreoElectronico.Text;
-            E.DireccionPa = txtDireccion.Text;
-            E.FechaNacimiento = dtpFechaNaciPa.Value;
-            E.Id_Alergias = Convert.ToInt32(cbAlergias.SelectedValue);
-            E.Id_Enfermedades = Convert.ToInt32(cbEnfermedades.SelectedValue);
-            E.IdExpediente = Convert.ToInt32(dgvVerExpedientes.CurrentRow.Cells[0].Value);
-
-            if (E.ActualizarExpedientes() == true)
-            {
-                MostrarExpedientes();
-                LimpiarCampos();
-            }
-            else
-            {
-                MessageBox.Show("Error al actualizar el trabajador.", "Error");
-            }
-        }
 
         private void dgvVerExpedientes_DoubleClick(object sender, EventArgs e)
         {
@@ -242,5 +152,115 @@ namespace Vistas.Formularios
         }
 
         #endregion
+
+        // Método para validar email
+        private bool EsEmailValido(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            // Validación de campos vacíos
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtApellido.Text) ||
+                string.IsNullOrWhiteSpace(txtNumTelefono.Text) ||
+                string.IsNullOrWhiteSpace(txtDui.Text) ||
+                string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) ||
+                string.IsNullOrWhiteSpace(txtDireccion.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            // Validar que el correo tenga formato válido (si se ingresó)
+            if (!string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) && !EsEmailValido(txtCorreoElectronico.Text))
+            {
+                MessageBox.Show("Por favor, ingresa un correo electrónico válido.");
+                return;
+            }
+
+
+            else if (!ValidarEdad(dtpFechaNaciPa.Value))
+                return;
+
+            else
+            {
+                Modelos.Entidades.Expediente E = new Expediente();
+
+                E.NombrePa = txtNombre.Text;
+                E.ApellidoPa = txtApellido.Text;
+                E.TelefonoPa = txtNumTelefono.Text;
+                E.Dui = txtDui.Text;
+                E.CorreoPa = txtCorreoElectronico.Text;
+                E.DireccionPa = txtDireccion.Text;
+                E.FechaNacimiento = dtpFechaNaciPa.Value;
+                E.Id_Alergias = Convert.ToInt32(cbAlergias.SelectedValue);
+                E.Id_Enfermedades = Convert.ToInt32(cbEnfermedades.SelectedValue);
+                E.InsertarExpediente();
+
+                MostrarExpedientes();
+                LimpiarCampos();
+                MessageBox.Show("Datos ingresados correctamente");
+            }
+        }
+
+        private void btnActualizar_Click_1(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtApellido.Text) ||
+                string.IsNullOrWhiteSpace(txtNumTelefono.Text) ||
+                string.IsNullOrWhiteSpace(txtDui.Text) ||
+                string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) ||
+                string.IsNullOrWhiteSpace(txtDireccion.Text))
+            {
+                MessageBox.Show("No dejes campos vacios", "Campos obligatorios");
+                return;
+            }
+
+            Expediente E = new Expediente();
+            E.NombrePa = txtNombre.Text;
+            E.ApellidoPa = txtApellido.Text;
+            E.TelefonoPa = txtNumTelefono.Text;
+            E.Dui = txtDui.Text;
+            E.CorreoPa = txtCorreoElectronico.Text;
+            E.DireccionPa = txtDireccion.Text;
+            E.FechaNacimiento = dtpFechaNaciPa.Value;
+            E.Id_Alergias = Convert.ToInt32(cbAlergias.SelectedValue);
+            E.Id_Enfermedades = Convert.ToInt32(cbEnfermedades.SelectedValue);
+            E.IdExpediente = Convert.ToInt32(dgvVerExpedientes.CurrentRow.Cells[0].Value);
+
+            if (E.ActualizarExpedientes() == true)
+            {
+                MostrarExpedientes();
+                LimpiarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Error al actualizar el trabajador.", "Error");
+            }
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            Expediente expediente = new Expediente();
+            int id = int.Parse(dgvVerExpedientes.CurrentRow.Cells[0].Value.ToString());
+            if (expediente.eliminarExpediente(id) == true)
+            {
+                MessageBox.Show("Registro eliminado correctamente", "Exito");
+                MostrarExpedientes();
+            }
+            else
+            {
+                MessageBox.Show("Se produjo un error", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

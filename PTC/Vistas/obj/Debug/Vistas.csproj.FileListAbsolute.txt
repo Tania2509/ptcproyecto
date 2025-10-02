@@ -208,3 +208,7 @@ C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formular
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmVerExpedientes.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmHistorialDental.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmRegistrar.resources
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmConfiguracion.resources
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmCambioContraseña.resources
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmCorreo.resources
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Resources.frnCorreo.resources

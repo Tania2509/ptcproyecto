@@ -1,5 +1,6 @@
 ﻿using Modelos.Conexion;
 using Modelos.Entidades;
+using Modelos.Metodos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,9 @@ namespace Vistas.Formularios
         {
             MostrarHistorial();
             dgvHistorial.Columns["idDiente"].Visible = false;
+            dgvHistorial.Columns["Diente"].ReadOnly = true;
+            dgvHistorial.Columns["Numero"].ReadOnly = true;
+
         }
 
         public void MostrarHistorial()
@@ -54,10 +58,9 @@ namespace Vistas.Formularios
             colObs.Name = "Observaciones";
             colObs.HeaderText = "Observaciones";
             dgvHistorial.Columns.Add(colObs);
-        }
+        }  
 
-
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btGuardar_Click(object sender, EventArgs e)
         {
             List<Historial> lista = new List<Historial>();
 
@@ -89,7 +92,7 @@ namespace Vistas.Formularios
                 }
             }
 
-            if (lista.Count > 0)
+            if (lista.Count == 32)
             {
                 if (Modelos.Entidades.Historial.InsertarHistorial(lista))
                 {
@@ -99,9 +102,15 @@ namespace Vistas.Formularios
             }
             else
             {
-                MessageBox.Show("Debe seleccionar al menos un estado para guardar.",
+                MessageBox.Show("DIngrese los estados de todos los dientes debe seleccionar al menos un estado para guardar.",
                                 "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        Validaciones V = new Validaciones();
+        private void txtPaciente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            V.Numeros(sender, e);
         }
 
     }

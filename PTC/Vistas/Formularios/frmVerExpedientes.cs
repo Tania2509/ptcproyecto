@@ -1,4 +1,5 @@
 ﻿using Modelos.Entidades;
+using Modelos.Metodos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,5 +63,15 @@ namespace Vistas.Formularios
                 dgvDientes.DataSource = Historial.CargarHistorialPorFecha(idPaciente, fechaSeleccionada);
             }
         }
+
+        #region
+
+        Validaciones V = new Validaciones();
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            V.Numeros(sender, e);
+        }
+
+        #endregion
     }
 }
