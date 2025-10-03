@@ -230,7 +230,7 @@
             // 
             this.txtDui.Location = new System.Drawing.Point(312, 284);
             this.txtDui.Margin = new System.Windows.Forms.Padding(6);
-            this.txtDui.MaxLength = 10;
+            this.txtDui.MaxLength = 9;
             this.txtDui.Name = "txtDui";
             this.txtDui.ShortcutsEnabled = false;
             this.txtDui.Size = new System.Drawing.Size(265, 32);
@@ -358,7 +358,7 @@
             this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(169)))), ((int)(((byte)(27)))));
             this.btnActualizar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(169)))), ((int)(((byte)(27)))));
             this.btnActualizar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnActualizar.BorderRadius = 14;
+            this.btnActualizar.BorderRadius = 40;
             this.btnActualizar.BorderSize = 0;
             this.btnActualizar.FlatAppearance.BorderSize = 0;
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -377,7 +377,7 @@
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btnEliminar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btnEliminar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEliminar.BorderRadius = 14;
+            this.btnEliminar.BorderRadius = 40;
             this.btnEliminar.BorderSize = 0;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

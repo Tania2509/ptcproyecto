@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -76,6 +77,11 @@ namespace Vistas.Formularios
             frmLogin ventana = new frmLogin();
             this.Hide();
             ventana.Show();
+        }
+
+        private void btnManual_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://drive.google.com/file/d/1MtfXVBMV8nK60ZSzsOhChZI7qsJLPdAK/view?usp=sharing");
         }
     }
 }

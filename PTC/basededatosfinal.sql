@@ -4,35 +4,12 @@ go
 use ClinicaDental
 go
 
-CREATE TABLE Configuracion(
-idConfig int identity (1,1) primary key,
-nombreClinica varchar(100) NOT NULL,
-direccion varchar(200) NOT NULL,
-telefono varchar(10) NOT NULL,
-email varchar(50) NOT NULL,
-pimerUsuarioCreado BIT NOT NULL DEFAULT 0,
-FechaConfiguracion datetime NOT NULL DEFAULT GETDATE(),
-configurado bit NOT NULL DEFAULT 0,
-id_Usuario int null , 
-foreign key (id_Usuario) references Usuario(idUsuario) 
-)
-go
-
-select *from Usuario
-
-select *from Configuracion
-
-drop table Configuracion
-truncate table Usuario
-
 create table Producto (
 idProducto int identity (1,1) primary key,
 nombrePro varchar (50),
 precio decimal (5,2)
 );
 go
-
-select idProducto, nombrePro from Producto
 
 create table Venta (
 idVenta int identity (1,1) primary key,
@@ -74,7 +51,19 @@ foreign key (id_Venta) references Venta (idVenta)
 );
 go
 
-SELECT *FROM Usuario
+CREATE TABLE Configuracion(
+idConfig int identity (1,1) primary key,
+nombreClinica varchar(100) NOT NULL,
+direccion varchar(200) NOT NULL,
+telefono varchar(10) NOT NULL,
+email varchar(50) NOT NULL,
+pimerUsuarioCreado BIT NOT NULL DEFAULT 0,
+FechaConfiguracion datetime NOT NULL DEFAULT GETDATE(),
+configurado bit NOT NULL DEFAULT 0,
+id_Usuario int null , 
+foreign key (id_Usuario) references Usuario(idUsuario) 
+)
+go
 
 create table Enfermedades (
 idEnfermedades int identity (1,1) primary key,
@@ -87,9 +76,6 @@ create table Alergias (
  nombreAl varchar(50)
 );
 go
-
-delete from Configuracion
-delete from Usuario
 
 create table Expediente (
 idExpediente int primary key identity(1,1),
@@ -276,7 +262,7 @@ select *from Cita
 select *from Usuario
 select *from Enfermedades
 select *from Alergias
-select *from ConfiguracionNegocio
+select *from Configuracion
 select *from Producto
 go
 
@@ -307,12 +293,11 @@ LEFT JOIN
 Especialidad ON Especialidad.idEspecialidad= Usuario.id_Especialidad
 go
 
-drop view Ventas
-
 create view Ventas as
 select  idVenta as Venta, nombrePro as Producto, precio as Precio, cantidad as [Cantidad vendida] from Venta V
 left join
 Producto P on P.idProducto=V.id_Producto
+go
 
 create trigger InsertarPaciente
 on Expediente

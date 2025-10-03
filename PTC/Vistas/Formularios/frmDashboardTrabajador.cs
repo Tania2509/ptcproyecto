@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -108,6 +109,11 @@ namespace Vistas.Formularios
             lblCita.ForeColor = Color.White;
             lblDental.ForeColor = Color.White;
             lblExpedientes.ForeColor = Color.White;
+        }
+
+        private void btnManual_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://drive.google.com/file/d/1MtfXVBMV8nK60ZSzsOhChZI7qsJLPdAK/view?usp=sharing");
         }
     }
 }

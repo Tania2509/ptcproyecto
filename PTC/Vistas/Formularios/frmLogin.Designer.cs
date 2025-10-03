@@ -45,6 +45,9 @@
             // pnlLogin
             // 
             this.pnlLogin.AnchoBorde = 1;
+            this.pnlLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlLogin.BackColor = System.Drawing.Color.White;
             this.pnlLogin.BackgroundImage = global::Vistas.Properties.Resources.Rectangle_49_1_;
             this.pnlLogin.ColorBorde = System.Drawing.Color.Gray;

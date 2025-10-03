@@ -70,7 +70,6 @@ namespace Modelos.Entidades
                     correoUsu, contrasena, id_Rol, id_Especialidad, id_Venta, estadoVerificado) 
                     VALUES(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, 
                     @correoUsu, @contrasena, @id_Rol, @id_Especialidad, @id_venta, 0)";
-                id_Rol = 1;  // Administrador
             }
             else
             {

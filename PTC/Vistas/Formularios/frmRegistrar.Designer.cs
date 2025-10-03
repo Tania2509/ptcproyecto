@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.pnlRegistrar = new Modelos.Metodos.PanelRedondeado();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnCancelar = new Modelos.Botones.BotonesPSNLSD();
+            this.btnAgregar = new Modelos.Botones.BotonesPSNLSD();
+            this.cbRol = new System.Windows.Forms.ComboBox();
+            this.lblRol = new System.Windows.Forms.Label();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.btnRegistrar = new System.Windows.Forms.Button();
             this.cbEspecialidad = new System.Windows.Forms.ComboBox();
             this.lblEspecialidad = new System.Windows.Forms.Label();
             this.dtpFechaNaci = new System.Windows.Forms.DateTimePicker();
@@ -57,9 +59,11 @@
             this.pnlRegistrar.BackgroundImage = global::Vistas.Properties.Resources.Rectangle_49_1_;
             this.pnlRegistrar.ColorBorde = System.Drawing.Color.Gray;
             this.pnlRegistrar.Controls.Add(this.btnCancelar);
+            this.pnlRegistrar.Controls.Add(this.btnAgregar);
+            this.pnlRegistrar.Controls.Add(this.cbRol);
+            this.pnlRegistrar.Controls.Add(this.lblRol);
             this.pnlRegistrar.Controls.Add(this.lblCorreo);
             this.pnlRegistrar.Controls.Add(this.txtCorreo);
-            this.pnlRegistrar.Controls.Add(this.btnRegistrar);
             this.pnlRegistrar.Controls.Add(this.cbEspecialidad);
             this.pnlRegistrar.Controls.Add(this.lblEspecialidad);
             this.pnlRegistrar.Controls.Add(this.dtpFechaNaci);
@@ -77,19 +81,67 @@
             this.pnlRegistrar.Location = new System.Drawing.Point(266, 44);
             this.pnlRegistrar.Name = "pnlRegistrar";
             this.pnlRegistrar.RadioEsquinas = 40;
-            this.pnlRegistrar.Size = new System.Drawing.Size(632, 666);
+            this.pnlRegistrar.Size = new System.Drawing.Size(632, 693);
             this.pnlRegistrar.TabIndex = 0;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Brown;
-            this.btnCancelar.Location = new System.Drawing.Point(62, 540);
+            this.btnCancelar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnCancelar.BackgroundColor = System.Drawing.Color.Firebrick;
+            this.btnCancelar.BorderColor = System.Drawing.Color.Azure;
+            this.btnCancelar.BorderRadius = 40;
+            this.btnCancelar.BorderSize = 0;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(58, 589);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(208, 58);
-            this.btnCancelar.TabIndex = 39;
+            this.btnCancelar.Size = new System.Drawing.Size(208, 65);
+            this.btnCancelar.TabIndex = 43;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextColor = System.Drawing.Color.White;
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(93)))), ((int)(((byte)(185)))));
+            this.btnAgregar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(93)))), ((int)(((byte)(185)))));
+            this.btnAgregar.BorderColor = System.Drawing.Color.Azure;
+            this.btnAgregar.BorderRadius = 40;
+            this.btnAgregar.BorderSize = 0;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Location = new System.Drawing.Point(361, 589);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(208, 65);
+            this.btnAgregar.TabIndex = 42;
+            this.btnAgregar.Text = "Registrar";
+            this.btnAgregar.TextColor = System.Drawing.Color.White;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // cbRol
+            // 
+            this.cbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRol.Enabled = false;
+            this.cbRol.FormattingEnabled = true;
+            this.cbRol.Location = new System.Drawing.Point(300, 500);
+            this.cbRol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbRol.Name = "cbRol";
+            this.cbRol.Size = new System.Drawing.Size(250, 31);
+            this.cbRol.TabIndex = 41;
+            // 
+            // lblRol
+            // 
+            this.lblRol.AutoSize = true;
+            this.lblRol.Location = new System.Drawing.Point(54, 503);
+            this.lblRol.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(46, 23);
+            this.lblRol.TabIndex = 40;
+            this.lblRol.Text = "Rol:";
             // 
             // lblCorreo
             // 
@@ -110,17 +162,6 @@
             this.txtCorreo.ShortcutsEnabled = false;
             this.txtCorreo.Size = new System.Drawing.Size(250, 32);
             this.txtCorreo.TabIndex = 37;
-            // 
-            // btnRegistrar
-            // 
-            this.btnRegistrar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnRegistrar.Location = new System.Drawing.Point(357, 540);
-            this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(208, 58);
-            this.btnRegistrar.TabIndex = 35;
-            this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = false;
-            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // cbEspecialidad
             // 
@@ -214,7 +255,7 @@
             // 
             this.txtDui.Location = new System.Drawing.Point(300, 296);
             this.txtDui.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDui.MaxLength = 10;
+            this.txtDui.MaxLength = 9;
             this.txtDui.Name = "txtDui";
             this.txtDui.ShortcutsEnabled = false;
             this.txtDui.Size = new System.Drawing.Size(250, 32);
@@ -259,7 +300,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.BackColor = System.Drawing.Color.RoyalBlue;
+            this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.BackgroundImage = global::Vistas.Properties.Resources.Desktop___26_1_;
             this.ClientSize = new System.Drawing.Size(1125, 924);
             this.Controls.Add(this.pnlRegistrar);
@@ -291,9 +332,11 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.ComboBox cbEspecialidad;
         private System.Windows.Forms.Label lblEspecialidad;
-        private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Label lblCorreo;
         private System.Windows.Forms.TextBox txtCorreo;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ComboBox cbRol;
+        private System.Windows.Forms.Label lblRol;
+        private Modelos.Botones.BotonesPSNLSD btnCancelar;
+        private Modelos.Botones.BotonesPSNLSD btnAgregar;
     }
 }

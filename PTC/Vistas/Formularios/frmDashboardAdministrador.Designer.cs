@@ -37,6 +37,7 @@
             this.lblVentas = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.pbUsuario = new System.Windows.Forms.PictureBox();
+            this.btnManual = new Modelos.Botones.BotonesPSNLSD();
             this.pnlCentralAdmin.SuspendLayout();
             this.pnlContenedor.SuspendLayout();
             this.pnlNavegador.SuspendLayout();
@@ -80,6 +81,7 @@
             this.pnlNavegador.BackColor = System.Drawing.Color.White;
             this.pnlNavegador.BackgroundImage = global::Vistas.Properties.Resources.Rectangle_1;
             this.pnlNavegador.ColorBorde = System.Drawing.Color.Gray;
+            this.pnlNavegador.Controls.Add(this.btnManual);
             this.pnlNavegador.Controls.Add(this.btnFinalizar);
             this.pnlNavegador.Controls.Add(this.lblVentas);
             this.pnlNavegador.Controls.Add(this.lblUsuario);
@@ -143,6 +145,26 @@
             this.pbUsuario.TabIndex = 5;
             this.pbUsuario.TabStop = false;
             // 
+            // btnManual
+            // 
+            this.btnManual.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnManual.BackColor = System.Drawing.Color.Transparent;
+            this.btnManual.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnManual.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnManual.BorderRadius = 40;
+            this.btnManual.BorderSize = 0;
+            this.btnManual.FlatAppearance.BorderSize = 0;
+            this.btnManual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManual.ForeColor = System.Drawing.Color.White;
+            this.btnManual.Location = new System.Drawing.Point(81, 550);
+            this.btnManual.Name = "btnManual";
+            this.btnManual.Size = new System.Drawing.Size(150, 40);
+            this.btnManual.TabIndex = 9;
+            this.btnManual.Text = "Manual";
+            this.btnManual.TextColor = System.Drawing.Color.White;
+            this.btnManual.UseVisualStyleBackColor = false;
+            this.btnManual.Click += new System.EventHandler(this.btnManual_Click);
+            // 
             // frmDashboardAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -179,5 +201,6 @@
         private System.Windows.Forms.PictureBox pbUsuario;
         private System.Windows.Forms.Panel pnlFormulario;
         private System.Windows.Forms.Panel pnlContenedor;
+        private Modelos.Botones.BotonesPSNLSD btnManual;
     }
 }

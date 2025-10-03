@@ -177,6 +177,7 @@
             this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtBuscar.Location = new System.Drawing.Point(5, 46);
             this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscar.MaxLength = 30;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.ShortcutsEnabled = false;
             this.txtBuscar.Size = new System.Drawing.Size(464, 30);
@@ -229,7 +230,7 @@
             this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(169)))), ((int)(((byte)(27)))));
             this.btnActualizar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(169)))), ((int)(((byte)(27)))));
             this.btnActualizar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnActualizar.BorderRadius = 14;
+            this.btnActualizar.BorderRadius = 40;
             this.btnActualizar.BorderSize = 0;
             this.btnActualizar.FlatAppearance.BorderSize = 0;
             this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -248,7 +249,7 @@
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btnEliminar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
             this.btnEliminar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEliminar.BorderRadius = 14;
+            this.btnEliminar.BorderRadius = 40;
             this.btnEliminar.BorderSize = 0;
             this.btnEliminar.FlatAppearance.BorderSize = 0;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

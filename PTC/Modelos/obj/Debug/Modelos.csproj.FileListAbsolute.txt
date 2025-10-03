@@ -42,10 +42,6 @@ C:\Users\Estudiante\Desktop\ptcproyecto\PTC\Modelos\bin\Debug\Modelos.dll
 C:\Users\Estudiante\Desktop\ptcproyecto\PTC\Modelos\bin\Debug\Modelos.pdb
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Debug\Modelos.dll
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Debug\Modelos.pdb
-C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
-C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
-C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Debug\Modelos.dll
-C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Debug\Modelos.pdb
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Debug\BCrypt.Net-Next.dll
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Debug\System.Buffers.dll
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Debug\System.Memory.dll
@@ -56,4 +52,8 @@ C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Debug\System.Buffers
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Debug\System.Memory.xml
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Debug\Modelos.csproj.AssemblyReference.cache
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Debug\Modelos.csproj.CoreCompileInputs.cache
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Debug\Modelos.csproj.Up2Date
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Debug\Modelos.dll
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Debug\Modelos.pdb

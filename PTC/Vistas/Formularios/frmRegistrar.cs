@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vistas.Formularios
 {
@@ -21,47 +22,7 @@ namespace Vistas.Formularios
             InitializeComponent();
         }
 
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
-                string.IsNullOrWhiteSpace(txtDui.Text) ||
-                cbEspecialidad.SelectedIndex == -1)
-            {
-                MessageBox.Show("Por favor, llena todos los campos obligatorios.");
-                return ;
-            }
-            else if (!EsMayorDeEdad(dtpFechaNaci.Value))
-            {
-                return ;
-            }
-            // Validar que el correo tenga formato válido (si se ingresó)
-            if (!string.IsNullOrWhiteSpace(txtCorreo.Text) && !EsEmailValido(txtCorreo.Text))
-            {
-                MessageBox.Show("Por favor, ingresa un correo electrónico válido.");
-                return ;
-            }
-
-            Modelos.Entidades.Usuario U = new Usuario();
-
-            U.NombreU = txtNombre.Text;
-            U.ApellidoU = txtApellido.Text;
-            U.TelefonoU = txtTelefono.Text;
-            U.DuiU = txtDui.Text;
-            U.Correo = txtCorreo.Text;
-            U.FechaNacimientoU = dtpFechaNaci.Value;
-            U.Id_Especialidad = Convert.ToInt32(cbEspecialidad.SelectedValue);
-            U.InsertarUsuarios();
-
-            MessageBox.Show("Primer usuario creado correctamente!\n\n",
-                                      "Registro Exitoso",
-                                      MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            this.DialogResult = DialogResult.OK;
-            dashboard = new frmDashboardAdministrador();
-            this.Close();
-        }
+       
 
         #region insercion 
 
@@ -114,6 +75,17 @@ namespace Vistas.Formularios
 
         #region Metodos de combobox
 
+        private void mostrarRol()
+        {
+            cbRol.DataSource = null;
+            cbRol.DataSource = Rol.CargarRol();
+            cbRol.DisplayMember = "nombreRol";
+            cbRol.ValueMember = "idRol";
+            if (cbRol.Items.Count > 0)
+            {
+                cbRol.SelectedIndex = 0; // Primer elemento
+            }
+        }
 
         private void CargarEspecialidad()
         {
@@ -129,19 +101,8 @@ namespace Vistas.Formularios
         private void frmRegistrar_Load(object sender, EventArgs e)
         {
             CargarEspecialidad();
-        }
-
-        Form dashboard = null;
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Está seguro que desea cancelar el registro?\n\nDebe registrar un usuario administrador para usar el sistema.",
-                       "Confirmar Cancelación",
-                       MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.DialogResult = DialogResult.Cancel;
-                this.Close();
-            }
+            mostrarRol();
+            
         }
 
         #region validaciones
@@ -170,6 +131,58 @@ namespace Vistas.Formularios
 
         #endregion
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
+                string.IsNullOrWhiteSpace(txtApellido.Text) ||
+                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
+                string.IsNullOrWhiteSpace(txtDui.Text) ||
+                cbEspecialidad.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, llena todos los campos obligatorios.");
+                return;
+            }
+            else if (!EsMayorDeEdad(dtpFechaNaci.Value))
+            {
+                return;
+            }
+            // Validar que el correo tenga formato válido (si se ingresó)
+            if (!string.IsNullOrWhiteSpace(txtCorreo.Text) && !EsEmailValido(txtCorreo.Text))
+            {
+                MessageBox.Show("Por favor, ingresa un correo electrónico válido.");
+                return;
+            }
+
+            Modelos.Entidades.Usuario U = new Usuario();
+
+            U.NombreU = txtNombre.Text;
+            U.ApellidoU = txtApellido.Text;
+            U.TelefonoU = txtTelefono.Text;
+            U.DuiU = txtDui.Text;
+            U.Correo = txtCorreo.Text;
+            U.FechaNacimientoU = dtpFechaNaci.Value;
+            U.Id_Especialidad = Convert.ToInt32(cbEspecialidad.SelectedValue);
+            U.Id_Rol = Convert.ToInt32(cbRol.SelectedValue);
+            U.InsertarUsuarios();
+
+            MessageBox.Show("Primer usuario creado correctamente!\n\n",
+                                      "Registro Exitoso",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro que desea cancelar el registro?\n\nDebe registrar un usuario administrador para usar el sistema.",
+                      "Confirmar Cancelación",
+                      MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
+        }
     }
 }
 

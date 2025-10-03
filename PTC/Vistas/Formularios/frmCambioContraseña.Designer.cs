@@ -154,9 +154,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackgroundImage = global::Vistas.Properties.Resources.Desktop___26_1_;
             this.ClientSize = new System.Drawing.Size(1142, 676);
             this.Controls.Add(this.pnlLogin);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCambioContraseña";
             this.Text = "CambioContraseña";
             this.pnlLogin.ResumeLayout(false);

@@ -127,7 +127,7 @@
             this.txtTelefono.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtTelefono.Location = new System.Drawing.Point(49, 495);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTelefono.MaxLength = 9;
+            this.txtTelefono.MaxLength = 8;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.ShortcutsEnabled = false;
             this.txtTelefono.Size = new System.Drawing.Size(362, 32);
