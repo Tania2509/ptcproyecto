@@ -1,0 +1,17 @@
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Release\Modelos.dll
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Release\Modelos.pdb
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Release\BCrypt.Net-Next.dll
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Release\System.Buffers.dll
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Release\System.Memory.dll
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Release\System.Numerics.Vectors.dll
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Release\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Release\BCrypt.Net-Next.xml
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Release\System.Buffers.xml
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Release\System.Memory.xml
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Release\System.Numerics.Vectors.xml
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Release\Modelos.csproj.AssemblyReference.cache
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Release\Modelos.csproj.CoreCompileInputs.cache
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Release\Modelos.csproj.Up2Date
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Release\Modelos.dll
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Modelos\obj\Release\Modelos.pdb

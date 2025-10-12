@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboardTrabajador));
             this.pnlNavegador = new Modelos.Metodos.PanelRedondeado();
+            this.btnManual = new Modelos.Botones.BotonesPSNLSD();
             this.btnCerrar = new Modelos.Botones.BotonesPSNLSD();
             this.btnFinalizar = new Modelos.Botones.BotonesPSNLSD();
             this.lblVerExpedientes = new System.Windows.Forms.Label();
@@ -39,7 +40,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.pnlCentral = new System.Windows.Forms.Panel();
-            this.btnManual = new Modelos.Botones.BotonesPSNLSD();
             this.pnlNavegador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlContenedor.SuspendLayout();
@@ -67,9 +67,29 @@
             this.pnlNavegador.Size = new System.Drawing.Size(275, 1820);
             this.pnlNavegador.TabIndex = 2;
             // 
+            // btnManual
+            // 
+            this.btnManual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnManual.BackColor = System.Drawing.Color.Transparent;
+            this.btnManual.BackgroundColor = System.Drawing.Color.Transparent;
+            this.btnManual.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnManual.BorderRadius = 40;
+            this.btnManual.BorderSize = 0;
+            this.btnManual.FlatAppearance.BorderSize = 0;
+            this.btnManual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManual.ForeColor = System.Drawing.Color.White;
+            this.btnManual.Location = new System.Drawing.Point(91, 870);
+            this.btnManual.Name = "btnManual";
+            this.btnManual.Size = new System.Drawing.Size(150, 40);
+            this.btnManual.TabIndex = 11;
+            this.btnManual.Text = "Manual";
+            this.btnManual.TextColor = System.Drawing.Color.White;
+            this.btnManual.UseVisualStyleBackColor = false;
+            this.btnManual.Click += new System.EventHandler(this.btnManual_Click);
+            // 
             // btnCerrar
             // 
-            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
             this.btnCerrar.BackgroundColor = System.Drawing.Color.Transparent;
             this.btnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
@@ -78,7 +98,7 @@
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
-            this.btnCerrar.Location = new System.Drawing.Point(104, 751);
+            this.btnCerrar.Location = new System.Drawing.Point(91, 946);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(150, 40);
             this.btnCerrar.TabIndex = 10;
@@ -177,26 +197,6 @@
             this.pnlCentral.Name = "pnlCentral";
             this.pnlCentral.Size = new System.Drawing.Size(695, 1029);
             this.pnlCentral.TabIndex = 3;
-            // 
-            // btnManual
-            // 
-            this.btnManual.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnManual.BackColor = System.Drawing.Color.Transparent;
-            this.btnManual.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnManual.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnManual.BorderRadius = 40;
-            this.btnManual.BorderSize = 0;
-            this.btnManual.FlatAppearance.BorderSize = 0;
-            this.btnManual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManual.ForeColor = System.Drawing.Color.White;
-            this.btnManual.Location = new System.Drawing.Point(104, 675);
-            this.btnManual.Name = "btnManual";
-            this.btnManual.Size = new System.Drawing.Size(150, 40);
-            this.btnManual.TabIndex = 11;
-            this.btnManual.Text = "Manual";
-            this.btnManual.TextColor = System.Drawing.Color.White;
-            this.btnManual.UseVisualStyleBackColor = false;
-            this.btnManual.Click += new System.EventHandler(this.btnManual_Click);
             // 
             // frmDashboardTrabajador
             // 

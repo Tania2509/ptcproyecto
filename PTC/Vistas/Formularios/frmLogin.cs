@@ -118,6 +118,10 @@ namespace Vistas.Formularios
                                 dashboard = new frmDashboardTrabajador();
                                 break;
 
+                            case "3":
+                                dashboard = new frmDashboardTrabajador();
+                                break;
+
                             default:
                                 MessageBox.Show("Rol no reconocido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;

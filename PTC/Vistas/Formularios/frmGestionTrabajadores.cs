@@ -169,8 +169,6 @@ namespace Vistas.Formularios
             dtpFechaNaci.Value = DateTime.Now;
         }
 
-
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             // Validación de campos vacíos
@@ -192,6 +190,14 @@ namespace Vistas.Formularios
 
                 else if (!EsMayorDeEdad(dtpFechaNaci.Value))
             {
+                return;
+            }
+
+            // Validar DUI único
+            if (Usuario.DuiExiste(txtDui.Text))
+            {
+                MessageBox.Show("Ese DUI ya está registrado en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDui.Focus();
                 return;
             }
 
@@ -262,5 +268,4 @@ namespace Vistas.Formularios
         }
     }
 }
-    
 

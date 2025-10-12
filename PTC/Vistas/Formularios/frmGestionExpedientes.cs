@@ -39,7 +39,7 @@ namespace Vistas.Formularios
 
         }
 
-       private bool ValidarEdad(DateTime fechaNacimiento)
+        private bool ValidarEdad(DateTime fechaNacimiento)
         {
             DateTime fechaActual = DateTime.Today;
             int edad = fechaActual.Year - fechaNacimiento.Year;
@@ -133,7 +133,7 @@ namespace Vistas.Formularios
         Validaciones V = new Validaciones();
         private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            V.Letras(sender, e); 
+            V.Letras(sender, e);
         }
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
@@ -187,6 +187,13 @@ namespace Vistas.Formularios
                 return;
             }
 
+            // Validar que el DUI no esté registrado
+            if (Expediente.DuiExiste(txtDui.Text))
+            {
+                MessageBox.Show("Ese DUI ya está registrado en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDui.Focus();
+                return;
+            }
 
             else if (!ValidarEdad(dtpFechaNaciPa.Value))
                 return;
@@ -250,16 +257,41 @@ namespace Vistas.Formularios
 
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
-            Expediente expediente = new Expediente();
-            int id = int.Parse(dgvVerExpedientes.CurrentRow.Cells[0].Value.ToString());
-            if (expediente.eliminarExpediente(id) == true)
+            // Validar que hay una fila seleccionada
+            if (dgvVerExpedientes.CurrentRow == null)
             {
-                MessageBox.Show("Registro eliminado correctamente", "Exito");
-                MostrarExpedientes();
+                MessageBox.Show("Seleccione un registro para eliminar", "Advertencia",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Obtener datos del paciente para mostrar en la confirmación
+            string nombrePaciente = dgvVerExpedientes.CurrentRow.Cells[1].Value?.ToString() ?? "";
+            string apellidoPaciente = dgvVerExpedientes.CurrentRow.Cells[2].Value?.ToString() ?? "";
+            int id = int.Parse(dgvVerExpedientes.CurrentRow.Cells[0].Value.ToString());
+
+            // Mostrar diálogo de confirmación
+            DialogResult resultado = MessageBox.Show(
+                $"¿Está seguro que desea eliminar este expediente?",
+                "Confirmación de eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2
+            );
+
+            if (resultado == DialogResult.Yes)
+            {
+                Expediente expediente = new Expediente();
+
+                if (expediente.eliminarExpediente(id))
+                {
+                    MostrarExpedientes();
+                }
             }
             else
             {
-                MessageBox.Show("Se produjo un error", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Eliminación cancelada", "Cancelado",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

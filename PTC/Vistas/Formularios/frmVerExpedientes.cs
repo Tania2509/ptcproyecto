@@ -22,9 +22,15 @@ namespace Vistas.Formularios
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            int idPaciente = Convert.ToInt32(txtBuscar.Text);
+            
             try
             {
+                if (string.IsNullOrEmpty(txtBuscar.Text))
+                {
+                    MessageBox.Show("Ingrese el DUI del paciente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                int idPaciente = Convert.ToInt32(txtBuscar.Text);
                 dgvCitas.DataSource = null;
                 dgvCitas.DataSource = Cita.ID(txtBuscar.Text.Trim());
                 dgvFecha.DataSource = Historial.CargarFechas(idPaciente);
@@ -36,15 +42,15 @@ namespace Vistas.Formularios
 
         }
 
-        public void MostrarCitas()
+        public void MostrarPacientes()
         {
             dgvCitas.DataSource = null;
-            dgvCitas.DataSource = Cita.CargarCitas("select *From DatosCita");
+            dgvCitas.DataSource = Expediente.CargarExpedientes("select *from VerExpediente");
         }
 
         private void frmVerExpedientes_Load(object sender, EventArgs e)
         {
-            MostrarCitas();        
+            MostrarPacientes();        
         }
 
         private void dgvFecha_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -101,7 +101,17 @@ namespace Modelos.Entidades
             }
         }
 
+        public static bool ExistePrimerUsuario()
+        {
+            using (SqlConnection conexion = Conexion.Conexion.conectar())
+            {
+                string query = "SELECT COUNT(*) FROM Configuracion WHERE pimerUsuarioCreado = 1";
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
+}
 
-
-    }
+    
 }

@@ -99,7 +99,7 @@
             this.pnlUsuarios.Controls.Add(this.txtApellido);
             this.pnlUsuarios.Controls.Add(this.txtNombre);
             this.pnlUsuarios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlUsuarios.Location = new System.Drawing.Point(15, 218);
+            this.pnlUsuarios.Location = new System.Drawing.Point(44, 218);
             this.pnlUsuarios.Margin = new System.Windows.Forms.Padding(6);
             this.pnlUsuarios.Name = "pnlUsuarios";
             this.pnlUsuarios.Size = new System.Drawing.Size(681, 659);

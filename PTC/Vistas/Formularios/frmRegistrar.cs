@@ -153,7 +153,15 @@ namespace Vistas.Formularios
                 return;
             }
 
-            Modelos.Entidades.Usuario U = new Usuario();
+            // Validar que el DUI no esté registrado
+            if (Usuario.DuiExiste(txtDui.Text))
+            {
+                MessageBox.Show("Ese DUI ya está registrado en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDui.Focus();
+                return;
+            }
+
+            Usuario U = new Usuario();
 
             U.NombreU = txtNombre.Text;
             U.ApellidoU = txtApellido.Text;

@@ -72,27 +72,31 @@ namespace Vistas.Formularios
 
         private void MostrarPacientes()
         {
-            DataTable pacientes = Paciente.CargarPacientes(); // Método que usa tu vista VerExpediente
+            cbNombre.SelectedIndexChanged -= cbNombre_SelectedIndexChanged;
+            cbNombre.SelectedIndexChanged -= cbNombre_SelectedIndexChanged;
 
-            // ComboBox de nombres
+            DataTable pacientes = Paciente.CargarPacientes();
+            
             cbNombre.DataSource = pacientes;
-            cbNombre.DisplayMember = "Nombre del Paciente";
-            cbNombre.ValueMember = "Expediente";
+            cbNombre.DisplayMember = "Paciente";
+            cbNombre.ValueMember = "idPaciente";
 
             // ComboBox de apellidos
             cbApellido.DataSource = pacientes;
-            cbApellido.DisplayMember = "Apellido del paciente";
-            cbApellido.ValueMember = "Expediente";
+            cbApellido.DisplayMember = "Dui";
+            cbApellido.ValueMember = "idPaciente";
 
             // ComboBox de correos
             cbCorreo.DataSource = pacientes;
-            cbCorreo.DisplayMember = "Correo del paciente";
-            cbCorreo.ValueMember = "Expediente";
+            cbCorreo.DisplayMember = "Correo";
+            cbCorreo.ValueMember = "idPaciente";
 
             // No seleccionar nada por defecto
             cbNombre.SelectedIndex = -1;
             cbApellido.SelectedIndex = -1;
             cbCorreo.SelectedIndex = -1;
+
+            cbNombre.SelectedIndexChanged += cbNombre_SelectedIndexChanged;
         }
 
 
@@ -194,6 +198,7 @@ namespace Vistas.Formularios
             C.RazonCita = txtRazonCita.Text;
             C.FechaHoraCita = dtpFechaHora.Value;
             C.InsertarCitas();
+            MostrarCitas();
            
 
             // Obtener el correo del paciente seleccionado

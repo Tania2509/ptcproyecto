@@ -211,3 +211,8 @@ C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.csproj.C
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.csproj.Up2Date
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.exe
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.pdb
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\bin\Debug\Vistas.exe.manifest
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\bin\Debug\Vistas.application
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.exe.config
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.exe.manifest
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.application

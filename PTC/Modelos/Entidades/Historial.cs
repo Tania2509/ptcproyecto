@@ -15,14 +15,12 @@ namespace Modelos.Entidades
         private int idPaciente;
         private int idDiente;
         private int idEstado;
-        private DateTime  fecha;
         private string observaciones;
 
         public int IdHistorial { get => idHistorial; set => idHistorial = value; }
         public int IdPaciente { get => idPaciente; set => idPaciente = value; }
         public int IdDiente { get => idDiente; set => idDiente = value; }
         public int IdEstado { get => idEstado; set => idEstado = value; }
-        public DateTime Fecha { get => fecha; set => fecha = value; }
         public string Observaciones { get => observaciones; set => observaciones = value; }
 
         public static bool InsertarHistorial(List<Historial> listaHistorial)
@@ -33,8 +31,8 @@ namespace Modelos.Entidades
                 try
                 {
                     string sql = @"INSERT INTO HistorialDental 
-                          (id_Paciente, id_Diente, id_Estado, fecha, observaciones) 
-                          VALUES (@idPaciente, @idDiente, @idEstado, @fecha, @observaciones)";
+                          (id_Expediente, id_Diente, id_Estado, fecha, observaciones) 
+                          VALUES (@idPaciente, @idDiente, @idEstado, GETDATE(), @observaciones)";
 
                     foreach (Historial h in listaHistorial)
                     {
@@ -43,7 +41,6 @@ namespace Modelos.Entidades
                             cmd.Parameters.AddWithValue("@idPaciente", h.IdPaciente);
                             cmd.Parameters.AddWithValue("@idDiente", h.IdDiente);
                             cmd.Parameters.AddWithValue("@idEstado", h.IdEstado);
-                            cmd.Parameters.AddWithValue("@fecha", h.Fecha);
                             cmd.Parameters.AddWithValue("@observaciones",
                                 string.IsNullOrEmpty(h.Observaciones) ? "" : h.Observaciones);
 
@@ -86,7 +83,7 @@ namespace Modelos.Entidades
                          FROM HistorialDental h
                          INNER JOIN Diente d ON h.id_Diente = d.idDiente
                          INNER JOIN EstadoDiente e ON h.id_Estado = e.idEstado
-                         WHERE h.id_Paciente = @idPaciente
+                         WHERE h.id_Expediente = @idPaciente
                            AND CONVERT(date, h.fecha) = @fecha
                          ORDER BY d.codigo";
 

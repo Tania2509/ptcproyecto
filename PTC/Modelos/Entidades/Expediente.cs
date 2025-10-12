@@ -71,20 +71,43 @@ namespace Modelos.Entidades
         }
         public bool eliminarExpediente(int id)
         {
-            SqlConnection conexion = Conexion.Conexion.conectar();
-            string consultaDelete = "EliminarPaciente @id;";
-            SqlCommand delete = new SqlCommand(consultaDelete, conexion);
-            delete.Parameters.AddWithValue("@id", id);
-            if (delete.ExecuteNonQuery() > 0)
+            try
             {
-                MessageBox.Show("Eliminando Registros", "Exito al eliminar registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
+                using (SqlConnection conexion = Conexion.Conexion.conectar())
+                {
+                    string consultaDelete = "EXEC EliminarPaciente @id;";
+                    using (SqlCommand delete = new SqlCommand(consultaDelete, conexion))
+                    {
+                        delete.Parameters.AddWithValue("@id", id);
+                        int resultado = delete.ExecuteNonQuery();
+
+                        if (resultado > 0)
+                        {
+                            MessageBox.Show("Registro eliminado correctamente", "Éxito",
+                                          MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontró el registro a eliminar", "Información",
+                                          MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return false;
+                        }
+                    }
+                }
             }
-            else
+            catch (SqlException ex)
             {
+                MessageBox.Show($"Error de base de datos al eliminar: {ex.Message}", "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         public bool ActualizarExpedientes()
@@ -122,6 +145,19 @@ namespace Modelos.Entidades
             ad.Fill(dt);
             return dt;
 
+        }
+
+        // Método para validar si el DUI ya existe en la tabla Expediente
+        public static bool DuiExiste(string dui)
+        {
+            using (SqlConnection con = Conexion.Conexion.conectar())
+            {
+                string query = "SELECT COUNT(*) FROM Expediente WHERE dui = @dui";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@dui", dui);
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
         }
 
         //#region ComboBox

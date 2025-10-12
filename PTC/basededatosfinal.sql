@@ -15,7 +15,9 @@ create table Venta (
 idVenta int identity (1,1) primary key,
 cantidad int,
 id_Producto int, 
-foreign key (id_Producto) references Producto (idProducto)
+id_Usuario int, 
+foreign key (id_Producto) references Producto (idProducto),
+foreign key (id_Usuario) references Usuario(idUsuario)
 );
 go  
 
@@ -31,7 +33,6 @@ nombreEspecialidad varchar(50),
 );
 go
 
-
 create table Usuario (
 idUsuario int identity (1,1) primary key,
 nombreUsu varchar(50),
@@ -44,10 +45,8 @@ contrasena varchar(255),
 estadoVerificado BIT NOT NULL DEFAULT 0,
 id_Rol int,
 id_Especialidad int,
-id_Venta int,
 foreign key (id_Rol) references Rol (idRol),
 foreign key (id_Especialidad) references Especialidad (idEspecialidad), 
-foreign key (id_Venta) references Venta (idVenta)
 );
 go
 
@@ -64,6 +63,9 @@ id_Usuario int null ,
 foreign key (id_Usuario) references Usuario(idUsuario) 
 )
 go
+
+--drop table Configuracion
+--truncate table Usuario
 
 create table Enfermedades (
 idEnfermedades int identity (1,1) primary key,
@@ -134,12 +136,12 @@ go
 
 create table HistorialDental (
     idHistorial int primary key identity(1,1),
-    id_Paciente int,
+    id_Expediente int,
     id_Diente int,
     id_Estado int,
     fecha date,
     observaciones varchar(50),
-    foreign key  (id_Paciente) references Paciente(idPaciente),
+    foreign key (id_Expediente) references Expediente (idExpediente),
     foreign key (id_Diente) references Diente(idDiente),
     foreign key (id_Estado) references EstadoDiente(idEstado)
 );
@@ -241,18 +243,6 @@ insert into Enfermedades values ('Ninguna'),
 ('Hepatitis')
 go
 
-insert into Expediente (nombrePa, apellidoPa, fechaNacimiento, telefonoPa, direccionPa, correoPa, dui, id_Enfermedades, id_Alergias) VALUES 
-('María', 'González', '1985-03-15', '2222-3333', 'Colonia Escalón, San Salvador', 'maria@email.com', '12345678-9', 1, 2),
-('Carlos', 'Rodríguez', '1990-07-22', '2555-4444', 'Santa Tecla, La Libertad', 'carlos@email.com', '23456789-0', 2, 1),
-('Ana', 'Martínez', '1978-11-30', '2666-7777', 'Soyapango, San Salvador', 'ana@email.com', '34567890-1', 3, 3),
-('Luis', 'Hernández', '1982-05-18', '2777-8888', 'Mejicanos, San Salvador', 'luis@email.com', '45678901-2', 4, 4),
-('Sofia', 'López', '1995-09-08', '2888-9999', 'San Miguel', 'sofia@email.com', '56789012-3', 5, 5),
-('Jorge', 'Díaz', '1988-12-25', '2999-0000', 'Ahuachapán', 'jorge@email.com', '67890123-4', 6, 6),
-('Elena', 'Torres', '1975-02-14', '2333-2222', 'Santa Ana', 'elena@email.com', '78901234-5', 7, 7),
-('Miguel', 'Ramírez', '1992-06-30', '2444-3333', 'Sonsonate', 'miguel@email.com', '89012345-6', 8, 8),
-('Carmen', 'Flores', '1980-08-17', '2555-4444', 'La Unión', 'carmen@email.com', '90123456-7', 9, 9),
-('Roberto', 'Castro', '1970-04-12', '2666-5555', 'Chalatenango', 'roberto@email.com', '01234567-8', 10, 10);
-
 select *from Paciente
 select *from Rol
 select *from Especialidad
@@ -265,6 +255,7 @@ select *from Alergias
 select *from Configuracion
 select *from Producto
 go
+
 
 create view VerExpediente as
 select idExpediente as Expediente, nombrePa as [Nombre del Paciente], apellidoPa as [Apellido del paciente], fechaNacimiento as [Fecha de nacimiento], telefonoPa as Telefono, direccionPa as [Direccion] ,correoPa as [Correo del paciente], dui as DUI ,nombreEnfer as Enfermedades, nombreAl as Alergias
@@ -308,16 +299,30 @@ select idExpediente from inserted;
 go
 
 
-create proc EliminarPaciente 
+CREATE PROC EliminarPaciente 
 (
-@id int
+    @id int
 )
-as 
-begin 
-delete Paciente where idPaciente = @id
-delete Expediente where idExpediente = @id
-end;
-go
+AS 
+BEGIN 
+    BEGIN TRY
+        BEGIN TRANSACTION;
+        DELETE FROM HistorialDental WHERE id_Expediente = @id;
+        DELETE FROM Cita WHERE id_Paciente = @id;
+        DELETE FROM Doctor WHERE id_Paciente = @id;
+        DECLARE @idExpediente int;
+        SELECT @idExpediente = id_Expediente FROM Paciente WHERE idPaciente = @id;
+        DELETE FROM Paciente WHERE idPaciente = @id;
+        DELETE FROM Expediente WHERE idExpediente = @idExpediente;
+        
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        THROW;
+    END CATCH
+END;
+GO
 
 create Proc FechaHistorial
 (
@@ -327,8 +332,7 @@ as
 begin 
 SELECT DISTINCT CONVERT(date, h.fecha) AS Fecha
 FROM HistorialDental h
-WHERE h.id_Paciente = @idPaciente
+WHERE h.id_Expediente = @idPaciente
 ORDER BY Fecha DESC
 end;
 go
-

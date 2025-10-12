@@ -55,12 +55,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMostrarPro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMostrarPro.Location = new System.Drawing.Point(592, 436);
+            this.dgvMostrarPro.Location = new System.Drawing.Point(604, 388);
             this.dgvMostrarPro.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvMostrarPro.Name = "dgvMostrarPro";
             this.dgvMostrarPro.RowHeadersWidth = 51;
             this.dgvMostrarPro.RowTemplate.Height = 24;
-            this.dgvMostrarPro.Size = new System.Drawing.Size(596, 204);
+            this.dgvMostrarPro.Size = new System.Drawing.Size(709, 277);
             this.dgvMostrarPro.TabIndex = 0;
             this.dgvMostrarPro.DoubleClick += new System.EventHandler(this.dgvMostrarPro_DoubleClick);
             // 
@@ -74,72 +74,72 @@
             this.pnlMostrarInv.Controls.Add(this.lblNombreProducto);
             this.pnlMostrarInv.Controls.Add(this.txtUnidadesActuales);
             this.pnlMostrarInv.Controls.Add(this.txtPrecioProducto);
-            this.pnlMostrarInv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlMostrarInv.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlMostrarInv.Location = new System.Drawing.Point(31, 270);
             this.pnlMostrarInv.Margin = new System.Windows.Forms.Padding(6);
             this.pnlMostrarInv.Name = "pnlMostrarInv";
-            this.pnlMostrarInv.Size = new System.Drawing.Size(400, 339);
+            this.pnlMostrarInv.Size = new System.Drawing.Size(458, 411);
             this.pnlMostrarInv.TabIndex = 16;
             // 
             // cbProducto
             // 
             this.cbProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProducto.FormattingEnabled = true;
-            this.cbProducto.Location = new System.Drawing.Point(36, 80);
+            this.cbProducto.Location = new System.Drawing.Point(82, 104);
             this.cbProducto.Name = "cbProducto";
-            this.cbProducto.Size = new System.Drawing.Size(285, 33);
+            this.cbProducto.Size = new System.Drawing.Size(285, 31);
             this.cbProducto.TabIndex = 8;
             this.cbProducto.SelectedIndexChanged += new System.EventHandler(this.cbProducto_SelectedIndexChanged);
             // 
             // lblUnidadesVendidas
             // 
             this.lblUnidadesVendidas.AutoSize = true;
-            this.lblUnidadesVendidas.Location = new System.Drawing.Point(31, 252);
+            this.lblUnidadesVendidas.Location = new System.Drawing.Point(77, 276);
             this.lblUnidadesVendidas.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblUnidadesVendidas.Name = "lblUnidadesVendidas";
-            this.lblUnidadesVendidas.Size = new System.Drawing.Size(185, 25);
+            this.lblUnidadesVendidas.Size = new System.Drawing.Size(202, 23);
             this.lblUnidadesVendidas.TabIndex = 7;
             this.lblUnidadesVendidas.Text = "Unidades vendidas:";
             // 
             // lblPrecioProducto
             // 
             this.lblPrecioProducto.AutoSize = true;
-            this.lblPrecioProducto.Location = new System.Drawing.Point(31, 146);
+            this.lblPrecioProducto.Location = new System.Drawing.Point(77, 170);
             this.lblPrecioProducto.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPrecioProducto.Name = "lblPrecioProducto";
-            this.lblPrecioProducto.Size = new System.Drawing.Size(187, 25);
+            this.lblPrecioProducto.Size = new System.Drawing.Size(207, 23);
             this.lblPrecioProducto.TabIndex = 6;
             this.lblPrecioProducto.Text = "Precio del Producto:";
             // 
             // lblNombreProducto
             // 
             this.lblNombreProducto.AutoSize = true;
-            this.lblNombreProducto.Location = new System.Drawing.Point(31, 26);
+            this.lblNombreProducto.Location = new System.Drawing.Point(77, 50);
             this.lblNombreProducto.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNombreProducto.Name = "lblNombreProducto";
-            this.lblNombreProducto.Size = new System.Drawing.Size(201, 25);
+            this.lblNombreProducto.Size = new System.Drawing.Size(225, 23);
             this.lblNombreProducto.TabIndex = 5;
             this.lblNombreProducto.Text = "Nombre del Producto:";
             // 
             // txtUnidadesActuales
             // 
-            this.txtUnidadesActuales.Location = new System.Drawing.Point(36, 293);
+            this.txtUnidadesActuales.Location = new System.Drawing.Point(82, 317);
             this.txtUnidadesActuales.Margin = new System.Windows.Forms.Padding(6);
             this.txtUnidadesActuales.Name = "txtUnidadesActuales";
             this.txtUnidadesActuales.ShortcutsEnabled = false;
-            this.txtUnidadesActuales.Size = new System.Drawing.Size(285, 30);
+            this.txtUnidadesActuales.Size = new System.Drawing.Size(285, 32);
             this.txtUnidadesActuales.TabIndex = 2;
             this.txtUnidadesActuales.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnidadesActuales_KeyPress);
             // 
             // txtPrecioProducto
             // 
-            this.txtPrecioProducto.Location = new System.Drawing.Point(36, 177);
+            this.txtPrecioProducto.Location = new System.Drawing.Point(82, 201);
             this.txtPrecioProducto.Margin = new System.Windows.Forms.Padding(6);
             this.txtPrecioProducto.MaxLength = 6;
             this.txtPrecioProducto.Name = "txtPrecioProducto";
             this.txtPrecioProducto.ReadOnly = true;
             this.txtPrecioProducto.ShortcutsEnabled = false;
-            this.txtPrecioProducto.Size = new System.Drawing.Size(285, 30);
+            this.txtPrecioProducto.Size = new System.Drawing.Size(285, 32);
             this.txtPrecioProducto.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -197,7 +197,7 @@
             this.tlpBotones.Controls.Add(this.btnEliminar, 2, 0);
             this.tlpBotones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.tlpBotones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tlpBotones.Location = new System.Drawing.Point(583, 241);
+            this.tlpBotones.Location = new System.Drawing.Point(629, 270);
             this.tlpBotones.Margin = new System.Windows.Forms.Padding(4);
             this.tlpBotones.Name = "tlpBotones";
             this.tlpBotones.RowCount = 2;

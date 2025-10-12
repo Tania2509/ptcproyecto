@@ -69,7 +69,9 @@ namespace Modelos.Entidades
                 comando = @"INSERT INTO Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, 
                     correoUsu, contrasena, id_Rol, id_Especialidad, id_Venta, estadoVerificado) 
                     VALUES(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, 
-                    @correoUsu, @contrasena, @id_Rol, @id_Especialidad, @id_venta, 0)";
+                    @correoUsu, @contrasena, @id_Rol, @id_Especialidad, @id_venta, 0);
+
+                       UPDATE Configuracion SET pimerUsuarioCreado = 1 WHERE Configurado = 1";
             }
             else
             {
@@ -129,6 +131,19 @@ namespace Modelos.Entidades
         }
 
         #endregion
+
+        // Nuevo método para validar si el DUI ya existe
+        public static bool DuiExiste(string dui)
+        {
+            using (SqlConnection con = Conexion.Conexion.conectar())
+            {
+                string query = "SELECT COUNT(*) FROM Usuario WHERE duiUsu = @dui";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@dui", dui);
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
+            }
+        }
 
         public bool eliminarTrabajador(int id)
         {

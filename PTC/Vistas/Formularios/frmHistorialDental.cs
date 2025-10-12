@@ -85,7 +85,6 @@ namespace Vistas.Formularios
                         IdDiente = Convert.ToInt32(row.Cells["idDiente"].Value),
                         IdEstado = Convert.ToInt32(row.Cells["Estado"].Value),
                         Observaciones = row.Cells["Observaciones"].Value?.ToString(),
-                        Fecha = dtpFecha.Value.Date // solo fecha, sin hora
                     };
 
                     lista.Add(h);
