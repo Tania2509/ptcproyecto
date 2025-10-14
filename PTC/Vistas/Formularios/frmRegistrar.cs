@@ -20,8 +20,15 @@ namespace Vistas.Formularios
         public frmRegistrar()
         {
             InitializeComponent();
-        }
 
+            // Habilitar double buffering para el formulario
+            this.DoubleBuffered = true;
+
+            // O también puedes usar:
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint |
+                     ControlStyles.DoubleBuffer, true);
+        }  
        
 
         #region insercion 

@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Modelos.dll" size="38400">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Modelos.dll" size="47104">
       <assemblyIdentity name="Modelos" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>2OzrGGJgkTd3DvlGiLVlnQypFXDJbJrrvjmmTQVCBs4=</dsig:DigestValue>
+        <dsig:DigestValue>R8wr//rm/HxhEnQ+7/hS/qptehgjJpoRZNw4/6ZVyMg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -114,14 +114,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Vistas.exe" size="6477216">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Vistas.exe" size="8368544">
       <assemblyIdentity name="Vistas" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8EDPx7FEw2EQUIHovioMFNqPGXZmiY+Rr/kmRQtdbP0=</dsig:DigestValue>
+        <dsig:DigestValue>oVqqW4TGQqp3lQIcbTowz2miUK2+xuqG4o+A1ln7xok=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

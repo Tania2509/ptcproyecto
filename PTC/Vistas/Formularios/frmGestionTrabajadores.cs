@@ -16,11 +16,18 @@ using System.Windows.Forms;
 
 namespace Vistas.Formularios
 {
-    public partial class frmGestionTrabajadores : Form
+    public partial class frmTrabajadores : Form
     {
-        public frmGestionTrabajadores()
+        public frmTrabajadores()
         {
             InitializeComponent();
+            // Habilitar double buffering para el formulario
+            this.DoubleBuffered = true;
+
+            // O también puedes usar:
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint |
+                     ControlStyles.DoubleBuffer, true);
         }
 
         private bool EsMayorDeEdad(DateTime fechaNacimiento)
@@ -52,12 +59,19 @@ namespace Vistas.Formularios
 
             return true;
         }
-      
+
+        private void AjustarColumnasDataGrid()
+        {
+            dgvVerTrabajador.Columns[0].Width = 70;
+            dgvVerTrabajador.Columns[4].Width = 80;
+        }
+
         private void frmVerTrabajadores_Load(object sender, EventArgs e)
         {
             MostrarUsuarios();
             CargarEspecialidad();
             mostrarRol();
+            AjustarColumnasDataGrid();
             
         }
 
@@ -254,16 +268,30 @@ namespace Vistas.Formularios
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Usuario Trabajador = new Usuario();
-            int id = int.Parse(dgvVerTrabajador.CurrentRow.Cells[0].Value.ToString());
-            if (Trabajador.eliminarTrabajador(id) == true)
+            if (dgvVerTrabajador.CurrentRow == null)
             {
-                MessageBox.Show("Registro eliminado correctamente", "Exito");
-                MostrarUsuarios();
+                MessageBox.Show("Seleccione un usuario para eliminar.");
+                return;
             }
-            else
+
+            int idUsuario = Convert.ToInt32(dgvVerTrabajador.CurrentRow.Cells["Usuario"].Value);
+            string nombreUsuario = dgvVerTrabajador.CurrentRow.Cells["Nombre"].Value.ToString();
+
+            Usuario u = new Usuario();
+
+            // Confirmar eliminación
+            DialogResult result = MessageBox.Show(
+                $"¿Está seguro de eliminar al usuario: {nombreUsuario}?",
+                "Confirmar Eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Se produjo un error", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                u.EliminarUsuario(idUsuario);
+
+                // Refrescar la lista de usuarios
+                MostrarUsuarios();
             }
         }
     }

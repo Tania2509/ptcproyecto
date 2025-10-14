@@ -20,6 +20,14 @@ namespace Vistas.Formularios
         public frmGestionCitas()
         {
             InitializeComponent();
+
+            // Habilitar double buffering para el formulario
+            this.DoubleBuffered = true;
+
+            // O también puedes usar:
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint |
+                     ControlStyles.DoubleBuffer, true);
         }
 
         #region Correo
@@ -32,8 +40,9 @@ namespace Vistas.Formularios
                 MailMessage mensaje = new MailMessage();
 
                 // Direcciones de correo
-                mensaje.From = new MailAddress("dentalcleanverificacion@gmail.com"); // Tu dirección de Gmail
+                mensaje.From = new MailAddress("dentalcleanverificacion@gmail.com");
                 mensaje.To.Add(correoPaciente); // Correo del paciente
+                razonCita = txtRazonCita.Text;
 
                 // Asunto y cuerpo del correo
                 mensaje.Subject = "Recordatorio de Cita Médica";
@@ -262,6 +271,12 @@ namespace Vistas.Formularios
             {
                 MessageBox.Show("Se produjo un error", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void AjustarColumnasDataGrid()
+        {
+            dgvVerCitas.Columns[0].Width = 70;
+            dgvVerCitas.Columns[4].Width = 80;
         }
 
         private void frmGestionCitas_Load(object sender, EventArgs e)

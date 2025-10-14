@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHistorialDental));
             this.dgvHistorial = new System.Windows.Forms.DataGridView();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblPaciente = new System.Windows.Forms.Label();
@@ -35,6 +36,7 @@
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.btGuardar = new Modelos.Botones.BotonesPSNLSD();
             this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
@@ -68,9 +70,9 @@
             this.lblPaciente.Location = new System.Drawing.Point(52, 85);
             this.lblPaciente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPaciente.Name = "lblPaciente";
-            this.lblPaciente.Size = new System.Drawing.Size(223, 23);
+            this.lblPaciente.Size = new System.Drawing.Size(178, 23);
             this.lblPaciente.TabIndex = 4;
-            this.lblPaciente.Text = "Numero del Paciente:";
+            this.lblPaciente.Text = "DUI del Paciente:";
             // 
             // txtPaciente
             // 
@@ -125,12 +127,25 @@
             this.pbImagen.TabIndex = 9;
             this.pbImagen.TabStop = false;
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblTitulo.Location = new System.Drawing.Point(527, 26);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(264, 34);
+            this.lblTitulo.TabIndex = 22;
+            this.lblTitulo.Text = "Gestion de Ventas";
+            // 
             // frmHistorialDental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Vistas.Properties.Resources.Desktop___1_1_;
             this.ClientSize = new System.Drawing.Size(1353, 852);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.pbImagen);
             this.Controls.Add(this.btGuardar);
             this.Controls.Add(this.dtpFecha);
@@ -139,6 +154,7 @@
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.dgvHistorial);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmHistorialDental";
             this.Text = "Historial";
@@ -159,5 +175,6 @@
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private Modelos.Botones.BotonesPSNLSD btGuardar;
         private System.Windows.Forms.PictureBox pbImagen;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

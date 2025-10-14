@@ -9,6 +9,8 @@ namespace Modelos.Metodos
 {
     public class Validaciones
     {
+
+        //numeros y simbolos
         public void NumerosSimbolos(object sender, KeyPressEventArgs e)
         {
             // Permitir backspace (código 8)
@@ -37,6 +39,7 @@ namespace Modelos.Metodos
             }
         }
 
+        //letras y simbolos
         public void LetrasSimbolos(object sender, KeyPressEventArgs e)
         {
             // Permitir teclas de control (backspace, delete, etc.)
@@ -61,10 +64,13 @@ namespace Modelos.Metodos
 
         public void Letras(object sender, KeyPressEventArgs e)
         {
-            // Verifica si la tecla presionada no es una letra o una tecla de control (como Backspace)
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            bool esValido = char.IsLetter(e.KeyChar) ||
+               e.KeyChar == ' ' ||
+               e.KeyChar == (char)Keys.Back ||
+               e.KeyChar == (char)Keys.Delete;
+
+            if (!esValido)
             {
-                // Si no es una letra ni un control, se consume el evento para que no se escriba
                 e.Handled = true;
             }
         }

@@ -4,23 +4,6 @@ go
 use ClinicaDental
 go
 
-create table Producto (
-idProducto int identity (1,1) primary key,
-nombrePro varchar (50),
-precio decimal (5,2)
-);
-go
-
-create table Venta (
-idVenta int identity (1,1) primary key,
-cantidad int,
-id_Producto int, 
-id_Usuario int, 
-foreign key (id_Producto) references Producto (idProducto),
-foreign key (id_Usuario) references Usuario(idUsuario)
-);
-go  
-
 create table Rol( 
 idRol int identity (1,1) primary key,
 nombreRol varchar (50) not null
@@ -64,8 +47,27 @@ foreign key (id_Usuario) references Usuario(idUsuario)
 )
 go
 
---drop table Configuracion
---truncate table Usuario
+/*drop table Configuracion
+drop table Venta
+truncate table Usuario */
+
+create table Producto (
+idProducto int identity (1,1) primary key,
+nombrePro varchar (50),
+precio decimal (5,2),
+cantidadPro int
+);
+go
+
+create table Venta (
+idVenta int identity (1,1) primary key,
+cantidad int,
+id_Producto int, 
+id_Usuario int, 
+foreign key (id_Producto) references Producto (idProducto),
+foreign key (id_Usuario) references Usuario(idUsuario)
+);
+go  
 
 create table Enfermedades (
 idEnfermedades int identity (1,1) primary key,
@@ -87,13 +89,25 @@ fechaNacimiento date,
 telefonoPa varchar (25),
 direccionPa varchar (90),
 correoPa varchar (50),
-dui varchar (20) Unique,
-id_Enfermedades int,
-id_Alergias int,
-foreign key (id_Enfermedades) references Enfermedades (idEnfermedades),
-foreign key (id_Alergias) references Alergias (idAlergias)
+dui varchar (20) Unique
 );
 go
+
+CREATE TABLE ExpedienteEnfermedades (
+    idExpediente int,
+    idEnfermedades int,
+    PRIMARY KEY (idExpediente, idEnfermedades),
+    FOREIGN KEY (idExpediente) REFERENCES Expediente(idExpediente),
+    FOREIGN KEY (idEnfermedades) REFERENCES Enfermedades(idEnfermedades)
+);
+
+CREATE TABLE ExpedienteAlergias (
+    idExpediente int,
+    idAlergias int,
+    PRIMARY KEY (idExpediente, idAlergias),
+    FOREIGN KEY (idExpediente) REFERENCES Expediente(idExpediente),
+    FOREIGN KEY (idAlergias) REFERENCES Alergias(idAlergias)
+);
 
 create table Paciente (
 idPaciente int identity (1,1) primary key,
@@ -146,22 +160,6 @@ create table HistorialDental (
     foreign key (id_Estado) references EstadoDiente(idEstado)
 );
 go
-
-insert Producto values ('Par de cepillos dentales - Crayola', 4),
-('Hilo dental',3),
-('Cepillo dental de viaje', 2.75),
-('Limpieza para ortodoncia', 2.25),
-('Desensibilizante', 2.45),
-('Fluor infantil',2.50),
-('Biflúor', 2.95),
-('Cepillo de ortodoncia', 3.50),
-('Limpiador de lengua', 3.20),
-('Proxabrush', 3.40),
-('Perio-Gard', 3.20),
-('Cepillo interdental', 2.90),
-('Enjuague bucal', 4.75),
-('Cepillo dental - Sunstar', 2.30)
-GO
 
 INSERT INTO Diente (codigo, descripcion) VALUES
 
@@ -254,16 +252,23 @@ select *from Enfermedades
 select *from Alergias
 select *from Configuracion
 select *from Producto
+select *from Doctor
 go
 
-
 create view VerExpediente as
-select idExpediente as Expediente, nombrePa as [Nombre del Paciente], apellidoPa as [Apellido del paciente], fechaNacimiento as [Fecha de nacimiento], telefonoPa as Telefono, direccionPa as [Direccion] ,correoPa as [Correo del paciente], dui as DUI ,nombreEnfer as Enfermedades, nombreAl as Alergias
-from Expediente E
-left join
-Alergias C on C.idAlergias=E.id_Alergias
-left join
-Enfermedades F on F.idEnfermedades=E.id_Enfermedades
+SELECT 
+    e.idExpediente as Expediente, nombrePa as [Nombre del Paciente], apellidoPa as [Apellido del paciente], fechaNacimiento as [Fecha de nacimiento], telefonoPa as Telefono, direccionPa as [Direccion], correoPa as [Correo del paciente], dui as DUI,
+    -- Enfermedades concatenadas
+    (SELECT STRING_AGG(en.nombreEnfer, ', ') 
+     FROM ExpedienteEnfermedades ee 
+     INNER JOIN Enfermedades en ON ee.idEnfermedades = en.idEnfermedades 
+     WHERE ee.idExpediente = e.idExpediente) as Enfermedades,
+    -- Alergias concatenadas
+    (SELECT STRING_AGG(a.nombreAl, ', ') 
+     FROM ExpedienteAlergias ea 
+     INNER JOIN Alergias a ON ea.idAlergias = a.idAlergias 
+     WHERE ea.idExpediente = e.idExpediente) as Alergias
+FROM Expediente e;
 go
 
 create view DatosCita as
@@ -285,9 +290,11 @@ Especialidad ON Especialidad.idEspecialidad= Usuario.id_Especialidad
 go
 
 create view Ventas as
-select  idVenta as Venta, nombrePro as Producto, precio as Precio, cantidad as [Cantidad vendida] from Venta V
+select  idVenta as Venta, nombrePro as Producto, precio as Precio, cantidad as [Cantidad vendida], nombreUsu as [Vendedor] from Venta V
 left join
 Producto P on P.idProducto=V.id_Producto
+left  join
+Usuario U on U.idUsuario = V.id_Usuario
 go
 
 create trigger InsertarPaciente
@@ -323,16 +330,3 @@ BEGIN
     END CATCH
 END;
 GO
-
-create Proc FechaHistorial
-(
-@idPaciente int
-)
-as
-begin 
-SELECT DISTINCT CONVERT(date, h.fecha) AS Fecha
-FROM HistorialDental h
-WHERE h.id_Expediente = @idPaciente
-ORDER BY Fecha DESC
-end;
-go

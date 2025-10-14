@@ -16,6 +16,14 @@ namespace Vistas.Formularios
         public frmDashboardAdministrador()
         {
             InitializeComponent();
+
+            // Habilitar double buffering para el formulario
+            this.DoubleBuffered = true;
+
+            // O también puedes usar:
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint |
+                     ControlStyles.DoubleBuffer, true);
         }
 
         public frmDashboardAdministrador(frmLogin formpadre)
@@ -30,6 +38,7 @@ namespace Vistas.Formularios
         {
             lblUsuario.ForeColor = Color.White;
             lblVentas.ForeColor = Color.White;
+            lblInventario.ForeColor = Color.White;
         }
 
         #region
@@ -60,9 +69,10 @@ namespace Vistas.Formularios
 
         private void lblUsuario_Click(object sender, EventArgs e)
         {
-            AbrirForm(new frmGestionTrabajadores());
+            AbrirForm(new frmTrabajadores());
             lblUsuario.ForeColor = Color.MediumAquamarine;
             lblVentas.ForeColor = Color.White;
+            lblInventario.ForeColor = Color.White;
         }
 
         private void lblVentas_Click(object sender, EventArgs e)
@@ -74,14 +84,31 @@ namespace Vistas.Formularios
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            frmLogin ventana = new frmLogin();
-            this.Hide();
-            ventana.Show();
+            
         }
 
         private void btnManual_Click(object sender, EventArgs e)
         {
+             }
+
+        private void lblInventario_Click(object sender, EventArgs e)
+        {
+            frmGestionInventario frmGestionInventario = new frmGestionInventario();
+            AbrirForm(frmGestionInventario);
+            lblInventario.ForeColor = Color.MediumAquamarine;
+            lblUsuario.ForeColor = Color.White;
+            lblVentas.ForeColor = Color.White;
+        }
+
+        private void lblManual_Click(object sender, EventArgs e)
+        {
             Process.Start("https://drive.google.com/file/d/1MtfXVBMV8nK60ZSzsOhChZI7qsJLPdAK/view?usp=sharing");
+        }
+        private void lblCerrar_Click(object sender, EventArgs e)
+        {
+            frmLogin ventana = new frmLogin();
+            this.Hide();
+            ventana.Show();
         }
     }
 }

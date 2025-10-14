@@ -28,310 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionExpedientes));
             this.dgvVerExpedientes = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtDui = new System.Windows.Forms.TextBox();
-            this.dtpFechaNaciPa = new System.Windows.Forms.DateTimePicker();
-            this.txtCorreoElectronico = new System.Windows.Forms.TextBox();
-            this.lblFechaNacimiento = new System.Windows.Forms.Label();
-            this.lblCorreoElectronico = new System.Windows.Forms.Label();
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.cbEnfermedades = new System.Windows.Forms.ComboBox();
-            this.cbAlergias = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtNumTelefono = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.tlpBotones = new System.Windows.Forms.TableLayoutPanel();
             this.btnAgregar = new Modelos.Botones.BotonesPSNLSD();
             this.btnActualizar = new Modelos.Botones.BotonesPSNLSD();
             this.btnEliminar = new Modelos.Botones.BotonesPSNLSD();
+            this.tlpBusqueda = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.pnlUsuarios = new System.Windows.Forms.Panel();
+            this.lblEspecial = new System.Windows.Forms.Label();
+            this.lblCumpleaños = new System.Windows.Forms.Label();
+            this.lblCorreo = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.dtpFechaNaci = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblOcupacion = new System.Windows.Forms.Label();
+            this.lblEdad = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtDui = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.clbEnfermedades = new System.Windows.Forms.CheckedListBox();
+            this.clbAlergias = new System.Windows.Forms.CheckedListBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerExpedientes)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.tlpBotones.SuspendLayout();
+            this.tlpBusqueda.SuspendLayout();
+            this.pnlUsuarios.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvVerExpedientes
             // 
-            this.dgvVerExpedientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvVerExpedientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvVerExpedientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVerExpedientes.Location = new System.Drawing.Point(823, 322);
+            this.dgvVerExpedientes.Location = new System.Drawing.Point(676, 278);
             this.dgvVerExpedientes.Margin = new System.Windows.Forms.Padding(4);
             this.dgvVerExpedientes.Name = "dgvVerExpedientes";
             this.dgvVerExpedientes.ReadOnly = true;
             this.dgvVerExpedientes.RowHeadersWidth = 51;
             this.dgvVerExpedientes.RowTemplate.Height = 24;
-            this.dgvVerExpedientes.Size = new System.Drawing.Size(593, 472);
+            this.dgvVerExpedientes.Size = new System.Drawing.Size(798, 500);
             this.dgvVerExpedientes.TabIndex = 0;
             this.dgvVerExpedientes.DoubleClick += new System.EventHandler(this.dgvVerExpedientes_DoubleClick);
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.AutoScroll = true;
-            this.panel1.AutoScrollMargin = new System.Drawing.Size(5, 2);
-            this.panel1.AutoScrollMinSize = new System.Drawing.Size(300, 700);
-            this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txtDui);
-            this.panel1.Controls.Add(this.dtpFechaNaciPa);
-            this.panel1.Controls.Add(this.txtCorreoElectronico);
-            this.panel1.Controls.Add(this.lblFechaNacimiento);
-            this.panel1.Controls.Add(this.lblCorreoElectronico);
-            this.panel1.Controls.Add(this.lblApellido);
-            this.panel1.Controls.Add(this.lblNombre);
-            this.panel1.Controls.Add(this.txtApellido);
-            this.panel1.Controls.Add(this.txtNombre);
-            this.panel1.Controls.Add(this.cbEnfermedades);
-            this.panel1.Controls.Add(this.cbAlergias);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtNumTelefono);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtDireccion);
-            this.panel1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(15, 199);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(653, 605);
-            this.panel1.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(51, 572);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 23);
-            this.label5.TabIndex = 41;
-            this.label5.Text = "Dui:";
-            // 
-            // txtDui
-            // 
-            this.txtDui.Location = new System.Drawing.Point(54, 614);
-            this.txtDui.Margin = new System.Windows.Forms.Padding(6);
-            this.txtDui.MaxLength = 9;
-            this.txtDui.Name = "txtDui";
-            this.txtDui.ShortcutsEnabled = false;
-            this.txtDui.Size = new System.Drawing.Size(468, 32);
-            this.txtDui.TabIndex = 40;
-            this.txtDui.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDui_KeyPress);
-            // 
-            // dtpFechaNaciPa
-            // 
-            this.dtpFechaNaciPa.Location = new System.Drawing.Point(56, 474);
-            this.dtpFechaNaciPa.Margin = new System.Windows.Forms.Padding(6);
-            this.dtpFechaNaciPa.Name = "dtpFechaNaciPa";
-            this.dtpFechaNaciPa.Size = new System.Drawing.Size(466, 32);
-            this.dtpFechaNaciPa.TabIndex = 39;
-            // 
-            // txtCorreoElectronico
-            // 
-            this.txtCorreoElectronico.Location = new System.Drawing.Point(54, 339);
-            this.txtCorreoElectronico.Margin = new System.Windows.Forms.Padding(6);
-            this.txtCorreoElectronico.MaxLength = 50;
-            this.txtCorreoElectronico.Name = "txtCorreoElectronico";
-            this.txtCorreoElectronico.ShortcutsEnabled = false;
-            this.txtCorreoElectronico.Size = new System.Drawing.Size(468, 32);
-            this.txtCorreoElectronico.TabIndex = 38;
-            // 
-            // lblFechaNacimiento
-            // 
-            this.lblFechaNacimiento.AutoSize = true;
-            this.lblFechaNacimiento.Location = new System.Drawing.Point(48, 433);
-            this.lblFechaNacimiento.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblFechaNacimiento.Name = "lblFechaNacimiento";
-            this.lblFechaNacimiento.Size = new System.Drawing.Size(223, 23);
-            this.lblFechaNacimiento.TabIndex = 37;
-            this.lblFechaNacimiento.Text = "Fecha de Nacimiento";
-            // 
-            // lblCorreoElectronico
-            // 
-            this.lblCorreoElectronico.AutoSize = true;
-            this.lblCorreoElectronico.Location = new System.Drawing.Point(46, 298);
-            this.lblCorreoElectronico.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblCorreoElectronico.Name = "lblCorreoElectronico";
-            this.lblCorreoElectronico.Size = new System.Drawing.Size(192, 23);
-            this.lblCorreoElectronico.TabIndex = 36;
-            this.lblCorreoElectronico.Text = "Correo Electrónico";
-            // 
-            // lblApellido
-            // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(46, 164);
-            this.lblApellido.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(98, 23);
-            this.lblApellido.TabIndex = 35;
-            this.lblApellido.Text = "Apellido:";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(51, 24);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(95, 23);
-            this.lblNombre.TabIndex = 34;
-            this.lblNombre.Text = "Nombre:";
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(57, 204);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(6);
-            this.txtApellido.MaxLength = 50;
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.ShortcutsEnabled = false;
-            this.txtApellido.Size = new System.Drawing.Size(465, 32);
-            this.txtApellido.TabIndex = 33;
-            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(57, 65);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(6);
-            this.txtNombre.MaxLength = 50;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.ShortcutsEnabled = false;
-            this.txtNombre.Size = new System.Drawing.Size(465, 32);
-            this.txtNombre.TabIndex = 32;
-            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
-            // 
-            // cbEnfermedades
-            // 
-            this.cbEnfermedades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEnfermedades.FormattingEnabled = true;
-            this.cbEnfermedades.Location = new System.Drawing.Point(62, 1182);
-            this.cbEnfermedades.Margin = new System.Windows.Forms.Padding(4);
-            this.cbEnfermedades.Name = "cbEnfermedades";
-            this.cbEnfermedades.Size = new System.Drawing.Size(460, 31);
-            this.cbEnfermedades.TabIndex = 31;
-            // 
-            // cbAlergias
-            // 
-            this.cbAlergias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbAlergias.FormattingEnabled = true;
-            this.cbAlergias.Location = new System.Drawing.Point(60, 1019);
-            this.cbAlergias.Margin = new System.Windows.Forms.Padding(4);
-            this.cbAlergias.Name = "cbAlergias";
-            this.cbAlergias.Size = new System.Drawing.Size(462, 31);
-            this.cbAlergias.TabIndex = 30;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 1127);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 23);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Enfermedades";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(56, 965);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 23);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Alergias";
-            // 
-            // txtNumTelefono
-            // 
-            this.txtNumTelefono.Location = new System.Drawing.Point(58, 878);
-            this.txtNumTelefono.Margin = new System.Windows.Forms.Padding(6);
-            this.txtNumTelefono.MaxLength = 8;
-            this.txtNumTelefono.Name = "txtNumTelefono";
-            this.txtNumTelefono.ShortcutsEnabled = false;
-            this.txtNumTelefono.Size = new System.Drawing.Size(461, 32);
-            this.txtNumTelefono.TabIndex = 27;
-            this.txtNumTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumTelefono_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 837);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(209, 23);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Número de Teléfono";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(56, 687);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 23);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Dirección";
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Location = new System.Drawing.Point(58, 729);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(6);
-            this.txtDireccion.MaxLength = 90;
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.ShortcutsEnabled = false;
-            this.txtDireccion.Size = new System.Drawing.Size(468, 32);
-            this.txtDireccion.TabIndex = 24;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtBuscar.Location = new System.Drawing.Point(5, 57);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.ShortcutsEnabled = false;
-            this.txtBuscar.Size = new System.Drawing.Size(464, 30);
-            this.txtBuscar.TabIndex = 16;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.53333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.46667F));
-            this.tableLayoutPanel1.Controls.Add(this.btnBuscar, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.txtBuscar, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(542, 8);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 144F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(562, 144);
-            this.tableLayoutPanel1.TabIndex = 18;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnBuscar.Image = global::Vistas.Properties.Resources.icons8_buscar_50;
-            this.btnBuscar.Location = new System.Drawing.Point(479, 38);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(66, 68);
-            this.btnBuscar.TabIndex = 17;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // tlpBotones
             // 
@@ -347,11 +92,12 @@
             this.tlpBotones.Controls.Add(this.btnEliminar, 2, 0);
             this.tlpBotones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.tlpBotones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tlpBotones.Location = new System.Drawing.Point(796, 199);
+            this.tlpBotones.Location = new System.Drawing.Point(758, 199);
             this.tlpBotones.Margin = new System.Windows.Forms.Padding(4);
             this.tlpBotones.Name = "tlpBotones";
             this.tlpBotones.RowCount = 1;
             this.tlpBotones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpBotones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 71F));
             this.tlpBotones.Size = new System.Drawing.Size(642, 71);
             this.tlpBotones.TabIndex = 19;
             // 
@@ -412,6 +158,267 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
+            // tlpBusqueda
+            // 
+            this.tlpBusqueda.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tlpBusqueda.BackColor = System.Drawing.Color.Transparent;
+            this.tlpBusqueda.ColumnCount = 2;
+            this.tlpBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.53333F));
+            this.tlpBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.46667F));
+            this.tlpBusqueda.Controls.Add(this.lblTitulo, 0, 0);
+            this.tlpBusqueda.Controls.Add(this.txtBuscar, 0, 1);
+            this.tlpBusqueda.Controls.Add(this.btnBuscar, 1, 1);
+            this.tlpBusqueda.Location = new System.Drawing.Point(508, -57);
+            this.tlpBusqueda.Margin = new System.Windows.Forms.Padding(4);
+            this.tlpBusqueda.Name = "tlpBusqueda";
+            this.tlpBusqueda.RowCount = 2;
+            this.tlpBusqueda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpBusqueda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.tlpBusqueda.Size = new System.Drawing.Size(562, 229);
+            this.tlpBusqueda.TabIndex = 20;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblTitulo.Location = new System.Drawing.Point(69, 54);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(336, 34);
+            this.lblTitulo.TabIndex = 20;
+            this.lblTitulo.Text = "Gestion de Expedientes";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtBuscar.Location = new System.Drawing.Point(5, 171);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.ShortcutsEnabled = false;
+            this.txtBuscar.Size = new System.Drawing.Size(464, 30);
+            this.txtBuscar.TabIndex = 16;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnBuscar.Image = global::Vistas.Properties.Resources.icons8_buscar_50;
+            this.btnBuscar.Location = new System.Drawing.Point(479, 152);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(66, 68);
+            this.btnBuscar.TabIndex = 17;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
+            // 
+            // pnlUsuarios
+            // 
+            this.pnlUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlUsuarios.AutoScroll = true;
+            this.pnlUsuarios.AutoScrollMargin = new System.Drawing.Size(5, 4);
+            this.pnlUsuarios.AutoScrollMinSize = new System.Drawing.Size(300, 120);
+            this.pnlUsuarios.BackColor = System.Drawing.Color.Silver;
+            this.pnlUsuarios.Controls.Add(this.label2);
+            this.pnlUsuarios.Controls.Add(this.txtDireccion);
+            this.pnlUsuarios.Controls.Add(this.clbAlergias);
+            this.pnlUsuarios.Controls.Add(this.clbEnfermedades);
+            this.pnlUsuarios.Controls.Add(this.lblEspecial);
+            this.pnlUsuarios.Controls.Add(this.lblCumpleaños);
+            this.pnlUsuarios.Controls.Add(this.lblCorreo);
+            this.pnlUsuarios.Controls.Add(this.txtCorreo);
+            this.pnlUsuarios.Controls.Add(this.dtpFechaNaci);
+            this.pnlUsuarios.Controls.Add(this.label1);
+            this.pnlUsuarios.Controls.Add(this.lblOcupacion);
+            this.pnlUsuarios.Controls.Add(this.lblEdad);
+            this.pnlUsuarios.Controls.Add(this.lblApellido);
+            this.pnlUsuarios.Controls.Add(this.lblNombre);
+            this.pnlUsuarios.Controls.Add(this.txtDui);
+            this.pnlUsuarios.Controls.Add(this.txtTelefono);
+            this.pnlUsuarios.Controls.Add(this.txtApellido);
+            this.pnlUsuarios.Controls.Add(this.txtNombre);
+            this.pnlUsuarios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlUsuarios.Location = new System.Drawing.Point(51, 202);
+            this.pnlUsuarios.Margin = new System.Windows.Forms.Padding(6);
+            this.pnlUsuarios.Name = "pnlUsuarios";
+            this.pnlUsuarios.Size = new System.Drawing.Size(546, 571);
+            this.pnlUsuarios.TabIndex = 21;
+            // 
+            // lblEspecial
+            // 
+            this.lblEspecial.AutoSize = true;
+            this.lblEspecial.Location = new System.Drawing.Point(28, 674);
+            this.lblEspecial.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblEspecial.Name = "lblEspecial";
+            this.lblEspecial.Size = new System.Drawing.Size(95, 23);
+            this.lblEspecial.TabIndex = 23;
+            this.lblEspecial.Text = "Alergias:";
+            // 
+            // lblCumpleaños
+            // 
+            this.lblCumpleaños.AutoSize = true;
+            this.lblCumpleaños.Location = new System.Drawing.Point(20, 514);
+            this.lblCumpleaños.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblCumpleaños.Name = "lblCumpleaños";
+            this.lblCumpleaños.Size = new System.Drawing.Size(226, 23);
+            this.lblCumpleaños.TabIndex = 12;
+            this.lblCumpleaños.Text = "Fecha de nacimiento:";
+            // 
+            // lblCorreo
+            // 
+            this.lblCorreo.AutoSize = true;
+            this.lblCorreo.Location = new System.Drawing.Point(21, 360);
+            this.lblCorreo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblCorreo.Name = "lblCorreo";
+            this.lblCorreo.Size = new System.Drawing.Size(83, 23);
+            this.lblCorreo.TabIndex = 22;
+            this.lblCorreo.Text = "Correo:";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(256, 357);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(6);
+            this.txtCorreo.MaxLength = 50;
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.ShortcutsEnabled = false;
+            this.txtCorreo.Size = new System.Drawing.Size(228, 32);
+            this.txtCorreo.TabIndex = 21;
+            // 
+            // dtpFechaNaci
+            // 
+            this.dtpFechaNaci.Location = new System.Drawing.Point(256, 507);
+            this.dtpFechaNaci.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dtpFechaNaci.Name = "dtpFechaNaci";
+            this.dtpFechaNaci.Size = new System.Drawing.Size(228, 32);
+            this.dtpFechaNaci.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 595);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(156, 23);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Enfermedades:";
+            // 
+            // lblOcupacion
+            // 
+            this.lblOcupacion.AutoSize = true;
+            this.lblOcupacion.Location = new System.Drawing.Point(28, 283);
+            this.lblOcupacion.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblOcupacion.Name = "lblOcupacion";
+            this.lblOcupacion.Size = new System.Drawing.Size(49, 23);
+            this.lblOcupacion.TabIndex = 8;
+            this.lblOcupacion.Text = "DUI:";
+            // 
+            // lblEdad
+            // 
+            this.lblEdad.AutoSize = true;
+            this.lblEdad.Location = new System.Drawing.Point(20, 203);
+            this.lblEdad.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblEdad.Name = "lblEdad";
+            this.lblEdad.Size = new System.Drawing.Size(99, 23);
+            this.lblEdad.TabIndex = 7;
+            this.lblEdad.Text = "Telefono:";
+            // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(20, 109);
+            this.lblApellido.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(98, 23);
+            this.lblApellido.TabIndex = 6;
+            this.lblApellido.Text = "Apellido:";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(20, 39);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(95, 23);
+            this.lblNombre.TabIndex = 5;
+            this.lblNombre.Text = "Nombre:";
+            // 
+            // txtDui
+            // 
+            this.txtDui.Location = new System.Drawing.Point(256, 281);
+            this.txtDui.Margin = new System.Windows.Forms.Padding(6);
+            this.txtDui.MaxLength = 9;
+            this.txtDui.Name = "txtDui";
+            this.txtDui.ShortcutsEnabled = false;
+            this.txtDui.Size = new System.Drawing.Size(228, 32);
+            this.txtDui.TabIndex = 3;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(256, 200);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(6);
+            this.txtTelefono.MaxLength = 8;
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.ShortcutsEnabled = false;
+            this.txtTelefono.Size = new System.Drawing.Size(228, 32);
+            this.txtTelefono.TabIndex = 2;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(256, 109);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(6);
+            this.txtApellido.MaxLength = 50;
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.ShortcutsEnabled = false;
+            this.txtApellido.Size = new System.Drawing.Size(228, 32);
+            this.txtApellido.TabIndex = 1;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(255, 39);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(6);
+            this.txtNombre.MaxLength = 50;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.ShortcutsEnabled = false;
+            this.txtNombre.Size = new System.Drawing.Size(229, 32);
+            this.txtNombre.TabIndex = 0;
+            // 
+            // clbEnfermedades
+            // 
+            this.clbEnfermedades.FormattingEnabled = true;
+            this.clbEnfermedades.Location = new System.Drawing.Point(255, 587);
+            this.clbEnfermedades.Name = "clbEnfermedades";
+            this.clbEnfermedades.Size = new System.Drawing.Size(229, 31);
+            this.clbEnfermedades.TabIndex = 24;
+            // 
+            // clbAlergias
+            // 
+            this.clbAlergias.FormattingEnabled = true;
+            this.clbAlergias.Location = new System.Drawing.Point(256, 666);
+            this.clbAlergias.Name = "clbAlergias";
+            this.clbAlergias.Size = new System.Drawing.Size(228, 31);
+            this.clbAlergias.TabIndex = 25;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 435);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(110, 23);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Direccion:";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Location = new System.Drawing.Point(255, 432);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(6);
+            this.txtDireccion.MaxLength = 50;
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.ShortcutsEnabled = false;
+            this.txtDireccion.Size = new System.Drawing.Size(228, 32);
+            this.txtDireccion.TabIndex = 26;
+            // 
             // frmGestionExpedientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
@@ -419,21 +426,22 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::Vistas.Properties.Resources.Desktop___1_1_;
             this.ClientSize = new System.Drawing.Size(1546, 819);
+            this.Controls.Add(this.pnlUsuarios);
+            this.Controls.Add(this.tlpBusqueda);
             this.Controls.Add(this.tlpBotones);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvVerExpedientes);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmGestionExpedientes";
             this.Text = "Expedientes";
             this.Load += new System.EventHandler(this.frmVerExpedientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerExpedientes)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.tlpBotones.ResumeLayout(false);
+            this.tlpBusqueda.ResumeLayout(false);
+            this.tlpBusqueda.PerformLayout();
+            this.pnlUsuarios.ResumeLayout(false);
+            this.pnlUsuarios.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -441,31 +449,32 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvVerExpedientes;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtDui;
-        private System.Windows.Forms.DateTimePicker dtpFechaNaciPa;
-        private System.Windows.Forms.TextBox txtCorreoElectronico;
-        private System.Windows.Forms.Label lblFechaNacimiento;
-        private System.Windows.Forms.Label lblCorreoElectronico;
-        private System.Windows.Forms.Label lblApellido;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.ComboBox cbEnfermedades;
-        private System.Windows.Forms.ComboBox cbAlergias;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNumTelefono;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tlpBotones;
         private Modelos.Botones.BotonesPSNLSD btnAgregar;
         private Modelos.Botones.BotonesPSNLSD btnActualizar;
         private Modelos.Botones.BotonesPSNLSD btnEliminar;
+        private System.Windows.Forms.TableLayoutPanel tlpBusqueda;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Panel pnlUsuarios;
+        private System.Windows.Forms.CheckedListBox clbAlergias;
+        private System.Windows.Forms.CheckedListBox clbEnfermedades;
+        private System.Windows.Forms.Label lblEspecial;
+        private System.Windows.Forms.Label lblCumpleaños;
+        private System.Windows.Forms.Label lblCorreo;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.DateTimePicker dtpFechaNaci;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblOcupacion;
+        private System.Windows.Forms.Label lblEdad;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.TextBox txtDui;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtDireccion;
     }
 }

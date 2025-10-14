@@ -12,11 +12,14 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Modelos.Entidades.Venta;
 
 namespace Vistas.Formularios
 {
     public partial class frmLogin : Form
     {
+
+        private int usuario = 0;
         public frmLogin()
         {
             InitializeComponent();
@@ -29,7 +32,17 @@ namespace Vistas.Formularios
                 configForm.ShowDialog();
                 this.Show();
             }
+
+            // Habilitar double buffering para el formulario
+            this.DoubleBuffered = true;
+
+            // O también puedes usar:
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint |
+                     ControlStyles.DoubleBuffer, true);
         }
+
+        public int Usuario { get => usuario; set => usuario = value; }
 
         #region
         public (bool success, string rol, bool debeCambiarContrasena, int idUsuario) VerificarLogin(string correo, string clave)
@@ -69,6 +82,7 @@ namespace Vistas.Formularios
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
+
             if (!(string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrEmpty(txtContraseña.Text)))
             {
                 string correo = txtCorreo.Text;
@@ -78,6 +92,9 @@ namespace Vistas.Formularios
 
                 if (loginExitoso)
                 {
+
+                    Sesion.IdUsuario = idUsuario;
+
                     if (debeCambiarContrasena)
                     {
                         MessageBox.Show("Debe cambiar su contraseña temporal antes de continuar.",
@@ -94,6 +111,8 @@ namespace Vistas.Formularios
 
                                 txtContraseña.Text = "";
                                 txtContraseña.Focus();
+
+                                
                             }
                             else
                             {
@@ -112,14 +131,17 @@ namespace Vistas.Formularios
                         {
                             case "1": // Administrador
                                 dashboard = new frmDashboardAdministrador();
+                                usuario = 2;
                                 break;
 
                             case "2": // Trabajador (ajusta según tus IDs de rol)
                                 dashboard = new frmDashboardTrabajador();
+                                usuario = 1;
                                 break;
 
                             case "3":
                                 dashboard = new frmDashboardTrabajador();
+                                usuario = 1;
                                 break;
 
                             default:

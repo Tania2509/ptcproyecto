@@ -201,7 +201,6 @@ C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formular
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmLogin.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmGestionCitas.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmGestionExpedientes.resources
-C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmGestionTrabajadores.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmRegistrar.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmVerExpedientes.resources
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Properties.Resources.resources
@@ -216,3 +215,6 @@ C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\bin\Debug\Vistas.applicat
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.exe.config
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.exe.manifest
 C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.application
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmTrabajadores.resources
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmGestionInventario.resources
+C:\Users\jrlop\OneDrive\Desktop\ptcproyecto\PTC\Vistas\obj\Debug\Vistas.Formularios.frmPreguntas.resources

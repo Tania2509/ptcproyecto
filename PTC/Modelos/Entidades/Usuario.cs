@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,6 @@ namespace Modelos.Entidades
         private int estadoVerificado;
         private int id_Rol;
         private int id_Especialidad;
-        private int id_venta;
 
         public int IdUsuario { get => idUsuario; set => idUsuario = value; }
         public string NombreU { get => nombreU; set => nombreU = value; }
@@ -34,7 +34,6 @@ namespace Modelos.Entidades
         public string Correo { get => correo; set => correo = value; }
         public int Id_Rol { get => id_Rol; set => id_Rol = value; }
         public int Id_Especialidad { get => id_Especialidad; set => id_Especialidad = value; }
-        public int Id_venta { get => id_venta; set => id_venta = value; }
         public string Contrasena { get => contrasena; set => contrasena = value; }
         public int EstadoVerificado { get => estadoVerificado; set => estadoVerificado = value; }
 
@@ -48,7 +47,6 @@ namespace Modelos.Entidades
             ad.Fill(dt);
             return dt;
         }
-
 
         public bool InsertarUsuarios()
         {
@@ -67,18 +65,21 @@ namespace Modelos.Entidades
             if (count == 0)
             {
                 comando = @"INSERT INTO Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, 
-                    correoUsu, contrasena, id_Rol, id_Especialidad, id_Venta, estadoVerificado) 
-                    VALUES(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, 
-                    @correoUsu, @contrasena, @id_Rol, @id_Especialidad, @id_venta, 0);
+                           correoUsu, contrasena, id_Rol, id_Especialidad, estadoVerificado) 
+                           VALUES(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, 
+                           @correoUsu, @contrasena, @id_Rol, @id_Especialidad, 0);
 
-                       UPDATE Configuracion SET pimerUsuarioCreado = 1 WHERE Configurado = 1";
+                            UPDATE Configuracion 
+                            SET pimerUsuarioCreado = 1, 
+                            id_Usuario = SCOPE_IDENTITY() 
+                            WHERE Configurado = 1;";
             }
             else
             {
                 comando = @"INSERT INTO Usuario(nombreUsu, apellidoUsu, fechaNaciUsu, duiUsu, telefonoUsu, 
-                    correoUsu, contrasena, id_Rol, id_Especialidad, id_Venta, estadoVerificado) 
+                    correoUsu, contrasena, id_Rol, id_Especialidad, estadoVerificado) 
                     VALUES(@nombreUsu, @apellidoUsu, @fechaNaciUsu, @duiUsu, @telefonoUsu, 
-                    @correoUsu, @contrasena, @id_Rol, @id_Especialidad, @id_venta, 0)";
+                    @correoUsu, @contrasena, @id_Rol, @id_Especialidad, 0)";
             }
 
             SqlCommand cmd = new SqlCommand(comando, con);
@@ -91,12 +92,31 @@ namespace Modelos.Entidades
             cmd.Parameters.AddWithValue("@contrasena", BCrypt.Net.BCrypt.HashPassword(contrasenaTemporal));
             cmd.Parameters.AddWithValue("@id_Rol", id_Rol);
             cmd.Parameters.AddWithValue("@id_Especialidad", Id_Especialidad);
-            cmd.Parameters.AddWithValue("@id_venta", DBNull.Value);
 
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        #region Primero 
+        #region PrimerUsuario
+
+        public bool EsPrimerUsuario(int idUsuario)
+        {
+            using (SqlConnection con = Conexion.Conexion.conectar())
+            {
+                string query = @"SELECT COUNT(*) FROM Configuracion 
+                        WHERE id_Usuario = @idUsuario AND pimerUsuarioCreado = 1";
+
+                using (SqlCommand command = new SqlCommand(query, con))
+                {
+                    command.Parameters.AddWithValue("@idUsuario", idUsuario);
+                    int count = (int)command.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+        }       
+
+        #endregion
+
+        #region Primero Contraseña
         // Verificar si el usuario debe cambiar contraseña (estadoVerificado = 0)
         public static bool DebeCambiarContrasena(int idUsuario)
         {
@@ -145,23 +165,45 @@ namespace Modelos.Entidades
             }
         }
 
-        public bool eliminarTrabajador(int id)
+        public bool EliminarUsuario(int idUsuario)
         {
-            SqlConnection conexion = Conexion.Conexion.conectar();
-            string consultaDelete = "Delete from Usuario where idUsuario = @id;";
-            SqlCommand delete = new SqlCommand(consultaDelete, conexion);
-            delete.Parameters.AddWithValue("@id", id);
-            if (delete.ExecuteNonQuery() > 0)
+            // Verificar si es el primer usuario
+            if (EsPrimerUsuario(idUsuario))
             {
-                MessageBox.Show("Eliminando Registros", "Exito al eliminar registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
-            }
-            else
-            {
+                MessageBox.Show("No se puede eliminar el primer usuario creado del sistema.",
+                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-        }
 
+            try
+            {
+                using (SqlConnection con = Conexion.Conexion.conectar())
+                {
+                    string query = "DELETE FROM Usuario WHERE idUsuario = @idUsuario";
+
+                    using (SqlCommand command = new SqlCommand(query, con))
+                    {
+                        command.Parameters.AddWithValue("@idUsuario", idUsuario);
+                        con.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Usuario eliminado correctamente.",
+                                           "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al eliminar usuario: {ex.Message}",
+                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return false;
+        }
         public bool ActualizarUsuarios()
         {
             SqlConnection con = Conexion.Conexion.conectar();

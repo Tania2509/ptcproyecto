@@ -33,11 +33,12 @@
             this.pnlFormulario = new System.Windows.Forms.Panel();
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.pnlNavegador = new Modelos.Metodos.PanelRedondeado();
-            this.btnFinalizar = new Modelos.Botones.BotonesPSNLSD();
+            this.lblCerrar = new System.Windows.Forms.Label();
+            this.lblManual = new System.Windows.Forms.Label();
+            this.lblInventario = new System.Windows.Forms.Label();
             this.lblVentas = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.pbUsuario = new System.Windows.Forms.PictureBox();
-            this.btnManual = new Modelos.Botones.BotonesPSNLSD();
             this.pnlCentralAdmin.SuspendLayout();
             this.pnlContenedor.SuspendLayout();
             this.pnlNavegador.SuspendLayout();
@@ -78,11 +79,12 @@
             this.pnlNavegador.AnchoBorde = 1;
             this.pnlNavegador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlNavegador.BackColor = System.Drawing.Color.White;
+            this.pnlNavegador.BackColor = System.Drawing.Color.Transparent;
             this.pnlNavegador.BackgroundImage = global::Vistas.Properties.Resources.Rectangle_1;
             this.pnlNavegador.ColorBorde = System.Drawing.Color.Gray;
-            this.pnlNavegador.Controls.Add(this.btnManual);
-            this.pnlNavegador.Controls.Add(this.btnFinalizar);
+            this.pnlNavegador.Controls.Add(this.lblCerrar);
+            this.pnlNavegador.Controls.Add(this.lblManual);
+            this.pnlNavegador.Controls.Add(this.lblInventario);
             this.pnlNavegador.Controls.Add(this.lblVentas);
             this.pnlNavegador.Controls.Add(this.lblUsuario);
             this.pnlNavegador.Controls.Add(this.pbUsuario);
@@ -92,31 +94,48 @@
             this.pnlNavegador.Size = new System.Drawing.Size(260, 688);
             this.pnlNavegador.TabIndex = 0;
             // 
-            // btnFinalizar
+            // lblCerrar
             // 
-            this.btnFinalizar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnFinalizar.BackColor = System.Drawing.Color.Transparent;
-            this.btnFinalizar.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnFinalizar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnFinalizar.BorderRadius = 40;
-            this.btnFinalizar.BorderSize = 0;
-            this.btnFinalizar.FlatAppearance.BorderSize = 0;
-            this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinalizar.ForeColor = System.Drawing.Color.White;
-            this.btnFinalizar.Location = new System.Drawing.Point(81, 615);
-            this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(150, 40);
-            this.btnFinalizar.TabIndex = 8;
-            this.btnFinalizar.Text = "Cerrar";
-            this.btnFinalizar.TextColor = System.Drawing.Color.White;
-            this.btnFinalizar.UseVisualStyleBackColor = false;
-            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
+            this.lblCerrar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblCerrar.AutoSize = true;
+            this.lblCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.lblCerrar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblCerrar.Location = new System.Drawing.Point(139, 611);
+            this.lblCerrar.Name = "lblCerrar";
+            this.lblCerrar.Size = new System.Drawing.Size(70, 23);
+            this.lblCerrar.TabIndex = 12;
+            this.lblCerrar.Text = "Cerrar";
+            this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
+            // 
+            // lblManual
+            // 
+            this.lblManual.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblManual.AutoSize = true;
+            this.lblManual.BackColor = System.Drawing.Color.Transparent;
+            this.lblManual.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblManual.Location = new System.Drawing.Point(126, 558);
+            this.lblManual.Name = "lblManual";
+            this.lblManual.Size = new System.Drawing.Size(83, 23);
+            this.lblManual.TabIndex = 11;
+            this.lblManual.Text = "Manual";
+            this.lblManual.Click += new System.EventHandler(this.lblManual_Click);
+            // 
+            // lblInventario
+            // 
+            this.lblInventario.AutoSize = true;
+            this.lblInventario.BackColor = System.Drawing.Color.Transparent;
+            this.lblInventario.Location = new System.Drawing.Point(77, 275);
+            this.lblInventario.Name = "lblInventario";
+            this.lblInventario.Size = new System.Drawing.Size(107, 23);
+            this.lblInventario.TabIndex = 10;
+            this.lblInventario.Text = "Inventario";
+            this.lblInventario.Click += new System.EventHandler(this.lblInventario_Click);
             // 
             // lblVentas
             // 
             this.lblVentas.AutoSize = true;
             this.lblVentas.BackColor = System.Drawing.Color.Transparent;
-            this.lblVentas.Location = new System.Drawing.Point(90, 291);
+            this.lblVentas.Location = new System.Drawing.Point(90, 331);
             this.lblVentas.Name = "lblVentas";
             this.lblVentas.Size = new System.Drawing.Size(68, 23);
             this.lblVentas.TabIndex = 7;
@@ -144,26 +163,6 @@
             this.pbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbUsuario.TabIndex = 5;
             this.pbUsuario.TabStop = false;
-            // 
-            // btnManual
-            // 
-            this.btnManual.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnManual.BackColor = System.Drawing.Color.Transparent;
-            this.btnManual.BackgroundColor = System.Drawing.Color.Transparent;
-            this.btnManual.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnManual.BorderRadius = 40;
-            this.btnManual.BorderSize = 0;
-            this.btnManual.FlatAppearance.BorderSize = 0;
-            this.btnManual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManual.ForeColor = System.Drawing.Color.White;
-            this.btnManual.Location = new System.Drawing.Point(81, 550);
-            this.btnManual.Name = "btnManual";
-            this.btnManual.Size = new System.Drawing.Size(150, 40);
-            this.btnManual.TabIndex = 9;
-            this.btnManual.Text = "Manual";
-            this.btnManual.TextColor = System.Drawing.Color.White;
-            this.btnManual.UseVisualStyleBackColor = false;
-            this.btnManual.Click += new System.EventHandler(this.btnManual_Click);
             // 
             // frmDashboardAdministrador
             // 
@@ -195,12 +194,13 @@
 
         private System.Windows.Forms.Panel pnlCentralAdmin;
         private Modelos.Metodos.PanelRedondeado pnlNavegador;
-        private Modelos.Botones.BotonesPSNLSD btnFinalizar;
         private System.Windows.Forms.Label lblVentas;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.PictureBox pbUsuario;
         private System.Windows.Forms.Panel pnlFormulario;
         private System.Windows.Forms.Panel pnlContenedor;
-        private Modelos.Botones.BotonesPSNLSD btnManual;
+        private System.Windows.Forms.Label lblInventario;
+        private System.Windows.Forms.Label lblCerrar;
+        private System.Windows.Forms.Label lblManual;
     }
 }

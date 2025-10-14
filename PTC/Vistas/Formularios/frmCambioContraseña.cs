@@ -23,6 +23,15 @@ namespace Vistas.Formularios
             InitializeComponent();
             idUsuario = userId;
             this.Text = "Cambio de Contraseña Obligatorio";
+
+            // Habilitar double buffering para el formulario
+            this.DoubleBuffered = true;
+
+            // O también puedes usar:
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint |
+                     ControlStyles.DoubleBuffer, true);
+        
         }
 
 

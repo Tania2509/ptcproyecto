@@ -18,6 +18,14 @@ namespace Vistas.Formularios
         public frmConfiguracion()
         {
             InitializeComponent();
+
+            // Habilitar double buffering para el formulario
+            this.DoubleBuffered = true;
+
+            // O también puedes usar:
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint |
+                     ControlStyles.DoubleBuffer, true);
         }
 
         private bool EsEmailValido(string email)

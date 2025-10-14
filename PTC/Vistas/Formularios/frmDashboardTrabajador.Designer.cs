@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboardTrabajador));
             this.pnlNavegador = new Modelos.Metodos.PanelRedondeado();
+            this.lblVentas = new System.Windows.Forms.Label();
             this.btnManual = new Modelos.Botones.BotonesPSNLSD();
             this.btnCerrar = new Modelos.Botones.BotonesPSNLSD();
             this.btnFinalizar = new Modelos.Botones.BotonesPSNLSD();
@@ -50,9 +51,10 @@
             this.pnlNavegador.AnchoBorde = 1;
             this.pnlNavegador.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlNavegador.BackColor = System.Drawing.Color.White;
+            this.pnlNavegador.BackColor = System.Drawing.Color.Transparent;
             this.pnlNavegador.BackgroundImage = global::Vistas.Properties.Resources.Rectangle_1;
             this.pnlNavegador.ColorBorde = System.Drawing.Color.Gray;
+            this.pnlNavegador.Controls.Add(this.lblVentas);
             this.pnlNavegador.Controls.Add(this.btnManual);
             this.pnlNavegador.Controls.Add(this.btnCerrar);
             this.pnlNavegador.Controls.Add(this.btnFinalizar);
@@ -67,6 +69,17 @@
             this.pnlNavegador.Size = new System.Drawing.Size(275, 1820);
             this.pnlNavegador.TabIndex = 2;
             // 
+            // lblVentas
+            // 
+            this.lblVentas.AutoSize = true;
+            this.lblVentas.BackColor = System.Drawing.Color.Transparent;
+            this.lblVentas.Location = new System.Drawing.Point(56, 431);
+            this.lblVentas.Name = "lblVentas";
+            this.lblVentas.Size = new System.Drawing.Size(68, 23);
+            this.lblVentas.TabIndex = 12;
+            this.lblVentas.Text = "Venta";
+            this.lblVentas.Click += new System.EventHandler(this.lblVentas_Click);
+            // 
             // btnManual
             // 
             this.btnManual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -77,13 +90,13 @@
             this.btnManual.BorderSize = 0;
             this.btnManual.FlatAppearance.BorderSize = 0;
             this.btnManual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManual.ForeColor = System.Drawing.Color.White;
+            this.btnManual.ForeColor = System.Drawing.Color.Transparent;
             this.btnManual.Location = new System.Drawing.Point(91, 870);
             this.btnManual.Name = "btnManual";
             this.btnManual.Size = new System.Drawing.Size(150, 40);
             this.btnManual.TabIndex = 11;
             this.btnManual.Text = "Manual";
-            this.btnManual.TextColor = System.Drawing.Color.White;
+            this.btnManual.TextColor = System.Drawing.Color.Transparent;
             this.btnManual.UseVisualStyleBackColor = false;
             this.btnManual.Click += new System.EventHandler(this.btnManual_Click);
             // 
@@ -97,13 +110,13 @@
             this.btnCerrar.BorderSize = 0;
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.ForeColor = System.Drawing.Color.Transparent;
             this.btnCerrar.Location = new System.Drawing.Point(91, 946);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(150, 40);
             this.btnCerrar.TabIndex = 10;
             this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.TextColor = System.Drawing.Color.White;
+            this.btnCerrar.TextColor = System.Drawing.Color.Transparent;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
@@ -236,5 +249,6 @@
         private Modelos.Botones.BotonesPSNLSD btnCerrar;
         private System.Windows.Forms.Panel pnlCentral;
         private Modelos.Botones.BotonesPSNLSD btnManual;
+        private System.Windows.Forms.Label lblVentas;
     }
 }

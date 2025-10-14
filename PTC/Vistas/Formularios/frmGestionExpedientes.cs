@@ -14,9 +14,17 @@ namespace Vistas.Formularios
 {
     public partial class frmGestionExpedientes : Form
     {
+
         public frmGestionExpedientes()
         {
             InitializeComponent();
+            // Habilitar double buffering para el formulario
+            this.DoubleBuffered = true;
+
+            // O también puedes usar:
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint |
+                     ControlStyles.DoubleBuffer, true);
         }
 
         public void LimpiarCampos()
@@ -24,18 +32,25 @@ namespace Vistas.Formularios
             // Limpiar campos de texto
             txtNombre.Text = string.Empty;
             txtApellido.Text = string.Empty;
-            txtCorreoElectronico.Text = string.Empty;
+            txtCorreo.Text = string.Empty;
             txtDireccion.Text = string.Empty;
-            txtNumTelefono.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
             txtBuscar.Text = string.Empty;
             txtDui.Text = string.Empty;
 
-            // Restablecer ComboBox
-            cbAlergias.SelectedIndex = -1;
-            cbEnfermedades.SelectedIndex = -1;
+            // Restablecer CheckedListBox
+            foreach (int i in clbEnfermedades.CheckedIndices)
+            {
+                clbEnfermedades.SetItemChecked(i, false);
+            }
+
+            foreach (int i in clbAlergias.CheckedIndices)
+            {
+                clbAlergias.SetItemChecked(i, false);
+            }
 
             // Restablecer DateTimePicker
-            dtpFechaNaciPa.Value = DateTime.Now;
+            dtpFechaNaci.Value = DateTime.Now;
 
         }
 
@@ -53,7 +68,7 @@ namespace Vistas.Formularios
             {
                 MessageBox.Show("La edad mínima debe ser 1 año", "Error",
                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dtpFechaNaciPa.Focus();
+                dtpFechaNaci.Focus();
                 return false;
             }
 
@@ -61,14 +76,14 @@ namespace Vistas.Formularios
             {
                 MessageBox.Show("La edad máxima no puede superar los 90 años", "Error",
                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dtpFechaNaciPa.Focus();
+                dtpFechaNaci.Focus();
                 return false;
             }
 
             return true;
         }
 
-        public void MostrarExpedientes()
+        private void MostrarExpedientes()
         {
             dgvVerExpedientes.DataSource = null;
             dgvVerExpedientes.DataSource = Expediente.CargarExpedientes("select *from VerExpediente");
@@ -76,57 +91,99 @@ namespace Vistas.Formularios
 
         private void frmVerExpedientes_Load(object sender, EventArgs e)
         {
+
             MostrarExpedientes();
             MostrarAlergias();
             MostrarEnfermedades();
         }
 
-        #region Combobox
+        #region CheckedListBox
         private void MostrarAlergias()
         {
-            cbAlergias.DataSource = null;
-            cbAlergias.DataSource = Alergias.CargarAlergias();
-            cbAlergias.DisplayMember = "nombreAl";
-            cbAlergias.ValueMember = "idAlergias";
-            cbAlergias.SelectedIndex = -1;
+            DataTable dtAlergias = Alergias.CargarAlergias();
+            clbAlergias.DataSource = dtAlergias;
+            clbAlergias.DisplayMember = "nombreAl";
+            clbAlergias.ValueMember = "idAlergias";
         }
 
         private void MostrarEnfermedades()
         {
-            cbEnfermedades.DataSource = null;
-            cbEnfermedades.DataSource = Enfermedades.CargarEnfermedades();
-            cbEnfermedades.DisplayMember = "nombreEnfer";
-            cbEnfermedades.ValueMember = "idEnfermedades";
-            cbEnfermedades.SelectedIndex = -1;
+            DataTable dtEnfermedades = Enfermedades.CargarEnfermedades();
+            clbEnfermedades.DataSource = dtEnfermedades;
+            clbEnfermedades.DisplayMember = "nombreEnfer"; 
+            clbEnfermedades.ValueMember = "idEnfermedades"; 
         }
-
         #endregion
 
         private void dgvVerExpedientes_DoubleClick(object sender, EventArgs e)
         {
+            if (dgvVerExpedientes.CurrentRow == null) return;
+
             txtNombre.Text = dgvVerExpedientes.CurrentRow.Cells["Nombre del Paciente"].Value.ToString();
             txtApellido.Text = dgvVerExpedientes.CurrentRow.Cells["Apellido del paciente"].Value.ToString();
-            txtNumTelefono.Text = dgvVerExpedientes.CurrentRow.Cells["Telefono"].Value.ToString();
+            txtTelefono.Text = dgvVerExpedientes.CurrentRow.Cells["Telefono"].Value.ToString();
             txtDui.Text = dgvVerExpedientes.CurrentRow.Cells["DUI"].Value.ToString();
-            txtCorreoElectronico.Text = dgvVerExpedientes.CurrentRow.Cells["Correo del paciente"].Value.ToString();
+            txtCorreo.Text = dgvVerExpedientes.CurrentRow.Cells["Correo del paciente"].Value.ToString();
             txtDireccion.Text = dgvVerExpedientes.CurrentRow.Cells["Direccion"].Value.ToString();
-            dtpFechaNaciPa.Value = Convert.ToDateTime(dgvVerExpedientes.CurrentRow.Cells["Fecha de nacimiento"].Value);
-            cbAlergias.Text = dgvVerExpedientes.CurrentRow.Cells["Alergias"].Value.ToString();
-            cbEnfermedades.Text = dgvVerExpedientes.CurrentRow.Cells["Enfermedades"].Value.ToString();
+            dtpFechaNaci.Value = Convert.ToDateTime(dgvVerExpedientes.CurrentRow.Cells["Fecha de nacimiento"].Value);
+
+            // Cargar enfermedades y alergias del expediente seleccionado
+            int expedienteId = Convert.ToInt32(dgvVerExpedientes.CurrentRow.Cells[0].Value);
+            CargarEnfermedadesDelExpediente(expedienteId);
+            CargarAlergiasDelExpediente(expedienteId);
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        #region CargarCheckedListBox
+
+        private void CargarEnfermedadesDelExpediente(int expedienteId)
         {
-            try
+            // Desmarcar todos primero
+            for (int i = 0; i < clbEnfermedades.Items.Count; i++)
             {
-                dgvVerExpedientes.DataSource = null;
-                dgvVerExpedientes.DataSource = Usuario.Buscar(txtBuscar.Text.Trim());
+                clbEnfermedades.SetItemChecked(i, false);
             }
-            catch (Exception ex)
+
+            // Marcar las enfermedades del expediente
+            List<int> enfermedades = Expediente.ObtenerEnfermedadesPorExpediente(expedienteId);
+            foreach (int enfermedadId in enfermedades)
             {
-                MessageBox.Show(ex.Message);
+                for (int i = 0; i < clbEnfermedades.Items.Count; i++)
+                {
+                    DataRowView item = (DataRowView)clbEnfermedades.Items[i];
+                    if ((int)item["idEnfermedades"] == enfermedadId)
+                    {
+                        clbEnfermedades.SetItemChecked(i, true);
+                        break;
+                    }
+                }
             }
         }
+
+        private void CargarAlergiasDelExpediente(int expedienteId)
+        {
+            // Desmarcar todos primero
+            for (int i = 0; i < clbAlergias.Items.Count; i++)
+            {
+                clbAlergias.SetItemChecked(i, false);
+            }
+
+            // Marcar las alergias del expediente
+            List<int> alergias = Expediente.ObtenerAlergiasPorExpediente(expedienteId);
+            foreach (int alergiaId in alergias)
+            {
+                for (int i = 0; i < clbAlergias.Items.Count; i++)
+                {
+                    DataRowView item = (DataRowView)clbAlergias.Items[i];
+                    if ((int)item["idAlergias"] == alergiaId)
+                    {
+                        clbAlergias.SetItemChecked(i, true);
+                        break;
+                    }
+                }
+            }
+        }
+
+        #endregion
 
         #region TextBox
 
@@ -169,25 +226,24 @@ namespace Vistas.Formularios
 
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
-            // Validación de campos vacíos
+            // Validaciones previas (las que ya tienes)
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtNumTelefono.Text) ||
+                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
                 string.IsNullOrWhiteSpace(txtDui.Text) ||
-                string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) ||
+                string.IsNullOrWhiteSpace(txtCorreo.Text) ||
                 string.IsNullOrWhiteSpace(txtDireccion.Text))
             {
                 MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // Validar que el correo tenga formato válido (si se ingresó)
-            if (!string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) && !EsEmailValido(txtCorreoElectronico.Text))
+
+            if (!string.IsNullOrWhiteSpace(txtCorreo.Text) && !EsEmailValido(txtCorreo.Text))
             {
                 MessageBox.Show("Por favor, ingresa un correo electrónico válido.");
                 return;
             }
 
-            // Validar que el DUI no esté registrado
             if (Expediente.DuiExiste(txtDui.Text))
             {
                 MessageBox.Show("Ese DUI ya está registrado en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -195,24 +251,38 @@ namespace Vistas.Formularios
                 return;
             }
 
-            else if (!ValidarEdad(dtpFechaNaciPa.Value))
+            if (!ValidarEdad(dtpFechaNaci.Value))
                 return;
 
-            else
+            // Obtener enfermedades seleccionadas - CORREGIDO
+            List<int> enfermedadesIds = new List<int>();
+            foreach (int index in clbEnfermedades.CheckedIndices)
             {
-                Modelos.Entidades.Expediente E = new Expediente();
+                DataRowView row = (DataRowView)clbEnfermedades.Items[index];
+                enfermedadesIds.Add((int)row["idEnfermedades"]);
+            }
 
-                E.NombrePa = txtNombre.Text;
-                E.ApellidoPa = txtApellido.Text;
-                E.TelefonoPa = txtNumTelefono.Text;
-                E.Dui = txtDui.Text;
-                E.CorreoPa = txtCorreoElectronico.Text;
-                E.DireccionPa = txtDireccion.Text;
-                E.FechaNacimiento = dtpFechaNaciPa.Value;
-                E.Id_Alergias = Convert.ToInt32(cbAlergias.SelectedValue);
-                E.Id_Enfermedades = Convert.ToInt32(cbEnfermedades.SelectedValue);
-                E.InsertarExpediente();
+            // Obtener alergias seleccionadas - CORREGIDO
+            List<int> alergiasIds = new List<int>();
+            foreach (int index in clbAlergias.CheckedIndices)
+            {
+                DataRowView row = (DataRowView)clbAlergias.Items[index];
+                alergiasIds.Add((int)row["idAlergias"]);
+            }
 
+            Modelos.Entidades.Expediente E = new Expediente();
+            E.NombrePa = txtNombre.Text;
+            E.ApellidoPa = txtApellido.Text;
+            E.TelefonoPa = txtTelefono.Text;
+            E.Dui = txtDui.Text;
+            E.CorreoPa = txtCorreo.Text;
+            E.DireccionPa = txtDireccion.Text;
+            E.FechaNacimiento = dtpFechaNaci.Value;
+            E.EnfermedadesIds = enfermedadesIds;
+            E.AlergiasIds = alergiasIds;
+
+            if (E.InsertarExpediente())
+            {
                 MostrarExpedientes();
                 LimpiarCampos();
                 MessageBox.Show("Datos ingresados correctamente");
@@ -222,36 +292,53 @@ namespace Vistas.Formularios
         private void btnActualizar_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtNumTelefono.Text) ||
-                string.IsNullOrWhiteSpace(txtDui.Text) ||
-                string.IsNullOrWhiteSpace(txtCorreoElectronico.Text) ||
-                string.IsNullOrWhiteSpace(txtDireccion.Text))
+    string.IsNullOrWhiteSpace(txtApellido.Text) ||
+    string.IsNullOrWhiteSpace(txtTelefono.Text) ||
+    string.IsNullOrWhiteSpace(txtDui.Text) ||
+    string.IsNullOrWhiteSpace(txtCorreo.Text) ||
+    string.IsNullOrWhiteSpace(txtDireccion.Text))
             {
                 MessageBox.Show("No dejes campos vacios", "Campos obligatorios");
                 return;
             }
 
+            // Obtener enfermedades seleccionadas - CORREGIDO
+            List<int> enfermedadesIds = new List<int>();
+            foreach (int index in clbEnfermedades.CheckedIndices)
+            {
+                DataRowView row = (DataRowView)clbEnfermedades.Items[index];
+                enfermedadesIds.Add((int)row["idEnfermedades"]);
+            }
+
+            // Obtener alergias seleccionadas - CORREGIDO
+            List<int> alergiasIds = new List<int>();
+            foreach (int index in clbAlergias.CheckedIndices)
+            {
+                DataRowView row = (DataRowView)clbAlergias.Items[index];
+                alergiasIds.Add((int)row["idAlergias"]);
+            }
+
             Expediente E = new Expediente();
             E.NombrePa = txtNombre.Text;
             E.ApellidoPa = txtApellido.Text;
-            E.TelefonoPa = txtNumTelefono.Text;
+            E.TelefonoPa = txtTelefono.Text;
             E.Dui = txtDui.Text;
-            E.CorreoPa = txtCorreoElectronico.Text;
+            E.CorreoPa = txtCorreo.Text;
             E.DireccionPa = txtDireccion.Text;
-            E.FechaNacimiento = dtpFechaNaciPa.Value;
-            E.Id_Alergias = Convert.ToInt32(cbAlergias.SelectedValue);
-            E.Id_Enfermedades = Convert.ToInt32(cbEnfermedades.SelectedValue);
+            E.FechaNacimiento = dtpFechaNaci.Value;
+            E.EnfermedadesIds = enfermedadesIds;
+            E.AlergiasIds = alergiasIds;
             E.IdExpediente = Convert.ToInt32(dgvVerExpedientes.CurrentRow.Cells[0].Value);
 
-            if (E.ActualizarExpedientes() == true)
+            if (E.ActualizarExpedientes())
             {
                 MostrarExpedientes();
                 LimpiarCampos();
+                MessageBox.Show("Expediente actualizado correctamente");
             }
             else
             {
-                MessageBox.Show("Error al actualizar el trabajador.", "Error");
+                MessageBox.Show("Error al actualizar el expediente.", "Error");
             }
         }
 
@@ -262,6 +349,13 @@ namespace Vistas.Formularios
             {
                 MessageBox.Show("Seleccione un registro para eliminar", "Advertencia",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            frmLogin L = new frmLogin();
+
+            if (L.Usuario == 1)
+            {
+                MessageBox.Show("No tienes permisos para eliminar registros.", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -292,6 +386,19 @@ namespace Vistas.Formularios
             {
                 MessageBox.Show("Eliminación cancelada", "Cancelado",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvVerExpedientes.DataSource = null;
+                dgvVerExpedientes.DataSource = Usuario.Buscar(txtBuscar.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

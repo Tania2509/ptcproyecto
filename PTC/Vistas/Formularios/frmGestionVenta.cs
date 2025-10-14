@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Modelos.Entidades.Venta;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Vistas.Formularios
 {
@@ -17,6 +19,20 @@ namespace Vistas.Formularios
         public frmGestionVenta()
         {
             InitializeComponent();
+
+            // Habilitar double buffering para el formulario
+            this.DoubleBuffered = true;
+
+            // O también puedes usar:
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint |
+                     ControlStyles.DoubleBuffer, true);
+        }
+
+        private void AjustarColumnasDataGrid()
+        {
+            dgvMostrarPro.Columns[1].Width = 200;
+            dgvMostrarPro.Columns[2].Width = 100;
         }
 
         private void frmGestionInventario_Load(object sender, EventArgs e)
@@ -25,6 +41,7 @@ namespace Vistas.Formularios
             CargarProductos();
             cbProducto.SelectedIndexChanged += cbProducto_SelectedIndexChanged;
             txtPrecioProducto.Text = " ";
+            AjustarColumnasDataGrid();
         }
 
         #region 
@@ -86,16 +103,17 @@ namespace Vistas.Formularios
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            // Validación de campos vacíos
-            if (string.IsNullOrWhiteSpace(txtUnidadesActuales.Text) ||
-                cbProducto.SelectedIndex == -1)
+            if (string.IsNullOrWhiteSpace(txtUnidadesActuales.Text) || cbProducto.SelectedIndex == -1)
             {
                 MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            Modelos.Entidades.Venta V = new Venta();
+
+            Venta V = new Venta();
             V.Cantidad = Convert.ToInt32(txtUnidadesActuales.Text);
             V.IdProducto = Convert.ToInt32(cbProducto.SelectedValue);
+            V.IdUsuario = Sesion.IdUsuario;
+
             V.InsetarProductos();
 
             MostrarProductos();

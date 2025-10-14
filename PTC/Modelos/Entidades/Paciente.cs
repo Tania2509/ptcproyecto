@@ -29,6 +29,39 @@ namespace Modelos.Entidades
 
         #endregion
 
+        #region Historial
+
+        public static DataTable CargarPacientesHistorial()
+        {
+            using (SqlConnection con = Conexion.Conexion.conectar())
+            {
+                string query = @"SELECT idExpediente, nombrePa + ' ' + apellidoPa as [Nombre del paciente], dui as DUI, correoPa as Correo 
+                         FROM Expediente";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+        }
+
+        public static DataTable BuscarPaciente(string filtro)
+        {
+            using (SqlConnection con = Conexion.Conexion.conectar())
+            {
+                string query = @"SELECT idExpediente as Expediente, nombrePa + ' ' + apellidoPa as [Nombre del paciente], dui as DUI, correoPa as Correo 
+                         FROM Expediente
+                         WHERE CAST(idExpediente AS VARCHAR) LIKE @filtro
+                            OR dui LIKE @filtro";
+                SqlDataAdapter da = new SqlDataAdapter(query, con);
+                da.SelectCommand.Parameters.AddWithValue("@filtro", "%" + filtro + "%");
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+        }
+
+        #endregion
+
 
     }
 }

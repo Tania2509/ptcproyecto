@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConfiguracion));
             this.pnlConfig = new Modelos.Metodos.PanelRedondeado();
             this.btnCancelar = new Modelos.Botones.BotonesPSNLSD();
             this.btnAgregar = new Modelos.Botones.BotonesPSNLSD();
@@ -212,6 +213,7 @@
             this.ClientSize = new System.Drawing.Size(1786, 861);
             this.Controls.Add(this.pnlConfig);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmConfiguracion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

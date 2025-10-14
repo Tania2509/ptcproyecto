@@ -16,10 +16,12 @@ namespace Modelos.Entidades
         private int idVenta;
         private int cantidad;
         private int idProducto;
+        private int idUsuario;
 
         public int IdVenta { get => idVenta; set => idVenta = value; }
         public int Cantidad { get => cantidad; set => cantidad = value; }
         public int IdProducto { get => idProducto; set => idProducto = value; }
+        public int IdUsuario { get => idUsuario; set => idUsuario = value; }
 
         public static DataTable CargarProductos()
         {
@@ -32,15 +34,24 @@ namespace Modelos.Entidades
             return dt;
         }
 
+        public static class Sesion
+        {
+            public static int IdUsuario { get; set; }
+        }
+
         public bool InsetarProductos()
         {
             SqlConnection con = Conexion.Conexion.conectar();
 
-            string comando = "Insert into Venta(cantidad, id_Producto)" + "values(@cantidad, @id_Producto)";
-
+            string comando = "INSERT INTO Venta(cantidad, id_Producto, id_Usuario) " +
+                 "VALUES(@cantidad, @id_Producto, @id_Usuario)" +
+                 "UPDATE Producto SET cantidadPro = cantidadPro - @cantidadVendida " +
+                 "WHERE idProducto = @id_Producto";
             SqlCommand cmd = new SqlCommand(comando, con);
+
             cmd.Parameters.AddWithValue("@cantidad", Cantidad);
             cmd.Parameters.AddWithValue("@id_Producto", IdProducto);
+            cmd.Parameters.AddWithValue("@id_Usuario", IdUsuario);
 
 
             return cmd.ExecuteNonQuery() > 0;
@@ -86,7 +97,7 @@ namespace Modelos.Entidades
         public static DataTable Buscar(string termino)
         {
             SqlConnection con = Conexion.Conexion.conectar();
-            string comando = $"select *from Ventas where Producto like '%{termino}%';";
+            string comando = $"select *from Ventas where producto like '%{termino}%';";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);

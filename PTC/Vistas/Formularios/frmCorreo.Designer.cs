@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCorreo));
             this.pnlRecuperacion = new Modelos.Metodos.PanelRedondeado();
             this.btnToken = new Modelos.Botones.BotonesPSNLSD();
             this.txtToken = new System.Windows.Forms.TextBox();
@@ -165,6 +166,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(525, 481);
             this.Controls.Add(this.pnlRecuperacion);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCorreo";

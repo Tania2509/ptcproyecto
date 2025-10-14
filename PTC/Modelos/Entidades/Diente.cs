@@ -13,7 +13,7 @@ namespace Modelos.Entidades
         public DataTable CargarDientes()
         {
             SqlConnection con = Conexion.Conexion.conectar();
-            string comando = "select idDiente,codigo as Numero, descripcion as Diente from Diente";
+            string comando = "select idDiente,codigo as [N.], descripcion as Diente from Diente";
             SqlDataAdapter ad = new SqlDataAdapter(comando, con);
             DataTable dt = new DataTable();
             ad.Fill(dt);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCambioContraseña));
             this.pnlLogin = new Modelos.Metodos.PanelRedondeado();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.btnCancelar = new Modelos.Botones.BotonesPSNLSD();
@@ -158,6 +159,7 @@
             this.BackgroundImage = global::Vistas.Properties.Resources.Desktop___26_1_;
             this.ClientSize = new System.Drawing.Size(1142, 676);
             this.Controls.Add(this.pnlLogin);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCambioContraseña";

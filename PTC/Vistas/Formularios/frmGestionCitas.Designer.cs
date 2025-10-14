@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionCitas));
             this.dgvVerCitas = new System.Windows.Forms.DataGridView();
             this.pnlDatos = new System.Windows.Forms.Panel();
             this.cbCorreo = new System.Windows.Forms.ComboBox();
@@ -36,7 +37,6 @@
             this.dtpFechaHora = new System.Windows.Forms.DateTimePicker();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblCorreoElectronico = new System.Windows.Forms.Label();
-            this.btnProgramarCita = new System.Windows.Forms.Button();
             this.lblRazonCita = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -46,8 +46,9 @@
             this.btnActualizar = new Modelos.Botones.BotonesPSNLSD();
             this.btnEliminar = new Modelos.Botones.BotonesPSNLSD();
             this.tlpBusqueda = new System.Windows.Forms.TableLayoutPanel();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerCitas)).BeginInit();
             this.pnlDatos.SuspendLayout();
             this.tlpBotones.SuspendLayout();
@@ -60,7 +61,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvVerCitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVerCitas.Location = new System.Drawing.Point(704, 348);
+            this.dgvVerCitas.Location = new System.Drawing.Point(739, 318);
             this.dgvVerCitas.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvVerCitas.Name = "dgvVerCitas";
             this.dgvVerCitas.ReadOnly = true;
@@ -84,16 +85,15 @@
             this.pnlDatos.Controls.Add(this.dtpFechaHora);
             this.pnlDatos.Controls.Add(this.lblFecha);
             this.pnlDatos.Controls.Add(this.lblCorreoElectronico);
-            this.pnlDatos.Controls.Add(this.btnProgramarCita);
             this.pnlDatos.Controls.Add(this.lblRazonCita);
             this.pnlDatos.Controls.Add(this.lblApellido);
             this.pnlDatos.Controls.Add(this.lblNombre);
             this.pnlDatos.Controls.Add(this.txtRazonCita);
-            this.pnlDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlDatos.Location = new System.Drawing.Point(15, 180);
+            this.pnlDatos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlDatos.Location = new System.Drawing.Point(47, 205);
             this.pnlDatos.Margin = new System.Windows.Forms.Padding(6);
             this.pnlDatos.Name = "pnlDatos";
-            this.pnlDatos.Size = new System.Drawing.Size(628, 551);
+            this.pnlDatos.Size = new System.Drawing.Size(628, 526);
             this.pnlDatos.TabIndex = 4;
             // 
             // cbCorreo
@@ -103,7 +103,7 @@
             this.cbCorreo.Location = new System.Drawing.Point(10, 480);
             this.cbCorreo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbCorreo.Name = "cbCorreo";
-            this.cbCorreo.Size = new System.Drawing.Size(556, 33);
+            this.cbCorreo.Size = new System.Drawing.Size(556, 31);
             this.cbCorreo.TabIndex = 17;
             // 
             // cbApellido
@@ -113,7 +113,7 @@
             this.cbApellido.Location = new System.Drawing.Point(10, 231);
             this.cbApellido.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbApellido.Name = "cbApellido";
-            this.cbApellido.Size = new System.Drawing.Size(556, 33);
+            this.cbApellido.Size = new System.Drawing.Size(556, 31);
             this.cbApellido.TabIndex = 16;
             // 
             // cbNombre
@@ -123,7 +123,7 @@
             this.cbNombre.Location = new System.Drawing.Point(10, 91);
             this.cbNombre.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbNombre.Name = "cbNombre";
-            this.cbNombre.Size = new System.Drawing.Size(556, 33);
+            this.cbNombre.Size = new System.Drawing.Size(556, 31);
             this.cbNombre.TabIndex = 15;
             // 
             // dtpFechaHora
@@ -133,7 +133,7 @@
             this.dtpFechaHora.Location = new System.Drawing.Point(14, 634);
             this.dtpFechaHora.Margin = new System.Windows.Forms.Padding(6);
             this.dtpFechaHora.Name = "dtpFechaHora";
-            this.dtpFechaHora.Size = new System.Drawing.Size(556, 30);
+            this.dtpFechaHora.Size = new System.Drawing.Size(556, 32);
             this.dtpFechaHora.TabIndex = 14;
             // 
             // lblFecha
@@ -142,7 +142,7 @@
             this.lblFecha.Location = new System.Drawing.Point(6, 574);
             this.lblFecha.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(155, 25);
+            this.lblFecha.Size = new System.Drawing.Size(176, 23);
             this.lblFecha.TabIndex = 11;
             this.lblFecha.Text = "Fecha de la cita:";
             // 
@@ -152,21 +152,9 @@
             this.lblCorreoElectronico.Location = new System.Drawing.Point(4, 444);
             this.lblCorreoElectronico.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblCorreoElectronico.Name = "lblCorreoElectronico";
-            this.lblCorreoElectronico.Size = new System.Drawing.Size(173, 25);
+            this.lblCorreoElectronico.Size = new System.Drawing.Size(192, 23);
             this.lblCorreoElectronico.TabIndex = 10;
             this.lblCorreoElectronico.Text = "Correo Electrónico";
-            // 
-            // btnProgramarCita
-            // 
-            this.btnProgramarCita.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnProgramarCita.ForeColor = System.Drawing.Color.White;
-            this.btnProgramarCita.Location = new System.Drawing.Point(724, 726);
-            this.btnProgramarCita.Margin = new System.Windows.Forms.Padding(6);
-            this.btnProgramarCita.Name = "btnProgramarCita";
-            this.btnProgramarCita.Size = new System.Drawing.Size(300, 93);
-            this.btnProgramarCita.TabIndex = 9;
-            this.btnProgramarCita.Text = "Programar Cita";
-            this.btnProgramarCita.UseVisualStyleBackColor = false;
             // 
             // lblRazonCita
             // 
@@ -174,7 +162,7 @@
             this.lblRazonCita.Location = new System.Drawing.Point(2, 299);
             this.lblRazonCita.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblRazonCita.Name = "lblRazonCita";
-            this.lblRazonCita.Size = new System.Drawing.Size(152, 25);
+            this.lblRazonCita.Size = new System.Drawing.Size(175, 23);
             this.lblRazonCita.TabIndex = 8;
             this.lblRazonCita.Text = "Motivo de la cita";
             // 
@@ -184,7 +172,7 @@
             this.lblApellido.Location = new System.Drawing.Point(6, 168);
             this.lblApellido.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(88, 25);
+            this.lblApellido.Size = new System.Drawing.Size(98, 23);
             this.lblApellido.TabIndex = 6;
             this.lblApellido.Text = "Apellido:";
             // 
@@ -194,7 +182,7 @@
             this.lblNombre.Location = new System.Drawing.Point(6, 49);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(87, 25);
+            this.lblNombre.Size = new System.Drawing.Size(95, 23);
             this.lblNombre.TabIndex = 5;
             this.lblNombre.Text = "Nombre:";
             // 
@@ -224,7 +212,7 @@
             this.tlpBotones.Controls.Add(this.btnEliminar, 2, 0);
             this.tlpBotones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.tlpBotones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tlpBotones.Location = new System.Drawing.Point(704, 205);
+            this.tlpBotones.Location = new System.Drawing.Point(720, 205);
             this.tlpBotones.Margin = new System.Windows.Forms.Padding(4);
             this.tlpBotones.Name = "tlpBotones";
             this.tlpBotones.RowCount = 1;
@@ -296,38 +284,52 @@
             this.tlpBusqueda.ColumnCount = 2;
             this.tlpBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.53333F));
             this.tlpBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.46667F));
-            this.tlpBusqueda.Controls.Add(this.btnBuscar, 1, 0);
-            this.tlpBusqueda.Controls.Add(this.txtBuscar, 0, 0);
-            this.tlpBusqueda.Location = new System.Drawing.Point(444, 4);
+            this.tlpBusqueda.Controls.Add(this.lblTitulo, 0, 0);
+            this.tlpBusqueda.Controls.Add(this.txtBuscar, 0, 1);
+            this.tlpBusqueda.Controls.Add(this.btnBuscar, 1, 1);
+            this.tlpBusqueda.Location = new System.Drawing.Point(440, 24);
             this.tlpBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.tlpBusqueda.Name = "tlpBusqueda";
-            this.tlpBusqueda.RowCount = 1;
+            this.tlpBusqueda.RowCount = 2;
             this.tlpBusqueda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpBusqueda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.tlpBusqueda.Size = new System.Drawing.Size(562, 144);
             this.tlpBusqueda.TabIndex = 19;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblTitulo.Location = new System.Drawing.Point(118, 12);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(238, 34);
+            this.lblTitulo.TabIndex = 20;
+            this.lblTitulo.Text = "Gestion de Citas";
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtBuscar.Location = new System.Drawing.Point(5, 86);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.ShortcutsEnabled = false;
+            this.txtBuscar.Size = new System.Drawing.Size(464, 30);
+            this.txtBuscar.TabIndex = 16;
             // 
             // btnBuscar
             // 
             this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnBuscar.Image = global::Vistas.Properties.Resources.icons8_buscar_50;
-            this.btnBuscar.Location = new System.Drawing.Point(479, 38);
+            this.btnBuscar.Location = new System.Drawing.Point(479, 67);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(66, 68);
             this.btnBuscar.TabIndex = 17;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtBuscar.Location = new System.Drawing.Point(5, 57);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.ShortcutsEnabled = false;
-            this.txtBuscar.Size = new System.Drawing.Size(464, 30);
-            this.txtBuscar.TabIndex = 16;
             // 
             // frmGestionCitas
             // 
@@ -342,6 +344,7 @@
             this.Controls.Add(this.dgvVerCitas);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmGestionCitas";
             this.Text = "Citas";
@@ -366,7 +369,6 @@
         private System.Windows.Forms.DateTimePicker dtpFechaHora;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblCorreoElectronico;
-        private System.Windows.Forms.Button btnProgramarCita;
         private System.Windows.Forms.Label lblRazonCita;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblNombre;
@@ -378,5 +380,6 @@
         private Modelos.Botones.BotonesPSNLSD btnAgregar;
         private Modelos.Botones.BotonesPSNLSD btnActualizar;
         private Modelos.Botones.BotonesPSNLSD btnEliminar;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

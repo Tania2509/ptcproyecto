@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PreguntasSeguridad>
+  <PreguntasGlobales>
+    <Pregunta>
+      <Texto>¿Cuál es el nombre de tu primer mascota?</Texto>
+      <RespuestaEncriptada>$2a$11$4oMitx6mYeN6I3rJhv5.heOOFEScJBkbm.ZdixEigvq68wrm0vLcq</RespuestaEncriptada>
+      <FechaCreacion>2025-10-14 12:22:57</FechaCreacion>
+    </Pregunta>
+    <Pregunta>
+      <Texto>¿En qué ciudad naciste?</Texto>
+      <RespuestaEncriptada>$2a$11$.IM9lV039SacJYEuLtdHa.bUaLHhToH9sewpdEMO4JxJdusREafKu</RespuestaEncriptada>
+      <FechaCreacion>2025-10-14 12:22:57</FechaCreacion>
+    </Pregunta>
+    <Pregunta>
+      <Texto>¿Cuál es tu comida favorita?</Texto>
+      <RespuestaEncriptada>$2a$11$HvyJ9hw1S.ILMOAd5XoASOva/GJQPRdzOYc4mOfE/kcWHWQwx54vi</RespuestaEncriptada>
+      <FechaCreacion>2025-10-14 12:22:58</FechaCreacion>
+    </Pregunta>
+    <Pregunta>
+      <Texto>¿Cuál es su animal favorito?</Texto>
+      <RespuestaEncriptada>$2a$11$xgwVXDI1WQMRWBuRoBORFudTnOvtTCDNwAvYxJ16CTW8sYRwKJdJC</RespuestaEncriptada>
+      <FechaCreacion>2025-10-14 12:22:58</FechaCreacion>
+    </Pregunta>
+  </PreguntasGlobales>
+</PreguntasSeguridad>

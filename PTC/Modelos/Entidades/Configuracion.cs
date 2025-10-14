@@ -36,9 +36,6 @@ namespace Modelos.Entidades
                 return count > 0;
             }
         }
-        
-        
-
         public static void GuardarConfiguracion(Configuracion config)
         {
             using (SqlConnection conexion = Conexion.Conexion.conectar())
@@ -83,8 +80,6 @@ namespace Modelos.Entidades
                 return null;
             }
         }
-
-        Usuario hola = new Usuario();
 
        
         public static bool DebeCambiarContrasena(int idUsuario)

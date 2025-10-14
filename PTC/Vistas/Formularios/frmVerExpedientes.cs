@@ -17,7 +17,15 @@ namespace Vistas.Formularios
     {
         public frmVerExpedientes()
         {
-            InitializeComponent();            
+            InitializeComponent();
+
+            // Habilitar double buffering para el formulario
+            this.DoubleBuffered = true;
+
+            // O también puedes usar:
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint |
+                     ControlStyles.DoubleBuffer, true);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -31,8 +39,8 @@ namespace Vistas.Formularios
                     return;
                 }
                 int idPaciente = Convert.ToInt32(txtBuscar.Text);
-                dgvCitas.DataSource = null;
-                dgvCitas.DataSource = Cita.ID(txtBuscar.Text.Trim());
+                dgvPacientes.DataSource = null;
+                dgvPacientes.DataSource = Cita.ID(txtBuscar.Text.Trim());
                 dgvFecha.DataSource = Historial.CargarFechas(idPaciente);
             }
             catch (Exception ex)
@@ -42,32 +50,28 @@ namespace Vistas.Formularios
 
         }
 
-        public void MostrarPacientes()
+        private void AjustarColumnasDataGrid()
         {
-            dgvCitas.DataSource = null;
-            dgvCitas.DataSource = Expediente.CargarExpedientes("select *from VerExpediente");
+            if (dgvDientes.Columns.Count > 0)
+            {
+                dgvDientes.Columns[0].Width = 35;
+                dgvDientes.Columns[1].Width = 245;
+                dgvDientes.Columns[2].Width = 110;
+                dgvDientes.Columns[3].Width = 110;
+            }
+
+            if (dgvPacientes.Columns.Count > 1)
+            {
+                dgvPacientes.Columns[1].Width = 200;
+                dgvPacientes.Columns[3].Width = 150;
+            }
         }
 
         private void frmVerExpedientes_Load(object sender, EventArgs e)
         {
-            MostrarPacientes();        
-        }
-
-        private void dgvFecha_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                int idPaciente;
-                if (!int.TryParse(txtBuscar.Text, out idPaciente))
-                {
-                    MessageBox.Show("Ingrese un ID de paciente válido.");
-                    return;
-                }
-
-                DateTime fechaSeleccionada = Convert.ToDateTime(dgvFecha.Rows[e.RowIndex].Cells["Fecha"].Value);
-
-                dgvDientes.DataSource = Historial.CargarHistorialPorFecha(idPaciente, fechaSeleccionada);
-            }
+            dgvPacientes.DataSource = Paciente.CargarPacientesHistorial();
+            dgvPacientes.Columns[0].Visible = false;
+            AjustarColumnasDataGrid();
         }
 
         #region
@@ -79,5 +83,33 @@ namespace Vistas.Formularios
         }
 
         #endregion
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string filtro = txtBuscar.Text.Trim();
+
+            if (string.IsNullOrEmpty(filtro))
+            {
+                dgvPacientes.DataSource = Paciente.CargarPacientesHistorial();
+                dgvPacientes.Columns[0].Visible = false;
+            }
+            else
+            {
+                dgvPacientes.DataSource = Paciente.BuscarPaciente(filtro);
+                dgvPacientes.Columns[0].Visible = false;
+            }
+        }
+
+        private void dgvPacientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Para evitar errores si se da click en encabezados
+            {
+                // Obtengo el idPaciente de la fila seleccionada
+                int idPaciente = Convert.ToInt32(dgvPacientes.Rows[e.RowIndex].Cells["idPaciente"].Value);
+
+                // Cargo las fechas de ese paciente en el dgvFechas
+                dgvFecha.DataSource = Historial.CargarFechas(idPaciente);
+            }
+        }
     }
 }

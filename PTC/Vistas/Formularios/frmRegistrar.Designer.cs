@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistrar));
             this.pnlRegistrar = new Modelos.Metodos.PanelRedondeado();
             this.btnCancelar = new Modelos.Botones.BotonesPSNLSD();
             this.btnAgregar = new Modelos.Botones.BotonesPSNLSD();
@@ -304,6 +305,7 @@
             this.BackgroundImage = global::Vistas.Properties.Resources.Desktop___26_1_;
             this.ClientSize = new System.Drawing.Size(1125, 924);
             this.Controls.Add(this.pnlRegistrar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "frmRegistrar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

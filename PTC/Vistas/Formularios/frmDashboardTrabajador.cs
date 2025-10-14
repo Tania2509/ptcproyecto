@@ -16,6 +16,14 @@ namespace Vistas.Formularios
         public frmDashboardTrabajador()
         {
             InitializeComponent();
+
+            // Habilitar double buffering para el formulario
+            this.DoubleBuffered = true;
+
+            // O también puedes usar:
+            SetStyle(ControlStyles.AllPaintingInWmPaint |
+                     ControlStyles.UserPaint |
+                     ControlStyles.DoubleBuffer, true);
         }
 
         #region
@@ -114,6 +122,12 @@ namespace Vistas.Formularios
         private void btnManual_Click(object sender, EventArgs e)
         {
             Process.Start("https://drive.google.com/file/d/1MtfXVBMV8nK60ZSzsOhChZI7qsJLPdAK/view?usp=sharing");
+        }
+
+        private void lblVentas_Click(object sender, EventArgs e)
+        {
+            frmGestionVenta Venta = new frmGestionVenta();
+            AbrirForm(Venta);
         }
     }
 }
